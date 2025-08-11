@@ -33,4 +33,3 @@ The initial React project can be created by entering the following commands into
 2. cd fabo
 3. npm install
 4. npm run dev: http://localhost:5174/
-5. 
