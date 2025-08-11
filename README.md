@@ -20,7 +20,7 @@
 
 ### A. Static version - 1. Creating a static website outline
 
-#### Creating the React website
+#### Creating the initial website with React + Vite
 
 The initial React project can be created by entering the following commands into the console of the folder where we want to create the React project:
 
