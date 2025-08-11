@@ -5,7 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Company Website" />
   <title>Company Name</title>
+  <!-- Google Fonts: DM Sans -->
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"DM Sans"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
 </head>
 <body class="bg-white text-gray-900 font-sans leading-relaxed pt-24">
 
@@ -103,31 +117,94 @@
   </section>
 
   <!-- Contact Section -->
-  <section id="contact" class="max-w-6xl mx-auto px-4 py-12">
-    <h3 class="text-2xl font-bold mb-4 lang-de">Kontakt</h3>
-    <h3 class="text-2xl font-bold mb-4 lang-en">Contact Us</h3>
-    <form action="#" method="post" class="space-y-4">
-      <div>
-        <label for="name" class="block mb-1 lang-de">Name</label>
-        <label for="name" class="block mb-1 lang-en">Name</label>
-        <input type="text" id="name" name="name" required class="w-full border rounded px-3 py-2" />
-      </div>
-      <div>
-        <label for="email" class="block mb-1 lang-de">E-Mail</label>
-        <label for="email" class="block mb-1 lang-en">Email</label>
-        <input type="email" id="email" name="email" required class="w-full border rounded px-3 py-2" />
-      </div>
-      <div>
-        <label for="message" class="block mb-1 lang-de">Nachricht</label>
-        <label for="message" class="block mb-1 lang-en">Message</label>
-        <textarea id="message" name="message" required class="w-full border rounded px-3 py-2"></textarea>
-      </div>
-      <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300">
-        <span class="lang-de">Nachricht senden</span>
-        <span class="lang-en">Send Message</span>
-      </button>
-    </form>
-  </section>
+<section id="contact" class="max-w-6xl mx-auto px-4 py-12">
+  <h3 class="text-2xl font-bold mb-8 lang-de">Kontakt</h3>
+  <h3 class="text-2xl font-bold mb-8 lang-en">Contact Us</h3>
+
+  <div class="grid gap-8 md:grid-cols-2">
+    <!-- Left Column: Company Information -->
+    <div class="bg-blue-50 p-6 rounded-lg shadow-md">
+      <h4 class="text-xl font-semibold mb-4 lang-de">Unsere Kontaktdaten</h4>
+      <h4 class="text-xl font-semibold mb-4 lang-en">Our Contact Details</h4>
+      
+      <p class="mb-2 lang-de">Adresse: Musterstraße 123, 12345 Musterstadt, Deutschland</p>
+      <p class="mb-2 lang-en">Address: Example Street 123, 12345 Example City, Germany</p>
+      
+      <p class="mb-2 lang-de">Telefon: +49 123 456789</p>
+      <p class="mb-2 lang-en">Phone: +49 123 456789</p>
+      
+      <p class="mb-2 lang-de">E-Mail: info@firma.de</p>
+      <p class="mb-2 lang-en">Email: info@company.com</p>
+
+      <p class="mt-4 lang-de">Wir freuen uns, von Ihnen zu hören. Bitte nutzen Sie das Formular, um uns eine Nachricht zu senden.</p>
+      <p class="mt-4 lang-en">We look forward to hearing from you. Please use the form to send us a message.</p>
+    </div>
+
+    <!-- Right Column: Contact Form -->
+    <!-- Contact Form -->
+    <div class="bg-white p-6 rounded-lg shadow-md border border-gray-200">
+      <form action="#" method="post" class="space-y-2"> <!-- Reduced space-y from 4 to 2 -->
+        
+        <!-- Name -->
+        <div>
+          <label for="name" class="block mb-0.5 lang-de">Name</label>
+          <label for="name" class="block mb-0.5 lang-en">Name</label>
+          <input type="text" id="name" name="name" required class="w-full border rounded px-3 py-2" />
+        </div>
+
+        <!-- Email -->
+        <div>
+          <label for="email" class="block mb-0.5 lang-de">E-Mail</label>
+          <label for="email" class="block mb-0.5 lang-en">Email</label>
+          <input type="email" id="email" name="email" required class="w-full border rounded px-3 py-2" />
+        </div>
+
+        <!-- Company Name -->
+        <div>
+          <label for="company" class="block mb-0.5 lang-de">Firmenname</label>
+          <label for="company" class="block mb-0.5 lang-en">Company Name</label>
+          <input type="text" id="company" name="company" required class="w-full border rounded px-3 py-2" />
+        </div>
+
+        <!-- Task -->
+        <div>
+          <label for="task" class="block mb-0.5 lang-de">Aufgabe</label>
+          <label for="task" class="block mb-0.5 lang-en">Task</label>
+          <input type="text" id="task" name="task" required class="w-full border rounded px-3 py-2" />
+        </div>
+
+        <!-- Quantity (hours) -->
+        <div>
+          <label for="quantity" class="block mb-0.5 lang-de">Menge (Stunden)</label>
+          <label for="quantity" class="block mb-0.5 lang-en">Quantity (hours)</label>
+          <input type="number" id="quantity" name="quantity" min="1" required class="w-full border rounded px-3 py-2" />
+        </div>
+
+        <!-- Contact -->
+        <div>
+          <label for="contact" class="block mb-0.5 lang-de">Kontakt</label>
+          <label for="contact" class="block mb-0.5 lang-en">Contact</label>
+          <input type="text" id="contact" name="contact" required class="w-full border rounded px-3 py-2" />
+        </div>
+
+        <!-- Message (optional) -->
+        <div>
+          <label for="message" class="block mb-0.5 lang-de">Nachricht (optional)</label>
+          <label for="message" class="block mb-0.5 lang-en">Message (optional)</label>
+          <textarea id="message" name="message" class="w-full border rounded px-3 py-2"></textarea>
+        </div>
+
+        <!-- Submit -->
+        <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300">
+          <span class="lang-de">Nachricht senden</span>
+          <span class="lang-en">Send Message</span>
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+
 
   <!-- Footer -->
   <footer class="bg-blue-100 text-center py-4">
