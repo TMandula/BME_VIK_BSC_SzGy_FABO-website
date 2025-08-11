@@ -12,3 +12,7 @@
 1. Clarifying dynamic functions
 2. Converting the static website to React
 3. Developing dynamic functions in Backend
+
+## Implementation of the plan
+### A. Static version
+#### 1. Creating a statis website outline
