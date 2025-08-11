@@ -1,93 +1,148 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Accessible homepage with light blue and white theme">
-    <title>FABO Accounting Kft.</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-  </head>
-  <body class="bg-white text-gray-900 font-sans leading-relaxed">
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Barrierefreie Unternehmenswebsite mit Mehrsprachunterstützung">
+  <title>FABO Accounting Kft.</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .lang-de { display: block; }
+    .lang-en { display: none; }
+  </style>
+</head>
+<body class="bg-white text-gray-900 font-sans leading-relaxed">
 
-  <!-- Skip Link for Accessibility -->
+  <!-- Skip Link -->
   <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 bg-blue-100 text-blue-900 px-4 py-2 rounded">
-    Skip to main content
+    Zum Hauptinhalt springen
   </a>
 
   <!-- Header -->
   <header class="bg-blue-100 text-blue-900 shadow-md">
-    <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
-      <h1 class="text-xl font-bold">Company Name</h1>
-      <nav aria-label="Main navigation">
-        <ul class="flex space-x-4">
-          <li><a href="#about" class="hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500">About</a></li>
-          <li><a href="#services" class="hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500">Services</a></li>
-          <li><a href="#contact" class="hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500">Contact</a></li>
+    <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col sm:flex-row sm:justify-between sm:items-center">
+      <h1 class="text-xl font-bold lang-de">FABO Accounting Kft.</h1>
+      <h1 class="text-xl font-bold lang-en">FABO Accounting Kft.</h1>
+
+      <nav aria-label="Hauptnavigation" class="mt-2 sm:mt-0">
+        <ul class="flex flex-wrap gap-4">
+          <li><a href="#home" class="hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500 lang-de">Startseite</a>
+              <a href="#home" class="hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500 lang-en">Home</a></li>
+          <li><a href="#about" class="hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500 lang-de">Über uns</a>
+              <a href="#about" class="hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500 lang-en">About Us</a></li>
+          <li><a href="#services" class="hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500 lang-de">Dienstleistungen</a>
+              <a href="#services" class="hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500 lang-en">Services</a></li>
+          <li><a href="#technologies" class="hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500 lang-de">Technologien</a>
+              <a href="#technologies" class="hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500 lang-en">Technologies</a></li>
+          <li><a href="#contact" class="hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500 lang-de">Kontakt</a>
+              <a href="#contact" class="hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500 lang-en">Contact Us</a></li>
         </ul>
       </nav>
+
+      <!-- Language Toggle -->
+      <button id="lang-toggle" class="mt-4 sm:mt-0 bg-blue-600 text-white px-4 py-2 rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300">
+        English
+      </button>
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="bg-blue-50 text-blue-900 py-12 px-4 text-center">
-    <div class="max-w-2xl mx-auto">
-      <h2 class="text-3xl font-extrabold mb-4">Welcome to Our Company</h2>
-      <p class="mb-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, urna eu tincidunt congue, nisi nunc ornare nisl, et aliquet magna quam vel magna.</p>
-      <a href="#services" class="bg-blue-600 text-white px-6 py-3 rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300">
-        Learn More
-      </a>
-    </div>
-  </section>
-
   <!-- Main Content -->
-  <main id="main-content" class="max-w-6xl mx-auto px-4 py-8">
+  <main id="main-content">
 
-    <!-- About Section -->
-    <section id="about" class="mb-12">
-      <h3 class="text-2xl font-bold mb-4">About Us</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.</p>
+    <!-- Home -->
+    <section id="home" class="bg-blue-50 text-blue-900 py-12 px-4 text-center">
+      <div class="max-w-2xl mx-auto">
+        <h2 class="text-3xl font-extrabold mb-4 lang-de">Willkommen bei unserem Unternehmen</h2>
+        <h2 class="text-3xl font-extrabold mb-4 lang-en">Welcome to Our Company</h2>
+
+        <p class="mb-6 lang-de">Wir bieten verschiedene Outsourcing-Lösungen für Ihre Buchhaltungsprobleme.</p>
+        <p class="mb-6 lang-en">We offer various outsourced solutions for your accounting problems.</p>
+
+        <a href="#services" class="bg-blue-600 text-white px-6 py-3 rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300 lang-de">
+          Mehr erfahren
+        </a>
+        <a href="#services" class="bg-blue-600 text-white px-6 py-3 rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300 lang-en">
+          Learn More
+        </a>
+      </div>
     </section>
 
-    <!-- Services Section -->
-    <section id="services" class="mb-12">
-      <h3 class="text-2xl font-bold mb-4">Our Services</h3>
+    <!-- About -->
+    <section id="about" class="max-w-6xl mx-auto px-4 py-12">
+      <h3 class="text-2xl font-bold mb-4 lang-de">Über uns</h3>
+      <h3 class="text-2xl font-bold mb-4 lang-en">About Us</h3>
+      <p class="lang-de">Wir sind eine ungarische Wirtschaftsprüfungsgesellschaft mit Sitz in Budapest und arbeiten hauptsächlich mit deutschen Unternehmen zusammen. Wir stellen Ihnen ein Team oder einzelne Mitarbeiter zur Verfügung, die Sie bei Ihren Buchhaltungsaufgaben unterstützen. Wir können Ihnen junge, talentierte und bereits erfahrene Finanzexperten vermitteln. Je nach Bedarf können wir Teams für verschiedene Buchhaltungsaufgaben zusammenstellen.</p>
+      <p class="lang-en">We are a Hungarian auditing firm based in Budapest and work primarily with German companies. We provide a team or individual staff to support your accounting needs. We can provide young, talented, already experienced financial professionals. We can create teams for various accounting tasks as needed.</p>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="max-w-6xl mx-auto px-4 py-12 bg-blue-50 rounded-lg">
+      <h3 class="text-2xl font-bold mb-4 lang-de">Unsere Dienstleistungen</h3>
+      <h3 class="text-2xl font-bold mb-4 lang-en">Our Services</h3>
       <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         <li class="bg-blue-100 p-4 rounded-lg shadow-md">
-          <h4 class="font-semibold mb-2">Service One</h4>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <h4 class="font-semibold mb-2 lang-de">Vollständige Teams</h4>
+          <h4 class="font-semibold mb-2 lang-en">Full teams</h4>
+          <p class="lang-de">•	Kann ein komplettes Team für AP AR-Aufgaben bereitstellen. <br>•	Unterstützung bei Monats-/Jahresabschlüssen, Rückstellungen, Umsatzsteuererklärungen, Anlagenbuchhaltung, Bankwesen.</p>
+          <p class="lang-en">•	Can provide full team for AP AR tasks. <br>•	Support by month/year end closings, accruals, VAT returns, fixed asset accounting, banking.</p>
         </li>
         <li class="bg-blue-100 p-4 rounded-lg shadow-md">
-          <h4 class="font-semibold mb-2">Service Two</h4>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <h4 class="font-semibold mb-2 lang-de">Einzelpersonen</h4>
+          <h4 class="font-semibold mb-2 lang-en">Individuals</h4>
+          <p class="lang-de">•	Anfänger – Sie sind motiviert und lernbegierig, werden von unseren erfahreneren Mitarbeitern unterstützt und können problemlos in Ihre Prozesse integriert werden. <br>•	Junior – flexible und unermüdliche Arbeitskräfte mit bereits Erfahrung, die sich leicht in Ihre bestehenden Arbeitsabläufe integrieren lassen und in der Lage sind, alle Arten von Aufgaben auszuführen. <br>•	Erfahrener Mitarbeiter</p>
+          <p class="lang-en">•	Beginner – They are motivated, and eager to learn, supported by our more experienced staff members, can be easily integrated to your processes. <br>•	Junior – flexible and relentless workforce already with experience, easy to adapt into your existing workflows, able to execute all kinds of assignments. <br>•	Experienced </p>
         </li>
         <li class="bg-blue-100 p-4 rounded-lg shadow-md">
-          <h4 class="font-semibold mb-2">Service Three</h4>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <h4 class="font-semibold mb-2 lang-de">Dienstleistung Drei</h4>
+          <h4 class="font-semibold mb-2 lang-en">Service Three</h4>
+          <p class="lang-de">Lorem ipsum dolor sit amet.</p>
+          <p class="lang-en">Lorem ipsum dolor sit amet.</p>
         </li>
       </ul>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact">
-      <h3 class="text-2xl font-bold mb-4">Contact Us</h3>
+    <!-- Technologies -->
+    <section id="technologies" class="max-w-6xl mx-auto px-4 py-12">
+      <h3 class="text-2xl font-bold mb-4 lang-de">Technologien</h3>
+      <h3 class="text-2xl font-bold mb-4 lang-en">Technologies</h3>
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+        <div class="bg-blue-100 p-4 rounded-lg shadow-md">Navision</div>
+        <div class="bg-blue-100 p-4 rounded-lg shadow-md">Business Central</div>
+        <div class="bg-blue-100 p-4 rounded-lg shadow-md">SAP Hana</div>
+        <div class="bg-blue-100 p-4 rounded-lg shadow-md">Datev</div>
+        <div class="bg-blue-100 p-4 rounded-lg shadow-md">Lexware</div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="max-w-6xl mx-auto px-4 py-12 bg-blue-50 rounded-lg">
+      <h3 class="text-2xl font-bold mb-4 lang-de">Kontakt</h3>
+      <h3 class="text-2xl font-bold mb-4 lang-en">Contact Us</h3>
       <form action="#" method="post" class="space-y-4 max-w-lg">
         <div>
-          <label for="name" class="block font-semibold">Name</label>
+          <label for="name" class="block font-semibold lang-de">Name</label>
+          <label for="name" class="block font-semibold lang-en">Name</label>
           <input type="text" id="name" name="name" required aria-required="true"
             class="w-full border border-blue-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
         </div>
         <div>
-          <label for="email" class="block font-semibold">Email</label>
+          <label for="email" class="block font-semibold lang-de">E-Mail</label>
+          <label for="email" class="block font-semibold lang-en">Email</label>
           <input type="email" id="email" name="email" required aria-required="true"
             class="w-full border border-blue-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
         </div>
         <div>
-          <label for="message" class="block font-semibold">Message</label>
+          <label for="message" class="block font-semibold lang-de">Nachricht</label>
+          <label for="message" class="block font-semibold lang-en">Message</label>
           <textarea id="message" name="message" rows="4" required aria-required="true"
             class="w-full border border-blue-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
         </div>
         <button type="submit"
-          class="bg-blue-600 text-white px-6 py-3 rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300">
+          class="bg-blue-600 text-white px-6 py-3 rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300 lang-de">
+          Nachricht senden
+        </button>
+        <button type="submit"
+          class="bg-blue-600 text-white px-6 py-3 rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300 lang-en">
           Send Message
         </button>
       </form>
@@ -97,8 +152,30 @@
 
   <!-- Footer -->
   <footer class="bg-blue-100 text-blue-900 text-center py-6 mt-12">
-    <p>&copy; 2025 Company Name. All rights reserved.</p>
+    <p class="lang-de">&copy; 2025 Firmenname. Alle Rechte vorbehalten.</p>
+    <p class="lang-en">&copy; 2025 Company Name. All rights reserved.</p>
   </footer>
+
+  <!-- Language Toggle Script -->
+  <script>
+    const toggleBtn = document.getElementById('lang-toggle');
+    // Apply saved language if exists
+    let currentLang = localStorage.getItem('siteLang') || 'de';
+    setLanguage(currentLang);
+
+    toggleBtn.addEventListener('click', () => {
+      currentLang = currentLang === 'de' ? 'en' : 'de';
+      localStorage.setItem('siteLang', currentLang);
+      setLanguage(currentLang);
+    });
+
+    function setLanguage(lang) {
+      document.documentElement.lang = lang;
+      document.querySelectorAll('.lang-de').forEach(el => el.style.display = lang === 'de' ? 'block' : 'none');
+      document.querySelectorAll('.lang-en').forEach(el => el.style.display = lang === 'en' ? 'block' : 'none');
+      toggleBtn.textContent = lang === 'de' ? 'English' : 'Deutsch';
+    }
+  </script>
 
 </body>
 </html>
