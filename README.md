@@ -24,12 +24,12 @@
 
 The initial React project can be created by entering the following commands into the console of the folder where we want to create the React project:
 
-1. npm create vite@latest
+1. `npm create vite@latest`
 
-   * Project name: fabo
+   * Project name: fabo-website
    * Framework: React
    * Variant: JavaScript
 
-2. cd fabo
-3. npm install
-4. npm run dev: http://localhost:5174/
+2. `cd fabo-website`
+3. `npm install`
+4. `npm run dev` -> http://localhost:5173/
