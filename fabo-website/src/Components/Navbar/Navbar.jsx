@@ -5,7 +5,7 @@ import logo from '../../assets/Budapest_tajkep_Lanchiddal.jpg'
 const Navbar = () => {
   return (
     <nav>
-      <img src={logo} alt="" />
+      <img src={logo} alt="" className='logo'/>
       <ul>
         <li>Home</li>
         <li>Program</li>
