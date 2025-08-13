@@ -6,22 +6,59 @@
   <title data-lang-de="Unternehmen" data-lang-en="Company">Unternehmen</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
   <style>
     body { font-family: 'DM Sans', sans-serif; }
+    html { scroll-padding-top: 30px; }
     .lang-option { transition: color 0.2s ease; }
     .lang-option.active { cursor: default; font-weight: bold; color: black; }
     .lang-option:not(.active):hover { color: lightblue; }
+    nav a {
+      transition: color 0.3s ease, border-bottom 0.3s ease;
+      border-bottom: 2px solid transparent; /* Prevents layout shift */
+      padding-bottom: 4px; /* Space for underline */
+    }
+    nav a:hover {
+      color: #6491DE; /* Light blue */
+    }
+    nav a {
+  position: relative;
+  padding-bottom: 4px; /* Space for underline */
+  transition: color 0.2s ease;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -30px; /* Just under the text */
+  width: 100%;
+  height: 2px;
+  background-color: transparent;
+  transition: background-color 0.2s ease;
+}
+
+nav a:hover {
+  color: #6491DE; /* Light blue text */
+}
+
+nav a:hover::after {
+  background-color: #073D7F; /* Dark blue underline */
+}
+
+
   </style>
 </head>
 <body class="bg-white text-gray-900">
 
 <!-- HEADER -->
 <header class="fixed top-0 left-0 w-full bg-white shadow z-50">
-  <div class="max-w-7xl mx-auto flex justify-between items-center px-4 py-4">
+  <div class="max-w-8xl mx-auto flex justify-between items-center px-4 py-4">
     <!-- Logo -->
-    <a href="#home" class="font-bold text-xl" data-lang-de="Logo" data-lang-en="Logo">Logo</a>
+    <a href="#home" class="text-blue-800 mb-3 font-bold text-4xl" data-lang-de="FABO" data-lang-en="FABO">FABO</a>
     <!-- Navigation -->
-    <nav class="flex items-center space-x-6">
+    <nav class="flex items-center text-l space-x-10">
       <a href="#home" class="hover:underline" data-lang-de="Startseite" data-lang-en="Home">Startseite</a>
       <a href="#about" class="hover:underline" data-lang-de="Über uns" data-lang-en="About us">Über uns</a>
       <a href="#services" class="hover:underline" data-lang-de="Dienstleistungen" data-lang-en="Services">Dienstleistungen</a>
@@ -29,55 +66,67 @@
       <a href="#contact" class="hover:underline" data-lang-de="Kontakt" data-lang-en="Contact us">Kontakt</a>
       <!-- Language Selector -->
       <div class="flex items-center space-x-2 text-sm text-gray-800">
-        <span id="lang-de" class="cursor-pointer lang-option">DE</span>
-        <span>|</span>
         <span id="lang-en" class="cursor-pointer lang-option">EN</span>
+        <span>|</span>
+        <span id="lang-de" class="cursor-pointer lang-option">DE</span>
       </div>
     </nav>
   </div>
 </header>
 
-
 <!-- HERO -->
 <section id="home" class="pt-20 min-h-[calc(100vh-80px)] flex items-center bg-gradient-to-r from-blue-400 to-blue-600 text-white">
   <div class="max-w-7xl mx-auto px-4">
     <h1 class="text-4xl sm:text-6xl font-bold mb-4"
-        data-lang-de="Willkommen bei Unserem Unternehmen"
-        data-lang-en="Welcome to Our Company">
+        data-lang-de="Willkommen bei FABO Accounting"
+        data-lang-en="Welcome to FABO Accounting">
       Willkommen bei Unserem Unternehmen
     </h1>
     <p class="mb-6 text-lg sm:text-xl max-w-2xl"
-       data-lang-de="Wir bieten maßgeschneiderte Lösungen für Ihre Bedürfnisse."
-       data-lang-en="We provide tailor-made solutions for your needs.">
+       data-lang-de="Wir bieten verschiedene Outsourcing-Lösungen für Ihre Buchhaltungsprobleme. Wir
+bieten ein Team, oder einzelne Personen, Sie im Bereich von Finanzen zu unterstützen."
+       data-lang-en="We offer various outsourced solutions for your accounting problems. We provide a team
+or sole individuals to support you in the field of finance.">
       Wir bieten maßgeschneiderte Lösungen für Ihre Bedürfnisse.
     </p>
     <a href="#contact"
-       class="bg-blue-800 hover:bg-blue-900 text-white font-semibold px-6 py-3 rounded shadow-lg transition"
+       class="bg-blue-800 hover:bg-white hover:text-blue-600 text-white font-semibold px-6 py-3 rounded shadow-lg transition"
        data-lang-de="Kontakt"
-       data-lang-en="Contact Us">
+       data-lang-en="Contact">
       Kontakt
     </a>
   </div>
 </section>
 
 <!-- WELCOME TEXT SECTION -->
-<section class="bg-blue-50 py-16 px-4">
-  <div class="max-w-4xl mx-auto text-center">
-    <h2 class="text-3xl font-bold mb-6" data-lang-de="Herzlich willkommen" data-lang-en="A Warm Welcome">
+<section class="max-w-7xl mx-auto py-16 px-4">
+  <div class="mx-auto">
+    <h2 class="text-3xl font-bold mb-10" data-lang-de="Herzlich willkommen" data-lang-en="Welcome">
       Herzlich willkommen
     </h2>
-    <p class="text-lg leading-relaxed mb-6" data-lang-de="Wir freuen uns, Sie auf unserer Webseite begrüßen zu dürfen. Unser Unternehmen steht für Qualität, Innovation und Kundenorientierung. Mit einem engagierten Team und modernen Technologien arbeiten wir daran, Ihre Visionen in die Realität umzusetzen." data-lang-en="We are delighted to welcome you to our website. Our company stands for quality, innovation, and customer focus. With a dedicated team and modern technologies, we work to turn your visions into reality.">
+    <p class="text-lg font-bold leading-relaxed mb-6" 
+      data-lang-de="Wir bieten Ihnen eine Outsourcing-Lösung zur Optimierung Ihrer Arbeitsabläufe. Wir passen
+uns schnell an Ihre Unternehmensstruktur an, und beschleunigen Ihre bestehenden
+Prozesse." 
+      data-lang-en="We offer an outsourced solution for your company to improve workflows. We quickly adapt to
+your company's structure and accelerate your existing processes.">
       Wir freuen uns, Sie auf unserer Webseite begrüßen zu dürfen. Unser Unternehmen steht für Qualität, Innovation und Kundenorientierung. Mit einem engagierten Team und modernen Technologien arbeiten wir daran, Ihre Visionen in die Realität umzusetzen.
     </p>
-    <p class="text-lg leading-relaxed mb-6" data-lang-de="Egal ob Sie ein kleines Start-up oder ein etabliertes Unternehmen sind – wir bieten maßgeschneiderte Lösungen, die Ihre individuellen Bedürfnisse erfüllen. Unser Ziel ist es, nicht nur Ihre Erwartungen zu erfüllen, sondern sie zu übertreffen." data-lang-en="Whether you are a small start-up or an established business, we provide tailored solutions to meet your individual needs. Our goal is not only to meet your expectations but to exceed them.">
+    <p class="text-lg leading-relaxed mb-6" 
+        data-lang-de="Unser Team bzw. unsere Mitarbeiter lassen sich schnell in Ihr Unternehmen integrieren und
+unterstützen Sie bei zeitintensiven oder zeitkritischen Prozessen. Kontaktieren Sie uns für
+weitere Informationen!" 
+        data-lang-en="Our team or employees can be quickly integrated into your company, supporting time-
+consuming or time-sensitive processes. Contact us for more information!">
       Egal ob Sie ein kleines Start-up oder ein etabliertes Unternehmen sind – wir bieten maßgeschneiderte Lösungen, die Ihre individuellen Bedürfnisse erfüllen. Unser Ziel ist es, nicht nur Ihre Erwartungen zu erfüllen, sondern sie zu übertreffen.
     </p>
-    <p class="text-lg leading-relaxed" data-lang-de="Schauen Sie sich um, lernen Sie unser Team kennen und entdecken Sie, wie wir gemeinsam Großes erreichen können." data-lang-en="Take a look around, meet our team, and discover how we can achieve great things together.">
+    <p class="text-lg leading-relaxed" 
+        data-lang-de="Schauen Sie sich um, lernen Sie unser Team kennen und entdecken Sie, wie wir gemeinsam Großes erreichen können." 
+        data-lang-en="Take a look around, meet our team, and discover how we can achieve great things together.">
       Schauen Sie sich um, lernen Sie unser Team kennen und entdecken Sie, wie wir gemeinsam Großes erreichen können.
     </p>
   </div>
 </section>
-
 
 <!-- Parallax Budapest -->
 <section class="h-[60vh] bg-fixed bg-center bg-cover" style="background-image: url(https://images.pexels.com/photos/338515/pexels-photo-338515.jpeg);">
@@ -87,46 +136,166 @@
 </section>
 
 <!-- About Us Section -->
-<section id="about" class="bg-white py-16 px-4">
-    <div class="max-w-5xl mx-auto text-center">
+<section id="about" class="max-w-7xl mx-auto py-16 px-4">
+    <div class="mx-auto">
         <h2 class="text-3xl font-bold mb-6" data-lang-de="Über uns" data-lang-en="About Us">Über uns</h2>
-        <p class="text-lg text-gray-700 leading-relaxed" data-lang-de="Lorem ipsum..." data-lang-en="Lorem ipsum...">
+        <p class="text-lg text-gray-700 leading-relaxed" 
+            data-lang-de="Wir sind eine ungarische Wirtschaftsprüfungs- und Buchhaltungsgesellschaft mit Sitz in
+Budapest und arbeiten hauptsächlich mit Unternehmen im Ausland zusammen. Unser
+Service besteht darin, Ihnen ein Team oder einzelne Fachkräfte zur Unterstützung Ihrer
+Buchhaltungsaufgaben bereitzustellen. Unsere jungen, talentierten und bereits erfahrenen
+Finanzfachleute oder Teams können Sie bei verschiedenen buchhalterischen Aufgaben
+unterstützen." 
+            data-lang-en="We are a Hungarian auditing, accounting firm based in Budapest and work primarily with
+companies abroad. Our service is, providing a team or individual staff to support your
+accounting needs. Our young, talented, already experienced financial professionals, or
+teams can help you with various accounting tasks.">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sed elit vel turpis luctus euismod.
         </p>
     </div>
 </section>
+
+
+
+<!-- SERVICES SECTION -->
+<section id="services" class="bg-gray-50 py-16 px-4">
+  <div class="max-w-7xl mx-auto text-center">
+    
+    <!-- Title -->
+    <h2 class="text-4xl font-bold mb-4" data-lang-de="Dienstleistungen" data-lang-en="Services">
+      Services
+    </h2>
+
+    <!-- Intro -->
+    <p class="text-lg text-gray-600 mb-12"
+       data-lang-de="Wir können verschiedene Lösungen für unterschiedliche Finanzbereiche anbieten."
+       data-lang-en="We can provide various solutions for different fields of finance.">
+       We can provide various solutions for different fields of finance.
+    </p>
+
+    <!-- Service Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+      <!-- AP/AR -->
+      <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition">
+        <div class="text-blue-500 text-5xl mb-4">
+          <i class="fas fa-file-invoice-dollar"></i>
+        </div>
+        <h3 class="font-bold text-xl mb-2" data-lang-de="AP/AR" data-lang-en="AP/AR">AP/AR</h3>
+        <p class="text-gray-600"
+           data-lang-de="AP/AR ist zeitaufwendig und beeinflusst den Ablauf der Buchhaltung, insbesondere bei Monats- und Jahresabschlüssen. Wir können Ihnen helfen, diese Prozesse zu beschleunigen, indem wir Ihnen ein komplettes Team zur Verfügung stellen oder Ihr bestehendes Team erweitern."
+           data-lang-en="AP/AR is time consuming, and it affects the flow of accounting, especially by month and year end closing. We can help you accelerate these processes by providing you a full team or extending your already existing team.">
+          AP/AR is time consuming, and it affects the flow of accounting, especially by month and year end closing. We can help you accelerate these processes by providing you a full team or extending your already existing team.
+        </p>
+      </div>
+
+      <!-- Treasury -->
+      <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition">
+        <div class="text-green-500 text-5xl mb-4">
+          <i class="fas fa-piggy-bank"></i>
+        </div>
+        <h3 class="font-bold text-xl mb-2" data-lang-de="Treasury" data-lang-en="Treasury">Treasury</h3>
+        <p class="text-gray-600"
+           data-lang-de="Treasury ist eine sehr sensible Aufgabe. Wir können Ihnen erfahrene Fachleute anbieten, die Unterstützung bei treasury-bezogenen Aufgaben leisten."
+           data-lang-en="Treasury is a very sensitive task. We can offer professionals with experience, who can offer support in treasury related tasks.">
+          Treasury is a very sensitive task. We can offer professionals with experience, who can offer support in treasury related tasks.
+        </p>
+      </div>
+
+      <!-- Hauptbuchhaltung -->
+      <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition">
+        <div class="text-darkblue text-5xl mb-4" style="color:#073D7F;">
+          <i class="fas fa-book"></i>
+        </div>
+        <h3 class="font-bold text-xl mb-2" data-lang-de="Hauptbuchhaltung" data-lang-en="General Ledger Accounting">
+          Hauptbuchhaltung
+        </h3>
+        <p class="text-gray-600"
+           data-lang-de="Rückstellungen, Anlagenbuchhaltung und Hauptbuchungen sind entscheidend für Monats- und Jahresabschlüsse. Wir können Unterstützung anbieten, um diese Aufgaben zu beschleunigen und professionelle Hilfe bereitzustellen."
+           data-lang-en="Accruals, Fixed Asset, and General Ledger bookings are essential for month and year end closings. We can provide support, to accelerate these tasks, and offer professional help.">
+          Accruals, Fixed Asset, and General Ledger bookings are essential for month and year end closings. We can provide support, to accelerate these tasks, and offer professional help.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+<!-- TECHNOLOGIES -->
+<!-- TECHNOLOGIES SECTION -->
+<section id="technologies" class="bg-white py-16 px-4">
+  <div class="max-w-7xl mx-auto text-center">
+    
+    <!-- Title -->
+    <h2 class="text-4xl font-bold mb-4" data-lang-de="Technologien" data-lang-en="Technologies">
+      Technologies
+    </h2>
+    
+    <!-- Intro -->
+    <p class="text-lg text-gray-600 mb-12"
+       data-lang-de="Wir sind bereits in den folgenden ERP-Programmen erfahren."
+       data-lang-en="We are already proficient in the following ERP programs.">
+       We are already proficient in the following ERP programs.
+    </p>
+
+    <!-- Technology Grid -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+
+      <!-- Business Central -->
+      <div class="flex flex-col items-center">
+        <div class="border border-gray-300 p-6 mb-4">
+          <i class="fas fa-cogs text-gray-400 text-6xl"></i>
+        </div>
+        <p class="text-blue-900 font-semibold">Business Central</p>
+      </div>
+
+      <!-- SAP Hana -->
+      <div class="flex flex-col items-center">
+        <div class="border border-gray-300 p-6 mb-4">
+          <i class="fas fa-database text-gray-400 text-6xl"></i>
+        </div>
+        <p class="text-blue-900 font-semibold">SAP Hana</p>
+      </div>
+
+      <!-- Datev -->
+      <div class="flex flex-col items-center">
+        <div class="border border-gray-300 p-6 mb-4">
+          <i class="fas fa-file-invoice text-gray-400 text-6xl"></i>
+        </div>
+        <p class="text-blue-900 font-semibold">Datev</p>
+      </div>
+
+      <!-- Lexware -->
+      <div class="flex flex-col items-center">
+        <div class="border border-gray-300 p-6 mb-4">
+          <i class="fas fa-chart-line text-gray-400 text-6xl"></i>
+        </div>
+        <p class="text-blue-900 font-semibold">Lexware</p>
+      </div>
+
+    </div>
+
+    <!-- Disclaimer -->
+    <p class="mt-12 text-gray-500 text-sm max-w-3xl mx-auto"
+       data-lang-de="Alle Produktnamen, Logos und Marken sind Eigentum ihrer jeweiligen Inhaber. Die Verwendung dieser Namen impliziert keine Zugehörigkeit oder Billigung."
+       data-lang-en="All product names, logos, and brands are the property of their respective owners. Use of these names does not imply any affiliation or endorsement.">
+      All product names, logos, and brands are the property of their respective owners. Use of these names does not imply any affiliation or endorsement.
+    </p>
+  </div>
+</section>
+
+
+
+
 
 <!-- Parallax Berlin -->
 <section class="h-[60vh] bg-fixed bg-center bg-cover" style="background-image: url(https://images.pexels.com/photos/338515/pexels-photo-338515.jpeg);">
     <div class="h-full bg-black bg-opacity-30 flex items-center justify-center">
         <h2 class="text-white text-4xl font-bold drop-shadow-lg">Berlin</h2>
     </div>
-</section>
-
-
-
-
-<!-- SERVICES -->
-<section id="services" class="py-16 max-w-7xl mx-auto px-4">
-  <h2 class="text-3xl font-bold mb-4" data-lang-de="Dienstleistungen" data-lang-en="Services">Dienstleistungen</h2>
-  <p data-lang-de="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-     data-lang-en="Lorem ipsum dolor sit amet, consectetur adipiscing elit.">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-  </p>
-</section>
-
-<!-- TECHNOLOGIES -->
-<section id="technologies" class="py-16 max-w-7xl mx-auto px-4">
-  <h2 class="text-3xl font-bold mb-4" data-lang-de="Technologien" data-lang-en="Technologies">Technologien</h2>
-  <p class="mb-6"
-     data-lang-de="Wir setzen auf moderne Technologien, um Ihnen die besten Lösungen zu bieten."
-     data-lang-en="We rely on modern technologies to deliver the best solutions for you.">
-    Wir setzen auf moderne Technologien, um Ihnen die besten Lösungen zu bieten.
-  </p>
-  <p data-lang-de="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-     data-lang-en="Lorem ipsum dolor sit amet, consectetur adipiscing elit.">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-  </p>
 </section>
 
 <!-- CONTACT US -->
@@ -189,7 +358,7 @@
 </section>
 
 <!-- FOOTER -->
-<footer class="bg-gray-800 text-white py-8">
+<footer class="bg-gray-100 text-black py-8">
   <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between gap-6">
     <div>
       <h4 class="font-bold mb-2" data-lang-de="Standorte" data-lang-en="Locations">Standorte</h4>
@@ -213,6 +382,14 @@
     </div>
   </div>
 </footer>
+
+<!-- FOOTER -->
+<footer class="bg-gray-800 text-white py-4">
+  <div class="max-w-7xl mx-auto px-4 text-center text-sm">
+    © 2025 FABO Accounting. All Rights Reserved.
+  </div>
+</footer>
+
 
 <!-- LANGUAGE SWITCH SCRIPT -->
 <script>
