@@ -10,15 +10,34 @@
 
   <style>
     body { font-family: 'DM Sans', sans-serif; }
-    html { scroll-padding-top: 30px; }
+    html { scroll-padding-top: 10px; }
+
     .lang-option { transition: color 0.2s ease; }
     .lang-option.active { cursor: default; font-weight: bold; color: black; }
     .lang-option:not(.active):hover { color: lightblue; }
+
+    .tech-tile {
+      transition: transform 0.15s ease-in-out;
+    }
+    .tech-tile:hover {
+      animation: pop 0.4s ease-in-out;
+    }
+    .tech-tile:hover .icon-wrapper {
+      border-color: #073D7F; /* Dark blue frame */
+    }
+    .tech-tile:hover i {
+  color: #073D7F; /* Dark blue icon */
+}
+    @keyframes pop {
+      0%   { transform: scale(1); }
+      50%  { transform: scale(0.90); } /* Shrink */
+      100% { transform: scale(1); }    /* Grow back */
+    }
+
     header nav {
       display: flex;
       align-items: stretch; /* Makes links match the header height */
     }
-
     header nav a {
       display: flex;
       align-items: center;    /* Vertically center text */
@@ -27,18 +46,16 @@
       text-decoration: none;  /* Remove default underline */
       transition: color 0.2s ease, background-color 0.2s ease;
     }
-
     header nav a:hover {
       color: #6491DE;         /* Light blue text */
       background-color: rgba(0, 0, 0, 0.05); /* Subtle hover background */
     }
-
   </style>
 </head>
 <body class="bg-white text-gray-900">
 
 <header class="fixed top-0 left-0 right-0 bg-white shadow z-50">
-  <div class="max-w-8xl mx-auto px-4 flex justify-between items-stretch" style="height: 90px;">
+  <div class="max-w-8xl mx-auto px-4 flex justify-between items-stretch" style="height: 60px;">
     
     <!-- Logo (left) -->
     <a href="#home" class="flex items-center text-3xl font-bold">
@@ -119,16 +136,20 @@ consuming or time-sensitive processes. Contact us for more information!">
     </p>
     <p class="text-lg leading-relaxed" 
         data-lang-de="Schauen Sie sich um, lernen Sie unser Team kennen und entdecken Sie, wie wir gemeinsam Großes erreichen können." 
-        data-lang-en="Take a look around, meet our team, and discover how we can achieve great things together.">
+        data-lang-en="Take a look around, contact us, and discover how we can achieve great things together.">
       Schauen Sie sich um, lernen Sie unser Team kennen und entdecken Sie, wie wir gemeinsam Großes erreichen können.
     </p>
   </div>
 </section>
 
 <!-- Parallax Budapest -->
-<section class="h-[60vh] bg-fixed bg-center bg-cover" style="background-image: url(src/assets/berlin-4692820_1280.jpg);">
+<section class="h-[60vh] bg-fixed bg-center bg-cover" style="background-image: url(src/assets/cathedral-7827172_1280.jpg);">
     <div class="h-full bg-black bg-opacity-30 flex items-center justify-center">
-        <h2 class="text-white text-4xl font-bold drop-shadow-lg">Budapest</h2>
+      <h2 class="text-white text-4xl font-bold drop-shadow-lg" 
+        data-lang-de="Ihr Erfolg ist unser Geschäft – jedes Detail zählt." 
+        data-lang-en="Your success is our business — every detail matters.">
+        Herzlich willkommen
+      </h2>
     </div>
 </section>
 
@@ -152,8 +173,6 @@ teams can help you with various accounting tasks.">
     </div>
 </section>
 
-
-
 <!-- SERVICES SECTION -->
 <section id="services" class="bg-gray-50 py-16 px-4">
   <div class="max-w-7xl mx-auto text-center">
@@ -174,7 +193,7 @@ teams can help you with various accounting tasks.">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
 
       <!-- AP/AR -->
-      <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition">
+      <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition transition-all duration-300 border-b-4 border-transparent hover:-translate-y-2 hover:border-blue-500">
         <div class="text-blue-500 text-5xl mb-4">
           <i class="fas fa-file-invoice-dollar"></i>
         </div>
@@ -187,7 +206,7 @@ teams can help you with various accounting tasks.">
       </div>
 
       <!-- Treasury -->
-      <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition">
+      <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition transition-all duration-300 border-b-4 border-transparent hover:-translate-y-2 hover:border-green-500">
         <div class="text-green-500 text-5xl mb-4">
           <i class="fas fa-piggy-bank"></i>
         </div>
@@ -200,8 +219,8 @@ teams can help you with various accounting tasks.">
       </div>
 
       <!-- Hauptbuchhaltung -->
-      <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition">
-        <div class="text-darkblue text-5xl mb-4" style="color:#073D7F;">
+      <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition transition-all duration-300 border-b-4 border-transparent hover:-translate-y-2 hover:border-blue-900">
+        <div class="text-blue-900 text-5xl mb-4" style="color:#073D7F;">
           <i class="fas fa-book"></i>
         </div>
         <h3 class="font-bold text-xl mb-2" data-lang-de="Hauptbuchhaltung" data-lang-en="General Accounting">
@@ -222,7 +241,6 @@ teams can help you with various accounting tasks.">
 
 
 <!-- TECHNOLOGIES -->
-<!-- TECHNOLOGIES SECTION -->
 <section id="technologies" class="bg-white py-16 px-4">
   <div class="max-w-7xl mx-auto text-center">
     
@@ -241,33 +259,32 @@ teams can help you with various accounting tasks.">
     <!-- Technology Grid -->
     <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
 
-      <!-- Business Central -->
-      <div class="flex flex-col items-center">
-        <div class="border border-gray-300 p-6 mb-4">
+      <div class="tech-tile flex flex-col items-center border-2 border-transparent transition-all duration-300">
+        <div class="icon-wrapper border-2 border-gray-300 p-6 mb-4">
           <i class="fas fa-cogs text-gray-400 text-6xl"></i>
         </div>
         <p class="text-blue-900 font-semibold">Business Central</p>
       </div>
 
       <!-- SAP Hana -->
-      <div class="flex flex-col items-center">
-        <div class="border border-gray-300 p-6 mb-4">
+      <div class="tech-tile flex flex-col items-center transition-transform duration-150 ease-in-out">
+        <div class="icon-wrapper border-2 border-gray-300 p-6 mb-4">
           <i class="fas fa-database text-gray-400 text-6xl"></i>
         </div>
         <p class="text-blue-900 font-semibold">SAP Hana</p>
       </div>
 
       <!-- Datev -->
-      <div class="flex flex-col items-center">
-        <div class="border border-gray-300 p-6 mb-4">
+      <div class="tech-tile flex flex-col items-center transition-transform duration-150 ease-in-out">
+        <div class="icon-wrapper border-2 border-gray-300 p-6 mb-4">
           <i class="fas fa-file-invoice text-gray-400 text-6xl"></i>
         </div>
         <p class="text-blue-900 font-semibold">Datev</p>
       </div>
 
       <!-- Lexware -->
-      <div class="flex flex-col items-center">
-        <div class="border border-gray-300 p-6 mb-4">
+      <div class="tech-tile flex flex-col items-center transition-transform duration-150 ease-in-out">
+        <div class="icon-wrapper border-2 border-gray-300 p-6 mb-4">
           <i class="fas fa-chart-line text-gray-400 text-6xl"></i>
         </div>
         <p class="text-blue-900 font-semibold">Lexware</p>
@@ -289,9 +306,9 @@ teams can help you with various accounting tasks.">
 
 
 <!-- Parallax Berlin -->
-<section class="h-[60vh] bg-fixed bg-center bg-cover" style="background-image: url(https://images.pexels.com/photos/338515/pexels-photo-338515.jpeg);">
+<section class="h-[60vh] bg-fixed bg-center bg-cover" style="background-image: url(src/assets/eric-weber--KPwl1VaSyw-unsplash.jpg);">
     <div class="h-full bg-black bg-opacity-30 flex items-center justify-center">
-        <h2 class="text-white text-4xl font-bold drop-shadow-lg">Berlin</h2>
+        <h2 class="text-white text-4xl font-bold drop-shadow-lg">Turning numbers into opportunities.</h2>
     </div>
 </section>
 
