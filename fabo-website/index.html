@@ -38,30 +38,35 @@
 <body class="bg-white text-gray-900">
 
 <header class="fixed top-0 left-0 right-0 bg-white shadow z-50">
-  <div class="max-w-7xl mx-auto px-4 flex justify-between items-stretch" style="height: 90px;"> <!-- Taller header -->
+  <div class="max-w-8xl mx-auto px-4 flex justify-between items-stretch" style="height: 90px;">
     
-    <!-- Logo -->
-    <div class="flex items-center text-3xl font-bold cursor-pointer" onclick="scrollToSection('hero')">
+    <!-- Logo (left) -->
+    <a href="#home" class="flex items-center text-3xl font-bold">
       MyCompany
-    </div>
+    </a>
     
-    <!-- Menu -->
-    <nav class="flex items-stretch text-lg">
-      <a href="#hero" class="flex items-center px-6" data-lang-de="Startseite" data-lang-en="Home">Home</a>
-      <a href="#about" class="flex items-center px-6" data-lang-de="Über uns" data-lang-en="About us">About us</a>
-      <a href="#services" class="flex items-center px-6" data-lang-de="Dienstleistungen" data-lang-en="Services">Services</a>
-      <a href="#technologies" class="flex items-center px-6" data-lang-de="Technologien" data-lang-en="Technologies">Technologies</a>
-      <a href="#contact" class="flex items-center px-6" data-lang-de="Kontakt" data-lang-en="Contact us">Contact us</a>
-    </nav>
-    
-    <!-- Language Selector -->
-    <div class="flex items-center space-x-2 text-sm px-4">
-      <span id="lang-de" class="cursor-pointer" onclick="setLanguage('de')">DE</span>
-      <span>|</span>
-      <span id="lang-en" class="cursor-pointer" onclick="setLanguage('en')">EN</span>
+    <!-- Right side (menu + language) -->
+    <div class="flex items-stretch">
+      <!-- Menu -->
+      <nav class="flex items-stretch text-lg">
+        <a href="#home" class="flex items-center px-6" data-lang-de="Startseite" data-lang-en="Home">Home</a>
+        <a href="#about" class="flex items-center px-6" data-lang-de="Über uns" data-lang-en="About us">About us</a>
+        <a href="#services" class="flex items-center px-6" data-lang-de="Dienstleistungen" data-lang-en="Services">Services</a>
+        <a href="#technologies" class="flex items-center px-6" data-lang-de="Technologien" data-lang-en="Technologies">Technologies</a>
+        <a href="#contact" class="flex items-center px-6" data-lang-de="Kontakt" data-lang-en="Contact us">Contact us</a>
+        <!-- Language Selector -->
+        <div class="flex items-center space-x-2 px-6 text-sm text-gray-800">
+          <span id="lang-de" class="cursor-pointer lang-option">DE</span>
+          <span>|</span>
+          <span id="lang-en" class="cursor-pointer lang-option">EN</span>
+        </div>
+      </nav>
+      
     </div>
+
   </div>
 </header>
+
 
 
 
@@ -381,11 +386,11 @@ teams can help you with various accounting tasks.">
     <div>
       <h4 class="font-bold mb-2" data-lang-de="Menü" data-lang-en="Menu">Menü</h4>
       <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About us</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#technologies">Technologies</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#home" data-lang-de="Startseite" data-lang-en="Home">Home</a></li>
+        <li><a href="#about" data-lang-de="Über uns" data-lang-en="About us">About us</a></li>
+        <li><a href="#services" data-lang-de="Dienstleistungen" data-lang-en="Services">Services</a></li>
+        <li><a href="#technologies" data-lang-de="Technologien" data-lang-en="Technologies">Technologies</a></li>
+        <li><a href="#contact" data-lang-de="Kontakt" data-lang-en="Contact us">Contact</a></li>
       </ul>
     </div>
   </div>
@@ -393,7 +398,7 @@ teams can help you with various accounting tasks.">
 
 <!-- RIGHTS OOTER -->
 <footer class="bg-gray-800 text-white py-4">
-  <div class="max-w-7xl mx-auto px-4 text-center text-sm">
+  <div class="max-w-7xl mx-auto px-4 text-center text-sm" data-lang-de="© 2025 FABO Accounting. Alle Rechte vorbehalten." data-lang-en="© 2025 FABO Accounting. All Rights Reserved.">
     © 2025 FABO Accounting. All Rights Reserved.
   </div>
 </footer>
