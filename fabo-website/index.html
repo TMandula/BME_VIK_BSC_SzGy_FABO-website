@@ -16,6 +16,16 @@
     .lang-option.active { cursor: default; font-weight: bold; color: black; }
     .lang-option:not(.active):hover { color: lightblue; }
 
+    .icon-wrapper {
+  width: 150px; /* fixed square size */
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #d1d5db; /* gray-300 default */
+  transition: border-color 0.3s ease, color 0.3s ease;
+}
+
     .tech-tile {
       transition: transform 0.15s ease-in-out;
     }
@@ -26,8 +36,8 @@
       border-color: #073D7F; /* Dark blue frame */
     }
     .tech-tile:hover i {
-  color: #073D7F; /* Dark blue icon */
-}
+      color: #073D7F; /* Dark blue icon */
+    }
     @keyframes pop {
       0%   { transform: scale(1); }
       50%  { transform: scale(0.90); } /* Shrink */
@@ -50,43 +60,145 @@
       color: #6491DE;         /* Light blue text */
       background-color: rgba(0, 0, 0, 0.05); /* Subtle hover background */
     }
+
+    /* language switcher */
+  .lang-switch { list-style: none; margin: 0; padding: 0; gap: .25rem; }
+  .lang-switch li { display: inline-flex; align-items: center; }
+  .lang-btn {
+    font-weight: 600; letter-spacing: .02em;
+    border-radius: .125rem; transition: color .2s ease, background-color .2s ease, opacity .2s ease;
+  }
+  /* current language: muted + not clickable */
+  .lang-btn[aria-current="true"] { color: #94a3b8; cursor: default; pointer-events: none; opacity: .9; }
+  /* hover for the other language */
+  .lang-btn:not([aria-current="true"]):hover { color: #ffffff; background: #1d4ed8; }
   </style>
 </head>
 <body class="bg-white text-gray-900">
 
+<!-- HEADER -->
 <header class="fixed top-0 left-0 right-0 bg-white shadow z-50">
-  <div class="max-w-8xl mx-auto px-4 flex justify-between items-stretch" style="height: 60px;">
+  <div class="max-w-7xl mx-auto px-4 flex justify-between items-stretch" style="height: 60px;">
     
     <!-- Logo (left) -->
     <a href="#home" class="flex items-center text-3xl font-bold">
-      MyCompany
+      FABO
     </a>
-    
-    <!-- Right side (menu + language) -->
-    <div class="flex items-stretch">
-      <!-- Menu -->
-      <nav class="flex items-stretch text-lg">
-        <a href="#home" class="flex items-center px-6" data-lang-de="Startseite" data-lang-en="Home">Home</a>
-        <a href="#about" class="flex items-center px-6" data-lang-de="Über uns" data-lang-en="About us">About us</a>
-        <a href="#services" class="flex items-center px-6" data-lang-de="Dienstleistungen" data-lang-en="Services">Services</a>
-        <a href="#technologies" class="flex items-center px-6" data-lang-de="Technologien" data-lang-en="Technologies">Technologies</a>
-        <a href="#contact" class="flex items-center px-6" data-lang-de="Kontakt" data-lang-en="Contact us">Contact us</a>
-        <!-- Language Selector -->
-        <div class="flex items-center space-x-2 px-6 text-sm text-gray-800">
-          <span id="lang-de" class="cursor-pointer lang-option">DE</span>
-          <span>|</span>
-          <span id="lang-en" class="cursor-pointer lang-option">EN</span>
-        </div>
-      </nav>
-      
-    </div>
 
+    <!-- Desktop Menu -->
+    <nav class="hidden md:flex items-center space-x-6 text-lg font-medium">
+      <a href="#home" 
+        class="px-4 py-2 hover:text-blue-400 hover:border-b-4 hover:border-blue-800"
+        data-lang-de="Startseite" 
+        data-lang-en="Home">
+        Home
+      </a>
+      <a href="#about" 
+        class="px-4 py-2 hover:text-blue-400 hover:border-b-4 hover:border-blue-800"
+        data-lang-de="Über uns" 
+        data-lang-en="About us">
+        Company
+      </a>
+      <a href="#services" 
+        class="px-4 py-2 hover:text-blue-400 hover:border-b-4 hover:border-blue-800" 
+        data-lang-de="Dienstleistungen" 
+        data-lang-en="Services">
+        Services
+      </a>
+      <a href="#technologies" 
+        class="px-4 py-2 hover:text-blue-400 hover:border-b-4 hover:border-blue-800"
+        data-lang-de="Technologien" 
+        data-lang-en="Technologies">
+        Technologies
+      </a>
+      <a href="#contact" 
+        class="px-4 py-2 hover:text-blue-400 hover:border-b-4 hover:border-blue-800"
+        data-lang-de="Kontakt" 
+        data-lang-en="Contact us">
+        Contact
+      </a>
+
+      <ul class="lang-switch hidden md:flex items-center ml-4" role="list">
+  <li>
+    <button type="button" class="lang-btn px-1 py-0.5" data-lang-btn="de">DE</button>
+  </li>
+  <li aria-hidden="true" class="px-1 text-gray-400">|</li>
+  <li>
+    <button type="button" class="lang-btn px-1 py-0.5" data-lang-btn="en">EN</button>
+  </li>
+</ul>
+    </nav>
+
+    <!-- Mobile Hamburger Icon -->
+    <button id="hamburger" class="md:hidden focus:outline-none">
+      <svg class="w-8 h-8 text-black" fill="none" stroke="currentColor" stroke-width="2"
+            viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round"
+              d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
   </div>
+
+  <!-- Mobile Menu Overlay -->
+  <div id="mobileMenu" class="fixed inset-0 bg-black bg-opacity-50 hidden z-40">
+    <div class="absolute right-0 top-0 h-full w-72 bg-white shadow-lg p-6 flex flex-col">
+      
+      <!-- Close Button -->
+      <button id="closeMenu" class="self-end mb-6">
+        <svg class="w-6 h-6 text-black" fill="none" stroke="currentColor" stroke-width="2"
+             viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round"
+                d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+
+      <!-- Mobile language selector (inside hamburger panel, near the top) -->
+<ul class="lang-switch flex items-center mb-8" role="list">
+  <li>
+    <button type="button" class="lang-btn px-1 py-0.5" data-lang-btn="de">DE</button>
+  </li>
+  <li aria-hidden="true" class="px-1 text-gray-400">|</li>
+  <li>
+    <button type="button" class="lang-btn px-1 py-0.5" data-lang-btn="en">EN</button>
+  </li>
+</ul>
+
+
+      <!-- Mobile Menu Items -->
+      <a href="#home" 
+        class="py-2 border-b border-gray-200 hover:text-blue-500"
+        data-lang-de="Startseite" 
+        data-lang-en="Home">
+        Home
+      </a>
+      <a href="#about" 
+        class="py-2 border-b border-gray-200 hover:text-blue-500"
+        data-lang-de="Über uns" 
+        data-lang-en="About us">
+        Company
+      </a>
+      <a href="#services" 
+        class="py-2 border-b border-gray-200 hover:text-blue-500"
+        data-lang-de="Dienstleistungen" 
+        data-lang-en="Services">
+        Services
+      </a>
+      <a href="#technologies" 
+        class="py-2 border-b border-gray-200 hover:text-blue-500"
+        data-lang-de="Technologien" 
+        data-lang-en="Technologies">
+        Technologies
+      </a>
+      <a href="#contact" 
+        class="py-2 border-b border-gray-200 hover:text-blue-500"
+        data-lang-de="Kontakt" 
+        data-lang-en="Contact us">
+        Contact
+      </a>
+    </div>
+  </div>
+
 </header>
-
-
-
-
 
 <!-- HERO -->
 <section id="home" class="pt-20 min-h-[calc(100vh-80px)] flex items-center bg-gradient-to-r from-blue-400 to-blue-600 text-white">
@@ -260,7 +372,7 @@ teams can help you with various accounting tasks.">
     <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
 
       <div class="tech-tile flex flex-col items-center border-2 border-transparent transition-all duration-300">
-        <div class="icon-wrapper border-2 border-gray-300 p-6 mb-4">
+        <div class="icon-wrapper border-2 border-gray-300 p-6 mb-6">
           <i class="fas fa-cogs text-gray-400 text-6xl"></i>
         </div>
         <p class="text-blue-900 font-semibold">Business Central</p>
@@ -268,7 +380,7 @@ teams can help you with various accounting tasks.">
 
       <!-- SAP Hana -->
       <div class="tech-tile flex flex-col items-center transition-transform duration-150 ease-in-out">
-        <div class="icon-wrapper border-2 border-gray-300 p-6 mb-4">
+        <div class="icon-wrapper border-2 border-gray-300 p-6 mb-6">
           <i class="fas fa-database text-gray-400 text-6xl"></i>
         </div>
         <p class="text-blue-900 font-semibold">SAP Hana</p>
@@ -276,7 +388,7 @@ teams can help you with various accounting tasks.">
 
       <!-- Datev -->
       <div class="tech-tile flex flex-col items-center transition-transform duration-150 ease-in-out">
-        <div class="icon-wrapper border-2 border-gray-300 p-6 mb-4">
+        <div class="icon-wrapper border-2 border-gray-300 p-6 mb-6">
           <i class="fas fa-file-invoice text-gray-400 text-6xl"></i>
         </div>
         <p class="text-blue-900 font-semibold">Datev</p>
@@ -284,7 +396,7 @@ teams can help you with various accounting tasks.">
 
       <!-- Lexware -->
       <div class="tech-tile flex flex-col items-center transition-transform duration-150 ease-in-out">
-        <div class="icon-wrapper border-2 border-gray-300 p-6 mb-4">
+        <div class="icon-wrapper border-2 border-gray-300 p-6 mb-6">
           <i class="fas fa-chart-line text-gray-400 text-6xl"></i>
         </div>
         <p class="text-blue-900 font-semibold">Lexware</p>
@@ -455,6 +567,73 @@ teams can help you with various accounting tasks.">
 
   const savedLang = localStorage.getItem('preferredLang') || 'de';
   switchLang(savedLang);
+</script>
+
+<!-- JS for Toggle -->
+<script>
+  const hamburger = document.getElementById("hamburger");
+  const mobileMenu = document.getElementById("mobileMenu");
+  const closeMenu = document.getElementById("closeMenu");
+
+  hamburger.addEventListener("click", () => {
+    mobileMenu.classList.remove("hidden");
+  });
+
+  closeMenu.addEventListener("click", () => {
+    mobileMenu.classList.add("hidden");
+  });
+
+  mobileMenu.addEventListener("click", (e) => {
+    if (e.target === mobileMenu) {
+      mobileMenu.classList.add("hidden");
+    }
+  });
+</script>
+
+<script>
+  // unified language switching (desktop + hamburger)
+  (function () {
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    function setLanguage(lang) {
+      // text nodes
+      document.querySelectorAll('[data-lang-de],[data-lang-en]').forEach(el => {
+        const txt = (lang === 'de') ? el.getAttribute('data-lang-de') : el.getAttribute('data-lang-en');
+        if (txt !== null) el.textContent = txt;
+      });
+      // placeholders
+      document.querySelectorAll('[data-ph-de],[data-ph-en]').forEach(el => {
+        const ph = (lang === 'de') ? el.getAttribute('data-ph-de') : el.getAttribute('data-ph-en');
+        if (ph !== null) el.setAttribute('placeholder', ph);
+      });
+      // remember
+      localStorage.setItem('siteLang', lang);
+      // reflect active state on ALL lang buttons
+      document.querySelectorAll('[data-lang-btn]').forEach(btn => {
+        btn.setAttribute('aria-current', btn.dataset.langBtn === lang ? 'true' : 'false');
+      });
+    }
+
+    // event delegation works for both desktop + hamburger
+    document.addEventListener('click', function (e) {
+      const btn = e.target.closest('[data-lang-btn]');
+      if (!btn) return;
+
+      const newLang = btn.dataset.langBtn;
+      setLanguage(newLang);
+
+      // close hamburger if open
+      if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+        mobileMenu.classList.add('hidden');
+      }
+    });
+
+    // init on load (default DE)
+    document.addEventListener('DOMContentLoaded', function () {
+      const saved = localStorage.getItem('siteLang') || 'de';
+      setLanguage(saved);
+    });
+  })();
 </script>
 
 </body>
