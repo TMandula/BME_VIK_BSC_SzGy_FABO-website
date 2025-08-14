@@ -15,50 +15,56 @@
     .lang-option.active { cursor: default; font-weight: bold; color: black; }
     .lang-option:not(.active):hover { color: lightblue; }
     header nav {
-  display: flex;
-  align-items: stretch; /* Makes links match the header height */
-}
+      display: flex;
+      align-items: stretch; /* Makes links match the header height */
+    }
 
-header nav a {
-  display: flex;
-  align-items: center;    /* Vertically center text */
-  padding: 0 1rem;        /* Horizontal spacing */
-  height: 100%;           /* Fill full header height */
-  text-decoration: none;  /* Remove default underline */
-  transition: color 0.2s ease, background-color 0.2s ease;
-}
+    header nav a {
+      display: flex;
+      align-items: center;    /* Vertically center text */
+      padding: 0 1rem;        /* Horizontal spacing */
+      height: 100%;           /* Fill full header height */
+      text-decoration: none;  /* Remove default underline */
+      transition: color 0.2s ease, background-color 0.2s ease;
+    }
 
-header nav a:hover {
-  color: #6491DE;         /* Light blue text */
-  background-color: rgba(0, 0, 0, 0.05); /* Subtle hover background */
-}
+    header nav a:hover {
+      color: #6491DE;         /* Light blue text */
+      background-color: rgba(0, 0, 0, 0.05); /* Subtle hover background */
+    }
 
   </style>
 </head>
 <body class="bg-white text-gray-900">
 
-<!-- HEADER -->
 <header class="fixed top-0 left-0 right-0 bg-white shadow z-50">
-  <div class="max-w-8xl mx-auto flex justify-between items-stretch px-4 py-4">
+  <div class="max-w-7xl mx-auto px-4 flex justify-between items-stretch" style="height: 90px;"> <!-- Taller header -->
+    
     <!-- Logo -->
-    <a href="#home" class="text-blue-800 mb-3 font-bold text-5xl" data-lang-de="FABO" data-lang-en="FABO">FABO</a>
-    <a href="#home" class="text-blue-800 mb-3 font-bold text-3xl" data-lang-de="Accounting & Services" data-lang-en="Accounting & Services">FABO</a>
-    <!-- Navigation -->
-    <nav class="flex items-stretch text-lg space-x-6">
-      <a href="#home" class="flex items-center px-2 h-full relative" data-lang-de="Startseite" data-lang-en="Home">Startseite</a>
-      <a href="#about" class="flex items-center px-2 h-full relative" data-lang-de="Über uns" data-lang-en="About us">Über uns</a>
-      <a href="#services" class="flex items-center px-2 h-full relative" data-lang-de="Dienstleistungen" data-lang-en="Services">Dienstleistungen</a>
-      <a href="#technologies" class="flex items-center px-2 h-full relative" data-lang-de="Technologien" data-lang-en="Technologies">Technologien</a>
-      <a href="#contact" class="flex items-center px-2 h-full relative" data-lang-de="Kontakt" data-lang-en="Contact us">Kontakt</a>
-      <!-- Language Selector -->
-      <div class="flex items-center space-x-2 text-sm text-gray-800">
-        <span id="lang-en" class="cursor-pointer lang-option">EN</span>
-        <span>|</span>
-        <span id="lang-de" class="cursor-pointer lang-option">DE</span>
-      </div>
+    <div class="flex items-center text-3xl font-bold cursor-pointer" onclick="scrollToSection('hero')">
+      MyCompany
+    </div>
+    
+    <!-- Menu -->
+    <nav class="flex items-stretch text-lg">
+      <a href="#hero" class="flex items-center px-6" data-lang-de="Startseite" data-lang-en="Home">Home</a>
+      <a href="#about" class="flex items-center px-6" data-lang-de="Über uns" data-lang-en="About us">About us</a>
+      <a href="#services" class="flex items-center px-6" data-lang-de="Dienstleistungen" data-lang-en="Services">Services</a>
+      <a href="#technologies" class="flex items-center px-6" data-lang-de="Technologien" data-lang-en="Technologies">Technologies</a>
+      <a href="#contact" class="flex items-center px-6" data-lang-de="Kontakt" data-lang-en="Contact us">Contact us</a>
     </nav>
+    
+    <!-- Language Selector -->
+    <div class="flex items-center space-x-2 text-sm px-4">
+      <span id="lang-de" class="cursor-pointer" onclick="setLanguage('de')">DE</span>
+      <span>|</span>
+      <span id="lang-en" class="cursor-pointer" onclick="setLanguage('en')">EN</span>
+    </div>
   </div>
 </header>
+
+
+
 
 <!-- HERO -->
 <section id="home" class="pt-20 min-h-[calc(100vh-80px)] flex items-center bg-gradient-to-r from-blue-400 to-blue-600 text-white">
@@ -115,7 +121,7 @@ consuming or time-sensitive processes. Contact us for more information!">
 </section>
 
 <!-- Parallax Budapest -->
-<section class="h-[60vh] bg-fixed bg-center bg-cover" style="background-image: url(https://images.pexels.com/photos/338515/pexels-photo-338515.jpeg);">
+<section class="h-[60vh] bg-fixed bg-center bg-cover" style="background-image: url(src/assets/berlin-4692820_1280.jpg);">
     <div class="h-full bg-black bg-opacity-30 flex items-center justify-center">
         <h2 class="text-white text-4xl font-bold drop-shadow-lg">Budapest</h2>
     </div>
