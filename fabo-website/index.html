@@ -259,12 +259,15 @@
 </header>
 
 <!-- HERO -->
-<section id="home" class="pt-20 min-h-[calc(100vh-80px)] flex items-center bg-gradient-to-r from-blue-400 to-blue-600 text-white">
+<section id="home" 
+         class="relative pt-20 min-h-[calc(100vh-80px)] flex items-center bg-gradient-to-r from-blue-400 to-blue-600 text-white overflow-hidden">
+  
   <!-- Particles layer -->
-  <div id="heroParticles" aria-hidden="true" class="absolute inset-0"></div>
+  <div id="heroParticles" 
+    class="absolute inset-0 w-full h-full pointer-events-none z-0"></div>
 
   <!-- Content layer -->
-  <div class="max-w-7xl mx-auto px-4">
+  <div class="relative z-10 max-w-7xl mx-auto px-4">
     <h1 class="text-4xl sm:text-6xl font-bold mb-4"
         data-lang-de="Willkommen bei FABO Accounting"
         data-lang-en="Welcome to FABO Accounting">
