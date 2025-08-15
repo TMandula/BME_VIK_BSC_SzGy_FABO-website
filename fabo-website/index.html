@@ -63,11 +63,10 @@
       animation: pop 0.4s ease-in-out;
     }
     .tech-tile:hover .icon-wrapper {
-      border-color: #073D7F; /* Dark blue frame */
+     /* border-color: #073D7F; /* Dark blue frame */
+     border-color: text-color;
     }
-    .tech-tile:hover i {
-      color: #073D7F; /* Dark blue icon */
-    }
+    /*.tech-tile:hover i {color: #073D7F; }*/
     @keyframes pop {
       0%   { transform: scale(1); }
       50%  { transform: scale(0.90); } /* Shrink */
@@ -431,6 +430,40 @@ consuming or time-sensitive processes. Contact us for more information!">
 
 
 
+<!-- BRANCHEN -->
+<section id="branchen" class="py-16 text-center">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="text-3xl sm:text-4xl font-bold">Branchen</h2>
+    <p class="mt-3 text-slate-600 max-w-3xl">Erfahrung u. a. in Maschinenbau, Pharma/Biotech, Handel &amp; Tech.</p>
+
+    <div class="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
+      <div class="rounded-xl border p-4 text-center glass">Maschinenbau</div>
+      <div class="rounded-xl border p-4 text-center glass">Pharma &amp; Biotech</div>
+      <div class="rounded-xl border p-4 text-center glass">E-Commerce</div>
+      <div class="rounded-xl border p-4 text-center glass">SaaS &amp; IT</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- TECHNOLOGIES -->
+<section id="technologies" class="py-20 bg-slate-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h2 class="text-3xl sm:text-4xl font-bold">Technologien</h2>
+    <p class="mt-3 text-slate-600">DATEV, SAP, Business Central, Lexware u. v. m.</p>
+
+    <div class="mt-10 grid grid-cols-2 md:grid-cols-4 gap-6">
+      <div class="rounded-2xl border bg-white p-6">Business Central</div>
+      <div class="rounded-2xl border bg-white p-6">SAP</div>
+      <div class="rounded-2xl border bg-white p-6">DATEV</div>
+      <div class="rounded-2xl border bg-white p-6">Lexware</div>
+    </div>
+
+    <p class="mt-10 text-xs text-slate-500">Alle Produktnamen, Logos und Marken sind Eigentum ihrer jeweiligen Inhaber.</p>
+  </div>
+</section>
+
+
 <!-- TECHNOLOGIES -->
 <section id="technologies" class="bg-white py-16 px-4">
   <div class="max-w-7xl mx-auto text-center">
@@ -568,6 +601,75 @@ consuming or time-sensitive processes. Contact us for more information!">
   </div>
 </section>
 
+<!-- ABOUT -->
+<section id="about" class="py-16 border-t">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-10 items-center">
+    <div>
+      <h2 class="text-3xl font-bold">Über uns</h2>
+      <p class="mt-3 text-slate-600">Wir sind ein spezialisiertes Outsourcing-Team mit Fokus auf deutsche Standards und Hands-on-Mentalität. Transparente Kommunikation, feste Ansprechpartner, messbare Ergebnisse.</p>
+      <ul class="mt-4 text-slate-700 list-disc pl-5">
+        <li>Festpreis- oder Retainer-Modelle</li>
+        <li>On-/Near-/Offsite kombinierbar</li>
+        <li>SLA-basiert &amp; auditierbar</li>
+      </ul>
+    </div>
+    <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=1400&auto=format&fit=crop" alt="Teamarbeit im Finanzwesen" class="rounded-2xl border object-cover w-full h-72" loading="lazy">
+  </div>
+</section>
+
+
+
+<!-- FOOTER -->
+<footer class="bg-slate-900 text-slate-200">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 grid md:grid-cols-4 gap-8">
+    <div>
+      <div class="text-xl font-extrabold text-white">FABO Accounting</div>
+      <p class="mt-3 text-slate-400 text-sm">Budapest · Miskolc · Deutschland</p>
+    </div>
+    <nav class="space-y-2">
+      <div class="font-semibold text-white">Unternehmen</div>
+      <a href="#about" class="block text-slate-400 hover:text-white">Über uns</a>
+      <a href="#karriere" class="block text-slate-400 hover:text-white">Karriere</a>
+    </nav>
+    <nav class="space-y-2">
+      <div class="font-semibold text-white">Leistung</div>
+      <a href="#leistungen" class="block text-slate-400 hover:text-white">Leistungen</a>
+      <a href="#branchen" class="block text-slate-400 hover:text-white">Branchen</a>
+      <a href="#referenzen" class="block text-slate-400 hover:text-white">Referenzen</a>
+    </nav>
+    <div class="space-y-2">
+      <div class="font-semibold text-white">Kontakt</div>
+      <p class="text-slate-400 text-sm">✉ fabobudapest@gmail.com<br>☎ +49 123 456 789</p>
+    </div>
+  </div>
+  <div class="border-t border-slate-800"></div>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 text-xs text-slate-400 flex items-center justify-between">
+    <span>© 2025 FABO Accounting. Alle Rechte vorbehalten.</span>
+    <div class="flex gap-4">
+      <a href="#" class="hover:text-white">Impressum</a>
+      <a href="#" class="hover:text-white">Datenschutz</a>
+    </div>
+  </div>
+</footer>
+
+<!-- Cookie banner -->
+<div id="cookie" class="fixed bottom-3 inset-x-3 md:left-auto md:right-6 md:inset-x-auto md:max-w-xl z-[60] bg-white border border-slate-200 rounded-xl shadow-xl p-4 hidden">
+  <div class="flex items-start gap-3">
+    <div class="mt-1">
+      <svg width="20" height="20" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2"><path d="M12 3v1M17.657 6.343l-.707.707M21 12h-1M17.657 17.657l-.707-.707M12 20v1M6.343 17.657l.707-.707M4 12H3M6.343 6.343l.707.707"/><circle cx="12" cy="12" r="4"/></svg>
+    </div>
+    <p class="text-sm text-slate-700">Wir verwenden Cookies zur Verbesserung Ihres Erlebnisses. <a href="#" class="underline">Details</a></p>
+  </div>
+  <div class="mt-3 flex gap-2 justify-end">
+    <button data-cookie="decline" class="px-3 py-1.5 rounded-lg border border-slate-300">Ablehnen</button>
+    <button data-cookie="accept" class="px-3 py-1.5 rounded-lg bg-[var(--brand)] text-white">Akzeptieren</button>
+  </div>
+</div>
+
+
+
+
+
 <!-- INFO FOOTER -->
 <footer class="bg-gray-100 text-black py-8">
   <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between gap-6">
@@ -618,7 +720,6 @@ consuming or time-sensitive processes. Contact us for more information!">
     © 2025 FABO Accounting. All Rights Reserved.
   </div>
 </footer>
-
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
@@ -719,6 +820,17 @@ document.addEventListener("DOMContentLoaded", () => {
     document.addEventListener('DOMContentLoaded', function () {
       const saved = localStorage.getItem('siteLang') || 'de';
       setLanguage(saved);
+    });
+
+    // cookie
+    const cookie = document.getElementById("cookie");
+    const COOKIE_KEY = "cookieConsentV1";
+    if (!localStorage.getItem(COOKIE_KEY)) cookie.classList.remove("hidden");
+    cookie.addEventListener("click", (e) => {
+      const t = e.target.getAttribute("data-cookie");
+      if (!t) return;
+      localStorage.setItem(COOKIE_KEY, t);
+      cookie.classList.add("hidden");
     });
   })();
 </script>
