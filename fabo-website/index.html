@@ -12,6 +12,39 @@
     body { font-family: 'DM Sans', sans-serif; }
     html { scroll-padding-top: 10px; }
 
+    /* language switcher */
+    .lang-switch { list-style: none; margin: 0; padding: 0; gap: .25rem; }
+    .lang-switch li { display: inline-flex; align-items: center; }
+    .lang-btn {
+      font-weight: 600; letter-spacing: .02em;
+      border-radius: .125rem; transition: color .2s ease, background-color .2s ease, opacity .2s ease;
+    }
+    /* current language */
+    .lang-btn[aria-current="true"] { color: #000000; cursor: default; pointer-events: none; opacity: .9; }
+    /* selectable language */
+    .lang-btn:not([aria-current="true"]) { color: #99a8bb;/* light gray */ }
+    /* hover for the other language */
+    .lang-btn:not([aria-current="true"]):hover { color: #6491DE; }
+
+    /* header */
+    header nav {
+      display: flex;
+      align-items: stretch; /* Makes links match the header height */
+    }
+    header nav a {
+      display: flex;
+      align-items: center;    /* Vertically center text */
+      padding: 0 1rem;        /* Horizontal spacing */
+      height: 100%;           /* Fill full header height */
+      text-decoration: none;  /* Remove default underline */
+      transition: color 0.2s ease, background-color 0.2s ease;
+    }
+    header nav a:hover {
+      color: #6491DE;         /* Light blue text */
+      background-color: rgba(0, 0, 0, 0.05); /* Subtle hover background */
+    }
+
+    /* icon wrapper */
     .icon-wrapper {
       width: 150px; /* fixed square size */
       height: 150px;
@@ -22,6 +55,7 @@
       transition: border-color 0.3s ease, color 0.3s ease;
     }
 
+    /* Technologies-Section tile wrapper */
     .tech-tile {
       transition: transform 0.15s ease-in-out;
     }
@@ -40,70 +74,23 @@
       100% { transform: scale(1); }    /* Grow back */
     }
 
-    header nav {
-      display: flex;
-      align-items: stretch; /* Makes links match the header height */
-    }
-    header nav a {
-      display: flex;
-      align-items: center;    /* Vertically center text */
-      padding: 0 1rem;        /* Horizontal spacing */
-      height: 100%;           /* Fill full header height */
-      text-decoration: none;  /* Remove default underline */
-      transition: color 0.2s ease, background-color 0.2s ease;
-    }
-    header nav a:hover {
-      color: #6491DE;         /* Light blue text */
-      background-color: rgba(0, 0, 0, 0.05); /* Subtle hover background */
-    }
 
-    /* language switcher */
-    .lang-switch { 
-      list-style: none; 
-      margin: 0; 
-      padding: 0; 
-      gap: .25rem; 
-    }
-    .lang-switch li { 
-      display: inline-flex; 
-      align-items: center; 
-    }
-    .lang-btn {
-      font-weight: 600; 
-      letter-spacing: .02em;
-      border-radius: .125rem; 
-      transition: color .2s ease, background-color .2s ease, opacity .2s ease;
-    }
-    /* current language: muted + not clickable */
-    .lang-btn[aria-current="true"] { 
-      color: #000000; 
-      cursor: default; 
-      pointer-events: none; 
-      opacity: .9; 
-    }
-    /* Selectable language: darker gray, hover → white text on blue bg */
-    .lang-btn:not([aria-current="true"]) { 
-      color: #94a3b8;/* light gray */
-    }
-    /* hover for the other language */
-    .lang-btn:not([aria-current="true"]):hover { 
-      color: #6491DE; 
-    }
   </style>
 </head>
 <body class="bg-white text-gray-900">
 
 <!-- HEADER -->
-<header class="fixed top-0 left-0 right-0 bg-white shadow z-50">
-  <div class="max-w-7xl mx-auto px-4 flex justify-between items-stretch" style="height: 60px;">
+<header class="fixed w-full bg-white shadow z-50">
+  <div id="header-inner"
+    class="max-w-7xl mx-auto px-4 flex justify-between items-stretch" style="height: 60px;">
     
-    <!-- Logo (left) -->
-    <a href="#home" class="flex items-center text-3xl font-bold">
+    <!-- Logo -->
+    <a href="#home" id="siteLogo" class="flex items-center text-3xl font-bold">
       FABO
     </a>
 
     <!-- Desktop Menu -->
-    <nav class="hidden md:flex items-center space-x-6 text-lg font-medium">
+    <nav id="desktop-nav" class="hidden md:flex items-center space-x-6 text-lg font-medium">
       <a href="#home" 
         class="px-4 py-2 hover:text-blue-400 hover:border-b-4 hover:border-blue-800"
         data-lang-de="Startseite" 
@@ -135,18 +122,15 @@
         Contact
       </a>
 
-      <ul class="lang-switch hidden md:flex items-center ml-4" role="list">
-      <li>
-        <button type="button" class="lang-btn px-1 py-0.5" data-lang-btn="de">DE</button>
-      </li>
-      <li aria-hidden="true" class="px-1 text-gray-600">|</li>
-      <li>
-        <button type="button" class="lang-btn px-1 py-0.5" data-lang-btn="en">EN</button>
-      </li>
-    </ul>
+      <!-- Language Selector -->
+      <ul class="lang-switch flex items-center ml-4" role="list">
+        <li><button type="button" class="lang-btn px-1 py-0.5" data-lang-btn="de">DE</button></li>
+        <li aria-hidden="true" class="px-1 text-gray-400">|</li>
+        <li><button type="button" class="lang-btn px-1 py-0.5" data-lang-btn="en">EN</button></li>
+      </ul>
     </nav>
 
-    <!-- Mobile Hamburger Icon -->
+    <!-- Hamburger Icon -->
     <button id="hamburger" class="md:hidden focus:outline-none">
       <svg class="w-8 h-8 text-black" fill="none" stroke="currentColor" stroke-width="2"
             viewBox="0 0 24 24">
@@ -159,7 +143,6 @@
   <!-- Mobile Menu Overlay -->
   <div id="mobileMenu" class="fixed inset-0 bg-black bg-opacity-50 hidden z-40">
     <div class="absolute right-0 top-0 h-full w-72 bg-white shadow-lg p-6 flex flex-col">
-      
       <!-- Close Button -->
       <button id="closeMenu" class="self-end mb-6">
         <svg class="w-6 h-6 text-black" fill="none" stroke="currentColor" stroke-width="2"
@@ -169,16 +152,12 @@
         </svg>
       </button>
 
-      <!-- Mobile language selector (inside hamburger panel, near the top) -->
-<ul class="lang-switch flex items-center mb-8" role="list">
-  <li>
-    <button type="button" class="lang-btn px-1 py-0.5" data-lang-btn="de">DE</button>
-  </li>
-  <li aria-hidden="true" class="px-1 text-gray-400">|</li>
-  <li>
-    <button type="button" class="lang-btn px-1 py-0.5" data-lang-btn="en">EN</button>
-  </li>
-</ul>
+      <!-- Language Selector (mobile) -->
+      <ul class="lang-switch flex items-center mb-8" role="list">
+        <li><button type="button" class="lang-btn px-1 py-0.5" data-lang-btn="de">DE</button></li>
+        <li aria-hidden="true" class="px-1 text-gray-400">|</li>
+        <li><button type="button" class="lang-btn px-1 py-0.5" data-lang-btn="en">EN</button></li>
+      </ul>
 
 
       <!-- Mobile Menu Items -->
@@ -272,7 +251,7 @@ consuming or time-sensitive processes. Contact us for more information!">
 </section>
 
 <!-- Parallax Budapest -->
-<section class="h-[60vh] bg-fixed bg-center bg-cover" style="background-image: url(src/assets/cathedral-7827172_1280.jpg);">
+<section class="h-[60vh] bg-fixed bg-center bg-cover" style="background-image: url(src/assets/grandenburger_tor.jpg);">
     <div class="h-full bg-black bg-opacity-30 flex items-center justify-center">
       <h2 class="text-white text-4xl font-bold drop-shadow-lg" 
         data-lang-de="Ihr Erfolg ist unser Geschäft – jedes Detail zählt." 
@@ -532,17 +511,27 @@ teams can help you with various accounting tasks.">
     <div>
       <h4 class="font-bold mb-2" data-lang-de="Menü" data-lang-en="Menu">Menü</h4>
       <ul>
-        <li><a href="#home" data-lang-de="Startseite" data-lang-en="Home">Home</a></li>
-        <li><a href="#about" data-lang-de="Über uns" data-lang-en="About us">About us</a></li>
-        <li><a href="#services" data-lang-de="Dienstleistungen" data-lang-en="Services">Services</a></li>
-        <li><a href="#technologies" data-lang-de="Technologien" data-lang-en="Technologies">Technologies</a></li>
-        <li><a href="#contact" data-lang-de="Kontakt" data-lang-en="Contact us">Contact</a></li>
+        <li><a href="#home" 
+          class="hover:text-blue-400"
+          data-lang-de="Startseite" data-lang-en="Home">Home</a></li>
+        <li><a href="#about"  
+          class="hover:text-blue-400"
+          data-lang-de="Über uns" data-lang-en="About us">About us</a></li>
+        <li><a href="#services"  
+          class="hover:text-blue-400"
+          data-lang-de="Dienstleistungen" data-lang-en="Services">Services</a></li>
+        <li><a href="#technologies"  
+          class="hover:text-blue-400"
+          data-lang-de="Technologien" data-lang-en="Technologies">Technologies</a></li>
+        <li><a href="#contact"  
+          class="hover:text-blue-400"
+          data-lang-de="Kontakt" data-lang-en="Contact us">Contact</a></li>
       </ul>
     </div>
   </div>
 </footer>
 
-<!-- RIGHTS OOTER -->
+<!-- RIGHTS FOOTER -->
 <footer class="bg-gray-800 text-white py-4">
   <div class="max-w-7xl mx-auto px-4 text-center text-sm" data-lang-de="© 2025 FABO Accounting. Alle Rechte vorbehalten." data-lang-en="© 2025 FABO Accounting. All Rights Reserved.">
     © 2025 FABO Accounting. All Rights Reserved.
