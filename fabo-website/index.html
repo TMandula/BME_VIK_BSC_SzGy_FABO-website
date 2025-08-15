@@ -193,7 +193,7 @@
     </nav>
 
     <!-- Hamburger Icon -->
-<button id="hamburger" class="hidden focus:outline-none">
+    <button id="hamburger" class="hidden focus:outline-none">
       <svg class="w-8 h-8 text-black" fill="none" stroke="currentColor" stroke-width="2"
             viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round"
@@ -279,13 +279,13 @@
     </h1>
     <p class="max-w-3xl mx-auto text-lg sm:text-xl opacity-90 mb-8"
        data-lang-de="Wir bieten verschiedene Outsourcing-Lösungen für Ihre Buchhaltungsprobleme. Wir
-bieten ein Team, oder einzelne Personen, Sie im Bereich von Finanzen zu unterstützen."
+        bieten ein Team, oder einzelne Personen, Sie im Bereich von Finanzen zu unterstützen."
        data-lang-en="We offer various outsourced solutions for your accounting problems. We provide a team
-or sole individuals to support you in the field of finance.">
+        or sole individuals to support you in the field of finance.">
       Wir bieten maßgeschneiderte Lösungen für Ihre Bedürfnisse.
     </p>
     <a href="#contact"
-       class="bg-white hover:bg-blue-800 hover:text-white text-blue-800 font-semibold px-6 py-3 rounded shadow-lg transition"
+       class="bg-white hover:bg-blue-800 hover:text-white text-blue-900 font-semibold px-6 py-3 rounded shadow-lg transition"
        data-lang-de="Kontakt"
        data-lang-en="Contact">
       Kontakt
@@ -293,11 +293,8 @@ or sole individuals to support you in the field of finance.">
   </div>
 </section>
 
-
-
-
 <!-- WELCOME TEXT SECTION -->
-<section class="content-wrapper py-16">
+<section class="max-w-4xl mx-auto px-6 py-16">
   <div class="mx-auto">
     <h2 class="text-3xl font-bold mb-10" data-lang-de="Herzlich willkommen" data-lang-en="Welcome">
       Herzlich willkommen
@@ -338,20 +335,20 @@ consuming or time-sensitive processes. Contact us for more information!">
 </section>
 
 <!-- About Us Section -->
-<section id="about" class="content-wrapper py-16">
+<section id="about" class="max-w-4xl mx-auto px-6 py-16">
     <div class="mx-auto">
         <h2 class="text-3xl font-bold mb-6" data-lang-de="Über uns" data-lang-en="About Us">Über uns</h2>
         <p class="text-lg text-gray-700 leading-relaxed" 
             data-lang-de="Wir sind eine ungarische Wirtschaftsprüfungs- und Buchhaltungsgesellschaft mit Sitz in
-Budapest und arbeiten hauptsächlich mit Unternehmen im Ausland zusammen. Unser
-Service besteht darin, Ihnen ein Team oder einzelne Fachkräfte zur Unterstützung Ihrer
-Buchhaltungsaufgaben bereitzustellen. Unsere jungen, talentierten und bereits erfahrenen
-Finanzfachleute oder Teams können Sie bei verschiedenen buchhalterischen Aufgaben
-unterstützen." 
+              Budapest und arbeiten hauptsächlich mit Unternehmen im Ausland zusammen. Unser
+              Service besteht darin, Ihnen ein Team oder einzelne Fachkräfte zur Unterstützung Ihrer
+              Buchhaltungsaufgaben bereitzustellen. Unsere jungen, talentierten und bereits erfahrenen
+              Finanzfachleute oder Teams können Sie bei verschiedenen buchhalterischen Aufgaben
+              unterstützen." 
             data-lang-en="We are a Hungarian auditing, accounting firm based in Budapest and work primarily with
-companies abroad. Our service is, providing a team or individual staff to support your
-accounting needs. Our young, talented, already experienced financial professionals, or
-teams can help you with various accounting tasks.">
+              companies abroad. Our service is, providing a team or individual staff to support your
+              accounting needs. Our young, talented, already experienced financial professionals, or
+              teams can help you with various accounting tasks.">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sed elit vel turpis luctus euismod.
         </p>
     </div>
@@ -421,6 +418,16 @@ teams can help you with various accounting tasks.">
   </div>
 </section>
 
+<!-- Parallax Budapest -->
+<section class="h-[60vh] bg-fixed bg-center bg-cover" style="background-image: url(src/assets/tim-hufner-d7TjlJ4MNMs-unsplash.jpg);">
+    <div class="h-full bg-black bg-opacity-30 flex items-center justify-center">
+      <h2 class="text-white text-4xl font-bold drop-shadow-lg text-center" 
+        data-lang-de="Gemeinsam schaffen wir Großes." 
+        data-lang-en="Together, we achieve greatness.">
+        Herzlich willkommen
+      </h2>
+    </div>
+</section>
 
 
 
@@ -443,9 +450,10 @@ teams can help you with various accounting tasks.">
     <!-- Technology Grid -->
     <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
 
+      <!-- Business Central -->
       <div class="tech-tile flex flex-col items-center border-2 border-transparent transition-all duration-300">
         <div class="icon-wrapper border-2 border-gray-300 p-6 mb-6">
-          <i class="fas fa-cogs text-gray-400 text-6xl"></i>
+          <i class="fas fa-cogs text-blue-400 text-6xl"></i>
         </div>
         <p class="text-blue-900 font-semibold">Business Central</p>
       </div>
@@ -453,7 +461,7 @@ teams can help you with various accounting tasks.">
       <!-- SAP Hana -->
       <div class="tech-tile flex flex-col items-center transition-transform duration-150 ease-in-out">
         <div class="icon-wrapper border-2 border-gray-300 p-6 mb-6">
-          <i class="fas fa-database text-gray-400 text-6xl"></i>
+          <i class="fas fa-database text-blue-500 text-6xl"></i>
         </div>
         <p class="text-blue-900 font-semibold">SAP Hana</p>
       </div>
@@ -461,7 +469,7 @@ teams can help you with various accounting tasks.">
       <!-- Datev -->
       <div class="tech-tile flex flex-col items-center transition-transform duration-150 ease-in-out">
         <div class="icon-wrapper border-2 border-gray-300 p-6 mb-6">
-          <i class="fas fa-file-invoice text-gray-400 text-6xl"></i>
+          <i class="fas fa-file-invoice text-green-500 text-6xl"></i>
         </div>
         <p class="text-blue-900 font-semibold">Datev</p>
       </div>
@@ -469,7 +477,7 @@ teams can help you with various accounting tasks.">
       <!-- Lexware -->
       <div class="tech-tile flex flex-col items-center transition-transform duration-150 ease-in-out">
         <div class="icon-wrapper border-2 border-gray-300 p-6 mb-6">
-          <i class="fas fa-chart-line text-gray-400 text-6xl"></i>
+          <i class="fas fa-chart-line text-red-400 text-6xl"></i>
         </div>
         <p class="text-blue-900 font-semibold">Lexware</p>
       </div>
@@ -484,9 +492,6 @@ teams can help you with various accounting tasks.">
     </p>
   </div>
 </section>
-
-
-
 
 
 <!-- Parallax Berlin -->
@@ -608,7 +613,7 @@ teams can help you with various accounting tasks.">
 </footer>
 
 <!-- RIGHTS FOOTER -->
-<footer class="bg-gray-800 text-white py-4">
+<footer class="bg-black text-white py-4">
   <div class="max-w-7xl mx-auto px-4 text-center text-sm" data-lang-de="© 2025 FABO Accounting. Alle Rechte vorbehalten." data-lang-en="© 2025 FABO Accounting. All Rights Reserved.">
     © 2025 FABO Accounting. All Rights Reserved.
   </div>
@@ -670,10 +675,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 </script>
-
-
-
-
 
 
 <script>
