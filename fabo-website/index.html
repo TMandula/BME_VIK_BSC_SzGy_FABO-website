@@ -12,20 +12,6 @@
     body { font-family: 'DM Sans', sans-serif; }
     html { scroll-padding-top: 10px; }
 
-    .content-wrapper {
-      max-width: 40rem; /* ~1120px */
-      margin-left: 25rem;
-      margin-right: auto;
-      padding-left: 0.5rem; /* ~8px */
-      padding-right: 0.5rem;
-    }
-    @media (min-width: 640px) {
-      .content-wrapper {
-        padding-left: 1rem; /* ~16px */
-        padding-right: 1rem;
-      }
-    }
-
     /* language switcher */
     .lang-switch { list-style: none; margin: 0; padding: 0; gap: .25rem; }
     .lang-switch li { display: inline-flex; align-items: center; }
@@ -158,7 +144,7 @@
 <!-- HEADER -->
 <header class="fixed w-full bg-white shadow z-50">
   <div id="header-inner"
-    class="max-w-8xl mx-auto px-4 flex justify-between items-stretch" style="height: 60px;">
+    class="max-w-7xl mx-auto px-4 flex justify-between items-stretch" style="height: 60px;">
     
     <!-- Logo -->
     <a href="#home" id="siteLogo" class="flex items-center text-3xl font-bold">
@@ -166,7 +152,7 @@
     </a>
 
     <!-- Desktop Menu -->
-<nav id="desktop-nav" class="flex items-center space-x-6 text-lg font-medium">
+    <nav id="desktop-nav" class="flex items-center space-x-6 text-lg font-medium">
       <a href="#home" 
         class="px-4 py-2 hover:text-blue-400 hover:border-b-4 hover:border-blue-800"
         data-lang-de="Startseite" 
@@ -273,9 +259,12 @@
 </header>
 
 <!-- HERO -->
-<!-- HERO -->
 <section id="home" 
-  class="relative flex items-center justify-center text-center bg-gradient-to-r from-blue-400 to-blue-600 text-white overflow-hidden min-h-screen">
+  class="relative flex items-center justify-center text-center text-white overflow-hidden min-h-screen bg-cover bg-center"
+  style="background-image: url('src/assets/hero-bg2.jpg');">
+
+  <!-- Dark overlay for better text contrast -->
+  <div class="absolute inset-0 bg-black bg-opacity-40 z-0"></div>
 
   <!-- Particles layer -->
   <div id="heroParticles" 
@@ -303,6 +292,7 @@ or sole individuals to support you in the field of finance.">
     </a>
   </div>
 </section>
+
 
 
 
