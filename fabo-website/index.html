@@ -12,19 +12,15 @@
     body { font-family: 'DM Sans', sans-serif; }
     html { scroll-padding-top: 10px; }
 
-    .lang-option { transition: color 0.2s ease; }
-    .lang-option.active { cursor: default; font-weight: bold; color: black; }
-    .lang-option:not(.active):hover { color: lightblue; }
-
     .icon-wrapper {
-  width: 150px; /* fixed square size */
-  height: 150px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 2px solid #d1d5db; /* gray-300 default */
-  transition: border-color 0.3s ease, color 0.3s ease;
-}
+      width: 150px; /* fixed square size */
+      height: 150px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid #d1d5db; /* gray-300 default */
+      transition: border-color 0.3s ease, color 0.3s ease;
+    }
 
     .tech-tile {
       transition: transform 0.15s ease-in-out;
@@ -62,16 +58,37 @@
     }
 
     /* language switcher */
-  .lang-switch { list-style: none; margin: 0; padding: 0; gap: .25rem; }
-  .lang-switch li { display: inline-flex; align-items: center; }
-  .lang-btn {
-    font-weight: 600; letter-spacing: .02em;
-    border-radius: .125rem; transition: color .2s ease, background-color .2s ease, opacity .2s ease;
-  }
-  /* current language: muted + not clickable */
-  .lang-btn[aria-current="true"] { color: #94a3b8; cursor: default; pointer-events: none; opacity: .9; }
-  /* hover for the other language */
-  .lang-btn:not([aria-current="true"]):hover { color: #ffffff; background: #1d4ed8; }
+    .lang-switch { 
+      list-style: none; 
+      margin: 0; 
+      padding: 0; 
+      gap: .25rem; 
+    }
+    .lang-switch li { 
+      display: inline-flex; 
+      align-items: center; 
+    }
+    .lang-btn {
+      font-weight: 600; 
+      letter-spacing: .02em;
+      border-radius: .125rem; 
+      transition: color .2s ease, background-color .2s ease, opacity .2s ease;
+    }
+    /* current language: muted + not clickable */
+    .lang-btn[aria-current="true"] { 
+      color: #000000; 
+      cursor: default; 
+      pointer-events: none; 
+      opacity: .9; 
+    }
+    /* Selectable language: darker gray, hover → white text on blue bg */
+    .lang-btn:not([aria-current="true"]) { 
+      color: #94a3b8;/* light gray */
+    }
+    /* hover for the other language */
+    .lang-btn:not([aria-current="true"]):hover { 
+      color: #6491DE; 
+    }
   </style>
 </head>
 <body class="bg-white text-gray-900">
@@ -119,14 +136,14 @@
       </a>
 
       <ul class="lang-switch hidden md:flex items-center ml-4" role="list">
-  <li>
-    <button type="button" class="lang-btn px-1 py-0.5" data-lang-btn="de">DE</button>
-  </li>
-  <li aria-hidden="true" class="px-1 text-gray-400">|</li>
-  <li>
-    <button type="button" class="lang-btn px-1 py-0.5" data-lang-btn="en">EN</button>
-  </li>
-</ul>
+      <li>
+        <button type="button" class="lang-btn px-1 py-0.5" data-lang-btn="de">DE</button>
+      </li>
+      <li aria-hidden="true" class="px-1 text-gray-600">|</li>
+      <li>
+        <button type="button" class="lang-btn px-1 py-0.5" data-lang-btn="en">EN</button>
+      </li>
+    </ul>
     </nav>
 
     <!-- Mobile Hamburger Icon -->
