@@ -166,7 +166,7 @@
     </a>
 
     <!-- Desktop Menu -->
-    <nav id="desktop-nav" class="hidden md:flex items-center space-x-6 text-lg font-medium">
+<nav id="desktop-nav" class="flex items-center space-x-6 text-lg font-medium">
       <a href="#home" 
         class="px-4 py-2 hover:text-blue-400 hover:border-b-4 hover:border-blue-800"
         data-lang-de="Startseite" 
@@ -207,7 +207,7 @@
     </nav>
 
     <!-- Hamburger Icon -->
-    <button id="hamburger" class="md:hidden focus:outline-none">
+<button id="hamburger" class="hidden focus:outline-none">
       <svg class="w-8 h-8 text-black" fill="none" stroke="currentColor" stroke-width="2"
             viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round"
@@ -623,48 +623,46 @@ teams can help you with various accounting tasks.">
 </footer>
 
 
-<!-- LANGUAGE SWITCH SCRIPT -->
 <script>
-  const langDeBtn = document.getElementById('lang-de');
-  const langEnBtn = document.getElementById('lang-en');
-
-  function switchLang(lang) {
-    // Switch text content
-    document.querySelectorAll('[data-lang-de]').forEach(el => {
-      el.textContent = el.getAttribute(`data-lang-${lang}`);
-    });
-    // Switch placeholders
-    document.querySelectorAll('[data-placeholder-de]').forEach(el => {
-      el.placeholder = el.getAttribute(`data-placeholder-${lang}`);
-    });
-    // Active state
-    if (lang === 'de') {
-      langDeBtn.classList.add('active');
-      langEnBtn.classList.remove('active');
-    } else {
-      langEnBtn.classList.add('active');
-      langDeBtn.classList.remove('active');
-    }
-    localStorage.setItem('preferredLang', lang);
-  }
-
-  langDeBtn.addEventListener('click', () => {
-    if (!langDeBtn.classList.contains('active')) switchLang('de');
-  });
-  langEnBtn.addEventListener('click', () => {
-    if (!langEnBtn.classList.contains('active')) switchLang('en');
-  });
-
-  const savedLang = localStorage.getItem('preferredLang') || 'de';
-  switchLang(savedLang);
-</script>
-
-<!-- JS for Toggle -->
-<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const desktopNav = document.getElementById("desktop-nav");
   const hamburger = document.getElementById("hamburger");
+  const headerInner = document.getElementById("header-inner");
+  const siteLogo = document.getElementById("siteLogo");
+  const langSwitch = document.querySelector(".lang-switch");
   const mobileMenu = document.getElementById("mobileMenu");
   const closeMenu = document.getElementById("closeMenu");
 
+  function updateMenuDisplay() {
+    // Always show temporarily for measurement
+    desktopNav.classList.remove("hidden");
+
+    const totalWidth =
+      (siteLogo?.scrollWidth || 0) +
+      (desktopNav?.scrollWidth || 0) +
+      (langSwitch?.scrollWidth || 0) +
+      40; // small buffer for spacing
+
+    if (totalWidth > headerInner.clientWidth) {
+      desktopNav.classList.add("hidden");
+      hamburger.classList.remove("hidden");
+    } else {
+      desktopNav.classList.remove("hidden");
+      hamburger.classList.add("hidden");
+    }
+  }
+
+  // Run once on load
+  updateMenuDisplay();
+
+  // Run on window resize
+  window.addEventListener("resize", updateMenuDisplay);
+
+  // Also run when header content changes size
+  const ro = new ResizeObserver(updateMenuDisplay);
+  ro.observe(headerInner);
+
+  // Mobile menu open/close
   hamburger.addEventListener("click", () => {
     mobileMenu.classList.remove("hidden");
   });
@@ -678,7 +676,13 @@ teams can help you with various accounting tasks.">
       mobileMenu.classList.add("hidden");
     }
   });
+});
 </script>
+
+
+
+
+
 
 <script>
   // unified language switching (desktop + hamburger)
