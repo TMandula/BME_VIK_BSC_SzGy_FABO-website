@@ -20,28 +20,42 @@
       border-radius: .125rem; transition: color .2s ease, background-color .2s ease, opacity .2s ease;
     }
     /* current language */
-    .lang-btn[aria-current="true"] { color: #000000; cursor: default; pointer-events: none; opacity: .9; }
+    .lang-btn[aria-current="true"] { color: #ffffff; /* light gray */ cursor: default; pointer-events: none; opacity: .9; }
     /* selectable language */
-    .lang-btn:not([aria-current="true"]) { color: #99a8bb;/* light gray */ }
+    .lang-btn:not([aria-current="true"]) { color: #99a8bb; }
     /* hover for the other language */
-    .lang-btn:not([aria-current="true"]):hover { color: #74a7ff; }
+    .lang-btn:not([aria-current="true"]):hover { color: #ffffff; }
 
     /* header */
-    header nav {
-      display: flex;
-      align-items: stretch; /* Makes links match the header height */
+    /* Base link style */
+    .nav-link {
+      position: relative;
+      display: inline-block;
+      padding: 0.5rem 0;   /* vertical spacing inside header */
+      margin: 0 0.75rem;   /* space between items */
+      text-decoration: none;
+      color: white;
+      transition: color 0.2s ease;
     }
-    header nav a {
-      display: flex;
-      align-items: center;    /* Vertically center text */
-      padding: 0 1rem;        /* Horizontal spacing */
-      height: 100%;           /* Fill full header height */
-      text-decoration: none;  /* Remove default underline */
-      transition: color 0.2s ease, background-color 0.2s ease;
+
+    /* Underline effect */
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;            /* sits just below the text */
+      width: 0%;
+      height: 2px;
+      background-color: #ffffff; /* blue underline */
+      transition: width 0.25s ease;
     }
-    header nav a:hover {
-      color: #6491DE;         /* Light blue text */
-      background-color: rgba(0, 0, 0, 0.05); /* Subtle hover background */
+
+    .nav-link:hover {
+      color: #ffffff; /* lighter blue on hover */
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
     }
 
     /* icon wrapper */
@@ -141,59 +155,35 @@
 <body class="bg-white text-gray-900">
 
 <!-- HEADER -->
-<header class="fixed w-full bg-white shadow z-50">
+<header class="fixed w-full bg-transparent shadow z-50">
   <div id="header-inner"
-    class="max-w-7xl mx-auto px-4 flex justify-between items-stretch" style="height: 60px;">
+    class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex justify-between items-stretch" style="height: 90px;">
     
     <!-- Logo -->
-    <a href="#home" id="siteLogo" class="flex items-center text-3xl font-bold">
+    <a id="siteLogo" href="#home" class="flex items-center text-4xl font-extrabold text-white">
       FABO
     </a>
 
     <!-- Desktop Menu -->
-    <nav id="desktop-nav" class="flex items-center space-x-6 text-lg font-medium">
-      <a href="#home" 
-        class="px-4 py-2 hover:text-blue-400 hover:border-b-4 hover:border-blue-800"
-        data-lang-de="Startseite" 
-        data-lang-en="Home">
-        Home
-      </a>
-      <a href="#about" 
-        class="px-4 py-2 hover:text-blue-400 hover:border-b-4 hover:border-blue-800"
-        data-lang-de="Über uns" 
-        data-lang-en="About us">
-        Company
-      </a>
-      <a href="#services" 
-        class="px-4 py-2 hover:text-blue-400 hover:border-b-4 hover:border-blue-800" 
-        data-lang-de="Dienstleistungen" 
-        data-lang-en="Services">
-        Services
-      </a>
-      <a href="#technologies" 
-        class="px-4 py-2 hover:text-blue-400 hover:border-b-4 hover:border-blue-800"
-        data-lang-de="Technologien" 
-        data-lang-en="Technologies">
-        Technologies
-      </a>
-      <a href="#contact" 
-        class="px-4 py-2 hover:text-blue-400 hover:border-b-4 hover:border-blue-800"
-        data-lang-de="Kontakt" 
-        data-lang-en="Contact us">
-        Contact
-      </a>
-
+     <nav id="desktop-nav" class="flex items-center space-x-6 text-lg font-medium">
+      <a href="#home" class="nav-link" data-lang-de="Startseite" data-lang-en="Home">Home</a>
+      <a href="#about" class="nav-link" data-lang-de="Über uns" data-lang-en="About us">Company</a>
+      <a href="#services" class="nav-link" data-lang-de="Dienstleistungen" data-lang-en="Services">Services</a>
+      <a href="#technologies" class="nav-link" data-lang-de="Technologien" data-lang-en="Technologies">Technologies</a>
+      <a href="#contact" class="nav-link" data-lang-de="Kontakt" data-lang-en="Contact us">Contact</a>
+      
       <!-- Language Selector -->
       <ul class="lang-switch flex items-center ml-4" role="list">
         <li><button type="button" class="lang-btn px-1 py-0.5" data-lang-btn="de">DE</button></li>
-        <li aria-hidden="true" class="px-1 text-gray-400">|</li>
+        <li aria-hidden="true" class="px-1 text-gray-400 text-white">|</li>
         <li><button type="button" class="lang-btn px-1 py-0.5" data-lang-btn="en">EN</button></li>
       </ul>
+
     </nav>
 
     <!-- Hamburger Icon -->
     <button id="hamburger" class="hidden focus:outline-none">
-      <svg class="w-8 h-8 text-black" fill="none" stroke="currentColor" stroke-width="2"
+      <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" stroke-width="2"
             viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round"
               d="M4 6h16M4 12h16M4 18h16"/>
@@ -322,15 +312,12 @@ consuming or time-sensitive processes. Contact us for more information!">
   </div>
 </section>
 
-
 <!-- Parallax - Deutsche Landschaft -->
 <section class="h-[60vh] bg-fixed bg-center bg-cover" style="background-image: url(src/assets/eric-weber--KPwl1VaSyw-unsplash.jpg);">
     <div class="h-full bg-black bg-opacity-30 flex items-center justify-center">
         <h2 class="text-white text-4xl font-bold drop-shadow-lg">Turning numbers into opportunities.</h2>
     </div>
 </section>
-
-
 
 <!-- About Us Section -->
 <section id="about" class="max-w-4xl mx-auto px-6 py-16">
@@ -416,7 +403,6 @@ consuming or time-sensitive processes. Contact us for more information!">
   </div>
 </section>
 
-
 <!-- Parallax - Berliner Fernsehturm -->
 <section class="h-[60vh] bg-fixed bg-center bg-cover" style="background-image: url(src/assets/tim-hufner-d7TjlJ4MNMs-unsplash.jpg);">
     <div class="h-full bg-black bg-opacity-30 flex items-center justify-center">
@@ -427,7 +413,6 @@ consuming or time-sensitive processes. Contact us for more information!">
       </h2>
     </div>
 </section>
-
 
 <!-- BRANCHEN -->
 <section id="branchen" class="py-16 text-center">
@@ -443,7 +428,6 @@ consuming or time-sensitive processes. Contact us for more information!">
     </div>
   </div>
 </section>
-
 
 <!-- TECHNOLOGIES -->
 <section id="technologies" class="py-20 bg-slate-50">
@@ -461,7 +445,6 @@ consuming or time-sensitive processes. Contact us for more information!">
     <p class="mt-10 text-xs text-slate-500">Alle Produktnamen, Logos und Marken sind Eigentum ihrer jeweiligen Inhaber.</p>
   </div>
 </section>
-
 
 <!-- TECHNOLOGIES -->
 <section id="technologies" class="bg-white py-16 px-4">
@@ -525,7 +508,6 @@ consuming or time-sensitive processes. Contact us for more information!">
   </div>
 </section>
 
-
 <!-- Parallax - Brangengurger Tor -->
 <section class="h-[60vh] bg-fixed bg-center bg-cover" style="background-image: url(src/assets/grandenburger_tor.jpg);">
     <div class="h-full bg-black bg-opacity-30 flex items-center justify-center">
@@ -536,7 +518,6 @@ consuming or time-sensitive processes. Contact us for more information!">
       </h2>
     </div>
 </section>
-
 
 <!-- CONTACT US -->
 <section id="contact" class="py-16 max-w-7xl mx-auto px-4">
@@ -605,8 +586,6 @@ consuming or time-sensitive processes. Contact us for more information!">
   </div>
 </section>
 
-
-
 <!-- ABOUT -->
 <section id="about" class="py-16 border-t">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-10 items-center">
@@ -622,8 +601,6 @@ consuming or time-sensitive processes. Contact us for more information!">
     <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=1400&auto=format&fit=crop" alt="Teamarbeit im Finanzwesen" class="rounded-2xl border object-cover w-full h-72" loading="lazy">
   </div>
 </section>
-
-
 
 <!-- FOOTER -->
 <footer class="bg-slate-900 text-slate-200">
@@ -692,7 +669,6 @@ consuming or time-sensitive processes. Contact us for more information!">
   </div>
 </div>
 
-
 <script>
 document.addEventListener("DOMContentLoaded", () => {
   const desktopNav = document.getElementById("desktop-nav");
@@ -748,7 +724,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 </script>
-
 
 <script>
   // unified language switching (desktop + hamburger)
