@@ -51,16 +51,10 @@
     header.transparent .brand-sub { color: #ffffff; }
     header.solid .brand-main,
     header.solid .brand-sub { color: #000000; }
-
+    
     /* Smooth transition */
     header {
       transition: background-color 0.4s ease, box-shadow 0.4s ease;
-    }
-
-    header nav a,
-    header .lang-btn,
-    header #hamburger svg {
-      transition: color 0.4s ease, border-color 0.3s ease;
     }
 
     /* States */
@@ -72,6 +66,12 @@
     header.solid       .nav-link { color: #000000; }
     header.transparent .nav-link::after { background-color: #ffffff; }
     header.solid       .nav-link::after { background-color: #000000; }
+
+    /*header nav a,*/
+    header .lang-btn,
+    header #hamburger svg {
+      transition: color 0.4s ease, border-color 0.3s ease;
+    }
 
     /* Language switcher */
     .lang-switch { list-style: none; margin: 0; padding: 0; gap: .25rem; }
@@ -205,6 +205,17 @@
       100% { transform: scale(1); }    /* Grow back */
     }
 
+    /* Minimal additions */
+  header.hidden {
+    transform: translateY(-100%);
+    opacity: 0;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+  }
+  header.transparent,
+  header.solid {
+    transition: background-color 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease, opacity 0.4s ease;
+  }
+
 
   </style>
 </head>
@@ -277,32 +288,29 @@
 document.addEventListener('DOMContentLoaded', () => {
   const header = document.getElementById('mainHeader');
   const hero   = document.getElementById('home'); // your Hero section
+  const headerHeight = 80; // px
 
-  function setHeaderState(solid) {
-    header.classList.toggle('solid', solid);
-    header.classList.toggle('transparent', !solid);
+  function updateHeader() {
+    const scrollY = window.scrollY || window.pageYOffset;
+    const heroHeight = hero ? hero.offsetHeight : 0;
+
+    if (scrollY === 0) {
+      header.classList.remove('solid', 'hidden');
+      header.classList.add('transparent');
+    } else if (scrollY > 0 && scrollY < heroHeight) {
+      header.classList.remove('transparent', 'solid');
+      header.classList.add('hidden');
+    } else {
+      header.classList.remove('transparent', 'hidden');
+      header.classList.add('solid');
+    }
   }
 
-  // Initial state (in case page loads scrolled)
-  if (hero) {
-    const heroBottom = hero.getBoundingClientRect().bottom;
-    setHeaderState(heroBottom <= 80); // 80px header height
-  } else {
-    setHeaderState(true);
-  }
+  // Initial check
+  updateHeader();
 
-  // Switch when crossing the hero area
-  const io = new IntersectionObserver(
-    entries => {
-      for (const entry of entries) {
-        // If hero is NOT intersecting (i.e., left the hero), make header solid
-        setHeaderState(!entry.isIntersecting);
-      }
-    },
-    { root: null, threshold: 0, rootMargin: '-80px 0px 0px 0px' } // offset for header height
-  );
-
-  if (hero) io.observe(hero);
+  // Update header on scroll
+  window.addEventListener('scroll', updateHeader);
 });
 </script>
 
