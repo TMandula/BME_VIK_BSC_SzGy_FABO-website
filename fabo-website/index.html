@@ -5,27 +5,134 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title data-lang-de="Unternehmen" data-lang-en="Company">Unternehmen</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Serif+Text:ital@0;1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
   <style>
     body { font-family: 'DM Sans', sans-serif; }
     html { scroll-padding-top: 10px; }
 
-    /* language switcher */
+    
+    /* Brand logo color switches with header */
+    .brand-main, .brand-sub { transition: color .4s ease; }
+    header.transparent .brand-main,
+    header.transparent .brand-sub { color: #ffffff; }
+    header.solid .brand-main,
+    header.solid .brand-sub { color: #000000; }
+
+    /* Smooth transition */
+    header {
+      transition: background-color 0.4s ease, box-shadow 0.4s ease;
+    }
+    header nav a,
+    header .lang-btn,
+    header #hamburger svg {
+      transition: color 0.4s ease, border-color 0.3s ease;
+    }
+    /* States */
+    header.transparent { background-color: transparent; box-shadow: none; }
+    header.solid { background-color: #ffffff; box-shadow: 0 2px 6px rgba(0,0,0,.1); }
+
+    /* Colors by state */
+    header.transparent .nav-link { color: #ffffff; }
+    header.solid       .nav-link { color: #000000; }
+
+    header.transparent .nav-link::after { background-color: #ffffff; }
+    header.solid       .nav-link::after { background-color: #000000; }
+
+    /* Language switcher */
     .lang-switch { list-style: none; margin: 0; padding: 0; gap: .25rem; }
     .lang-switch li { display: inline-flex; align-items: center; }
+
+    /* default button style */
     .lang-btn {
-      font-weight: 600; letter-spacing: .02em;
-      border-radius: .125rem; transition: color .2s ease, background-color .2s ease, opacity .2s ease;
+      font-weight: 600;
+      letter-spacing: .02em;
+      border-radius: .125rem;
+      transition: color 0.2s ease, background-color 0.2s ease, opacity 0.2s ease;
     }
-    /* current language */
-    .lang-btn[aria-current="true"] { color: #ffffff; /* light gray */ cursor: default; pointer-events: none; opacity: .9; }
-    /* selectable language */
-    .lang-btn:not([aria-current="true"]) { color: #99a8bb; }
-    /* hover for the other language */
-    .lang-btn:not([aria-current="true"]):hover { color: #ffffff; }
+
+    /* --- in Transparent Header (Hero) --- */
+    header.transparent .lang-btn[aria-current="true"] {
+      color: #ffffff; /* active = white */
+      cursor: default;
+      pointer-events: none;
+      opacity: .9;
+    }
+    header.transparent .lang-btn:not([aria-current="true"]) {
+      color: #99a8bb; /* inactive = gray */
+    }
+    header.transparent .lang-btn:not([aria-current="true"]):hover {
+      color: #ffffff; /* hover = white */
+    }
+    header.transparent .lang-divider {
+      color: #ffffff;
+    }
+
+    /* --- in Solid Header (after Hero) --- */
+    header.solid .lang-btn[aria-current="true"] {
+      color: #000000; /* active = black */
+      cursor: default;
+      pointer-events: none;
+      opacity: .9;
+    }
+    header.solid .lang-btn:not([aria-current="true"]) {
+      color: #99a8bb; /* inactive = gray */
+    }
+    header.solid .lang-btn:not([aria-current="true"]):hover {
+      color: #000000; /* hover = black */
+    }
+    header.solid .lang-divider {
+      color: #000000;
+    }
+
+    /* Hamburger Menu */
+    /* Hamburger icon base */
+    #hamburger svg {
+      transition: color 0.4s ease;
+    }
+    /* --- in Transparent Header (Hero) --- */
+    header.transparent #hamburger svg {
+      color: white;
+    }
+    /* --- in Solid Header (after Hero) --- */
+    header.solid #hamburger svg {
+      color: black;
+    }
+
+    /* Mobile menu container */
+    #mobileMenu {
+      color: black;
+    }
+
+    /* Mobile nav links inside the hamburger menu */
+    #mobileMenu a {
+      color: black;
+    }
+
+    #mobileMenu a:hover {
+      color: #6491DE; /* same hover blue as desktop */
+    }
+
+    /* Language selector inside mobile menu */
+    #mobileMenu .lang-btn[aria-current="true"] {
+      color: black;              /* active language = black */
+      cursor: default;
+      pointer-events: none;
+      opacity: 0.9;
+    }
+
+    #mobileMenu .lang-divider {
+      color: #000000;
+    }
+
+    #mobileMenu .lang-btn:not([aria-current="true"]) {
+      color: #99a8bb;            /* inactive = gray */
+    }
+
+    #mobileMenu .lang-btn:not([aria-current="true"]):hover {
+      color: black;              /* hover = black */
+    }
 
     /* header */
     /* Base link style */
@@ -153,51 +260,79 @@
   })();
 </script>
 
+<!-- HEADER script -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const header = document.getElementById('mainHeader');
+  const hero   = document.getElementById('home'); // your Hero section
+
+  function setHeaderState(solid) {
+    header.classList.toggle('solid', solid);
+    header.classList.toggle('transparent', !solid);
+  }
+
+  // Initial state (in case page loads scrolled)
+  if (hero) {
+    const heroBottom = hero.getBoundingClientRect().bottom;
+    setHeaderState(heroBottom <= 80); // 80px header height
+  } else {
+    setHeaderState(true);
+  }
+
+  // Switch when crossing the hero area
+  const io = new IntersectionObserver(
+    entries => {
+      for (const entry of entries) {
+        // If hero is NOT intersecting (i.e., left the hero), make header solid
+        setHeaderState(!entry.isIntersecting);
+      }
+    },
+    { root: null, threshold: 0, rootMargin: '-80px 0px 0px 0px' } // offset for header height
+  );
+
+  if (hero) io.observe(hero);
+});
+</script>
+
+
+
 <body class="bg-white text-gray-900">
 
-<!-- HEADER -->
-<header class="fixed w-full bg-transparent shadow z-50">
-  <div id="header-inner"
-    class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex justify-between items-stretch" style="height: 90px;">
+<header id="mainHeader" class="fixed w-full z-50 transparent">
+  <div id="header-inner" class="max-w-7xl mx-auto px-4 flex justify-between items-stretch" style="height: 80px;">
     
     <!-- Logo -->
     <a href="#home" id="siteLogo" class="flex items-center space-x-3">
       <!-- Left big text -->
-      <span class="text-5xl font-bold tracking-wide flex items-center"
-            style="font-family: 'DM Serif Text', serif; color: #ffffff; line-height:1;">
+      <span class="brand-main text-5xl font-bold tracking-wide flex items-center"
+            style="font-family: 'DM Serif Text', serif; line-height:1;">
         FABO
       </span>
-      <!-- Right stacked text (tighter + vertically centered) -->
-      <div class="flex flex-col justify-center leading-[1.1] ml-2"> 
-        <span class="text-base font-semibold"
-              style="font-family: 'DM Sans', sans-serif; color: #ffffff;">
+      <!-- Right stacked text -->
+      <div class="flex flex-col justify-center leading-[1.1] ml-2">
+        <span class="brand-sub text-base font-semibold" style="font-family: 'DM Sans', sans-serif;">
           ACCOUNTING
         </span>
-        <span class="text-base font-semibold -mt-1"
-              style="font-family: 'DM Sans', sans-serif; color: #ffffff;">
+        <span class="brand-sub text-base font-semibold -mt-1" style="font-family: 'DM Sans', sans-serif;">
           & SERVICES
         </span>
       </div>
     </a>
 
-
-
-
     <!-- Desktop Menu -->
-     <nav id="desktop-nav" class="flex items-center space-x-6 text-lg font-medium">
-      <a href="#home" class="nav-link" data-lang-de="Startseite" data-lang-en="Home">Home</a>
-      <a href="#about" class="nav-link" data-lang-de="Über uns" data-lang-en="About us">Company</a>
-      <a href="#services" class="nav-link" data-lang-de="Dienstleistungen" data-lang-en="Services">Services</a>
+    <nav id="desktop-nav" class="flex items-center space-x-6 text-lg font-medium">
+      <a href="#home"         class="nav-link" data-lang-de="Startseite"   data-lang-en="Home">Home</a>
+      <a href="#about"        class="nav-link" data-lang-de="Über uns"     data-lang-en="About us">Company</a>
+      <a href="#services"     class="nav-link" data-lang-de="Dienstleistungen" data-lang-en="Services">Services</a>
       <a href="#technologies" class="nav-link" data-lang-de="Technologien" data-lang-en="Technologies">Technologies</a>
-      <a href="#contact" class="nav-link" data-lang-de="Kontakt" data-lang-en="Contact us">Contact</a>
-      
+      <a href="#contact"      class="nav-link" data-lang-de="Kontakt"      data-lang-en="Contact us">Contact</a>
+
       <!-- Language Selector -->
       <ul class="lang-switch flex items-center ml-4" role="list">
         <li><button type="button" class="lang-btn px-1 py-0.5" data-lang-btn="de">DE</button></li>
-        <li aria-hidden="true" class="px-1 text-gray-400 text-white">|</li>
+        <li aria-hidden="true" class="px-1 lang-divider">|</li>
         <li><button type="button" class="lang-btn px-1 py-0.5" data-lang-btn="en">EN</button></li>
       </ul>
-
     </nav>
 
     <!-- Hamburger Icon -->
@@ -225,7 +360,8 @@
       <!-- Language Selector (mobile) -->
       <ul class="lang-switch flex items-center mb-8" role="list">
         <li><button type="button" class="lang-btn px-1 py-0.5" data-lang-btn="de">DE</button></li>
-        <li aria-hidden="true" class="px-1 text-gray-400">|</li>
+        <li aria-hidden="true" class="px-1 lang-divider">|</li>
+
         <li><button type="button" class="lang-btn px-1 py-0.5" data-lang-btn="en">EN</button></li>
       </ul>
 
