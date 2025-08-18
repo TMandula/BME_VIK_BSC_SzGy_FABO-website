@@ -206,15 +206,13 @@
     }
 
     /* Minimal additions */
-  header.hidden {
-    transform: translateY(-100%);
-    opacity: 0;
-    transition: transform 0.4s ease, opacity 0.4s ease;
-  }
-  header.transparent,
-  header.solid {
-    transition: background-color 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease, opacity 0.4s ease;
-  }
+    header.transparent { transform: translateY(0); opacity:1; }
+    header.hidden      { transform: translateY(-100%); opacity:0; }
+    header.solid       { transform: translateY(0); opacity:1; }
+    header { transition: transform 0.5s ease, opacity 0.5s ease, background-color 0.4s ease, box-shadow 0.4s ease; }
+
+    header.transparent .brand-main, .nav-link, #hamburger svg { color: white; }
+    header.solid .brand-main, .nav-link, #hamburger svg { color: black; }
 
 
   </style>
@@ -287,37 +285,41 @@
 <script>
 document.addEventListener('DOMContentLoaded', () => {
   const header = document.getElementById('mainHeader');
-  const hero   = document.getElementById('home'); // your Hero section
-  const headerHeight = 80; // px
+  const hero   = document.getElementById('home'); 
+  const heroHeight = hero.offsetHeight;
 
   function updateHeader() {
     const scrollY = window.scrollY || window.pageYOffset;
-    const heroHeight = hero ? hero.offsetHeight : 0;
 
     if (scrollY === 0) {
-      header.classList.remove('solid', 'hidden');
-      header.classList.add('transparent');
+      // Transparent at top
+      header.classList.remove('translate-y-[-100%]','opacity-0','bg-white','text-black');
+      header.classList.add('translate-y-0','opacity-100','bg-transparent','text-white');
     } else if (scrollY > 0 && scrollY < heroHeight) {
-      header.classList.remove('transparent', 'solid');
-      header.classList.add('hidden');
+      // Hidden while scrolling Hero
+      header.classList.remove('translate-y-0','opacity-100','bg-white','text-black','bg-transparent','text-white');
+      header.classList.add('translate-y-[-100%]','opacity-0');
     } else {
-      header.classList.remove('transparent', 'hidden');
-      header.classList.add('solid');
+      // Solid after Hero
+      header.classList.remove('translate-y-[-100%]','opacity-0','bg-transparent','text-white');
+      header.classList.add('translate-y-0','opacity-100','bg-white','text-black');
     }
   }
 
   // Initial check
   updateHeader();
 
-  // Update header on scroll
+  // Update on scroll
   window.addEventListener('scroll', updateHeader);
 });
 </script>
 
+
 <body class="bg-white text-gray-900">
 
 <!-- HEADER -->
-<header id="mainHeader" class="fixed top-0 left-0 w-full z-50 transparent">
+<header id="mainHeader" 
+        class="fixed top-0 left-0 w-full z-50 transform transition-transform duration-1000 ease-in-out translate-y-0 opacity-100 bg-transparent">
   <div id="header-inner" 
     class="max-w-7xl mx-auto px-4 flex justify-between items-center" 
     style="height: 80px;">
