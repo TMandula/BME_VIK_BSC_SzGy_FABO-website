@@ -6,6 +6,7 @@
   <title data-lang-de="Unternehmen" data-lang-en="Company">Unternehmen</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
   <style>
@@ -160,9 +161,27 @@
     class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex justify-between items-stretch" style="height: 90px;">
     
     <!-- Logo -->
-    <a id="siteLogo" href="#home" class="flex items-center text-4xl font-extrabold text-white">
-      FABO
+    <a href="#home" id="siteLogo" class="flex items-center space-x-3">
+      <!-- Left big text -->
+      <span class="text-5xl font-bold tracking-wide flex items-center"
+            style="font-family: 'DM Serif Text', serif; color: #ffffff; line-height:1;">
+        FABO
+      </span>
+      <!-- Right stacked text (tighter + vertically centered) -->
+      <div class="flex flex-col justify-center leading-[1.1] ml-2"> 
+        <span class="text-base font-semibold"
+              style="font-family: 'DM Sans', sans-serif; color: #ffffff;">
+          ACCOUNTING
+        </span>
+        <span class="text-base font-semibold -mt-1"
+              style="font-family: 'DM Sans', sans-serif; color: #ffffff;">
+          & SERVICES
+        </span>
+      </div>
     </a>
+
+
+
 
     <!-- Desktop Menu -->
      <nav id="desktop-nav" class="flex items-center space-x-6 text-lg font-medium">
