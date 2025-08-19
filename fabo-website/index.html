@@ -245,62 +245,42 @@
     </button>
   </div>
 
-  <!-- Mobile Menu Overlay -->
-  <div id="mobileMenu" class="fixed inset-0 bg-black bg-opacity-50 hidden z-40">
-    <div class="absolute right-0 top-0 h-full w-72 bg-white shadow-lg p-6 flex flex-col">
-      <!-- Close Button -->
-      <button id="closeMenu" class="self-end mb-6">
-        <svg class="w-6 h-6 text-black" fill="none" stroke="currentColor" stroke-width="2"
-             viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round"
-                d="M6 18L18 6M6 6l12 12"/>
-        </svg>
-      </button>
-
-      <!-- Language Selector (mobile) -->
-      <ul class="lang-switch flex items-center mb-8" role="list">
-        <li><button type="button" class="lang-btn px-1 py-0.5" data-lang-btn="de">DE</button></li>
-        <li aria-hidden="true" class="px-1 lang-divider">|</li>
-
-        <li><button type="button" class="lang-btn px-1 py-0.5" data-lang-btn="en">EN</button></li>
-      </ul>
-
-
-      <!-- Mobile Menu Items -->
-      <a href="#home" 
-        class="py-2 border-b border-gray-200 hover:text-blue-500"
-        data-lang-de="Startseite" 
-        data-lang-en="Home">
-        Home
-      </a>
-      <a href="#about" 
-        class="py-2 border-b border-gray-200 hover:text-blue-500"
-        data-lang-de="Über uns" 
-        data-lang-en="About us">
-        Company
-      </a>
-      <a href="#services" 
-        class="py-2 border-b border-gray-200 hover:text-blue-500"
-        data-lang-de="Dienstleistungen" 
-        data-lang-en="Services">
-        Services
-      </a>
-      <a href="#technologies" 
-        class="py-2 border-b border-gray-200 hover:text-blue-500"
-        data-lang-de="Technologien" 
-        data-lang-en="Technologies">
-        Technologies
-      </a>
-      <a href="#contact" 
-        class="py-2 border-b border-gray-200 hover:text-blue-500"
-        data-lang-de="Kontakt" 
-        data-lang-en="Contact us">
-        Contact
-      </a>
-    </div>
-  </div>
 
 </header>
+
+
+<!-- Place this OUTSIDE your <header> (e.g. right after </header>) -->
+<div id="mobileMenu" class="fixed inset-0 hidden z-50">
+  <!-- Dark overlay -->
+  <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+
+  <!-- White slide-in panel -->
+  <div id="mobilePanel" class="absolute right-0 top-0 h-full w-72 bg-white text-black shadow-lg p-6 flex flex-col transform translate-x-full transition-transform duration-300 z-50">
+    <!-- Close Button -->
+    <button id="closeMenu" class="self-end mb-6">
+      <svg class="w-6 h-6 text-black" fill="none" stroke="currentColor" stroke-width="2"
+           viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round"
+              d="M6 18L18 6M6 6l12 12"/>
+      </svg>
+    </button>
+
+    <!-- Language Selector -->
+    <ul class="lang-switch flex items-center mb-8 text-black" role="list">
+      <li><button type="button" class="lang-btn px-1 py-0.5 text-black" data-lang-btn="de">DE</button></li>
+      <li aria-hidden="true" class="px-1 lang-divider text-black">|</li>
+      <li><button type="button" class="lang-btn px-1 py-0.5 text-black" data-lang-btn="en">EN</button></li>
+    </ul>
+
+    <!-- Mobile Menu Items -->
+    <a href="#home" class="py-2 border-b border-gray-200 hover:text-blue-500 text-black">Home</a>
+    <a href="#about" class="py-2 border-b border-gray-200 hover:text-blue-500 text-black">Company</a>
+    <a href="#services" class="py-2 border-b border-gray-200 hover:text-blue-500 text-black">Services</a>
+    <a href="#technologies" class="py-2 border-b border-gray-200 hover:text-blue-500 text-black">Technologies</a>
+    <a href="#contact" class="py-2 border-b border-gray-200 hover:text-blue-500 text-black">Contact</a>
+  </div>
+</div>
+
 
 <!-- HERO -->
 <section id="home" 
@@ -737,17 +717,17 @@ document.addEventListener("DOMContentLoaded", () => {
   const siteLogo = document.getElementById("siteLogo");
   const langSwitch = document.querySelector(".lang-switch");
   const mobileMenu = document.getElementById("mobileMenu");
+  const mobilePanel = document.getElementById("mobilePanel");
   const closeMenu = document.getElementById("closeMenu");
 
+  // --- Desktop Menu Handling ---
   function updateMenuDisplay() {
-    // Always show temporarily for measurement
-    desktopNav.classList.remove("hidden");
-
+    desktopNav.classList.remove("hidden"); // show temporarily for measurement
     const totalWidth =
       (siteLogo?.scrollWidth || 0) +
       (desktopNav?.scrollWidth || 0) +
       (langSwitch?.scrollWidth || 0) +
-      40; // small buffer for spacing
+      40; // buffer for spacing
 
     if (totalWidth > headerInner.clientWidth) {
       desktopNav.classList.add("hidden");
@@ -758,28 +738,27 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Run once on load
   updateMenuDisplay();
-
-  // Run on window resize
   window.addEventListener("resize", updateMenuDisplay);
+  new ResizeObserver(updateMenuDisplay).observe(headerInner);
 
-  // Also run when header content changes size
-  const ro = new ResizeObserver(updateMenuDisplay);
-  ro.observe(headerInner);
-
-  // Mobile menu open/close
-  hamburger.addEventListener("click", () => {
+  // --- Mobile Menu Handling ---
+  function openMenu() {
     mobileMenu.classList.remove("hidden");
-  });
+    setTimeout(() => mobilePanel.classList.remove("translate-x-full"), 10);
+  }
 
-  closeMenu.addEventListener("click", () => {
-    mobileMenu.classList.add("hidden");
-  });
+  function closeMenuPanel() {
+    mobilePanel.classList.add("translate-x-full");
+    setTimeout(() => mobileMenu.classList.add("hidden"), 300);
+  }
+
+  hamburger.addEventListener("click", openMenu);
+  closeMenu.addEventListener("click", closeMenuPanel);
 
   mobileMenu.addEventListener("click", (e) => {
-    if (e.target === mobileMenu) {
-      mobileMenu.classList.add("hidden");
+    if (e.target === mobileMenu || e.target.classList.contains("bg-opacity-50")) {
+      closeMenuPanel();
     }
   });
 });
