@@ -120,167 +120,32 @@
     html { scroll-padding-top: 20px; }
 
     /* HEADER */
-
     /* Base link style */
+    /* Keep only what's not possible in Tailwind */
     .nav-link {
-      position: relative;
-      display: inline-block;
-      padding: 0.5rem 0;   /* vertical spacing inside header */
-      margin: 0 0.75rem;   /* space between items */
-      text-decoration: none;
-      color: white;
-      transition: color 0.2s ease;
+      position: relative; /* needed for ::after underline */
     }
-
-    /* Underline effect */
     .nav-link::after {
       content: "";
       position: absolute;
       left: 0;
-      bottom: 0;            /* sits just below the text */
-      width: 0%;
-      height: 2px;
-      background-color: #ffffff; /* blue underline */
-      transition: width 0.25s ease;
-    }
-
-    .nav-link:hover {
-      color: #ffffff; /* lighter blue on hover */
-    }
-
-    .nav-link:hover::after {
+      bottom: -4px;             /* space under the text */
       width: 100%;
+      height: 2px;
+      background-color: currentColor; /* matches text color */
+      transform: scaleX(0);     /* hidden initially */
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+    .nav-link:hover::after {
+      transform: scaleX(1);     /* animate underline on hover */
     }
 
-    /* Brand logo color switches with header */
-    .brand-main, .brand-sub { transition: color .4s ease; }
-    header.transparent .brand-main,
-    header.transparent .brand-sub { color: #ffffff; }
-    header.solid .brand-main,
-    header.solid .brand-sub { color: #000000; }
-    
-    /* Smooth transition */
-    header {
-      transition: background-color 0.4s ease, box-shadow 0.4s ease;
-    }
-
-    /* States */
-    header.transparent { background-color: transparent; box-shadow: none; }
-    header.solid { background-color: #ffffff; box-shadow: 0 2px 6px rgba(0,0,0,.1); }
-
-    /* Colors by state */
-    header.transparent .nav-link { color: #ffffff; }
-    header.solid       .nav-link { color: #000000; }
-    header.transparent .nav-link::after { background-color: #ffffff; }
-    header.solid       .nav-link::after { background-color: #000000; }
-
-    /*header nav a,*/
-    header .lang-btn,
-    header #hamburger svg {
-      transition: color 0.4s ease, border-color 0.3s ease;
-    }
 
     /* Language switcher */
-    .lang-switch { list-style: none; margin: 0; padding: 0; gap: .25rem; }
-    .lang-switch li { display: inline-flex; align-items: center; }
-
-    /* default button style */
+    /* Keep only what Tailwind can't handle */
     .lang-btn {
-      font-weight: 600;
       letter-spacing: .02em;
-      border-radius: .125rem;
-      transition: color 0.2s ease, background-color 0.2s ease, opacity 0.2s ease;
-    }
-
-    /* --- in Transparent Header (Hero) --- */
-    header.transparent .lang-btn[aria-current="true"] {
-      color: #ffffff; /* active = white */
-      cursor: default;
-      pointer-events: none;
-      opacity: .9;
-    }
-
-    header.transparent .lang-btn:not([aria-current="true"]) {
-      color: #99a8bb; /* inactive = gray */
-    }
-
-    header.transparent .lang-btn:not([aria-current="true"]):hover {
-      color: #ffffff; /* hover = white */
-    }
-
-    header.transparent .lang-divider {
-      color: #ffffff;
-    }
-
-    /* --- in Solid Header (after Hero) --- */
-    header.solid .lang-btn[aria-current="true"] {
-      color: #000000; /* active = black */
-      cursor: default;
-      pointer-events: none;
-      opacity: .9;
-    }
-
-    header.solid .lang-btn:not([aria-current="true"]) {
-      color: #99a8bb; /* inactive = gray */
-    }
-
-    header.solid .lang-btn:not([aria-current="true"]):hover {
-      color: #000000; /* hover = black */
-    }
-
-    header.solid .lang-divider {
-      color: #000000;
-    }
-
-    /* HAMBURGER MENU */
-    
-    /* Hamburger icon base */
-    #hamburger svg {
-      transition: color 0.4s ease;
-    }
-
-    /* --- in Transparent Header (Hero) --- */
-    header.transparent #hamburger svg {
-      color: white;
-    }
-    
-    /* --- in Solid Header (after Hero) --- */
-    header.solid #hamburger svg {
-      color: black;
-    }
-
-    /* Mobile menu container */
-    #mobileMenu {
-      color: black;
-    }
-
-    /* Mobile nav links inside the hamburger menu */
-    #mobileMenu a {
-      color: black;
-    }
-
-    #mobileMenu a:hover {
-      color: #6491DE; /* same hover blue as desktop */
-    }
-
-    /* Language selector inside mobile menu */
-    #mobileMenu .lang-btn[aria-current="true"] {
-      color: black;              /* active language = black */
-      cursor: default;
-      pointer-events: none;
-      opacity: 0.9;
-    }
-
-    #mobileMenu .lang-divider {
-      color: #000000;
-    }
-
-    #mobileMenu .lang-btn:not([aria-current="true"]) {
-      color: #99a8bb;            /* inactive = gray */
-    }
-
-    #mobileMenu .lang-btn:not([aria-current="true"]):hover {
-      color: black;              /* hover = black */
     }
 
     /* ICON WRAPPER */
@@ -294,7 +159,7 @@
       transition: border-color 0.3s ease, color 0.3s ease;
     }
 
-    /* TECHNOLOGIES */
+    /* KEEP - TECHNOLOGIES */
     .tech-tile {
       transition: transform 0.15s ease-in-out;
     }
@@ -311,16 +176,6 @@
       50%  { transform: scale(0.90); } /* Shrink */
       100% { transform: scale(1); }    /* Grow back */
     }
-
-    /* Minimal additions */
-    header.transparent { transform: translateY(0); opacity:1; }
-    header.hidden      { transform: translateY(-100%); opacity:0; }
-    header.solid       { transform: translateY(0); opacity:1; }
-    header { transition: transform 0.5s ease, opacity 0.5s ease, background-color 0.4s ease, box-shadow 0.4s ease; }
-
-    header.transparent .brand-main, .nav-link, #hamburger svg { color: white; }
-    header.solid .brand-main, .nav-link, #hamburger svg { color: black; }
-
 
   </style>
 </head>
