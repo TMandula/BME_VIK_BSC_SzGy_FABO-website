@@ -13,6 +13,8 @@
       const header = document.getElementById('mainHeader');
       const hero   = document.getElementById('home');
       const heroHeight = hero.offsetHeight;
+      const hamburger = document.getElementById('hamburger');
+      const hamburgerSvg = hamburger.querySelector('svg');
 
       function updateHeader() {
         const scrollY = window.scrollY || window.pageYOffset;
@@ -27,6 +29,9 @@
             'translate-y-0','opacity-100',
             'bg-transparent','text-white'
           );
+          // Hamburger color = white
+          hamburgerSvg.classList.remove('text-black');
+          hamburgerSvg.classList.add('text-white');
         } else if (scrollY > 0 && scrollY < heroHeight) {
           // Hidden while scrolling inside Hero
           header.classList.remove(
@@ -44,6 +49,9 @@
             'translate-y-0','opacity-100',
             'bg-white','text-black','shadow-md'
           );
+          // Hamburger color = black
+          hamburgerSvg.classList.remove('text-white');
+          hamburgerSvg.classList.add('text-black');
         }
       }
 
@@ -178,13 +186,9 @@
     }
 
   </style>
-
 </head>
 
-
-
 <body class="bg-white text-gray-900">
-
 <!-- HEADER -->
 <header id="mainHeader" 
         class="fixed top-0 left-0 w-full z-50 transform transition-all duration-700 ease-in-out group">
@@ -724,6 +728,7 @@ consuming or time-sensitive processes. Contact us for more information!">
   </div>
 </div>
 
+<!-- Menu script -->
 <script>
 document.addEventListener("DOMContentLoaded", () => {
   const desktopNav = document.getElementById("desktop-nav");
@@ -780,6 +785,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 
+<!-- Language switch script -->
 <script>
   // unified language switching (desktop + hamburger)
   (function () {
