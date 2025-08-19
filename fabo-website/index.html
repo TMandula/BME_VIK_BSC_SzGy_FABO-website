@@ -3,16 +3,48 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title data-lang-de="Unternehmen" data-lang-en="Company">Unternehmen</title>
+  <title data-lang-de="FABO | Accounting & Services" data-lang-en="FABO | Accounting & Services">FABO | Accounting & Services</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Serif+Text:ital@0;1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
   <style>
     body { font-family: 'DM Sans', sans-serif; }
-    html { scroll-padding-top: 10px; }
+    html { scroll-padding-top: 20px; }
 
-    
+    /* HEADER */
+
+    /* Base link style */
+    .nav-link {
+      position: relative;
+      display: inline-block;
+      padding: 0.5rem 0;   /* vertical spacing inside header */
+      margin: 0 0.75rem;   /* space between items */
+      text-decoration: none;
+      color: white;
+      transition: color 0.2s ease;
+    }
+
+    /* Underline effect */
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;            /* sits just below the text */
+      width: 0%;
+      height: 2px;
+      background-color: #ffffff; /* blue underline */
+      transition: width 0.25s ease;
+    }
+
+    .nav-link:hover {
+      color: #ffffff; /* lighter blue on hover */
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
     /* Brand logo color switches with header */
     .brand-main, .brand-sub { transition: color .4s ease; }
     header.transparent .brand-main,
@@ -24,15 +56,7 @@
     header {
       transition: background-color 0.4s ease, box-shadow 0.4s ease;
     }
-<<<<<<< HEAD
 
-=======
-    header nav a,
-    header .lang-btn,
-    header #hamburger svg {
-      transition: color 0.4s ease, border-color 0.3s ease;
-    }
->>>>>>> parent of f5b42b4 (Add devider to logo)
     /* States */
     header.transparent { background-color: transparent; box-shadow: none; }
     header.solid { background-color: #ffffff; box-shadow: 0 2px 6px rgba(0,0,0,.1); }
@@ -40,7 +64,6 @@
     /* Colors by state */
     header.transparent .nav-link { color: #ffffff; }
     header.solid       .nav-link { color: #000000; }
-
     header.transparent .nav-link::after { background-color: #ffffff; }
     header.solid       .nav-link::after { background-color: #000000; }
 
@@ -69,12 +92,15 @@
       pointer-events: none;
       opacity: .9;
     }
+
     header.transparent .lang-btn:not([aria-current="true"]) {
       color: #99a8bb; /* inactive = gray */
     }
+
     header.transparent .lang-btn:not([aria-current="true"]):hover {
       color: #ffffff; /* hover = white */
     }
+
     header.transparent .lang-divider {
       color: #ffffff;
     }
@@ -86,25 +112,31 @@
       pointer-events: none;
       opacity: .9;
     }
+
     header.solid .lang-btn:not([aria-current="true"]) {
       color: #99a8bb; /* inactive = gray */
     }
+
     header.solid .lang-btn:not([aria-current="true"]):hover {
       color: #000000; /* hover = black */
     }
+
     header.solid .lang-divider {
       color: #000000;
     }
 
-    /* Hamburger Menu */
+    /* HAMBURGER MENU */
+    
     /* Hamburger icon base */
     #hamburger svg {
       transition: color 0.4s ease;
     }
+
     /* --- in Transparent Header (Hero) --- */
     header.transparent #hamburger svg {
       color: white;
     }
+    
     /* --- in Solid Header (after Hero) --- */
     header.solid #hamburger svg {
       color: black;
@@ -144,39 +176,7 @@
       color: black;              /* hover = black */
     }
 
-    /* header */
-    /* Base link style */
-    .nav-link {
-      position: relative;
-      display: inline-block;
-      padding: 0.5rem 0;   /* vertical spacing inside header */
-      margin: 0 0.75rem;   /* space between items */
-      text-decoration: none;
-      color: white;
-      transition: color 0.2s ease;
-    }
-
-    /* Underline effect */
-    .nav-link::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: 0;            /* sits just below the text */
-      width: 0%;
-      height: 2px;
-      background-color: #ffffff; /* blue underline */
-      transition: width 0.25s ease;
-    }
-
-    .nav-link:hover {
-      color: #ffffff; /* lighter blue on hover */
-    }
-
-    .nav-link:hover::after {
-      width: 100%;
-    }
-
-    /* icon wrapper */
+    /* ICON WRAPPER */
     .icon-wrapper {
       width: 150px; /* fixed square size */
       height: 150px;
@@ -187,7 +187,7 @@
       transition: border-color 0.3s ease, color 0.3s ease;
     }
 
-    /* Technologies-Section tile wrapper */
+    /* TECHNOLOGIES */
     .tech-tile {
       transition: transform 0.15s ease-in-out;
     }
@@ -217,7 +217,9 @@
 
   </style>
 </head>
+
 <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+
 <script>
   (function () {
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -279,7 +281,7 @@
   })();
 </script>
 
-<!-- HEADER script -->
+<!-- HEADER SCRIPT -->
 <script>
 document.addEventListener('DOMContentLoaded', () => {
   const header = document.getElementById('mainHeader');
@@ -313,7 +315,6 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 
 
-<<<<<<< HEAD
 <body class="bg-white text-gray-900">
 
 <!-- HEADER -->
@@ -322,13 +323,6 @@ document.addEventListener('DOMContentLoaded', () => {
   <div id="header-inner" 
     class="max-w-7xl mx-auto px-4 flex justify-between items-center" 
     style="height: 80px;">
-=======
-
-<body class="bg-white text-gray-900">
-
-<header id="mainHeader" class="fixed w-full z-50 transparent">
-  <div id="header-inner" class="max-w-7xl mx-auto px-4 flex justify-between items-stretch" style="height: 80px;">
->>>>>>> parent of f5b42b4 (Add devider to logo)
     
     <!-- Logo -->
     <a href="#home" id="siteLogo" class="flex items-center space-x-3">
@@ -336,6 +330,11 @@ document.addEventListener('DOMContentLoaded', () => {
       <span class="brand-main text-5xl font-bold tracking-wide flex items-center"
             style="font-family: 'DM Serif Text', serif; line-height:1;">
         FABO
+      </span>
+      <!-- Devider -->
+      <span class="brand-main text-4xl font-bold tracking-wide flex items-center"
+            style="font-family: 'DM Serif Text', serif; line-height:1;">
+        |
       </span>
       <!-- Right stacked text -->
       <div class="flex flex-col justify-center leading-[1.1] ml-2">
@@ -458,7 +457,7 @@ document.addEventListener('DOMContentLoaded', () => {
       Wir bieten maßgeschneiderte Lösungen für Ihre Bedürfnisse.
     </p>
     <a href="#contact"
-       class="bg-white hover:bg-blue-800 hover:text-white text-blue-900 font-semibold px-6 py-3 rounded shadow-lg transition"
+       class="bg-white hover:bg-blue-900 hover:text-white text-blue-900 font-semibold px-6 py-3 rounded shadow-lg transition"
        data-lang-de="Kontakt"
        data-lang-en="Contact">
       Kontakt
@@ -499,7 +498,10 @@ consuming or time-sensitive processes. Contact us for more information!">
 <!-- Parallax - Deutsche Landschaft -->
 <section class="h-[60vh] bg-fixed bg-center bg-cover" style="background-image: url(src/assets/eric-weber--KPwl1VaSyw-unsplash.jpg);">
     <div class="h-full bg-black bg-opacity-30 flex items-center justify-center">
-        <h2 class="text-white text-4xl font-bold drop-shadow-lg">Turning numbers into opportunities.</h2>
+        <h2 class="text-white text-4xl font-bold drop-shadow-lg"
+        data-lang-de="Zahlen in Chancen verwandeln." 
+        data-lang-en="Turning numbers into opportunities.">
+        Turning numbers into opportunities.</h2>
     </div>
 </section>
 
@@ -612,6 +614,7 @@ consuming or time-sensitive processes. Contact us for more information!">
     </div>
   </div>
 </section>
+
 
 <!-- TECHNOLOGIES -->
 <section id="technologies" class="py-20 bg-slate-50">
