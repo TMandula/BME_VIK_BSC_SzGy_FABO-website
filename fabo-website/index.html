@@ -7,7 +7,51 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Serif+Text:ital@0;1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <!-- HEADER SCRIPT -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const header = document.getElementById('mainHeader');
+      const hero   = document.getElementById('home');
+      const heroHeight = hero.offsetHeight;
 
+      function updateHeader() {
+        const scrollY = window.scrollY || window.pageYOffset;
+
+        if (scrollY === 0) {
+          // Transparent at very top
+          header.classList.remove(
+            'translate-y-[-100%]','opacity-0',
+            'bg-white','text-black','shadow-md'
+          );
+          header.classList.add(
+            'translate-y-0','opacity-100',
+            'bg-transparent','text-white'
+          );
+        } else if (scrollY > 0 && scrollY < heroHeight) {
+          // Hidden while scrolling inside Hero
+          header.classList.remove(
+            'translate-y-0','opacity-100',
+            'bg-white','text-black','bg-transparent','text-white'
+          );
+          header.classList.add('translate-y-[-100%]','opacity-0');
+        } else {
+          // Solid after Hero
+          header.classList.remove(
+            'translate-y-[-100%]','opacity-0',
+            'bg-transparent','text-white'
+          );
+          header.classList.add(
+            'translate-y-0','opacity-100',
+            'bg-white','text-black','shadow-md'
+          );
+        }
+      }
+
+      updateHeader();
+      window.addEventListener('scroll', updateHeader);
+    });
+  </script>
+  
   <style>
     body { font-family: 'DM Sans', sans-serif; }
     html { scroll-padding-top: 20px; }
@@ -281,45 +325,13 @@
   })();
 </script>
 
-<!-- HEADER SCRIPT -->
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  const header = document.getElementById('mainHeader');
-  const hero   = document.getElementById('home'); 
-  const heroHeight = hero.offsetHeight;
-
-  function updateHeader() {
-    const scrollY = window.scrollY || window.pageYOffset;
-
-    if (scrollY === 0) {
-      // Transparent at top
-      header.classList.remove('translate-y-[-100%]','opacity-0','bg-white','text-black');
-      header.classList.add('translate-y-0','opacity-100','bg-transparent','text-white');
-    } else if (scrollY > 0 && scrollY < heroHeight) {
-      // Hidden while scrolling Hero
-      header.classList.remove('translate-y-0','opacity-100','bg-white','text-black','bg-transparent','text-white');
-      header.classList.add('translate-y-[-100%]','opacity-0');
-    } else {
-      // Solid after Hero
-      header.classList.remove('translate-y-[-100%]','opacity-0','bg-transparent','text-white');
-      header.classList.add('translate-y-0','opacity-100','bg-white','text-black');
-    }
-  }
-
-  // Initial check
-  updateHeader();
-
-  // Update on scroll
-  window.addEventListener('scroll', updateHeader);
-});
-</script>
 
 
 <body class="bg-white text-gray-900">
 
 <!-- HEADER -->
 <header id="mainHeader" 
-        class="fixed top-0 left-0 w-full z-50 transform transition-transform duration-1000 ease-in-out translate-y-0 opacity-100 bg-transparent">
+        class="fixed top-0 left-0 w-full z-50 transform">
   <div id="header-inner" 
     class="max-w-7xl mx-auto px-4 flex justify-between items-center" 
     style="height: 80px;">
