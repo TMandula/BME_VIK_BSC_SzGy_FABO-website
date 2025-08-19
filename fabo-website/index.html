@@ -51,7 +51,70 @@
       window.addEventListener('scroll', updateHeader);
     });
   </script>
-  
+
+  <!-- PARTICLES SCRIPT -->
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+  <script>
+    (function () {
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      const baseConfig = {
+        detectRetina: true,
+        fullScreen: { enable: false },              // keep inside the hero section
+        background: { color: "transparent" },
+        fpsLimit: 60,
+        particles: {
+          number: {
+            value: reduceMotion ? 25 : 70,          // fewer particles if reduced motion
+            density: { enable: true, area: 800 }
+          },
+          color: { value: ["#ffffff", "#93c5fd"] }, // white + light blue
+          shape: { type: "circle" },
+          opacity: { value: 0.7 },
+          size: { value: { min: 1, max: 4 } },
+          links: {
+            enable: true,
+            color: "#93c5fd",
+            opacity: 0.5,
+            distance: 140,
+            width: 1
+          },
+          move: {
+            enable: !reduceMotion,                  // stop animation if reduced motion
+            speed: 1.4,
+            direction: "none",
+            outModes: { default: "out" }
+          }
+        },
+        interactivity: {
+          detectsOn: "canvas",
+          events: {
+            onHover: { enable: !reduceMotion, mode: "repulse" },
+            onClick: { enable: !reduceMotion, mode: "push" },
+            resize: true
+          },
+          modes: {
+            repulse: { distance: 120, duration: 0.3 },
+            push: { quantity: 4 }
+          }
+        }
+      };
+
+      // Initialize when DOM is ready (and container exists)
+      function initParticles() {
+        const container = document.getElementById('heroParticles');
+        if (!container || !window.tsParticles) return;
+        tsParticles.load('heroParticles', baseConfig);
+      }
+
+      if (document.readyState === 'complete' || document.readyState === 'interactive') {
+        initParticles();
+      } else {
+        document.addEventListener('DOMContentLoaded', initParticles);
+      }
+    })();
+  </script>
+
   <style>
     body { font-family: 'DM Sans', sans-serif; }
     html { scroll-padding-top: 20px; }
@@ -261,69 +324,6 @@
 
   </style>
 </head>
-
-<script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
-
-<script>
-  (function () {
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    const baseConfig = {
-      detectRetina: true,
-      fullScreen: { enable: false },              // keep inside the hero section
-      background: { color: "transparent" },
-      fpsLimit: 60,
-      particles: {
-        number: {
-          value: reduceMotion ? 25 : 70,          // fewer particles if reduced motion
-          density: { enable: true, area: 800 }
-        },
-        color: { value: ["#ffffff", "#93c5fd"] }, // white + light blue
-        shape: { type: "circle" },
-        opacity: { value: 0.7 },
-        size: { value: { min: 1, max: 4 } },
-        links: {
-          enable: true,
-          color: "#93c5fd",
-          opacity: 0.5,
-          distance: 140,
-          width: 1
-        },
-        move: {
-          enable: !reduceMotion,                  // stop animation if reduced motion
-          speed: 1.4,
-          direction: "none",
-          outModes: { default: "out" }
-        }
-      },
-      interactivity: {
-        detectsOn: "canvas",
-        events: {
-          onHover: { enable: !reduceMotion, mode: "repulse" },
-          onClick: { enable: !reduceMotion, mode: "push" },
-          resize: true
-        },
-        modes: {
-          repulse: { distance: 120, duration: 0.3 },
-          push: { quantity: 4 }
-        }
-      }
-    };
-
-    // Initialize when DOM is ready (and container exists)
-    function initParticles() {
-      const container = document.getElementById('heroParticles');
-      if (!container || !window.tsParticles) return;
-      tsParticles.load('heroParticles', baseConfig);
-    }
-
-    if (document.readyState === 'complete' || document.readyState === 'interactive') {
-      initParticles();
-    } else {
-      document.addEventListener('DOMContentLoaded', initParticles);
-    }
-  })();
-</script>
 
 
 
