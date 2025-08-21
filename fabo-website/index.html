@@ -7,6 +7,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Serif+Text:ital@0;1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  
   <!-- HEADER SCRIPT -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
@@ -58,6 +59,120 @@
       updateHeader();
       window.addEventListener('scroll', updateHeader);
     });
+  </script>
+
+  <!-- MOBILE HAMBURGER MENU PANEL SCRIPT -->
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const desktopNav = document.getElementById("desktop-nav");
+    const hamburger = document.getElementById("hamburger");
+    const headerInner = document.getElementById("header-inner");
+    const siteLogo = document.getElementById("siteLogo");
+    const langSwitch = document.querySelector(".lang-switch");
+    const mobileMenu = document.getElementById("mobileMenu");
+    const mobilePanel = document.getElementById("mobilePanel");
+    const closeMenu = document.getElementById("closeMenu");
+
+    // --- Desktop Menu Handling ---
+    function updateMenuDisplay() {
+      desktopNav.classList.remove("hidden"); // show temporarily for measurement
+      const totalWidth =
+        (siteLogo?.scrollWidth || 0) +
+        (desktopNav?.scrollWidth || 0) +
+        (langSwitch?.scrollWidth || 0) +
+        40; // buffer for spacing
+
+      if (totalWidth > headerInner.clientWidth) {
+        desktopNav.classList.add("hidden");
+        hamburger.classList.remove("hidden");
+      } else {
+        desktopNav.classList.remove("hidden");
+        hamburger.classList.add("hidden");
+      }
+    }
+
+    updateMenuDisplay();
+    window.addEventListener("resize", updateMenuDisplay);
+    new ResizeObserver(updateMenuDisplay).observe(headerInner);
+
+    // --- Mobile Menu Handling ---
+    function openMenu() {
+      mobileMenu.classList.remove("hidden");
+      setTimeout(() => mobilePanel.classList.remove("translate-x-full"), 10);
+    }
+
+    function closeMenuPanel() {
+      mobilePanel.classList.add("translate-x-full");
+      setTimeout(() => mobileMenu.classList.add("hidden"), 300);
+    }
+
+    hamburger.addEventListener("click", openMenu);
+    closeMenu.addEventListener("click", closeMenuPanel);
+
+    mobileMenu.addEventListener("click", (e) => {
+      if (e.target === mobileMenu || e.target.classList.contains("bg-opacity-50")) {
+        closeMenuPanel();
+      }
+    });
+  });
+  </script>
+
+  <!-- Language switch script -->
+  <script>
+    // unified language switching (desktop + hamburger)
+    (function () {
+      const mobileMenu = document.getElementById('mobileMenu');
+
+      function setLanguage(lang) {
+        // text nodes
+        document.querySelectorAll('[data-lang-de],[data-lang-en]').forEach(el => {
+          const txt = (lang === 'de') ? el.getAttribute('data-lang-de') : el.getAttribute('data-lang-en');
+          if (txt !== null) el.textContent = txt;
+        });
+        // placeholders
+        document.querySelectorAll('[data-ph-de],[data-ph-en]').forEach(el => {
+          const ph = (lang === 'de') ? el.getAttribute('data-ph-de') : el.getAttribute('data-ph-en');
+          if (ph !== null) el.setAttribute('placeholder', ph);
+        });
+        // remember
+        localStorage.setItem('siteLang', lang);
+        // reflect active state on ALL lang buttons
+        document.querySelectorAll('[data-lang-btn]').forEach(btn => {
+          btn.setAttribute('aria-current', btn.dataset.langBtn === lang ? 'true' : 'false');
+        });
+      }
+
+      // event delegation works for both desktop + hamburger
+      document.addEventListener('click', function (e) {
+        const btn = e.target.closest('[data-lang-btn]');
+        if (!btn) return;
+
+        const newLang = btn.dataset.langBtn;
+        setLanguage(newLang);
+
+        // close hamburger if open
+        if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+          mobileMenu.classList.add('hidden');
+        }
+      });
+
+      // init on load (default DE)
+      document.addEventListener('DOMContentLoaded', function () {
+        const saved = localStorage.getItem('siteLang') || 'de';
+        setLanguage(saved);
+      });
+
+      // cookie
+      const cookie = document.getElementById("cookie");
+      const COOKIE_KEY = "cookieConsentV1";
+      if (!localStorage.getItem(COOKIE_KEY)) cookie.classList.remove("hidden");
+      cookie.addEventListener("click", (e) => {
+        const t = e.target.getAttribute("data-cookie");
+        if (!t) return;
+        localStorage.setItem(COOKIE_KEY, t);
+        cookie.classList.add("hidden");
+      });
+    })();
   </script>
 
   <!-- PARTICLES SCRIPT -->
@@ -123,6 +238,7 @@
     })();
   </script>
 
+  <!-- STYLE -->
   <style>
     body { font-family: 'DM Sans', sans-serif; }
     html { scroll-padding-top: 20px; }
@@ -186,9 +302,11 @@
     }
 
   </style>
+
 </head>
 
 <body class="bg-white text-gray-900">
+
 <!-- HEADER -->
 <header id="mainHeader" 
         class="fixed top-0 left-0 w-full z-50 transform transition-all duration-700 ease-in-out group">
@@ -229,9 +347,9 @@
 
       <!-- Language Selector -->
       <ul class="lang-switch flex items-center ml-4" role="list">
-        <li><button type="button" class="lang-btn px-1 py-0.5" data-lang-btn="de">DE</button></li>
+        <li><button type="button" class="hover:text-blue-500 px-1 py-0.5" data-lang-btn="de">DE</button></li>
         <li aria-hidden="true" class="px-1 lang-divider">|</li>
-        <li><button type="button" class="lang-btn px-1 py-0.5" data-lang-btn="en">EN</button></li>
+        <li><button type="button" class="hover:text-blue-500 lang-btn px-1 py-0.5" data-lang-btn="en">EN</button></li>
       </ul>
     </nav>
 
@@ -248,8 +366,7 @@
 
 </header>
 
-
-<!-- Place this OUTSIDE your <header> (e.g. right after </header>) -->
+<!-- MOBILE HAMBURGER MENU PANEL -->
 <div id="mobileMenu" class="fixed inset-0 hidden z-50">
   <!-- Dark overlay -->
   <div class="absolute inset-0 bg-black bg-opacity-50"></div>
@@ -267,9 +384,9 @@
 
     <!-- Language Selector -->
     <ul class="lang-switch flex items-center mb-8 text-black" role="list">
-      <li><button type="button" class="lang-btn px-1 py-0.5 text-black" data-lang-btn="de">DE</button></li>
+      <li><button type="button" class="lang-btn px-1 py-0.5 hover:text-blue-500 text-black" data-lang-btn="de">DE</button></li>
       <li aria-hidden="true" class="px-1 lang-divider text-black">|</li>
-      <li><button type="button" class="lang-btn px-1 py-0.5 text-black" data-lang-btn="en">EN</button></li>
+      <li><button type="button" class="lang-btn px-1 py-0.5 hover:text-blue-500 text-black" data-lang-btn="en">EN</button></li>
     </ul>
 
     <!-- Mobile Menu Items -->
@@ -280,7 +397,6 @@
     <a href="#contact" class="py-2 border-b border-gray-200 hover:text-blue-500 text-black">Contact</a>
   </div>
 </div>
-
 
 <!-- HERO -->
 <section id="home" 
@@ -295,21 +411,24 @@
     class="absolute inset-0 w-full h-full pointer-events-none z-0"></div>
 
   <!-- Content layer -->
-  <div class="relative z-10 px-4">
-    <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-4"
-        data-lang-de="Willkommen bei FABO Accounting"
-        data-lang-en="Welcome to FABO Accounting">
+  <div class="text-left max-w-4xl mx-auto relative z-10 px-4">
+    <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-2"
+        data-lang-de="FABO Accounting"
+        data-lang-en="FABO Accounting">
       Willkommen bei Unserem Unternehmen
     </h1>
-    <p class="max-w-3xl mx-auto text-lg sm:text-xl opacity-90 mb-8"
-       data-lang-de="Wir bieten verschiedene Outsourcing-Lösungen für Ihre Buchhaltungsprobleme. Wir
-        bieten ein Team, oder einzelne Personen, Sie im Bereich von Finanzen zu unterstützen."
-       data-lang-en="We offer various outsourced solutions for your accounting problems. We provide a team
-        or sole individuals to support you in the field of finance.">
+    <h1 class="text-3xl sm:text-3xl lg:text-3xl font-extrabold leading-tight mb-8"
+        data-lang-de="Ihr Partner für zuverlässige Finanzlösungen"
+        data-lang-en="Your Reliable Partner in Finance">
+      Willkommen bei Unserem Unternehmen
+    </h1>
+    <p class="text-lg sm:text-xl opacity-90 mb-16"
+       data-lang-de="Wir unterstützen deutsche Unternehmen mit präzisen und effizienten Buchhaltungs- und Controlling-Services. Ob einzelne Fachkräfte oder komplette Teams – wir entlasten Sie, damit Sie sich auf Ihr Kerngeschäft konzentrieren können."
+       data-lang-en="We support German companies with precise and efficient accounting and controlling services. Whether you need individual experts or a full team, we help you save time and focus on your core business.">
       Wir bieten maßgeschneiderte Lösungen für Ihre Bedürfnisse.
     </p>
     <a href="#contact"
-       class="bg-white hover:bg-blue-900 hover:text-white text-blue-900 font-semibold px-6 py-3 rounded shadow-lg transition"
+       class="bg-white hover:bg-blue-500 hover:text-white text-blue-500 font-semibold px-6 py-3 rounded shadow-lg transition"
        data-lang-de="Kontakt"
        data-lang-en="Contact">
       Kontakt
@@ -320,28 +439,25 @@
 <!-- WELCOME TEXT SECTION -->
 <section class="max-w-4xl mx-auto px-6 py-16">
   <div class="mx-auto">
-    <h2 class="text-3xl font-bold mb-10" data-lang-de="Herzlich willkommen" data-lang-en="Welcome">
+    <h2 
+      class="text-3xl font-bold mb-10" 
+      data-lang-de="Willkommen bei FABO Accounting" 
+      data-lang-en="Welcome to FABO Accounting">
       Herzlich willkommen
     </h2>
-    <p class="text-lg font-bold leading-relaxed mb-6" 
-      data-lang-de="Wir bieten Ihnen eine Outsourcing-Lösung zur Optimierung Ihrer Arbeitsabläufe. Wir passen
-uns schnell an Ihre Unternehmensstruktur an, und beschleunigen Ihre bestehenden
-Prozesse." 
-      data-lang-en="We offer an outsourced solution for your company to improve workflows. We quickly adapt to
-your company's structure and accelerate your existing processes.">
+    <p class="text-lg font-bold leading-relaxed mb-2" 
+      data-lang-de="Wir bieten Outsourcing-Lösungen zur Optimierung der Arbeitsabläufe deutscher Unternehmen." 
+      data-lang-en="We provide outsourced accounting solutions that make your financial workflows more efficient.">
       Wir freuen uns, Sie auf unserer Webseite begrüßen zu dürfen. Unser Unternehmen steht für Qualität, Innovation und Kundenorientierung. Mit einem engagierten Team und modernen Technologien arbeiten wir daran, Ihre Visionen in die Realität umzusetzen.
     </p>
     <p class="text-lg leading-relaxed mb-6" 
-        data-lang-de="Unser Team bzw. unsere Mitarbeiter lassen sich schnell in Ihr Unternehmen integrieren und
-unterstützen Sie bei zeitintensiven oder zeitkritischen Prozessen. Kontaktieren Sie uns für
-weitere Informationen!" 
-        data-lang-en="Our team or employees can be quickly integrated into your company, supporting time-
-consuming or time-sensitive processes. Contact us for more information!">
+        data-lang-de="Unsere Experten integrieren sich schnell in Ihre Strukturen, übernehmen zeitintensive Aufgaben und sichern reibungslose Abläufe." 
+        data-lang-en="Our professionals integrate seamlessly into your company structure, taking over time-consuming or sensitive processes and ensuring smooth operations.">
       Egal ob Sie ein kleines Start-up oder ein etabliertes Unternehmen sind – wir bieten maßgeschneiderte Lösungen, die Ihre individuellen Bedürfnisse erfüllen. Unser Ziel ist es, nicht nur Ihre Erwartungen zu erfüllen, sondern sie zu übertreffen.
     </p>
     <p class="text-lg leading-relaxed" 
-        data-lang-de="Schauen Sie sich um, lernen Sie unser Team kennen und entdecken Sie, wie wir gemeinsam Großes erreichen können." 
-        data-lang-en="Take a look around, contact us, and discover how we can achieve great things together.">
+        data-lang-de="Ob für kurzfristige Projekte oder langfristige Unterstützung – wir sind der verlässliche Partner an Ihrer Seite." 
+        data-lang-en="Whether for short-term projects or long-term support – we are the reliable partner at your side.">
       Schauen Sie sich um, lernen Sie unser Team kennen und entdecken Sie, wie wir gemeinsam Großes erreichen können.
     </p>
   </div>
@@ -351,7 +467,7 @@ consuming or time-sensitive processes. Contact us for more information!">
 <section class="h-[60vh] bg-fixed bg-center bg-cover" style="background-image: url(src/assets/eric-weber--KPwl1VaSyw-unsplash.jpg);">
     <div class="h-full bg-black bg-opacity-30 flex items-center justify-center">
         <h2 class="text-white text-4xl font-bold drop-shadow-lg"
-        data-lang-de="Zahlen in Chancen verwandeln." 
+        data-lang-de="Aus Zahlen Chancen machen." 
         data-lang-en="Turning numbers into opportunities.">
         Turning numbers into opportunities.</h2>
     </div>
@@ -361,17 +477,32 @@ consuming or time-sensitive processes. Contact us for more information!">
 <section id="about" class="max-w-4xl mx-auto px-6 py-16">
     <div class="mx-auto">
         <h2 class="text-3xl font-bold mb-6" data-lang-de="Über uns" data-lang-en="About Us">Über uns</h2>
+        <p class="text-lg text-gray-700 leading-relaxed mb-4" 
+            data-lang-de="Wir sind ein ungarisches Wirtschaftsprüfungs - 
+              und Buchhaltungsunternehmen mit Sitz in Budapest – 
+              spezialisiert auf die Zusammenarbeit 
+              mit internationalen und deutschen Firmen." 
+            data-lang-en="FABO Accounting is a Hungarian auditing 
+              and accounting firm based in Budapest, 
+              working primarily with international and German companies.">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sed elit vel turpis luctus euismod.
+        </p>
+        <p class="text-lg text-gray-700 leading-relaxed mb-4" 
+            data-lang-de="Unsere jungen, hochqualifizierten Finanzexperten verfügen 
+              über Erfahrung mit deutschen und internationalen Standards 
+              (HGB, IFRS, Umsatzsteuerrecht) und unterstützen Sie 
+              zuverlässig bei allen buchhalterischen Aufgaben." 
+            data-lang-en="Our young yet experienced financial professionals 
+              are skilled in German and international standards 
+              (HGB, IFRS, VAT regulations) and can support you 
+              in a wide range of accounting and reporting tasks.">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sed elit vel turpis luctus euismod.
+        </p>
         <p class="text-lg text-gray-700 leading-relaxed" 
-            data-lang-de="Wir sind eine ungarische Wirtschaftsprüfungs- und Buchhaltungsgesellschaft mit Sitz in
-              Budapest und arbeiten hauptsächlich mit Unternehmen im Ausland zusammen. Unser
-              Service besteht darin, Ihnen ein Team oder einzelne Fachkräfte zur Unterstützung Ihrer
-              Buchhaltungsaufgaben bereitzustellen. Unsere jungen, talentierten und bereits erfahrenen
-              Finanzfachleute oder Teams können Sie bei verschiedenen buchhalterischen Aufgaben
-              unterstützen." 
-            data-lang-en="We are a Hungarian auditing, accounting firm based in Budapest and work primarily with
-              companies abroad. Our service is, providing a team or individual staff to support your
-              accounting needs. Our young, talented, already experienced financial professionals, or
-              teams can help you with various accounting tasks.">
+            data-lang-de="Mit uns gewinnen Sie nicht nur Kapazität, sondern einen Partner, dem Sie vertrauen können." 
+            data-lang-en="With us, you don’t just gain extra capacity – 
+              you gain a trustworthy partner who understands your needs 
+              and delivers reliable results.">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sed elit vel turpis luctus euismod.
         </p>
     </div>
@@ -382,29 +513,46 @@ consuming or time-sensitive processes. Contact us for more information!">
   <div class="max-w-7xl mx-auto text-center">
     
     <!-- Title -->
-    <h2 class="text-4xl font-bold mb-4" data-lang-de="Dienstleistungen" data-lang-en="Services">
+    <h2 class="text-4xl font-bold mb-8" data-lang-de="Dienstleistungen" data-lang-en="Services">
       Services
     </h2>
 
     <!-- Intro -->
-    <p class="text-lg text-gray-600 mb-12"
-       data-lang-de="Wir können verschiedene Lösungen für unterschiedliche Finanzbereiche anbieten."
-       data-lang-en="We can provide various solutions for different fields of finance.">
+    <p class="max-w-2xl mx-auto text-lg text-gray-600 mb-12"
+       data-lang-de="Wir bieten flexible Outsourcing-Lösungen 
+        in allen wichtigen Bereichen der Buchhaltung 
+        und des Finanzwesens."
+       data-lang-en="We provide tailored outsourcing solutions 
+        for all key areas of accounting and finance.">
        We can provide various solutions for different fields of finance.
     </p>
 
     <!-- Service Cards -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto ">
 
       <!-- AP/AR -->
       <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition transition-all duration-300 border-b-4 border-transparent hover:-translate-y-2 hover:border-blue-500">
         <div class="text-blue-500 text-5xl mb-4">
           <i class="fas fa-file-invoice-dollar"></i>
         </div>
-        <h3 class="font-bold text-xl mb-2" data-lang-de="AP/AR" data-lang-en="AP/AR">AP/AR</h3>
-        <p class="text-gray-600"
-           data-lang-de="AP/AR ist zeitaufwendig und beeinflusst den Ablauf der Buchhaltung, insbesondere bei Monats- und Jahresabschlüssen. Wir können Ihnen helfen, diese Prozesse zu beschleunigen, indem wir Ihnen ein komplettes Team zur Verfügung stellen oder Ihr bestehendes Team erweitern."
-           data-lang-en="AP/AR is time consuming, and it affects the flow of accounting, especially by month and year end closing. We can help you accelerate these processes by providing you a full team or extending your already existing team.">
+        <h3 class="font-bold text-xl mb-6" data-lang-de="AP/AR" data-lang-en="AP/AR">AP/AR</h3>
+        <p class="text-gray-600 text-left mb-4"
+           data-lang-de="AP/AR-Prozesse sind zeitaufwendig 
+            und entscheidend für einen reibungslosen 
+            Monats- und Jahresabschluss."
+           data-lang-en="AP/AR processes are time-intensive 
+            and critical for smooth month- and year-end closings.">
+          AP/AR is time consuming, and it affects the flow of accounting, especially by month and year end closing. We can help you accelerate these processes by providing you a full team or extending your already existing team.
+        </p>
+        <p class="text-gray-600 text-left"
+           data-lang-de="Wir beschleunigen diese Abläufe 
+            und sichern Genauigkeit und Kontinuität – 
+            durch die Verstärkung Ihres Teams 
+            oder durch die Bereitstellung eines kompletten Expertenteams."
+           data-lang-en="Our teams accelerate these tasks, 
+            ensuring accuracy and continuity — 
+            either by strengthening your existing staff 
+            or by providing a dedicated team.">
           AP/AR is time consuming, and it affects the flow of accounting, especially by month and year end closing. We can help you accelerate these processes by providing you a full team or extending your already existing team.
         </p>
       </div>
@@ -414,10 +562,22 @@ consuming or time-sensitive processes. Contact us for more information!">
         <div class="text-green-500 text-5xl mb-4">
           <i class="fas fa-piggy-bank"></i>
         </div>
-        <h3 class="font-bold text-xl mb-2" data-lang-de="Treasury" data-lang-en="Treasury">Treasury</h3>
-        <p class="text-gray-600"
-           data-lang-de="Treasury ist eine sehr sensible Aufgabe. Wir können Ihnen erfahrene Fachleute anbieten, die Unterstützung bei treasury-bezogenen Aufgaben leisten."
-           data-lang-en="Treasury is a very sensitive task. We can offer professionals with experience, who can offer support in treasury related tasks.">
+        <h3 class="font-bold text-xl mb-12" data-lang-de="Treasury" data-lang-en="Treasury">Treasury</h3>
+        <p class="text-gray-600 mb-10 text-left"
+           data-lang-de="Treasury erfordert höchste Sorgfalt 
+            und Vertraulichkeit."
+           data-lang-en="Treasury management requires precision 
+           and confidentiality.">
+          Treasury is a very sensitive task. We can offer professionals with experience, who can offer support in treasury related tasks.
+        </p>
+        <p class="text-gray-600 text-left"
+           data-lang-de="Unsere erfahrenen Fachkräfte unterstützen Sie 
+            in den täglichen Abläufen, der Liquiditätsplanung 
+            und im Reporting – stets mit Fokus auf Compliance 
+            und Transparenz."
+           data-lang-en="Our experienced professionals support you 
+           in daily operations, liquidity planning, 
+           and reporting, ensuring compliance and control at every step.">
           Treasury is a very sensitive task. We can offer professionals with experience, who can offer support in treasury related tasks.
         </p>
       </div>
@@ -427,12 +587,21 @@ consuming or time-sensitive processes. Contact us for more information!">
         <div class="text-blue-900 text-5xl mb-4" style="color:#073D7F;">
           <i class="fas fa-book"></i>
         </div>
-        <h3 class="font-bold text-xl mb-2" data-lang-de="Hauptbuchhaltung" data-lang-en="General Accounting">
+        <h3 class="font-bold text-xl mb-6" data-lang-de="Hauptbuchhaltung" data-lang-en="General Accounting">
           Hauptbuchhaltung
         </h3>
-        <p class="text-gray-600"
-           data-lang-de="Rückstellungen, Anlagenbuchhaltung und Hauptbuchungen sind entscheidend für Monats- und Jahresabschlüsse. Wir können Unterstützung anbieten, um diese Aufgaben zu beschleunigen und professionelle Hilfe bereitzustellen."
-           data-lang-en="Accruals, Fixed Asset, and General Ledger bookings are essential for month and year end closings. We can provide support, to accelerate these tasks, and offer professional help.">
+        <p class="text-gray-600 mb-4 text-left"
+           data-lang-de="Rückstellungen, Anlagenbuchhaltung und 
+           Hauptbuchungen sind das Fundament eines korrekten Abschlusses.">
+          Rückstellungen, Anlagenbuchhaltung und Hauptbuchungen sind 
+          das Fundament eines korrekten Abschlusses.
+        </p>
+        <p class="text-gray-600 text-left"
+           data-lang-de="Wir übernehmen diese Aufgaben effizient 
+            und stellen sicher, dass Ihre Monats- und Jahresabschlüsse 
+            rechtzeitig und fehlerfrei erfolgen."
+           data-lang-en="We accelerate these processes 
+            and provide expert support for timely and correct closings.">
           Accruals, Fixed Asset, and General Ledger bookings are essential for month and year end closings. We can provide support, to accelerate these tasks, and offer professional help.
         </p>
       </div>
@@ -445,26 +614,31 @@ consuming or time-sensitive processes. Contact us for more information!">
 <section class="h-[60vh] bg-fixed bg-center bg-cover" style="background-image: url(src/assets/tim-hufner-d7TjlJ4MNMs-unsplash.jpg);">
     <div class="h-full bg-black bg-opacity-30 flex items-center justify-center">
       <h2 class="text-white text-4xl font-bold drop-shadow-lg text-center" 
-        data-lang-de="Gemeinsam schaffen wir Großes." 
-        data-lang-en="Together, we achieve greatness.">
+        data-lang-de="Erfolg durch Präzision und Partnerschaft." 
+        data-lang-en="Success through precision and partnership.">
         Herzlich willkommen
       </h2>
     </div>
 </section>
 
 <!-- TECHNOLOGIES -->
-<section id="technologies" class="bg-white py-16 px-4">
+<section id="technologies" class="bg-white py-16 px-4 max-w-5xl mx-auto">
   <div class="max-w-7xl mx-auto text-center">
     
     <!-- Title -->
-    <h2 class="text-4xl font-bold mb-4" data-lang-de="Technologien" data-lang-en="Technologies">
+    <h2 class="text-4xl font-bold mb-4" 
+    data-lang-de="Technologien" 
+    data-lang-en="Technologies">
       Technologies
     </h2>
     
     <!-- Intro -->
-    <p class="text-lg text-gray-600 mb-12"
-       data-lang-de="Wir sind bereits in den folgenden ERP-Programmen erfahren."
-       data-lang-en="We are already proficient in the following ERP programs.">
+    <p class="text-lg text-gray-600 mb-12 max-w-2xl mx-auto "
+       data-lang-de="Wir sind bereits in den folgenden 
+       ERP-Programmen erfahren."
+       data-lang-en="Our professionals are proficient in leading ERP 
+        and accounting systems, ensuring smooth integration into 
+        your processes:">
        We are already proficient in the following ERP programs.
     </p>
 
@@ -484,7 +658,7 @@ consuming or time-sensitive processes. Contact us for more information!">
         <div class="icon-wrapper border-2 border-gray-300 p-6 mb-6">
           <i class="fas fa-database text-blue-500 text-6xl"></i>
         </div>
-        <p class="text-blue-900 font-semibold">SAP Hana</p>
+        <p class="text-blue-900 font-semibold">SAP HANA</p>
       </div>
 
       <!-- Datev -->
@@ -492,7 +666,7 @@ consuming or time-sensitive processes. Contact us for more information!">
         <div class="icon-wrapper border-2 border-gray-300 p-6 mb-6">
           <i class="fas fa-file-invoice text-green-500 text-6xl"></i>
         </div>
-        <p class="text-blue-900 font-semibold">Datev</p>
+        <p class="text-blue-900 font-semibold">DATEV</p>
       </div>
 
       <!-- Lexware -->
@@ -597,16 +771,50 @@ consuming or time-sensitive processes. Contact us for more information!">
   </div>
 </section>
 
-<!-- ABOUT -->
+<!-- SUMMARY ABOUT US -->
 <section id="about" class="py-16 border-t">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-10 items-center">
     <div>
-      <h2 class="text-3xl font-bold">Über uns</h2>
-      <p class="mt-3 text-slate-600">Wir sind ein spezialisiertes Outsourcing-Team mit Fokus auf deutsche Standards und Hands-on-Mentalität. Transparente Kommunikation, feste Ansprechpartner, messbare Ergebnisse.</p>
+      <h2 class="text-3xl font-bold"
+        data-lang-de="a"
+        data-lang-en="FABO Accounting at a Glance">
+        Über uns
+      </h2>
+      <p class="mt-3 text-slate-600"
+        data-lang-de="a"
+        data-lang-en="We are a specialized outsourcing team 
+          with a strong focus on German accounting standards 
+          and a hands-on mentality.">
+        Wir sind ein spezialisiertes Outsourcing-Team 
+        mit Fokus auf deutsche Standards und Hands-on-Mentalität. 
+        Transparente Kommunikation, feste Ansprechpartner, 
+        messbare Ergebnisse.
+      </p>
+      <p class="mt-3 text-slate-600"
+        data-lang-de="a"
+        data-lang-en="Our approach: transparent communication, 
+          fixed contact persons, and measurable results.">
+        Wir sind ein spezialisiertes Outsourcing-Team 
+        mit Fokus auf deutsche Standards und Hands-on-Mentalität. 
+        Transparente Kommunikation, feste Ansprechpartner, 
+        messbare Ergebnisse.
+      </p>
       <ul class="mt-4 text-slate-700 list-disc pl-5">
-        <li>Festpreis- oder Retainer-Modelle</li>
-        <li>On-/Near-/Offsite kombinierbar</li>
-        <li>SLA-basiert &amp; auditierbar</li>
+        <li><p data-lang-de="Remote-First-Zusammenarbeit" 
+          data-lang-en="Remote-first cooperation">
+            Fixed-price or retainer models
+          </p>
+        </li>
+        <li><p data-lang-de="Schnelle Verfügbarkeit & Skalierbarkeit" 
+          data-lang-en="Fast availability & scalability">
+            Fixed-price or retainer models
+          </p>
+        </li>
+        <li><p data-lang-de="Sichere, SLA-basierte und auditierbare Prozesse" 
+          data-lang-en="Secure, SLA-based, and auditable processes">
+            Fixed-price or retainer models
+          </p>
+        </li>
       </ul>
     </div>
     <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=1400&auto=format&fit=crop" alt="Teamarbeit im Finanzwesen" class="rounded-2xl border object-cover w-full h-72" loading="lazy">
@@ -688,120 +896,6 @@ consuming or time-sensitive processes. Contact us for more information!">
     <button data-cookie="accept" class="px-3 py-1.5 rounded-lg bg-[var(--brand)] text-white">Akzeptieren</button>
   </div>
 </div>
-
-<!-- Menu script -->
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const desktopNav = document.getElementById("desktop-nav");
-  const hamburger = document.getElementById("hamburger");
-  const headerInner = document.getElementById("header-inner");
-  const siteLogo = document.getElementById("siteLogo");
-  const langSwitch = document.querySelector(".lang-switch");
-  const mobileMenu = document.getElementById("mobileMenu");
-  const mobilePanel = document.getElementById("mobilePanel");
-  const closeMenu = document.getElementById("closeMenu");
-
-  // --- Desktop Menu Handling ---
-  function updateMenuDisplay() {
-    desktopNav.classList.remove("hidden"); // show temporarily for measurement
-    const totalWidth =
-      (siteLogo?.scrollWidth || 0) +
-      (desktopNav?.scrollWidth || 0) +
-      (langSwitch?.scrollWidth || 0) +
-      40; // buffer for spacing
-
-    if (totalWidth > headerInner.clientWidth) {
-      desktopNav.classList.add("hidden");
-      hamburger.classList.remove("hidden");
-    } else {
-      desktopNav.classList.remove("hidden");
-      hamburger.classList.add("hidden");
-    }
-  }
-
-  updateMenuDisplay();
-  window.addEventListener("resize", updateMenuDisplay);
-  new ResizeObserver(updateMenuDisplay).observe(headerInner);
-
-  // --- Mobile Menu Handling ---
-  function openMenu() {
-    mobileMenu.classList.remove("hidden");
-    setTimeout(() => mobilePanel.classList.remove("translate-x-full"), 10);
-  }
-
-  function closeMenuPanel() {
-    mobilePanel.classList.add("translate-x-full");
-    setTimeout(() => mobileMenu.classList.add("hidden"), 300);
-  }
-
-  hamburger.addEventListener("click", openMenu);
-  closeMenu.addEventListener("click", closeMenuPanel);
-
-  mobileMenu.addEventListener("click", (e) => {
-    if (e.target === mobileMenu || e.target.classList.contains("bg-opacity-50")) {
-      closeMenuPanel();
-    }
-  });
-});
-</script>
-
-<!-- Language switch script -->
-<script>
-  // unified language switching (desktop + hamburger)
-  (function () {
-    const mobileMenu = document.getElementById('mobileMenu');
-
-    function setLanguage(lang) {
-      // text nodes
-      document.querySelectorAll('[data-lang-de],[data-lang-en]').forEach(el => {
-        const txt = (lang === 'de') ? el.getAttribute('data-lang-de') : el.getAttribute('data-lang-en');
-        if (txt !== null) el.textContent = txt;
-      });
-      // placeholders
-      document.querySelectorAll('[data-ph-de],[data-ph-en]').forEach(el => {
-        const ph = (lang === 'de') ? el.getAttribute('data-ph-de') : el.getAttribute('data-ph-en');
-        if (ph !== null) el.setAttribute('placeholder', ph);
-      });
-      // remember
-      localStorage.setItem('siteLang', lang);
-      // reflect active state on ALL lang buttons
-      document.querySelectorAll('[data-lang-btn]').forEach(btn => {
-        btn.setAttribute('aria-current', btn.dataset.langBtn === lang ? 'true' : 'false');
-      });
-    }
-
-    // event delegation works for both desktop + hamburger
-    document.addEventListener('click', function (e) {
-      const btn = e.target.closest('[data-lang-btn]');
-      if (!btn) return;
-
-      const newLang = btn.dataset.langBtn;
-      setLanguage(newLang);
-
-      // close hamburger if open
-      if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
-        mobileMenu.classList.add('hidden');
-      }
-    });
-
-    // init on load (default DE)
-    document.addEventListener('DOMContentLoaded', function () {
-      const saved = localStorage.getItem('siteLang') || 'de';
-      setLanguage(saved);
-    });
-
-    // cookie
-    const cookie = document.getElementById("cookie");
-    const COOKIE_KEY = "cookieConsentV1";
-    if (!localStorage.getItem(COOKIE_KEY)) cookie.classList.remove("hidden");
-    cookie.addEventListener("click", (e) => {
-      const t = e.target.getAttribute("data-cookie");
-      if (!t) return;
-      localStorage.setItem(COOKIE_KEY, t);
-      cookie.classList.add("hidden");
-    });
-  })();
-</script>
 
 </body>
 </html>
