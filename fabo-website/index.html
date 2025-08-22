@@ -360,7 +360,7 @@
       <a href="#about"        class="nav-link" data-lang-de="Über uns"     data-lang-en="About us">Company</a>
       <a href="#services"     class="nav-link" data-lang-de="Dienstleistungen" data-lang-en="Services">Services</a>
       <a href="#technologies" class="nav-link" data-lang-de="Technologien" data-lang-en="Technologies">Technologies</a>
-      <a href="#contact"      class="nav-link" data-lang-de="Kontakt"      data-lang-en="Contact us">Contact</a>
+      <a href="#contact"      class="nav-link" data-lang-de="Kontakt"      data-lang-en="Contact">Contact</a>
 
       <!-- Language Selector -->
       <ul class="lang-switch flex items-center ml-4" role="list">
@@ -447,7 +447,7 @@
     <a href="#contact"
        class="bg-white hover:bg-blue-600 hover:text-white text-blue-600 font-semibold px-6 py-3 rounded shadow-lg transition"
        data-lang-de="Kontakt"
-       data-lang-en="Contact Us">
+       data-lang-en="Contact">
       Kontakt
     </a>
   </div>
@@ -752,7 +752,8 @@
     </div>
 
     <!-- Form -->
-    <form action="https://formspree.io/f/mjkonwer" 
+    <form  id="contactForm"
+      action="https://formspree.io/f/mjkonwer" 
       method="POST" 
       class="space-y-4 flex-1 bg-gray-100 p-6 rounded-lg">
   
@@ -781,6 +782,7 @@
             oninvalid="this.setCustomValidity(this.title)"
             oninput="this.setCustomValidity('')">
         </div>
+
         <!-- Phone (optional) -->
         <div>
           <input type="tel" class="w-full p-2 border rounded"
@@ -795,6 +797,7 @@
             oninvalid="this.setCustomValidity(this.title)"
             oninput="this.setCustomValidity('')">
         </div>
+
         <!-- Subject -->
         <div>
           <input type="text" class="w-full p-2 border rounded"
@@ -809,6 +812,7 @@
             oninvalid="this.setCustomValidity(this.title)"
             oninput="this.setCustomValidity('')">
         </div>
+
         <!-- Message -->
         <div>
           <textarea class="w-full p-2 border rounded" rows="4"
@@ -823,13 +827,47 @@
             oninvalid="this.setCustomValidity(this.title)"
             oninput="this.setCustomValidity('')"></textarea>
         </div>
+
+        <!-- Submit button -->
         <button type="submit" 
           class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded"
           data-lang-de="Senden"
           data-lang-en="Send">
           Senden
         </button>
+
+        <!-- Success message (hidden by default) -->
+        <p id="successMsg" class="hidden text-green-600 font-semibold mt-4"
+          data-lang-de="Danke! Ihre Nachricht wurde erfolgreich gesendet."
+          data-lang-en="Thanks! Your message has been sent successfully.">
+          Danke! Ihre Nachricht wurde erfolgreich gesendet.
+        </p>
     </form>
+
+    <!-- AJAX SUBMISSION SCRIPT -->
+    <script>
+    document.getElementById("contactForm").addEventListener("submit", async function(e) {
+      e.preventDefault(); // stop normal redirect
+      const form = e.target;
+
+      try {
+        const response = await fetch(form.action, {
+          method: form.method,
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+          form.reset();
+          document.getElementById("successMsg").classList.remove("hidden");
+        } else {
+          alert("There was a problem submitting the form.");
+        }
+      } catch (err) {
+        alert("Error: " + err.message);
+      }
+    });
+    </script>
 
   </div>
 </section>
@@ -928,7 +966,7 @@
           data-lang-de="Technologien" data-lang-en="Technologies">Technologies</a>
         <a href="#contact"  
           class="block text-slate-400 hover:text-white"
-          data-lang-de="Kontakt" data-lang-en="Contact us">Contact</a>
+          data-lang-de="Kontakt" data-lang-en="Contact">Contact</a>
     </nav>
     <div class="space-y-2">
       <div class="font-semibold text-white">Kontakt</div>
