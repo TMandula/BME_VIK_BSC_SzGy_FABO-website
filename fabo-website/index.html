@@ -267,7 +267,7 @@
 
 
     /* Language switcher */
-    
+
     /* Keep only what Tailwind can't handle */
     .lang-btn {
       letter-spacing: .02em;
@@ -745,46 +745,58 @@
     </div>
 
     <!-- Form -->
-    <form action="https://formspree.io/f/your-form-id" method="POST" form class="space-y-4 flex-1 bg-gray-100 p-6 rounded-lg">
+    <form action="https://formspree.io/f/mjkonwer" 
+      method="POST" 
+      class="space-y-4 flex-1 bg-gray-100 p-6 rounded-lg">
+  
         <!-- Name + Email -->
         <div class="flex flex-col sm:flex-row sm:gap-4">
           <input type="text" class="flex-1 p-2 border rounded"
-                 data-placeholder-de="Name"
-                 data-placeholder-en="Name"
-                 placeholder="Name" required>
+            name="name" 
+            data-placeholder-de="Name *"
+            data-placeholder-en="Name *"
+            title="Please enter your name"
+            placeholder="Name" required>
           <input type="email" class="flex-1 p-2 border rounded"
-                 data-placeholder-de="E-Mail"
-                 data-placeholder-en="Email"
-                 placeholder="E-Mail" required>
+            name="email"
+            data-placeholder-de="E-Mail *"
+            data-placeholder-en="Email *"
+            placeholder="E-Mail" required>
         </div>
-        <!-- Optional Phone -->
+        <!-- Phone (optional) -->
         <div>
           <input type="tel" class="w-full p-2 border rounded"
-                 data-placeholder-de="Telefon (optional)"
-                 data-placeholder-en="Phone (optional)"
-                 placeholder="Telefon (optional)">
+            name="phone"
+            pattern="^\+?[0-9\s\-\(\)]{7,20}$"
+            title="Enter a valid phone number, e.g., +49 123 4567890, +44 20 1234 5678, +1 555-123-4567"
+            data-placeholder-de="Telefon (optional)"
+            data-placeholder-en="Phone (optional)"
+            placeholder="Telefon (optional)">
         </div>
         <!-- Subject -->
         <div>
           <input type="text" class="w-full p-2 border rounded"
-                 data-placeholder-de="Betreff"
-                 data-placeholder-en="Subject"
-                 placeholder="Betreff" required>
+            name="_subject"
+            data-placeholder-de="Betreff *"
+            data-placeholder-en="Subject *"
+            placeholder="Betreff" required>
         </div>
         <!-- Message -->
         <div>
           <textarea class="w-full p-2 border rounded" rows="4"
-                    data-placeholder-de="Nachricht (z. B.: Unternehmen, Benötigte Arbeitsstunden, Aufgabenbeschreibung)"
-                    data-placeholder-en="Message (e.g.: Company, Required working hours, Task description)"
-                    placeholder="Nachricht (z. B.: Unternehmen, Benötigte Arbeitsstunden, Aufgabenbeschreibung)"></textarea>
+            name="message"
+            data-placeholder-de="Nachricht * (z. B.: Unternehmen, Benötigte Arbeitsstunden, Aufgabenbeschreibung)"
+            data-placeholder-en="Message * (e.g.: Company, Required working hours, Task description)"
+            placeholder="Nachricht (z. B.: Unternehmen, Benötigte Arbeitsstunden, Aufgabenbeschreibung)"
+            required></textarea>
         </div>
         <button type="submit" 
-                class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded"
-                data-lang-de="Senden"
-                data-lang-en="Send">
+          class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded"
+          data-lang-de="Senden"
+          data-lang-en="Send">
           Senden
         </button>
-      </form>
+    </form>
 
   </div>
 </section>
