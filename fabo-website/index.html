@@ -130,8 +130,8 @@
           if (txt !== null) el.textContent = txt;
         });
         // placeholders
-        document.querySelectorAll('[data-ph-de],[data-ph-en]').forEach(el => {
-          const ph = (lang === 'de') ? el.getAttribute('data-ph-de') : el.getAttribute('data-ph-en');
+        document.querySelectorAll('[data-placeholder-de],[data-placeholder-en]').forEach(el => {
+          const ph = (lang === 'de') ? el.getAttribute('data-placeholder-de') : el.getAttribute('data-placeholder-en');
           if (ph !== null) el.setAttribute('placeholder', ph);
         });
         // remember
@@ -562,7 +562,7 @@
         <div class="text-green-500 text-5xl mb-4">
           <i class="fas fa-piggy-bank"></i>
         </div>
-        <h3 class="font-bold text-xl mb-12" data-lang-de="Treasury" data-lang-en="Treasury">Treasury</h3>
+        <h3 class="font-bold text-xl mb-6" data-lang-de="Treasury" data-lang-en="Treasury">Treasury</h3>
         <p class="text-gray-600 mb-10 text-left"
            data-lang-de="Treasury erfordert höchste Sorgfalt 
             und Vertraulichkeit."
@@ -634,8 +634,9 @@
     
     <!-- Intro -->
     <p class="text-lg text-gray-600 mb-12 max-w-2xl mx-auto "
-       data-lang-de="Wir sind bereits in den folgenden 
-       ERP-Programmen erfahren."
+       data-lang-de="Unsere Fachkräfte sind in führenden ERP- 
+        und Buchhaltungssystemen geschult und können sich sofort 
+        in Ihre Prozesse einfügen:"
        data-lang-en="Our professionals are proficient in leading ERP 
         and accounting systems, ensuring smooth integration into 
         your processes:">
@@ -681,9 +682,16 @@
 
     <!-- Disclaimer -->
     <p class="mt-12 text-gray-500 text-sm max-w-3xl mx-auto"
-       data-lang-de="Alle Produktnamen, Logos und Marken sind Eigentum ihrer jeweiligen Inhaber. Die Verwendung dieser Namen impliziert keine Zugehörigkeit oder Billigung."
-       data-lang-en="All product names, logos, and brands are the property of their respective owners. Use of these names does not imply any affiliation or endorsement.">
-      All product names, logos, and brands are the property of their respective owners. Use of these names does not imply any affiliation or endorsement.
+       data-lang-de="Alle Produktnamen, Logos und Marken sind Eigentum 
+        ihrer jeweiligen Inhaber. 
+        Die Verwendung dieser Namen impliziert keine Zugehörigkeit 
+        oder Billigung."
+       data-lang-en="All product names, logos, and brands are the 
+        property of their respective owners. 
+        Use of these names does not imply any affiliation or endorsement.">
+      All product names, logos, and brands are the property of their 
+      respective owners. Use of these names does not imply any 
+      affiliation or endorsement.
     </p>
   </div>
 </section>
@@ -776,12 +784,14 @@
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-10 items-center">
     <div>
       <h2 class="text-3xl font-bold"
-        data-lang-de="a"
+        data-lang-de="FABO Accounting im Überblick"
         data-lang-en="FABO Accounting at a Glance">
         Über uns
       </h2>
       <p class="mt-3 text-slate-600"
-        data-lang-de="a"
+        data-lang-de="Wir sind ein spezialisiertes Outsourcing-Team 
+          mit Fokus auf deutsche Standards und einer klaren 
+          Hands-on-Mentalität."
         data-lang-en="We are a specialized outsourcing team 
           with a strong focus on German accounting standards 
           and a hands-on mentality.">
@@ -791,7 +801,8 @@
         messbare Ergebnisse.
       </p>
       <p class="mt-3 text-slate-600"
-        data-lang-de="a"
+        data-lang-de="Unser Versprechen: transparente Kommunikation, 
+          feste Ansprechpartner und messbare Ergebnisse."
         data-lang-en="Our approach: transparent communication, 
           fixed contact persons, and measurable results.">
         Wir sind ein spezialisiertes Outsourcing-Team 
