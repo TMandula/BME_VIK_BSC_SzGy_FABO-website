@@ -140,6 +140,13 @@
         document.querySelectorAll('[data-lang-btn]').forEach(btn => {
           btn.setAttribute('aria-current', btn.dataset.langBtn === lang ? 'true' : 'false');
         });
+
+        // titles (tooltip + validation messages)
+        document.querySelectorAll('[data-title-de],[data-title-en]').forEach(el => {
+          const msg = (lang === 'de') ? el.getAttribute('data-title-de') : el.getAttribute('data-title-en');
+          if (msg !== null) el.setAttribute('title', msg);
+        });
+
       }
 
       // event delegation works for both desktop + hamburger
@@ -755,23 +762,38 @@
             name="name" 
             data-placeholder-de="Name *"
             data-placeholder-en="Name *"
-            title="Please enter your name"
-            placeholder="Name" required>
+            placeholder="Name" 
+            required
+            data-title-de="Bitte geben Sie Ihren Namen ein"
+            data-title-en="Please enter your name"
+            title="Bitte geben Sie Ihren Namen ein"
+            oninvalid="this.setCustomValidity(this.title)"
+            oninput="this.setCustomValidity('')">
           <input type="email" class="flex-1 p-2 border rounded"
             name="email"
             data-placeholder-de="E-Mail *"
             data-placeholder-en="Email *"
-            placeholder="E-Mail" required>
+            placeholder="E-Mail" 
+            required
+            data-title-de="Bitte geben Sie Ihre E-Mail-Adresse ein"
+            data-title-en="Please enter your email address"
+            title="Bitte geben Sie Ihre E-Mail-Adresse ein"
+            oninvalid="this.setCustomValidity(this.title)"
+            oninput="this.setCustomValidity('')">
         </div>
         <!-- Phone (optional) -->
         <div>
           <input type="tel" class="w-full p-2 border rounded"
             name="phone"
             pattern="^\+?[0-9\s\-\(\)]{7,20}$"
-            title="Enter a valid phone number, e.g., +49 123 4567890, +44 20 1234 5678, +1 555-123-4567"
             data-placeholder-de="Telefon (optional)"
             data-placeholder-en="Phone (optional)"
-            placeholder="Telefon (optional)">
+            placeholder="Telefon (optional)"
+            data-title-de="Bitte geben Sie eine gültige Telefonnummer ein, z. B. +49 123 4567890"
+            data-title-en="Please enter a valid phone number, e.g., +49 123 4567890"
+            title="Bitte geben Sie eine gültige Telefonnummer ein, z. B. +49 123 4567890"
+            oninvalid="this.setCustomValidity(this.title)"
+            oninput="this.setCustomValidity('')">
         </div>
         <!-- Subject -->
         <div>
@@ -779,7 +801,13 @@
             name="_subject"
             data-placeholder-de="Betreff *"
             data-placeholder-en="Subject *"
-            placeholder="Betreff" required>
+            placeholder="Betreff" 
+            required
+            data-title-de="Bitte geben Sie den Betreff ein"
+            data-title-en="Please enter the subject"
+            title="Bitte geben Sie den Betreff ein"
+            oninvalid="this.setCustomValidity(this.title)"
+            oninput="this.setCustomValidity('')">
         </div>
         <!-- Message -->
         <div>
@@ -788,7 +816,12 @@
             data-placeholder-de="Nachricht * (z. B.: Unternehmen, Benötigte Arbeitsstunden, Aufgabenbeschreibung)"
             data-placeholder-en="Message * (e.g.: Company, Required working hours, Task description)"
             placeholder="Nachricht (z. B.: Unternehmen, Benötigte Arbeitsstunden, Aufgabenbeschreibung)"
-            required></textarea>
+            required
+            data-title-de="Bitte geben Sie eine Nachricht ein"
+            data-title-en="Please enter a message"
+            title="Bitte geben Sie eine Nachricht ein"
+            oninvalid="this.setCustomValidity(this.title)"
+            oninput="this.setCustomValidity('')"></textarea>
         </div>
         <button type="submit" 
           class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded"
