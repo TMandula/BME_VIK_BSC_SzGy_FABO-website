@@ -271,6 +271,15 @@
     .lang-btn {
       letter-spacing: .02em;
     }
+    /* current language: muted + not clickable */
+    .lang-btn[aria-current="true"] {
+      cursor: default; 
+      pointer-events: none; 
+    }
+    /* hover for the other language */
+    .lang-btn:not([aria-current="true"]):hover { 
+      color: #78a6f6; 
+    }
 
     /* ICON WRAPPER */
     .icon-wrapper {
@@ -338,7 +347,7 @@
     </a>
 
     <!-- Desktop Menu -->
-    <nav id="desktop-nav" class="flex items-center space-x-6 text-lg font-medium">
+    <nav id="desktop-nav" class="flex items-center space-x-8 text-lg font-medium">
       <a href="#home"         class="nav-link" data-lang-de="Startseite"   data-lang-en="Home">Home</a>
       <a href="#about"        class="nav-link" data-lang-de="Über uns"     data-lang-en="About us">Company</a>
       <a href="#services"     class="nav-link" data-lang-de="Dienstleistungen" data-lang-en="Services">Services</a>
@@ -347,9 +356,9 @@
 
       <!-- Language Selector -->
       <ul class="lang-switch flex items-center ml-4" role="list">
-        <li><button type="button" class="hover:text-blue-500 px-1 py-0.5" data-lang-btn="de">DE</button></li>
+        <li><button type="button" class="lang-btn px-1 py-0.5" data-lang-btn="de">DE</button></li>
         <li aria-hidden="true" class="px-1 lang-divider">|</li>
-        <li><button type="button" class="hover:text-blue-500 lang-btn px-1 py-0.5" data-lang-btn="en">EN</button></li>
+        <li><button type="button" class="lang-btn px-1 py-0.5" data-lang-btn="en">EN</button></li>
       </ul>
     </nav>
 
@@ -428,9 +437,9 @@
       Wir bieten maßgeschneiderte Lösungen für Ihre Bedürfnisse.
     </p>
     <a href="#contact"
-       class="bg-white hover:bg-blue-500 hover:text-white text-blue-500 font-semibold px-6 py-3 rounded shadow-lg transition"
+       class="bg-white hover:bg-blue-600 hover:text-white text-blue-600 font-semibold px-6 py-3 rounded shadow-lg transition"
        data-lang-de="Kontakt"
-       data-lang-en="Contact">
+       data-lang-en="Contact Us">
       Kontakt
     </a>
   </div>
@@ -769,7 +778,7 @@
                     placeholder="Nachricht (z. B.: Unternehmen, Benötigte Arbeitsstunden, Aufgabenbeschreibung)"></textarea>
         </div>
         <button type="submit" 
-                class="bg-blue-800 hover:bg-blue-900 text-white px-6 py-2 rounded"
+                class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded"
                 data-lang-de="Senden"
                 data-lang-en="Send">
           Senden
