@@ -26,8 +26,22 @@
   <!-- Mobile browser theming -->
   <meta name="theme-color" content="#073D7F">
 
-  <!-- Favicon -->
-  <link rel="icon" href="src/assets/favicon.ico" type="image/x-icon">
+
+  <!-- Inline SVG favicon -->
+  <link rel="icon" type="image/svg+xml" href='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512"><circle cx="256" cy="256" r="250" fill="none" stroke="%23073D7F" stroke-width="24"/><text x="50%" y="50%" text-anchor="middle" dominant-baseline="central" font-family="DM Serif Text, serif" font-size="500" font-weight="900" fill="%23073D7F">F</text></svg>'>
+
+  <!-- ICO fallback (multiple sizes for older browsers) -->
+  <link rel="alternate icon" href="/favicon.ico">
+
+  <!-- PNG fallbacks -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="180x180" href="/favicon-180x180.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="/favicon-512x512.png">
+
+  <!-- Apple touch icon -->
+  <link rel="apple-touch-icon" href="/favicon-180x180.png">
+
+
 
   
   <!-- Tailwind CSS -->
@@ -40,9 +54,7 @@
   
   <!-- Font Awesome -->
   <link rel="stylesheet" 
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" 
-  integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/Dbiljbs5E2f6rvS7tM1l4HbV0G5lNJeZo4j/wZUp3NE6wR0EBh9p9Wjfj6v0A=="
-  crossorigin="anonymous" referrerpolicy="no-referrer" />
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" >
 
   <!-- Particles -->
   <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
@@ -466,16 +478,18 @@
   class="relative flex items-center justify-center text-center text-white overflow-hidden min-h-screen bg-cover bg-center"
   style="background-image: url('src/assets/hero-bg2.jpg');">
 
+  
   <!-- Dark overlay for better contrast -->
-  <div class="absolute inset-0 bg-black bg-opacity-20 z-0"></div>
+  <div class="absolute inset-0 bg-black bg-opacity-20 z-10"></div>
+
 
   <!-- Particles layer -->
   <div id="heroParticles" 
-    class="absolute inset-0 w-full h-full pointer-events-none z-10">
+    class="absolute inset-0 w-full h-full pointer-events-none z-20">
   </div>
 
   <!-- Content layer -->
-  <div class="text-left max-w-4xl mx-auto px-4">
+  <div class="text-left max-w-4xl mx-auto px-4 z-30">
     <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-2"
         data-lang-de="FABO Accounting"
         data-lang-en="FABO Accounting">
@@ -492,11 +506,14 @@
       Wir bieten maßgeschneiderte Lösungen für Ihre Bedürfnisse.
     </p>
     <a href="#contact"
-       class="relative z-20 bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded shadow-lg transition"
+       class="relative bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded shadow-lg transition"
        data-lang-de="Kontakt"
        data-lang-en="Contact">
       Kontakt
     </a>
+  </div>
+  <div>
+    
   </div>
 </section>
 
