@@ -118,6 +118,8 @@
       const headerInner = document.getElementById("header-inner");
       const siteLogo = document.getElementById("siteLogo");
       const langSwitch = document.querySelector(".lang-switch");
+      const mobileMenu = document.getElementById("mobileMenu");
+      const mobilePanel = document.getElementById("mobilePanel");
 
       desktopNav.classList.remove("hidden"); // show temporarily for measurement
       const totalWidth =
@@ -127,11 +129,19 @@
         40; // buffer for spacing
 
       if (totalWidth > headerInner.clientWidth) {
+        // not enough space → show hamburger
         desktopNav.classList.add("hidden");
         hamburger.classList.remove("hidden");
       } else {
+        // enough space → show full nav
         desktopNav.classList.remove("hidden");
         hamburger.classList.add("hidden");
+        
+        // auto-close mobile menu if it’s open
+        if (mobileMenu && !mobileMenu.classList.contains("hidden")) {
+          mobilePanel.classList.add("translate-x-full");
+          setTimeout(() => mobileMenu.classList.add("hidden"), 300);
+        }
       }
     }
     // 🔑 make available globally
