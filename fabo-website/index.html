@@ -111,18 +111,14 @@
 
   <!-- MOBILE HAMBURGER MENU PANEL SCRIPT -->
   <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const desktopNav = document.getElementById("desktop-nav");
-    const hamburger = document.getElementById("hamburger");
-    const headerInner = document.getElementById("header-inner");
-    const siteLogo = document.getElementById("siteLogo");
-    const langSwitch = document.querySelector(".lang-switch");
-    const mobileMenu = document.getElementById("mobileMenu");
-    const mobilePanel = document.getElementById("mobilePanel");
-    const closeMenu = document.getElementById("closeMenu");
-
     // --- Desktop Menu Handling ---
     function updateMenuDisplay() {
+      const desktopNav = document.getElementById("desktop-nav");
+      const hamburger = document.getElementById("hamburger");
+      const headerInner = document.getElementById("header-inner");
+      const siteLogo = document.getElementById("siteLogo");
+      const langSwitch = document.querySelector(".lang-switch");
+
       desktopNav.classList.remove("hidden"); // show temporarily for measurement
       const totalWidth =
         (siteLogo?.scrollWidth || 0) +
@@ -138,31 +134,43 @@
         hamburger.classList.add("hidden");
       }
     }
+    // 🔑 make available globally
+    window.updateMenuDisplay = updateMenuDisplay;
 
-    updateMenuDisplay();
-    window.addEventListener("resize", updateMenuDisplay);
-    new ResizeObserver(updateMenuDisplay).observe(headerInner);
+    document.addEventListener("DOMContentLoaded", () => {
+      const mobileMenu = document.getElementById("mobileMenu");
+      const mobilePanel = document.getElementById("mobilePanel");
+      const hamburger = document.getElementById("hamburger");
+      const closeMenu = document.getElementById("closeMenu");
+      const headerInner = document.getElementById("header-inner");
 
-    // --- Mobile Menu Handling ---
-    function openMenu() {
-      mobileMenu.classList.remove("hidden");
-      setTimeout(() => mobilePanel.classList.remove("translate-x-full"), 10);
-    }
+      // run once on load
+      updateMenuDisplay();
 
-    function closeMenuPanel() {
-      mobilePanel.classList.add("translate-x-full");
-      setTimeout(() => mobileMenu.classList.add("hidden"), 300);
-    }
+      // recalc on resize + resize observer
+      window.addEventListener("resize", updateMenuDisplay);
+      new ResizeObserver(updateMenuDisplay).observe(headerInner);
 
-    hamburger.addEventListener("click", openMenu);
-    closeMenu.addEventListener("click", closeMenuPanel);
-
-    mobileMenu.addEventListener("click", (e) => {
-      if (e.target === mobileMenu || e.target.classList.contains("bg-opacity-50")) {
-        closeMenuPanel();
+      // --- Mobile Menu Handling ---
+      function openMenu() {
+        mobileMenu.classList.remove("hidden");
+        setTimeout(() => mobilePanel.classList.remove("translate-x-full"), 10);
       }
+
+      function closeMenuPanel() {
+        mobilePanel.classList.add("translate-x-full");
+        setTimeout(() => mobileMenu.classList.add("hidden"), 300);
+      }
+
+      hamburger.addEventListener("click", openMenu);
+      closeMenu.addEventListener("click", closeMenuPanel);
+
+      mobileMenu.addEventListener("click", (e) => {
+        if (e.target === mobileMenu || e.target.classList.contains("bg-opacity-50")) {
+          closeMenuPanel();
+        }
+      });
     });
-  });
   </script>
 
   <!-- Language switch script -->
@@ -204,6 +212,11 @@
 
         const newLang = btn.dataset.langBtn;
         setLanguage(newLang);
+        
+        // Recalculate menu layout after switching text
+        if (typeof window.updateMenuDisplay === "function") {
+          window.updateMenuDisplay();
+        }
 
         // close hamburger if open
         if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
