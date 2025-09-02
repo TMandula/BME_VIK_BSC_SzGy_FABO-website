@@ -1,11 +1,14 @@
 import React from 'react'
-import Navbar from './Components/Navbar/Navbar'
+import Header from './components/Header'
 
 const App = () => {
   return (
-    <div>
-      <Navbar/>
-    </div>
+    <>
+      <Header />
+      {/* Paste everything from index.html after the header here, starting with <section id="home"> ... */}
+      {/* ...existing code... */}
+      
+    </>
   )
 }
 
