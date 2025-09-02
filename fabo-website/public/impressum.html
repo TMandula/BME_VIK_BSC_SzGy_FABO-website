@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="de" class="h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Impressum | FABO Accounting</title>
+  <meta name="description" content="Impressum von FABO Accounting – rechtliche Informationen, Kontakt und Unternehmensdetails.">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Serif+Text:ital@0;1&display=swap" rel="stylesheet">
+
+  <style>
+    body { font-family: 'DM Sans', sans-serif; }
+    h1, h2 { font-family: 'DM Serif Text', serif; }
+  </style>
+</head>
+<body class="bg-white text-gray-900 min-h-screen flex flex-col">
+
+  <!-- HEADER -->
+  <header class="bg-blue-900 text-white py-4">
+    <div class="max-w-7xl mx-auto px-4 flex justify-between items-center">
+      <a href="index.html" class="text-2xl font-bold">FABO Accounting</a>
+      <nav class="space-x-4">
+        <a href="index.html" class="hover:underline">Home</a>
+        <a href="impressum.html" class="underline font-semibold">Impressum</a>
+        <a href="datenschutz.html" class="hover:underline">Datenschutz</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="flex-1 max-w-7xl mx-auto px-4 py-12">
+    <h1 class="text-4xl font-bold mb-6">Impressum</h1>
+
+    <!-- Company Info -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-semibold mb-2">Angaben gemäß § 5 TMG</h2>
+      <p>FABO Accounting<br>
+         Inhaber: Mandula Fabo<br>
+         Budapest / Miskolc, Ungarn
+      </p>
+      <h2 class="text-2xl font-semibold mt-6 mb-2">Kontakt</h2>
+      <p>E-Mail: <a href="mailto:fabobudapest@gmail.com" class="text-blue-600 hover:underline">fabobudapest@gmail.com</a></p>
+      <p>Telefon: <a href="tel:+49123456789" class="text-blue-600 hover:underline">+49 123 456 789</a></p>
+      <h2 class="text-2xl font-semibold mt-6 mb-2">Umsatzsteuer-ID</h2>
+      <p>DE123456789</p>
+      <h2 class="text-2xl font-semibold mt-6 mb-2">Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h2>
+      <p>Mandula Fabo<br>
+         Budapest / Miskolc, Ungarn
+      </p>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="mb-12">
+      <h2 class="text-3xl font-bold mb-8">Kontaktformular</h2>
+      <div class="grid md:grid-cols-2 gap-8 items-center">
+        
+        <!-- Contact Form -->
+        <form id="contactForm" action="https://formspree.io/f/mjkonwer" method="POST"
+          class="space-y-4 bg-gray-100 p-6 rounded-2xl shadow-md hover:shadow-lg">
+          
+          <div class="flex flex-col sm:flex-row sm:gap-4 gap-4">
+            <input type="text" name="name" placeholder="Name *" required
+              class="flex-1 p-2 border rounded focus:outline-none focus:border-blue-500">
+            <input type="email" name="email" placeholder="E-Mail *" required
+              class="flex-1 p-2 border rounded focus:outline-none focus:border-blue-500">
+          </div>
+          <input type="text" name="_subject" placeholder="Betreff *" required
+            class="w-full p-2 border rounded focus:outline-none focus:border-blue-500">
+          <textarea name="message" rows="4" placeholder="Nachricht *" required
+            class="w-full p-2 border rounded focus:outline-none focus:border-blue-500"></textarea>
+          <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold">
+            Senden
+          </button>
+          <p id="successMsg" class="hidden mt-4 p-4 rounded-lg bg-green-100 text-green-700 font-medium">
+            Danke! Ihre Nachricht wurde erfolgreich gesendet.
+          </p>
+        </form>
+
+        <!-- Image next to form -->
+        <div class="w-full p-2 px-6 py-3">
+          <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=1074&auto=format&fit=crop" 
+            alt="Teamwork im Finanzwesen" 
+            class="rounded-2xl object-cover w-full h-full shadow-md">
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- AJAX Submission Script -->
+  <script>
+    document.getElementById("contactForm").addEventListener("submit", async function(e) {
+      e.preventDefault();
+      const form = e.target;
+
+      try {
+        const response = await fetch(form.action, {
+          method: form.method,
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+          form.reset();
+          document.getElementById("successMsg").classList.remove("hidden");
+        } else {
+          alert("Es gab ein Problem beim Senden der Nachricht.");
+        }
+      } catch (err) {
+        alert("Fehler: " + err.message);
+      }
+    });
+  </script>
+
+  <!-- FOOTER -->
+  <footer class="bg-gray-100 text-gray-600 py-6">
+    <div class="max-w-7xl mx-auto px-4 text-sm flex flex-col md:flex-row justify-between">
+      <span>© 2025 FABO Accounting. Alle Rechte vorbehalten.</span>
+      <div class="flex gap-4 mt-2 md:mt-0">
+        <a href="impressum.html" class="hover:text-gray-900">Impressum</a>
+        <a href="datenschutz.html" class="hover:text-gray-900">Datenschutz</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
