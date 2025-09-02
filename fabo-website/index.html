@@ -239,17 +239,6 @@
         const saved = localStorage.getItem('siteLang') || 'de';
         setLanguage(saved);
       });
-
-      // cookie
-      const cookie = document.getElementById("cookie");
-      const COOKIE_KEY = "cookieConsentV1";
-      if (!localStorage.getItem(COOKIE_KEY)) cookie.classList.remove("hidden");
-      cookie.addEventListener("click", (e) => {
-        const t = e.target.getAttribute("data-cookie");
-        if (!t) return;
-        localStorage.setItem(COOKIE_KEY, t);
-        cookie.classList.add("hidden");
-      });
     })();
   </script>
 
@@ -1121,20 +1110,6 @@
     </div>
   </div>
 </footer>
-
-<!-- Cookie banner -->
-<div id="cookie" class="fixed bottom-3 inset-x-3 md:left-auto md:right-6 md:inset-x-auto md:max-w-xl z-[60] bg-white border border-slate-200 rounded-xl shadow-xl p-4 hidden">
-  <div class="flex items-start gap-3">
-    <div class="mt-1">
-      <svg width="20" height="20" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2"><path d="M12 3v1M17.657 6.343l-.707.707M21 12h-1M17.657 17.657l-.707-.707M12 20v1M6.343 17.657l.707-.707M4 12H3M6.343 6.343l.707.707"/><circle cx="12" cy="12" r="4"/></svg>
-    </div>
-    <p class="text-sm text-slate-700">Wir verwenden Cookies zur Verbesserung Ihres Erlebnisses. <a href="#" class="underline">Details</a></p>
-  </div>
-  <div class="mt-3 flex gap-2 justify-end">
-    <button data-cookie="decline" class="px-3 py-1.5 rounded-lg border border-slate-300">Ablehnen</button>
-    <button data-cookie="accept" class="px-3 py-1.5 rounded-lg bg-[var(--brand)] text-white">Akzeptieren</button>
-  </div>
-</div>
 
 </body>
 </html>
