@@ -15,3 +15,89 @@ a{
   line-height: 1;
   cursor: pointer;
 }
+
+
+body { font-family: 'DM Sans', sans-serif; }
+html { 
+  scroll-padding-top: 20px; 
+  font-size: clamp(14px, 1.2vw, 18px); /* min 14px, ideal 1.2vw, max 18px */
+}
+
+h1 {
+  margin-bottom: calc(var(--spacing) * 1.5);
+  font-size: clamp(2rem, 2vw, 2rem);   /* min 2rem, ideal 5% viewport, max 4rem */
+}
+h2 {
+  font-size: clamp(1.5rem, 2vw, 1.5rem);
+}
+p {
+  font-size: clamp(1rem, 1vw, 1.2rem);
+}
+
+/* HEADER */
+/* Base link style */
+/* Keep only what's not possible in Tailwind */
+.nav-link {
+  position: relative; /* needed for ::after underline */
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;             /* space under the text */
+  width: 100%;
+  height: 2px;
+  background-color: currentColor; /* matches text color */
+  transform: scaleX(0);     /* hidden initially */
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+.nav-link:hover::after {
+  transform: scaleX(1);     /* animate underline on hover */
+}
+
+
+/* Language switcher */
+
+/* Keep only what Tailwind can't handle */
+.lang-btn {
+  letter-spacing: .02em;
+}
+/* current language: muted + not clickable */
+.lang-btn[aria-current="true"] {
+  cursor: default; 
+  pointer-events: none; 
+}
+/* hover for the other language */
+.lang-btn:not([aria-current="true"]):hover { 
+  color: #78a6f6; 
+}
+
+/* ICON WRAPPER */
+.icon-wrapper {
+  width: 150px; /* fixed square size */
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #d1d5db; /* gray-300 default */
+  transition: border-color 0.3s ease, color 0.3s ease;
+}
+
+/* KEEP - TECHNOLOGIES */
+.tech-tile {
+  transition: transform 0.15s ease-in-out;
+}
+.tech-tile:hover {
+  animation: pop 0.4s ease-in-out;
+}
+.tech-tile:hover .icon-wrapper {
+  /* border-color: #073D7F; /* Dark blue frame */
+  border-color: text-color;
+}
+/*.tech-tile:hover i {color: #073D7F; }*/
+@keyframes pop {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(0.90); } /* Shrink */
+  100% { transform: scale(1); }    /* Grow back */
+}
