@@ -226,7 +226,7 @@ const App = () => {
 
             {/* Hauptbuchhaltung */}
             <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition transition-all duration-300 border-b-4 border-transparent hover:-translate-y-2 hover:border-blue-900">
-              <div className="text-blue-900 text-5xl mb-4" style="color:#073D7F;">
+              <div className="text-blue-900 text-5xl mb-4" style={{ color: "#073D7F" }}>
                 <i className="fas fa-book"></i>
               </div>
               <h3 className="font-bold text-xl mb-6" data-lang-de="Hauptbuchhaltung" data-lang-en="General Accounting">
