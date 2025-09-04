@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Footer = () => {
     return (
         <>
@@ -28,26 +30,26 @@ const Footer = () => {
                         <div className="font-semibold text-white" 
                             data-lang-de="Menü" 
                             data-lang-en="Menu">Menü</div>
-                        <a href="#home" 
-                            className="block w-max min-w-[16ch] text-slate-400 hover:text-white"
+                        <Link to="/#hero" 
+                            className="block w-max min-w-[16ch] text-slate-400 hover:text-white" 
                             data-lang-de="Startseite" 
-                            data-lang-en="Home">Home</a>
-                        <a href="#about"  
+                            data-lang-en="Home">Home</Link>
+                        <Link to="/"   
                             className="block w-max min-w-[16ch] text-slate-400 hover:text-white"
                             data-lang-de="Über uns" 
-                            data-lang-en="About us">About us</a>
-                        <a href="#services"  
+                            data-lang-en="About us">About us</Link>
+                        <Link to="#services"  
                             className="block w-max min-w-[16ch] text-slate-400 hover:text-white"
                             data-lang-de="Dienstleistungen" 
-                            data-lang-en="Services">Services</a>
-                        <a href="#technologies"  
+                            data-lang-en="Services">Services</Link>
+                        <Link to="#technologies"  
                             className="block w-max min-w-[16ch] text-slate-400 hover:text-white"
                             data-lang-de="Technologien" 
-                            data-lang-en="Technologies">Technologies</a>
-                        <a href="#contact"  
+                            data-lang-en="Technologies">Technologies</Link>
+                        <Link to="#contact"  
                             className="block w-max min-w-[16ch] text-slate-400 hover:text-white"
                             data-lang-de="Kontakt" 
-                            data-lang-en="Contact">Contact</a>
+                            data-lang-en="Contact">Contact</Link>
                     </nav>
                     <div className="space-y-2">
                         <div className="font-semibold text-white">Kontakt</div>
@@ -63,20 +65,10 @@ const Footer = () => {
                 </div>
                 <div className="border-t border-slate-800"></div>
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 text-xs text-slate-400 flex items-center justify-between">
-                    <span>© 2025 FABO Accounting. Alle Rechte vorbehalten.</span>
-                    <div className="flex gap-4">
-                        <a href="/impressum.html" 
-                            className="hover:text-white"
-                            data-lang-de="Impressum"
-                            data-lang-en="Imprint">
-                            Impressum
-                        </a>
-                        <a href="/datenschutz.html" 
-                            className="hover:text-white"
-                            data-lang-de="Datenschutz"
-                            data-lang-en="Privacy Policy">
-                            Datenschutz
-                        </a>
+                    <p>&copy; {new Date().getFullYear()} FABO Accounting</p>
+                    <div className="flex space-x-4">
+                        <a href="/imprint" className="hover:underline">Imprint</a>
+                        <a href="/privacy-policy" className="hover:underline">Privacy Policy</a>
                     </div>
                 </div>
             </footer>

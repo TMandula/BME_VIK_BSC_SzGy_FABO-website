@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   useEffect(() => {
@@ -175,7 +176,7 @@ const Header = () => {
           </a>
           {/* Desktop Menu */}
           <nav id="desktop-nav" role="navigation" className="flex items-center space-x-8 text-lg font-medium">
-            <a href="#home" className="nav-link" data-lang-de="Startseite" data-lang-en="Home">Home</a>
+            <Link to="/" className="nav-link" data-lang-de="Startseite" data-lang-en="Home">Home</Link>
             <a href="#about" className="nav-link" data-lang-de="Über uns" data-lang-en="About us">Company</a>
             <a href="#services" className="nav-link" data-lang-de="Dienstleistungen" data-lang-en="Services">Services</a>
             <a href="#technologies" className="nav-link" data-lang-de="Technologien" data-lang-en="Technologies">Technologies</a>

@@ -1,45 +1,40 @@
-import Header from './components/Header'
-import Welcome from './components/Welcome'
-import Hero from './components/Hero'
-import Parallax_01 from './components/Parallax_01'
-import About from './components/About'
-import Services from './components/Services'
-import Parallax_02 from './components/Parallax_02'
-import Technologies from './components/Technologies'
-import Parallax_03 from './components/Parallax_03'
-import Summary from './components/Summary'
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
+import Imprint from "./pages/Imprint";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import HomePage from "./pages/HomePage"; // your existing homepage
 import Contact from './components/Contact'
 import Footer from './components/Footer'
-import './index.css'
 
-const App = () => {
-  return (
-    <>
-      <Header />
+function ScrollToHash() {
+  const { hash } = useLocation();
 
-      <Hero />
+  useEffect(() => {
+    if (hash) {
+      const el = document.querySelector(hash);
+      if (el) el.scrollIntoView({ behavior: "smooth" });
+    } else {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  }, [hash]);
 
-      <Welcome />
-
-      <Parallax_01 />
-
-      <About />
-
-      <Services />
-
-      <Parallax_02 />
-
-      <Technologies />
-
-      <Parallax_03 />
-
-      <Summary />
-
-      <Contact />
-
-      <Footer />
-    </>
-  )
+  return null;
 }
 
-export default App
+function App() {
+  return (
+    <Router>
+      <ScrollToHash />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/imprint" element={<Imprint />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+      </Routes>
+      <Contact />
+      <Footer />
+    </Router>
+  );
+}
+
+export default App;
