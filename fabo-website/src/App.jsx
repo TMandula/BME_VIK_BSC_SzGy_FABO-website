@@ -3,6 +3,7 @@ import Header from './components/Header'
 import Particles from "./components/Particles";
 import './index.css'
 
+import landscape1 from './assets/eric-weber--KPwl1VaSyw-unsplash.jpg';
 import landscape2 from './assets/tim-hufner-d7TjlJ4MNMs-unsplash.jpg';
 import landscape3 from './assets/alvaro-sanchez-h8Tvv2fTNs8-unsplash.jpg';
 
@@ -112,20 +113,24 @@ const App = () => {
       </section>
 
       {/* Parallax Section 1 - Deutsche Landschaft */}
+      {/* className="h-[60vh] bg-fixed bg-center bg-cover" */}
       <section 
-        className="h-[60vh] bg-fixed bg-center bg-cover" 
-        style={{ backgroundImage: "url('/eric-weber--KPwl1VaSyw-unsplash.jpg')" }}
-        >
-          <div className="h-full bg-black bg-opacity-30 flex items-center justify-center">
-              <h2 className="text-white text-4xl font-bold drop-shadow-lg text-center"
+        className="relative h-[60vh] bg-fixed bg-cover bg-center"
+        style={{ backgroundImage: `url(${landscape1})` }}
+      >
+        {/* Overlay div for opacity */}
+        <div className="absolute inset-0 bg-black opacity-30"></div>
+
+        <div className="h-full flex items-center justify-center">
+            <h2 
+              className="text-white text-4xl font-bold drop-shadow-lg text-center"
               data-lang-de="Aus Zahlen Chancen machen." 
               data-lang-en="Turning numbers into opportunities.">
-              Turning numbers into opportunities.</h2>
-          </div>
+              Aus Zahlen Chancen machen.
+            </h2>
+        </div>
       </section>
-      
-
-
+          
       {/* About Us Section */}
       <section id="about" className="max-w-4xl mx-auto px-6 py-16">
         <div className="mx-auto">
@@ -264,15 +269,21 @@ const App = () => {
       </section>
 
       {/* Parallax - Berliner Fernsehturm */}
-      <section className="h-[60vh] bg-fixed bg-center bg-cover" 
-          style={{ backgroundImage: `url(${landscape2})` }}>
-          <div className="h-full bg-black bg-opacity-30 flex items-center justify-center">
-            <h2 className="text-white text-4xl font-bold drop-shadow-lg text-center" 
-              data-lang-de="Erfolg durch Präzision und Partnerschaft." 
-              data-lang-en="Success through precision and partnership.">
-              Herzlich willkommen
-            </h2>
-          </div>
+      <section 
+        className="relative h-[60vh] bg-fixed bg-cover bg-center"
+        style={{ backgroundImage: `url(${landscape2})` }}
+      >
+        {/* Overlay div for opacity */}
+        <div className="absolute inset-0 bg-black opacity-30"></div>
+
+        <div className="h-full flex items-center justify-center">
+          <h2 
+            className="text-white text-4xl font-bold drop-shadow-lg text-center" 
+            data-lang-de="Erfolg durch Präzision und Partnerschaft." 
+            data-lang-en="Success through precision and partnership.">
+            Erfolg durch Präzision und Partnerschaft.
+          </h2>
+        </div>
       </section>
 
       {/* TECHNOLOGIES */}
@@ -352,14 +363,18 @@ const App = () => {
 
       {/* Parallax - Brangengurger Tor */}
       <section 
-        className="h-[60vh] bg-fixed bg-center bg-cover" 
+        className="relative h-[60vh] bg-fixed bg-center bg-cover" 
         style={{ backgroundImage: `url(${landscape3})` }}
         >
-          <div className="h-full bg-black bg-opacity-30 flex items-center justify-center">
-            <h2 className="text-white text-4xl font-bold drop-shadow-lg text-center" 
+          {/* Overlay div for opacity */}
+          <div className="absolute inset-0 bg-black opacity-30"></div>
+
+          <div className="h-full flex items-center justify-center">
+            <h2 
+              className="text-white text-4xl font-bold drop-shadow-lg text-center" 
               data-lang-de="Ihr Erfolg ist unser Geschäft – jedes Detail zählt." 
               data-lang-en="Your success is our business — every detail matters.">
-              Herzlich willkommen
+              Ihr Erfolg ist unser Geschäft – jedes Detail zählt.
             </h2>
           </div>
       </section>
