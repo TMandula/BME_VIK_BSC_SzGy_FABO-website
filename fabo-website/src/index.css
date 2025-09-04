@@ -47,27 +47,23 @@ html {
   color: #78a6f6; 
 }
 
-/* ICON WRAPPER */
-.icon-wrapper {
-  width: 150px; /* fixed square size */
-  height: 150px;
+
+/* TECHNOLOGIES TILES */
+.tech-tile {
+  width: 150px;        /* fixed width */
+  height: 150px;       /* fixed height, makes it a perfect square */
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 2px solid #d1d5db; /* gray-300 default */
-  transition: border-color 0.3s ease, color 0.3s ease;
-}
-
-/* KEEP - TECHNOLOGIES */
-.tech-tile {
   transition: transform 0.15s ease-in-out;
 }
+.tech-tile i {
+  transition: color 0.3s ease;
+}
+/* Pop animation */
 .tech-tile:hover {
   animation: pop 0.4s ease-in-out;
-}
-.tech-tile:hover .icon-wrapper {
-  /* border-color: #073D7F; /* Dark blue frame */
-  border-color: text-color;
+  border-color: attr(data-color color);
 }
 /*.tech-tile:hover i {color: #073D7F; }*/
 @keyframes pop {

@@ -1,7 +1,12 @@
 import React, { useState, useRef } from 'react'
 import Header from './components/Header'
 import Particles from "./components/Particles";
-import landscape from './assets/eric-weber--KPwl1VaSyw-unsplash.jpg';
+import './index.css'
+
+import landscape2 from './assets/tim-hufner-d7TjlJ4MNMs-unsplash.jpg';
+import landscape3 from './assets/alvaro-sanchez-h8Tvv2fTNs8-unsplash.jpg';
+
+import ParallaxSection from "./components/ParallaxSection";
 
 
 const App = () => {
@@ -106,9 +111,11 @@ const App = () => {
         </div>
       </section>
 
-      {/* Parallax - Deutsche Landschaft */}
-      <section className="h-[60vh] bg-fixed bg-center bg-cover" 
-        style={{ backgroundImage: `url(${landscape})` }}>
+      {/* Parallax Section 1 - Deutsche Landschaft */}
+      <section 
+        className="h-[60vh] bg-fixed bg-center bg-cover" 
+        style={{ backgroundImage: "url('/eric-weber--KPwl1VaSyw-unsplash.jpg')" }}
+        >
           <div className="h-full bg-black bg-opacity-30 flex items-center justify-center">
               <h2 className="text-white text-4xl font-bold drop-shadow-lg text-center"
               data-lang-de="Aus Zahlen Chancen machen." 
@@ -116,18 +123,7 @@ const App = () => {
               Turning numbers into opportunities.</h2>
           </div>
       </section>
-      {/* Tailwind Parallax - Deutsche Landschaft */}
-      <section className="relative h-[60vh] overflow-hidden">
-        <div
-          className="absolute inset-0 bg-center bg-cover"
-          style={{ backgroundImage: `url(${landscape})` }}
-        ></div>
-        <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center">
-          <h2 className="text-white text-4xl font-bold drop-shadow-lg text-center">
-            Turning numbers into opportunities.
-          </h2>
-        </div>
-      </section>
+      
 
 
       {/* About Us Section */}
@@ -269,7 +265,7 @@ const App = () => {
 
       {/* Parallax - Berliner Fernsehturm */}
       <section className="h-[60vh] bg-fixed bg-center bg-cover" 
-          style={{ backgroundImage: `url(src/assets/tim-hufner-d7TjlJ4MNMs-unsplash.jpg)` }}>
+          style={{ backgroundImage: `url(${landscape2})` }}>
           <div className="h-full bg-black bg-opacity-30 flex items-center justify-center">
             <h2 className="text-white text-4xl font-bold drop-shadow-lg text-center" 
               data-lang-de="Erfolg durch Präzision und Partnerschaft." 
@@ -306,7 +302,7 @@ const App = () => {
 
             {/* Business Central */}
             <div className="flex flex-col items-center">
-              <div className="tech-tile icon-wrapper border-2 border-gray-300 p-6 mb-6 hover:border-[#0FE0F2]">
+              <div className="tech-tile  border-2 border-gray-300 p-6 mb-6 hover:border-[#0FE0F2]">
                 <i className="fas fa-cogs text-[#0FE0F2] text-6xl"></i>
               </div>
               <p className="text-blue-900 font-semibold">Business Central</p>
@@ -314,7 +310,7 @@ const App = () => {
 
             {/* Datev */}
             <div className="flex flex-col items-center">
-              <div className="tech-tile icon-wrapper border-2 border-gray-300 p-6 mb-6 hover:border-[#90d034]">
+              <div className="tech-tile  border-2 border-gray-300 p-6 mb-6 hover:border-[#90d034]">
                 <i className="fas fa-file-invoice text-[#90d034] text-6xl"></i>
               </div>
               <p className="text-blue-900 font-semibold">DATEV</p>
@@ -322,7 +318,7 @@ const App = () => {
 
             {/* Lexware */}
             <div className="flex flex-col items-center">
-              <div className="tech-tile icon-wrapper border-2 border-gray-300 p-6 mb-6 hover:border-[#ff4654]">
+              <div className="tech-tile  border-2 border-gray-300 p-6 mb-6 hover:border-[#ff4654]">
                 <i className="fas fa-chart-line text-[#ff4654] text-6xl"></i>
               </div>
               <p className="text-blue-900 font-semibold">Lexware</p>
@@ -330,7 +326,7 @@ const App = () => {
 
             {/* SAP Hana */}
             <div className="flex flex-col items-center">
-              <div className="tech-tile icon-wrapper border-2 border-gray-300 p-6 mb-6 hover:border-[#1c5cbc]">
+              <div className="tech-tile  border-2 border-gray-300 p-6 mb-6 hover:border-[#1c5cbc]">
                 <i className="fas fa-database text-[#1c5cbc] text-6xl"></i>
               </div>
               <p className="text-blue-900 font-semibold">SAP HANA</p>
@@ -357,7 +353,8 @@ const App = () => {
       {/* Parallax - Brangengurger Tor */}
       <section 
         className="h-[60vh] bg-fixed bg-center bg-cover" 
-        style={{ backgroundImage: `url(src/assets/alvaro-sanchez-h8Tvv2fTNs8-unsplash.jpg)` }}>
+        style={{ backgroundImage: `url(${landscape3})` }}
+        >
           <div className="h-full bg-black bg-opacity-30 flex items-center justify-center">
             <h2 className="text-white text-4xl font-bold drop-shadow-lg text-center" 
               data-lang-de="Ihr Erfolg ist unser Geschäft – jedes Detail zählt." 
