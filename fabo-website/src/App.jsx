@@ -415,7 +415,7 @@ const App = () => {
           </div>
           <img src="https://images.unsplash.com/photo-1501504905252-473c47e087f8?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
             alt="Teamarbeit im Finanzwesen" 
-            className="w-full h-full object-contain rounded-2xl border object-cover w-full h-72" 
+            className="w-full h-full object-contain rounded-2xl object-cover w-full h-72" 
             loading="eager" />
         </div>
       </section>
@@ -473,7 +473,7 @@ const App = () => {
               {/* Name + Email */}
               <div className="flex flex-col gap-4 sm:flex-row sm:gap-4">
                 <input type="text" 
-                  className="flex-1 p-2 border rounded hover:border-blue-500 focus:border-blue-500 focus:outline-none"
+                  className="flex-1 p-2 border border-gray-400 rounded hover:border-blue-500 focus:border-blue-500 focus:outline-none"
                   name="name" 
                   data-placeholder-de="Name *"
                   data-placeholder-en="Name *"
@@ -484,7 +484,7 @@ const App = () => {
                   title="Bitte geben Sie Ihren Namen ein"
                   onInvalid={e => e.target.setCustomValidity(e.target.title)}
                   onInput={e => e.target.setCustomValidity('')}/>
-                <input type="email" className="flex-1 p-2 border rounded hover:border-blue-500 focus:border-blue-500 focus:outline-none"
+                <input type="email" className="flex-1 p-2 border border-gray-400 rounded hover:border-blue-500 focus:border-blue-500 focus:outline-none"
                   name="email"
                   data-placeholder-de="E-Mail *"
                   data-placeholder-en="Email *"
@@ -500,7 +500,7 @@ const App = () => {
               {/* Phone (optional) */}
               <div>
                 <input type="tel" 
-                  className="w-full p-2 border rounded hover:border-blue-500 focus:border-blue-500 focus:outline-none"
+                  className="w-full p-2 border border-gray-400 rounded hover:border-blue-500 focus:border-blue-500 focus:outline-none"
                   name="phone"
                   pattern="^\+?[0-9\s\-\(\)]{7,20}$"
                   data-placeholder-de="Telefon (optional)"
@@ -516,7 +516,7 @@ const App = () => {
               {/* Subject */}
               <div>
                 <input type="text" 
-                  className="w-full p-2 border rounded hover:border-blue-500 focus:border-blue-500 focus:outline-none"
+                  className="w-full p-2 border border-gray-400 rounded hover:border-blue-500 focus:border-blue-500 focus:outline-none"
                   name="_subject"
                   data-placeholder-de="Betreff *"
                   data-placeholder-en="Subject *"
@@ -532,7 +532,7 @@ const App = () => {
               {/* Message */}
               <div>
                 <textarea 
-                  className="w-full p-2 border rounded hover:border-blue-500 focus:border-blue-500 focus:outline-none" 
+                  className="w-full p-2 border border-gray-400 rounded hover:border-blue-500 focus:border-blue-500 focus:outline-none" 
                   rows="4"
                   name="message"
                   data-placeholder-de="Nachricht * (z. B.: Unternehmen, Benötigte Arbeitsstunden, Aufgabenbeschreibung)"
