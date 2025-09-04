@@ -1,13 +1,15 @@
 import React, { useState, useRef } from 'react'
 import Header from './components/Header'
-import Welcome from "./components/Welcome"
+import Welcome from './components/Welcome'
 import Hero from './components/Hero'
 import Parallax_01 from './components/Parallax_01'
 import About from './components/About'
 import Services from './components/Services'
 import Parallax_02 from './components/Parallax_02'
+import Technologies from './components/Technologies'
+import Parallax_03 from './components/Parallax_03'
+import Summary from './components/Summary'
 import './index.css'
-
 
 const App = () => {
 
@@ -54,156 +56,12 @@ const App = () => {
 
       <Parallax_02 />
 
+      <Technologies />
 
-      {/* TECHNOLOGIES */}
-      <section id="technologies" className="bg-white py-16 px-4 max-w-5xl mx-auto">
-        <div className="max-w-7xl mx-auto text-center">
-          
-          {/* Title */}
-          <h2 className="text-4xl font-bold mb-4" 
-          data-lang-de="Technologien" 
-          data-lang-en="Technologies">
-            Technologies
-          </h2>
-          
-          {/* Intro */}
-          <p className="text-lg text-gray-600 mb-12 max-w-2xl mx-auto"
-            data-lang-de="Unsere Fachkräfte sind in führenden ERP- 
-              und Buchhaltungssystemen geschult und können sich sofort 
-              in Ihre Prozesse einfügen:"
-            data-lang-en="Our professionals are proficient in leading ERP 
-              and accounting systems, ensuring smooth integration into 
-              your processes:">
-            We are already proficient in the following ERP programs.
-          </p>
+      <Parallax_03 />
 
-          {/* Technology Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+      <Summary />
 
-            {/* Business Central */}
-            <div className="flex flex-col items-center">
-              <div className="tech-tile  border-2 border-gray-300 p-6 mb-6 hover:border-[#0FE0F2]">
-                <i className="fas fa-cogs text-[#0FE0F2] text-6xl"></i>
-              </div>
-              <p className="text-blue-900 font-semibold">Business Central</p>
-            </div>
-
-            {/* Datev */}
-            <div className="flex flex-col items-center">
-              <div className="tech-tile  border-2 border-gray-300 p-6 mb-6 hover:border-[#90d034]">
-                <i className="fas fa-file-invoice text-[#90d034] text-6xl"></i>
-              </div>
-              <p className="text-blue-900 font-semibold">DATEV</p>
-            </div>
-
-            {/* Lexware */}
-            <div className="flex flex-col items-center">
-              <div className="tech-tile  border-2 border-gray-300 p-6 mb-6 hover:border-[#ff4654]">
-                <i className="fas fa-chart-line text-[#ff4654] text-6xl"></i>
-              </div>
-              <p className="text-blue-900 font-semibold">Lexware</p>
-            </div>
-
-            {/* SAP Hana */}
-            <div className="flex flex-col items-center">
-              <div className="tech-tile  border-2 border-gray-300 p-6 mb-6 hover:border-[#1c5cbc]">
-                <i className="fas fa-database text-[#1c5cbc] text-6xl"></i>
-              </div>
-              <p className="text-blue-900 font-semibold">SAP HANA</p>
-            </div>
-
-          </div>
-
-          {/* Disclaimer */}
-          <p className="mt-12 text-gray-500 text-sm max-w-3xl mx-auto"
-            data-lang-de="Alle Produktnamen, Logos und Marken sind Eigentum 
-              ihrer jeweiligen Inhaber. 
-              Die Verwendung dieser Namen impliziert keine Zugehörigkeit 
-              oder Billigung."
-            data-lang-en="All product names, logos, and brands are the 
-              property of their respective owners. 
-              Use of these names does not imply any affiliation or endorsement.">
-            All product names, logos, and brands are the property of their 
-            respective owners. Use of these names does not imply any 
-            affiliation or endorsement.
-          </p>
-        </div>
-      </section>
-
-      {/* Parallax - Brangengurger Tor */}
-      <section 
-        className="relative h-[60vh] bg-fixed bg-center bg-cover" 
-        style={{ backgroundImage: "url('/images/alvaro-sanchez-h8Tvv2fTNs8-unsplash.jpg')" }}
-        >
-          {/* Overlay div for opacity */}
-          <div className="absolute inset-0 bg-black opacity-30"></div>
-
-          <div className="h-full flex items-center justify-center">
-            <h2 
-              className="text-white text-4xl font-bold drop-shadow-lg text-center" 
-              data-lang-de="Ihr Erfolg ist unser Geschäft – jedes Detail zählt." 
-              data-lang-en="Your success is our business — every detail matters.">
-              Ihr Erfolg ist unser Geschäft – jedes Detail zählt.
-            </h2>
-          </div>
-      </section>
-
-      {/* SUMMARY ABOUT US */}
-      <section id="about-summary" className="py-16">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-10 items-center">
-          <div>
-            <h2 className="text-3xl font-bold"
-              data-lang-de="FABO Accounting im Überblick"
-              data-lang-en="FABO Accounting at a Glance">
-              Über uns
-            </h2>
-            <p className="mt-3 text-slate-600"
-              data-lang-de="Wir sind ein spezialisiertes Outsourcing-Team 
-                mit Fokus auf deutsche Standards und einer klaren 
-                Hands-on-Mentalität."
-              data-lang-en="We are a specialized outsourcing team 
-                with a strong focus on German accounting standards 
-                and a hands-on mentality.">
-              Wir sind ein spezialisiertes Outsourcing-Team 
-              mit Fokus auf deutsche Standards und Hands-on-Mentalität. 
-              Transparente Kommunikation, feste Ansprechpartner, 
-              messbare Ergebnisse.
-            </p>
-            <p className="mt-3 text-slate-600"
-              data-lang-de="Unser Versprechen: transparente Kommunikation, 
-                feste Ansprechpartner und messbare Ergebnisse."
-              data-lang-en="Our approach: transparent communication, 
-                fixed contact persons, and measurable results.">
-              Wir sind ein spezialisiertes Outsourcing-Team 
-              mit Fokus auf deutsche Standards und Hands-on-Mentalität. 
-              Transparente Kommunikation, feste Ansprechpartner, 
-              messbare Ergebnisse.
-            </p>
-            <ul className="mt-4 text-slate-700 list-disc pl-5">
-              <li><p data-lang-de="Remote-First-Zusammenarbeit" 
-                data-lang-en="Remote-first cooperation">
-                  Fixed-price or retainer models
-                </p>
-              </li>
-              <li><p data-lang-de="Schnelle Verfügbarkeit & Skalierbarkeit" 
-                data-lang-en="Fast availability & scalability">
-                  Fixed-price or retainer models
-                </p>
-              </li>
-              <li><p data-lang-de="Sichere, SLA-basierte und auditierbare Prozesse" 
-                data-lang-en="Secure, SLA-based, and auditable processes">
-                  Fixed-price or retainer models
-                </p>
-              </li>
-            </ul>
-          </div> 
-          <img 
-            src="/images/summary-about-us.jpg" 
-            alt="Teamarbeit im Finanzwesen" 
-            className="w-full h-full object-contain rounded-2xl object-cover w-full h-72" 
-            loading="eager" />
-        </div>
-      </section>
 
       {/* CONTACT US */}
       <section id="contact" className="bg-gray-200 py-16 mx-auto px-4">
