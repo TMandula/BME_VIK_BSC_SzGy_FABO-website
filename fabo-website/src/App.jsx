@@ -3,6 +3,9 @@ import Header from './components/Header'
 import Welcome from "./components/Welcome"
 import Hero from './components/Hero'
 import Parallax_01 from './components/Parallax_01'
+import About from './components/About'
+import Services from './components/Services'
+import Parallax_02 from './components/Parallax_02'
 import './index.css'
 
 
@@ -45,166 +48,12 @@ const App = () => {
 
       <Parallax_01 />
 
-      {/* About Us Section */}
-      <section id="about" className="max-w-4xl mx-auto px-6 py-16">
-        <div className="mx-auto">
-            <h2 className="text-3xl font-bold mb-6" data-lang-de="Über uns" data-lang-en="About Us">Über uns</h2>
-            <p className="text-lg text-gray-700 leading-relaxed mb-4" 
-                data-lang-de="Wir sind ein ungarisches Wirtschaftsprüfungs - 
-                  und Buchhaltungsunternehmen mit Sitz in Budapest – 
-                  spezialisiert auf die Zusammenarbeit 
-                  mit internationalen und deutschen Firmen." 
-                data-lang-en="FABO Accounting is a Hungarian auditing 
-                  and accounting firm based in Budapest, 
-                  working primarily with international and German companies.">
-                  Wir sind ein ungarisches Wirtschaftsprüfungs - 
-                  und Buchhaltungsunternehmen mit Sitz in Budapest – 
-                  spezialisiert auf die Zusammenarbeit 
-                  mit internationalen und deutschen Firmen.
-            </p>
-            <p className="text-lg text-gray-700 leading-relaxed mb-4" 
-                data-lang-de="Unsere jungen, hochqualifizierten Finanzexperten verfügen 
-                  über Erfahrung mit deutschen und internationalen Standards 
-                  (HGB, IFRS, Umsatzsteuerrecht) und unterstützen Sie 
-                  zuverlässig bei allen buchhalterischen Aufgaben." 
-                data-lang-en="Our young yet experienced financial professionals 
-                  are skilled in German and international standards 
-                  (HGB, IFRS, VAT regulations) and can support you 
-                  in a wide range of accounting and reporting tasks.">
-                  Unsere jungen, hochqualifizierten Finanzexperten verfügen 
-                  über Erfahrung mit deutschen und internationalen Standards 
-                  (HGB, IFRS, Umsatzsteuerrecht) und unterstützen Sie 
-                  zuverlässig bei allen buchhalterischen Aufgaben.
-            </p>
-            <p className="text-lg text-gray-700 leading-relaxed" 
-                data-lang-de="Mit uns gewinnen Sie nicht nur Kapazität, sondern einen Partner, dem Sie vertrauen können." 
-                data-lang-en="With us, you don’t just gain extra capacity – 
-                  you gain a trustworthy partner who understands your needs 
-                  and delivers reliable results.">
-                  Mit uns gewinnen Sie nicht nur Kapazität, sondern einen Partner, dem Sie vertrauen können.
-            </p>
-        </div>
-      </section>
+      <About />
 
-      {/* SERVICES SECTION */}
-      <section id="services" className="bg-gray-200 py-16 px-4">
-        <div className="max-w-7xl mx-auto text-center">
-          
-          {/* Title */}
-          <h2 className="text-4xl font-bold mb-8" data-lang-de="Dienstleistungen" data-lang-en="Services">
-            Services
-          </h2>
+      <Services />
 
-          {/* Intro */}
-          <p className="max-w-2xl mx-auto text-lg text-gray-600 mb-12"
-            data-lang-de="Wir bieten flexible Outsourcing-Lösungen 
-              in allen wichtigen Bereichen der Buchhaltung 
-              und des Finanzwesens."
-            data-lang-en="We provide tailored outsourcing solutions 
-              for all key areas of accounting and finance.">
-            We can provide various solutions for different fields of finance.
-          </p>
+      <Parallax_02 />
 
-          {/* Service Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto ">
-
-            {/* AP/AR */}
-            <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition transition-all duration-300 border-b-4 border-transparent hover:-translate-y-2 hover:border-blue-500">
-              <div className="text-blue-500 text-5xl mb-4">
-                <i className="fas fa-file-invoice-dollar"></i>
-              </div>
-              <h3 className="font-bold text-xl mb-6" data-lang-de="AP/AR" data-lang-en="AP/AR">AP/AR</h3>
-              <p className="text-gray-600 text-left mb-4"
-                data-lang-de="AP/AR-Prozesse sind zeitaufwendig 
-                  und entscheidend für einen reibungslosen 
-                  Monats- und Jahresabschluss."
-                data-lang-en="AP/AR processes are time-intensive 
-                  and critical for smooth month- and year-end closings.">
-                AP/AR is time consuming, and it affects the flow of accounting, especially by month and year end closing. We can help you accelerate these processes by providing you a full team or extending your already existing team.
-              </p>
-              <p className="text-gray-600 text-left"
-                data-lang-de="Wir beschleunigen diese Abläufe 
-                  und sichern Genauigkeit und Kontinuität – 
-                  durch die Verstärkung Ihres Teams 
-                  oder durch die Bereitstellung eines kompletten Expertenteams."
-                data-lang-en="Our teams accelerate these tasks, 
-                  ensuring accuracy and continuity — 
-                  either by strengthening your existing staff 
-                  or by providing a dedicated team.">
-                AP/AR is time consuming, and it affects the flow of accounting, especially by month and year end closing. We can help you accelerate these processes by providing you a full team or extending your already existing team.
-              </p>
-            </div>
-
-            {/* Treasury */}
-            <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition transition-all duration-300 border-b-4 border-transparent hover:-translate-y-2 hover:border-green-500">
-              <div className="text-green-500 text-5xl mb-4">
-                <i className="fas fa-piggy-bank"></i>
-              </div>
-              <h3 className="font-bold text-xl mb-6" data-lang-de="Treasury" data-lang-en="Treasury">Treasury</h3>
-              <p className="text-gray-600 mb-10 text-left"
-                data-lang-de="Treasury erfordert höchste Sorgfalt 
-                  und Vertraulichkeit."
-                data-lang-en="Treasury management requires precision 
-                and confidentiality.">
-                Treasury is a very sensitive task. We can offer professionals with experience, who can offer support in treasury related tasks.
-              </p>
-              <p className="text-gray-600 text-left"
-                data-lang-de="Unsere erfahrenen Fachkräfte unterstützen Sie 
-                  in den täglichen Abläufen, der Liquiditätsplanung 
-                  und im Reporting – stets mit Fokus auf Compliance 
-                  und Transparenz."
-                data-lang-en="Our experienced professionals support you 
-                in daily operations, liquidity planning, 
-                and reporting, ensuring compliance and control at every step.">
-                Treasury is a very sensitive task. We can offer professionals with experience, who can offer support in treasury related tasks.
-              </p>
-            </div>
-
-            {/* Hauptbuchhaltung */}
-            <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition transition-all duration-300 border-b-4 border-transparent hover:-translate-y-2 hover:border-blue-900">
-              <div className="text-blue-900 text-5xl mb-4" style={{ color: "#073D7F" }}>
-                <i className="fas fa-book"></i>
-              </div>
-              <h3 className="font-bold text-xl mb-6" data-lang-de="Hauptbuchhaltung" data-lang-en="General Accounting">
-                Hauptbuchhaltung
-              </h3>
-              <p className="text-gray-600 mb-4 text-left"
-                data-lang-de="Rückstellungen, Anlagenbuchhaltung und 
-                Hauptbuchungen sind das Fundament eines korrekten Abschlusses.">
-                Rückstellungen, Anlagenbuchhaltung und Hauptbuchungen sind 
-                das Fundament eines korrekten Abschlusses.
-              </p>
-              <p className="text-gray-600 text-left"
-                data-lang-de="Wir übernehmen diese Aufgaben effizient 
-                  und stellen sicher, dass Ihre Monats- und Jahresabschlüsse 
-                  rechtzeitig und fehlerfrei erfolgen."
-                data-lang-en="We accelerate these processes 
-                  and provide expert support for timely and correct closings.">
-                Accruals, Fixed Asset, and General Ledger bookings are essential for month and year end closings. We can provide support, to accelerate these tasks, and offer professional help.
-              </p>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* Parallax - Berliner Fernsehturm */}
-      <section 
-        className="relative h-[60vh] bg-fixed bg-cover bg-center"
-        style={{ backgroundImage: "url('/images/tim-hufner-d7TjlJ4MNMs-unsplash.jpg')" }}
-      >
-        {/* Overlay div for opacity */}
-        <div className="absolute inset-0 bg-black opacity-30"></div>
-
-        <div className="h-full flex items-center justify-center">
-          <h2 
-            className="text-white text-4xl font-bold drop-shadow-lg text-center" 
-            data-lang-de="Erfolg durch Präzision und Partnerschaft." 
-            data-lang-en="Success through precision and partnership.">
-            Erfolg durch Präzision und Partnerschaft.
-          </h2>
-        </div>
-      </section>
 
       {/* TECHNOLOGIES */}
       <section id="technologies" className="bg-white py-16 px-4 max-w-5xl mx-auto">
