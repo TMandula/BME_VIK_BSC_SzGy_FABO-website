@@ -1,7 +1,8 @@
 import React, { useState, useRef } from 'react'
 import Header from './components/Header'
-import Particles from "./components/Particles"
+import Welcome from "./components/Welcome"
 import Hero from './components/Hero'
+import Parallax_01 from './components/Parallax_01'
 import './index.css'
 
 
@@ -40,51 +41,10 @@ const App = () => {
 
       <Hero />
 
-      {/* WELCOME TEXT SECTION */}
-      <section className="max-w-4xl mx-auto px-6 py-16">
-        <div className="mx-auto">
-          <h2 
-            className="text-3xl font-bold mb-10" 
-            data-lang-de="Willkommen bei FABO Accounting" 
-            data-lang-en="Welcome to FABO Accounting">
-            Herzlich willkommen
-          </h2>
-          <p className="text-lg font-bold leading-relaxed mb-2" 
-            data-lang-de="Wir bieten Outsourcing-Lösungen zur Optimierung der Arbeitsabläufe deutscher Unternehmen." 
-            data-lang-en="We provide outsourced accounting solutions that make your financial workflows more efficient.">
-            Wir freuen uns, Sie auf unserer Webseite begrüßen zu dürfen. Unser Unternehmen steht für Qualität, Innovation und Kundenorientierung. Mit einem engagierten Team und modernen Technologien arbeiten wir daran, Ihre Visionen in die Realität umzusetzen.
-          </p>
-          <p className="text-lg leading-relaxed mb-6" 
-              data-lang-de="Unsere Experten integrieren sich schnell in Ihre Strukturen, übernehmen zeitintensive Aufgaben und sichern reibungslose Abläufe." 
-              data-lang-en="Our professionals integrate seamlessly into your company structure, taking over time-consuming or sensitive processes and ensuring smooth operations.">
-            Egal ob Sie ein kleines Start-up oder ein etabliertes Unternehmen sind – wir bieten maßgeschneiderte Lösungen, die Ihre individuellen Bedürfnisse erfüllen. Unser Ziel ist es, nicht nur Ihre Erwartungen zu erfüllen, sondern sie zu übertreffen.
-          </p>
-          <p className="text-lg leading-relaxed" 
-              data-lang-de="Ob für kurzfristige Projekte oder langfristige Unterstützung – wir sind der verlässliche Partner an Ihrer Seite." 
-              data-lang-en="Whether for short-term projects or long-term support – we are the reliable partner at your side.">
-            Schauen Sie sich um, lernen Sie unser Team kennen und entdecken Sie, wie wir gemeinsam Großes erreichen können.
-          </p>
-        </div>
-      </section>
+      <Welcome />
 
-      {/* Parallax Section 1 - Deutsche Landschaft */}
-      <section 
-        className="relative h-[60vh] bg-fixed bg-cover bg-center"
-        style={{ backgroundImage: "url('/images/eric-weber--KPwl1VaSyw-unsplash.jpg')" }}
-      >
-        {/* Overlay div for opacity */}
-        <div className="absolute inset-0 bg-black opacity-30"></div>
+      <Parallax_01 />
 
-        <div className="h-full flex items-center justify-center">
-            <h2 
-              className="text-white text-4xl font-bold drop-shadow-lg text-center"
-              data-lang-de="Aus Zahlen Chancen machen." 
-              data-lang-en="Turning numbers into opportunities.">
-              Aus Zahlen Chancen machen.
-            </h2>
-        </div>
-      </section>
-          
       {/* About Us Section */}
       <section id="about" className="max-w-4xl mx-auto px-6 py-16">
         <div className="mx-auto">
@@ -97,7 +57,10 @@ const App = () => {
                 data-lang-en="FABO Accounting is a Hungarian auditing 
                   and accounting firm based in Budapest, 
                   working primarily with international and German companies.">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sed elit vel turpis luctus euismod.
+                  Wir sind ein ungarisches Wirtschaftsprüfungs - 
+                  und Buchhaltungsunternehmen mit Sitz in Budapest – 
+                  spezialisiert auf die Zusammenarbeit 
+                  mit internationalen und deutschen Firmen.
             </p>
             <p className="text-lg text-gray-700 leading-relaxed mb-4" 
                 data-lang-de="Unsere jungen, hochqualifizierten Finanzexperten verfügen 
@@ -108,14 +71,17 @@ const App = () => {
                   are skilled in German and international standards 
                   (HGB, IFRS, VAT regulations) and can support you 
                   in a wide range of accounting and reporting tasks.">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sed elit vel turpis luctus euismod.
+                  Unsere jungen, hochqualifizierten Finanzexperten verfügen 
+                  über Erfahrung mit deutschen und internationalen Standards 
+                  (HGB, IFRS, Umsatzsteuerrecht) und unterstützen Sie 
+                  zuverlässig bei allen buchhalterischen Aufgaben.
             </p>
             <p className="text-lg text-gray-700 leading-relaxed" 
                 data-lang-de="Mit uns gewinnen Sie nicht nur Kapazität, sondern einen Partner, dem Sie vertrauen können." 
                 data-lang-en="With us, you don’t just gain extra capacity – 
                   you gain a trustworthy partner who understands your needs 
                   and delivers reliable results.">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sed elit vel turpis luctus euismod.
+                  Mit uns gewinnen Sie nicht nur Kapazität, sondern einen Partner, dem Sie vertrauen können.
             </p>
         </div>
       </section>
