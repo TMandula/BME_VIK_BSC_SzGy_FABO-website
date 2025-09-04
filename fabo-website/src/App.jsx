@@ -3,11 +3,9 @@ import Header from './components/Header'
 import Particles from "./components/Particles";
 import './index.css'
 
-import landscape1 from './assets/eric-weber--KPwl1VaSyw-unsplash.jpg';
-import landscape2 from './assets/tim-hufner-d7TjlJ4MNMs-unsplash.jpg';
-import landscape3 from './assets/alvaro-sanchez-h8Tvv2fTNs8-unsplash.jpg';
-
-import ParallaxSection from "./components/ParallaxSection";
+//import landscape1 from './assets/eric-weber--KPwl1VaSyw-unsplash.jpg';
+//import landscape2 from './assets/tim-hufner-d7TjlJ4MNMs-unsplash.jpg';
+//import landscape3 from './assets/alvaro-sanchez-h8Tvv2fTNs8-unsplash.jpg';
 
 
 const App = () => {
@@ -46,7 +44,7 @@ const App = () => {
       {/* HERO */}
       <section id="home" 
         className="relative flex items-center justify-center text-center text-white overflow-hidden min-h-screen bg-cover bg-center"
-        style={{ backgroundImage: "url('/shakti-rajpurohit-ggs-47SjYy0-unsplash.jpg')" }}>
+        style={{ backgroundImage: "url('/images/shakti-rajpurohit-ggs-47SjYy0-unsplash.jpg')" }}>
 
         {/* Particles layer */}
         <div id="heroParticles" 
@@ -113,10 +111,9 @@ const App = () => {
       </section>
 
       {/* Parallax Section 1 - Deutsche Landschaft */}
-      {/* className="h-[60vh] bg-fixed bg-center bg-cover" */}
       <section 
         className="relative h-[60vh] bg-fixed bg-cover bg-center"
-        style={{ backgroundImage: `url(${landscape1})` }}
+        style={{ backgroundImage: "url('/images/eric-weber--KPwl1VaSyw-unsplash.jpg')" }}
       >
         {/* Overlay div for opacity */}
         <div className="absolute inset-0 bg-black opacity-30"></div>
@@ -271,7 +268,7 @@ const App = () => {
       {/* Parallax - Berliner Fernsehturm */}
       <section 
         className="relative h-[60vh] bg-fixed bg-cover bg-center"
-        style={{ backgroundImage: `url(${landscape2})` }}
+        style={{ backgroundImage: "url('/images/tim-hufner-d7TjlJ4MNMs-unsplash.jpg')" }}
       >
         {/* Overlay div for opacity */}
         <div className="absolute inset-0 bg-black opacity-30"></div>
@@ -364,7 +361,7 @@ const App = () => {
       {/* Parallax - Brangengurger Tor */}
       <section 
         className="relative h-[60vh] bg-fixed bg-center bg-cover" 
-        style={{ backgroundImage: `url(${landscape3})` }}
+        style={{ backgroundImage: "url('/images/alvaro-sanchez-h8Tvv2fTNs8-unsplash.jpg')" }}
         >
           {/* Overlay div for opacity */}
           <div className="absolute inset-0 bg-black opacity-30"></div>
@@ -380,7 +377,7 @@ const App = () => {
       </section>
 
       {/* SUMMARY ABOUT US */}
-      <section id="about-summary" className="py-16 border-t">
+      <section id="about-summary" className="py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-10 items-center">
           <div>
             <h2 className="text-3xl font-bold"
@@ -427,8 +424,9 @@ const App = () => {
                 </p>
               </li>
             </ul>
-          </div>
-          <img src="https://images.unsplash.com/photo-1501504905252-473c47e087f8?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+          </div> 
+          <img 
+            src="/images/summary-about-us.jpg" 
             alt="Teamarbeit im Finanzwesen" 
             className="w-full h-full object-contain rounded-2xl object-cover w-full h-72" 
             loading="eager" />
