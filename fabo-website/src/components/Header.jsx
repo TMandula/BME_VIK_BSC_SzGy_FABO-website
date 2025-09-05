@@ -157,7 +157,7 @@ const Header = () => {
       <header id="mainHeader" className="fixed top-0 left-0 w-full z-50 transform transition-all duration-700 ease-in-out group">
         <div id="header-inner" className="max-w-7xl mx-auto px-4 flex justify-between items-center" style={{ height: "80px" }}>
           {/* Logo */}
-          <a href="/#home" id="siteLogo" className="flex items-center space-x-3">
+          <a href="/" id="siteLogo" className="flex items-center space-x-3">
             <span className="brand-main text-5xl tracking-wide flex items-center" style={{ fontFamily: "'DM Serif Text', serif", lineHeight: 1 }}>
               FABO
             </span>
@@ -175,11 +175,11 @@ const Header = () => {
           </a>
           {/* Desktop Menu */}
           <nav id="desktop-nav" role="navigation" className="flex items-center space-x-8 text-lg font-medium">
-            <a href="/#home" className="nav-link" data-lang-de="Startseite" data-lang-en="Home">Home</a>
-            <a href="/#about" className="nav-link" data-lang-de="Über uns" data-lang-en="About us">Company</a>
-            <a href="/#services" className="nav-link" data-lang-de="Dienstleistungen" data-lang-en="Services">Services</a>
-            <a href="/#technologies" className="nav-link" data-lang-de="Technologien" data-lang-en="Technologies">Technologies</a>
-            <a href="/#contact" className="nav-link" data-lang-de="Kontakt" data-lang-en="Contact">Contact</a>
+            <a href="/" className="nav-link" data-lang-de="Startseite" data-lang-en="Home">Home</a>
+            <a href="/about" className="nav-link" data-lang-de="Über uns" data-lang-en="About us">Company</a>
+            <a href="/services" className="nav-link" data-lang-de="Dienstleistungen" data-lang-en="Services">Services</a>
+            <a href="/technologies" className="nav-link" data-lang-de="Technologien" data-lang-en="Technologies">Technologies</a>
+            <a href="/contact" className="nav-link" data-lang-de="Kontakt" data-lang-en="Contact">Contact</a>
             {/* Language Selector */}
             <ul className="lang-switch flex items-center ml-4" role="list">
               <li><button type="button" className="lang-btn px-1 py-0.5" data-lang-btn="de">DE</button></li>

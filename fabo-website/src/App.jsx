@@ -12,6 +12,10 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/about" element={<HomePage section="about" />} />
+        <Route path="/services" element={<HomePage section="services" />} />
+        <Route path="/technologies" element={<HomePage section="technologies" />} />
+        <Route path="/contact" element={<HomePage section="contact" />} />
         <Route path="/imprint" element={<Imprint />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
       </Routes>

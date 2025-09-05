@@ -3,9 +3,6 @@
 @import "tailwindcss";
 
 body { font-family: 'DM Sans', sans-serif; }
-html { 
-  scroll-padding-top: 20px; /* space for fixed header when using anchor links */
-}
 
 
 /* HEADER */

@@ -1,4 +1,5 @@
-import Header from "../components/Header";
+import { useEffect } from "react";
+
 import Welcome from '../components/Welcome'
 import Hero from '../components/Hero'
 import Parallax_01 from '../components/Parallax_01'
@@ -10,26 +11,42 @@ import Parallax_03 from '../components/Parallax_03'
 import Summary from '../components/Summary'
 import '../index.css'
 
-const HomePage = () => {
+const HomePage = ({ section }) => {
+    
+    useEffect(() => {
+        if (section) {
+            const el = document.getElementById(section);
+            const header = document.getElementById("mainHeader");
+            if (el) {
+                const headerHeight = header.offsetHeight; // dynamic header height
+                const elTop = el.getBoundingClientRect().top + window.scrollY;
+                 window.scrollTo({
+                    top: elTop - headerHeight, // offset by header height
+                    behavior: "smooth"
+                });
+            }
+        }
+    }, [section]);
+
     return (
         <>
-            <Hero />
+            <section><Hero /></section>
 
-            <Welcome />
+            <section><Welcome /></section>
 
-            <Parallax_01 />
+            <section><Parallax_01 /></section>
 
-            <About />
+            <section><About /></section>
 
-            <Services />
+            <section><Services /></section>
 
-            <Parallax_02 />
+            <section><Parallax_02 /></section>
 
-            <Technologies />
+            <section><Technologies /></section>
 
-            <Parallax_03 />
+            <section><Parallax_03 /></section>
 
-            <Summary />
+            <section><Summary /></section>
         </>
     )
 }
