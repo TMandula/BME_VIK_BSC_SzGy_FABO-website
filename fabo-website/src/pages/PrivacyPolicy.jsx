@@ -1,6 +1,27 @@
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
+
 const PrivacyPolicy = () => {
+  const location = useLocation();
+  const section = location.state?.section;
+  
+  useEffect(() => {
+      if (section) {
+          const el = document.getElementById(section);
+          const header = document.getElementById("mainHeader");
+          if (el) {
+              const headerHeight = header.offsetHeight; // dynamic header height
+              const elTop = el.getBoundingClientRect().top + window.scrollY;
+                window.scrollTo({
+                  top: elTop - headerHeight, // offset by header height
+                  behavior: "smooth"
+              });
+          }
+      }
+  }, [section]);
+
   return (
-    <main className="max-w-4xl mx-auto px-6 py-16">
+    <section id="privacy-policy" className="max-w-4xl mx-auto px-6 py-16">
       <h1 className="text-3xl font-bold mb-6">Privacy Policy</h1>
 
       <p className="mb-4">
@@ -23,7 +44,7 @@ const PrivacyPolicy = () => {
       <p className="mt-6 text-sm text-gray-600">
         If you have any questions, please contact us.
       </p>
-    </main>
+    </section>
   );
 };
 

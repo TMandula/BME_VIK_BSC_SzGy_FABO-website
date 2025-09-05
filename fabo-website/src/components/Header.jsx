@@ -176,11 +176,11 @@ const Header = () => {
           </Link>
           {/* Desktop Menu */}
           <nav id="desktop-nav" role="navigation" className="flex items-center space-x-8 text-lg font-medium">
-            <Link to="/" state={{ section: "home" }} className="nav-link" data-lang-de="Startseite" data-lang-en="Home">Home</Link>
-            <Link to="/about" state={{ section: "about" }} className="nav-link" data-lang-de="Über uns" data-lang-en="About us">Company</Link>
-            <Link to="/services" state={{ section: "services" }} className="nav-link" data-lang-de="Dienstleistungen" data-lang-en="Services">Services</Link>
-            <Link to="/technologies" state={{ section: "technologies" }} className="nav-link" data-lang-de="Technologien" data-lang-en="Technologies">Technologies</Link>
-            <Link to="/contact" state={{ section: "contact" }} className="nav-link" data-lang-de="Kontakt" data-lang-en="Contact">Contact</Link>
+            <Link to="/" state={{ section: "home" }} className="nav-link" data-lang-de="Startseite" data-lang-en="Home">Startseite</Link>
+            <Link to="/about" state={{ section: "about" }} className="nav-link" data-lang-de="Über uns" data-lang-en="About us">Über uns</Link>
+            <Link to="/services" state={{ section: "services" }} className="nav-link" data-lang-de="Dienstleistungen" data-lang-en="Services">Dienstleistungen</Link>
+            <Link to="/technologies" state={{ section: "technologies" }} className="nav-link" data-lang-de="Technologien" data-lang-en="Technologies">Technologien</Link>
+            <Link to="/contact" state={{ section: "contact" }} className="nav-link" data-lang-de="Kontakt" data-lang-en="Contact">Kontakt</Link>
             {/* Language Selector */}
             <ul className="lang-switch flex items-center ml-4" role="list">
               <li><button type="button" className="lang-btn px-1 py-0.5" data-lang-btn="de">DE</button></li>
@@ -215,11 +215,17 @@ const Header = () => {
             <li><button type="button" className="lang-btn px-1 py-0.5 hover:text-blue-500 text-black" data-lang-btn="en">EN</button></li>
           </ul>
           {/* Mobile Menu Items */}
-          <a href="#home" className="py-2 border-b border-gray-200 hover:text-blue-500 text-black">Home</a>
-          <a href="#about" className="py-2 border-b border-gray-200 hover:text-blue-500 text-black">Company</a>
-          <a href="#services" className="py-2 border-b border-gray-200 hover:text-blue-500 text-black">Services</a>
-          <a href="#technologies" className="py-2 border-b border-gray-200 hover:text-blue-500 text-black">Technologies</a>
-          <a href="#contact" className="py-2 border-b border-gray-200 hover:text-blue-500 text-black">Contact</a>
+          <Link to="/" state={{ section: "home" }} 
+            className="py-2 border-b border-gray-200 hover:text-blue-500 text-black"
+            data-lang-de="Startseite" data-lang-en="Home">Home</Link>
+          <Link to="/about" state={{ section: "about" }} className="py-2 border-b border-gray-200 hover:text-blue-500 text-black" 
+            data-lang-de="Über uns" data-lang-en="About">Über uns</Link>
+          <Link to="/services" state={{ section: "services" }} className="py-2 border-b border-gray-200 hover:text-blue-500 text-black" 
+            data-lang-de="Dienstleistungen" data-lang-en="Services">Dienstleistungen</Link>
+          <Link to="/technologies" state={{ section: "technologies" }} className="py-2 border-b border-gray-200 hover:text-blue-500 text-black" 
+            data-lang-de="Technologien" data-lang-en="Technologies">Technologien</Link>
+          <Link to="/contact" state={{ section: "contact" }} className="py-2 border-b border-gray-200 hover:text-blue-500 text-black" 
+            data-lang-de="Kontakt" data-lang-en="Contact">Kontakt</Link>
         </div>
       </div>
     </>

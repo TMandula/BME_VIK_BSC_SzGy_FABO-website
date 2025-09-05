@@ -30,23 +30,23 @@ const Footer = () => {
                         <div className="font-semibold text-white" 
                             data-lang-de="Menü" 
                             data-lang-en="Menu">Menü</div>
-                        <Link to="/#hero" 
+                        <Link to="/" state={{ section: "home" }} 
                             className="block w-max min-w-[16ch] text-slate-400 hover:text-white" 
                             data-lang-de="Startseite" 
                             data-lang-en="Home">Home</Link>
-                        <Link to="/"   
+                        <Link to="/about" state={{ section: "about" }}
                             className="block w-max min-w-[16ch] text-slate-400 hover:text-white"
                             data-lang-de="Über uns" 
                             data-lang-en="About us">About us</Link>
-                        <Link to="#services"  
+                        <Link to="/services" state={{ section: "services" }}
                             className="block w-max min-w-[16ch] text-slate-400 hover:text-white"
                             data-lang-de="Dienstleistungen" 
                             data-lang-en="Services">Services</Link>
-                        <Link to="#technologies"  
+                        <Link to="/technologies" state={{ section: "technologies" }}
                             className="block w-max min-w-[16ch] text-slate-400 hover:text-white"
                             data-lang-de="Technologien" 
                             data-lang-en="Technologies">Technologies</Link>
-                        <Link to="#contact"  
+                        <Link to="/contact" state={{ section: "contact" }}
                             className="block w-max min-w-[16ch] text-slate-400 hover:text-white"
                             data-lang-de="Kontakt" 
                             data-lang-en="Contact">Contact</Link>
@@ -67,8 +67,10 @@ const Footer = () => {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 text-xs text-slate-400 flex items-center justify-between">
                     <p>&copy; {new Date().getFullYear()} FABO Accounting</p>
                     <div className="flex space-x-4">
-                        <a href="/imprint" className="hover:underline">Imprint</a>
-                        <a href="/privacy-policy" className="hover:underline">Privacy Policy</a>
+                        <Link to="/imprint" state={{ section: "imprint-home" }}
+                            className="hover:underline">Imprint</Link>
+                        <Link to="/privacy-policy" state={{ section: "privacy-policy" }}
+                            className="hover:underline">Privacy Policy</Link>
                     </div>
                 </div>
             </footer>
