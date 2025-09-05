@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 import Welcome from '../components/Welcome'
 import Hero from '../components/Hero'
@@ -11,7 +12,9 @@ import Parallax_03 from '../components/Parallax_03'
 import Summary from '../components/Summary'
 import '../index.css'
 
-const HomePage = ({ section }) => {
+const HomePage = () => {
+    const location = useLocation();
+    const section = location.state?.section;
     
     useEffect(() => {
         if (section) {
