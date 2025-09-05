@@ -10,6 +10,7 @@ function App() {
   return (
     <Router>
       <Header />
+      
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<HomePage section="about" />} />

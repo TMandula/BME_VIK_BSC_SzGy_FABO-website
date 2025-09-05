@@ -68,9 +68,9 @@ const Footer = () => {
                     <p>&copy; {new Date().getFullYear()} FABO Accounting</p>
                     <div className="flex space-x-4">
                         <Link to="/imprint" state={{ section: "imprint-home" }}
-                            className="hover:underline">Imprint</Link>
+                            className="hover:text-white">Imprint</Link>
                         <Link to="/privacy-policy" state={{ section: "privacy-policy" }}
-                            className="hover:underline">Privacy Policy</Link>
+                            className="hover:text-white">Privacy Policy</Link>
                     </div>
                 </div>
             </footer>

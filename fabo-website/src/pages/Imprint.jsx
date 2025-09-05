@@ -1,9 +1,24 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 
 const Imprint = () => {
-const location = useLocation();
+  const location = useLocation();
   const section = location.state?.section;
+  const [headerHeight, setHeaderHeight] = useState(0);
+
+  useEffect(() => {
+    // Get dynamic header height
+    const header = document.getElementById("mainHeader");
+    if (header) setHeaderHeight(header.offsetHeight);
+
+    const handleResize = () => {
+      const header = document.getElementById("mainHeader");
+      if (header) setHeaderHeight(header.offsetHeight);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
   
   useEffect(() => {
       if (section) {
@@ -22,6 +37,19 @@ const location = useLocation();
 
   return (
     <>
+      {/* Hero-style header background */}
+      <section
+        id="imprint-hero"
+        className="w-full bg-cover bg-center flex items-center justify-center text-white"
+        style={{
+          backgroundImage: "url('/images/shakti-rajpurohit-ggs-47SjYy0-unsplash.jpg')",
+          height: `${headerHeight}px`
+        }}
+      >
+      </section>
+
+      {/* Content section */}
+
       <section id="imprint-home" className="max-w-4xl mx-auto px-6 py-16">
         <h1 className="text-3xl font-bold mb-6">Imprint</h1>
 

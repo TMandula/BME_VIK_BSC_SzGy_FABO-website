@@ -66,9 +66,9 @@ const Contact = () => {
                     data-lang-de="Telefon" 
                     data-lang-en="Phone">Telefon</h3>
                 {/* TODO - German phone number */}
-                <a href="tel:+49123456789" 
+                <a href="tel:+4917667437678" 
                     className="mb-4 hover:text-blue-600 hover:underline">
-                    ☎ +49 123 456 789</a>
+                    ☎ +49 176 67437678</a>
                 </div >
 
                 {/* Form */}
