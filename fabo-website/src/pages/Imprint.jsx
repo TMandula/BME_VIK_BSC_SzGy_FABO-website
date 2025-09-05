@@ -51,17 +51,58 @@ const Imprint = () => {
       {/* Content section */}
 
       <section id="imprint-home" className="max-w-4xl mx-auto px-6 py-16">
-        <h1 className="text-3xl font-bold mb-6">Imprint</h1>
+        <h1
+          className="text-3xl md:text-4xl font-bold mb-10"
+          data-lang-de="Impressum"
+          data-lang-en="Imprint"
+        >
+          Imprint
+        </h1>
+        <h2 className="mb-6"><strong 
+          data-lang-de="FABO Accounting Gesellschaft mit beschränkter Haftung (FABO Accounting Kft.):" 
+          data-lang-en="FABO Accounting Limited Liability Company (FABO Accounting Kft.):">FABO Accounting Limited Liability Company (FABO Accounting Kft.)</strong></h2>
+        
+        <p className="mb-2"><strong 
+          data-lang-de="Steuernummer:" 
+          data-lang-en="Tax Number:">Tax Number:</strong> 32235627-2-42</p>
+        <p className="mb-2"><strong 
+          data-lang-de="Handelsregisternummer:"
+          data-lang-en="Company Registration Number:">Company Registration Number:</strong> 01-09-413452</p>
+        <p className="mb-6"><strong
+          data-lang-de="Umsatzsteuer-ID:"
+          data-lang-en="EU VAT ID:">EU VAT ID:</strong> HU32235627</p>
 
-        <p className="mb-4">
-          <strong>FABO Accounting Limited Liability Company</strong>
+        <p className="mb-2"><strong
+          data-lang-de="Gründungsdatum:"
+          data-lang-en="Date of establishment:">Date of establishment:</strong> 2023. 03. 08.</p>
+        <p className="mb-2"><strong>Managing Director (Vertretungsberechtigter):</strong> Kaló Péter</p>
+        <p className="mb-2">
+          <strong
+            data-lang-de="Tätigkeitsschlüssel:"
+            data-lang-en="Activity code:">
+            Activity code:
+          </strong>{" "}
+          <span
+            data-lang-de="7020.25 - Unternehmensberatung und sonstige Managementberatung"
+            data-lang-en="7020.25 - Business and other management consulting"
+          >
+            7020.25 - Business and other management consulting
+          </span>
         </p>
-        <p className="mb-2">Tax number: 32235627-2-42</p>
-        <p className="mb-2">Company registration number: 01-09-413452</p>
-        <p className="mb-2">Date of establishment: 2023. 03. 10.</p>
-        <p className="mb-2">Activity code: 7020 - Business and other management consulting</p>
+        <p className="mb-6">
+          <strong
+            data-lang-de="Zuständige Aufsichtsbehörde:"
+            data-lang-en="Supervisory Authority:">Supervisory Authority:</strong>{" "}
+          <span
+            data-lang-de="Firmenregistergericht Budapest"
+            data-lang-en="Company Registry Court of Budapest"
+          >
+            Company Registry Court of Budapest
+          </span>
+        </p>
 
-        <p className="mt-6 text-sm text-gray-600">
+        
+        <p className="text-sm text-gray-600">
           This website is operated by FABO Accounting & Services.
         </p>
       </section>

@@ -49,28 +49,110 @@ const PrivacyPolicy = () => {
       </section>
       
       {/* Content section */}
-      <section id="privacy-policy" className="max-w-4xl mx-auto px-6 py-16">
-        <h1 className="text-3xl font-bold mb-6">Privacy Policy</h1>
+      {/* Content Section */}
+      <section id="privacy-policy" className="max-w-3xl mx-auto px-6 py-16 space-y-4">
+        <h1 className="text-3xl font-bold mb-10"
+          data-lang-de="Datenschutzerklärung"
+          data-lang-en="Privacy Policy"
+        >
+          Datenschutzerklärung
+        </h1>
 
-        <p className="mb-4">
-          We take the protection of your personal data very seriously. 
-          This Privacy Policy explains what data we collect, how we use it, 
-          and your rights regarding your information.
+        {/* Responsible Body */}
+        <h2 className="text-xl font-semibold"
+          data-lang-de="1. Verantwortlicher"
+          data-lang-en="1. Responsible Body"
+        >
+          1. Verantwortlicher
+        </h2>
+        <ul className="mb-10 ml-6 space-y-2">
+          <li>FABO Accounting GmbH</li>
+          <li>Nagy Lajos király útja 86.C.</li>
+          <li>1148 Budapest</li>
+          <li data-lang-de="Ungarn" data-lang-en="Hungary">Ungarn</li>
+          <li>
+            <a href="mailto:fabobudapest@gmail.com" 
+              className="mb-4 hover:text-blue-600 hover:underline">
+              fabobudapest@gmail.com
+            </a>
+          </li>
+        </ul>
+        
+
+        {/* Data Collection */}
+        <h2 className="text-xl font-semibold"
+          data-lang-de="2. Datenerhebung und Nutzung"
+          data-lang-en="2. Data Collection and Use"
+        >
+          2. Datenerhebung und Nutzung
+        </h2>
+        <p data-lang-de="Wir erheben personenbezogene Daten nur, wenn dies erforderlich ist, z.B. über Kontaktformulare."
+           data-lang-en="We collect personal data only when necessary, e.g., via contact forms."
+           className="mb-10"
+        >
+          Wir erheben personenbezogene Daten nur, wenn dies erforderlich ist, z.B. über Kontaktformulare.
         </p>
 
-        <h2 className="text-xl font-semibold mt-6 mb-2">1. Data Collection</h2>
-        <p className="mb-4">We collect personal data only when necessary (e.g. contact forms).</p>
-
-        <h2 className="text-xl font-semibold mt-6 mb-2">2. Data Usage</h2>
-        <p className="mb-4">Your data will only be used to respond to inquiries and provide services.</p>
-
-        <h2 className="text-xl font-semibold mt-6 mb-2">3. Rights</h2>
-        <p className="mb-4">
-          You have the right to request information, correction, or deletion of your stored data.
+        {/* Legal Basis */}
+        <h2 className="text-xl font-semibold"
+          data-lang-de="3. Rechtsgrundlagen"
+          data-lang-en="3. Legal Basis"
+        >
+          3. Rechtsgrundlagen
+        </h2>
+        <p data-lang-de="Die Verarbeitung Ihrer Daten erfolgt auf Grundlage der DSGVO (Art. 6 Abs. 1 lit. a–f) und des TMG."
+           data-lang-en="The processing of your data is based on GDPR (Art. 6 para. 1 lit. a–f) and the German TMG."
+           className="mb-10"
+        >
+          Die Verarbeitung Ihrer Daten erfolgt auf Grundlage der DSGVO (Art. 6 Abs. 1 lit. a–f) und des TMG.
         </p>
 
-        <p className="mt-6 text-sm text-gray-600">
-          If you have any questions, please contact us.
+        {/* User Rights */}
+        <h2 className="text-xl font-semibold"
+          data-lang-de="4. Rechte der Nutzer"
+          data-lang-en="4. User Rights"
+        >
+          4. Rechte der Nutzer
+        </h2>
+        <ul className="list-disc ml-6 space-y-2 mb-10">
+          <li data-lang-de="Auskunft über gespeicherte Daten"
+              data-lang-en="Right to information about stored data"
+          >
+            Auskunft über gespeicherte Daten
+          </li>
+          <li data-lang-de="Berichtigung oder Löschung von Daten"
+              data-lang-en="Right to correction or deletion of data"
+          >
+            Berichtigung oder Löschung von Daten
+          </li>
+          <li data-lang-de="Einschränkung der Verarbeitung oder Widerspruch"
+              data-lang-en="Right to restriction or objection of processing"
+          >
+            Einschränkung der Verarbeitung oder Widerspruch
+          </li>
+          <li data-lang-de="Datenübertragbarkeit"
+              data-lang-en="Right to data portability"
+          >
+            Datenübertragbarkeit
+          </li>
+          <li data-lang-de="Beschwerderecht bei Aufsichtsbehörde"
+              data-lang-en="Right to complain to supervisory authority"
+          >
+            Beschwerderecht bei Aufsichtsbehörde
+          </li>
+        </ul>
+
+        {/* Contact */}
+        <h2 className="text-xl font-semibold"
+          data-lang-de="5. Kontakt für Datenschutzanfragen"
+          data-lang-en="5. Contact for Privacy Concerns"
+        >
+          5. Kontakt für Datenschutzanfragen
+        </h2>
+        <p data-lang-de="Bei Fragen wenden Sie sich bitte an info@fabo.de"
+           data-lang-en="If you have any questions, please contact info@fabo.de"
+        >
+          Bei Fragen wenden Sie sich bitte an info@fabo.de
         </p>
       </section>
     </>
