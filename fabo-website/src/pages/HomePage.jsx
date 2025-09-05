@@ -13,8 +13,6 @@ import '../index.css'
 const HomePage = () => {
     return (
         <>
-            <Header />
-
             <Hero />
 
             <Welcome />
