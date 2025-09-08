@@ -207,14 +207,16 @@ const Header = () => {
             <ul className="lang-switch flex items-center ml-4" role="list">
               <li>
                 <button type="button" className="lang-btn px-1 py-0.5" 
-                onClick={() => i18n.changeLanguage("de")}>
+                  onClick={() => i18n.changeLanguage("de")}
+                  aria-current={i18n.language === "de" ? "true" : "false"}>
                   DE
                 </button>
               </li>
               <li aria-hidden="true" className="px-1 lang-divider">|</li>
               <li>
                 <button type="button" className="lang-btn px-1 py-0.5" 
-                onClick={() => i18n.changeLanguage("en")}>
+                  onClick={() => i18n.changeLanguage("en")}
+                  aria-current={i18n.language === "en" ? "true" : "false"}>
                   EN
                 </button>
               </li>
@@ -245,14 +247,16 @@ const Header = () => {
           <ul className="lang-switch flex items-center mb-8 text-black" role="list">
             <li>
               <button type="button" className="lang-btn px-1 py-0.5" 
-                onClick={() => i18n.changeLanguage("de")}>
+                onClick={() => i18n.changeLanguage("de")}
+                aria-current={i18n.language === "de" ? "true" : "false"}>
                 DE
               </button>
               </li>
             <li aria-hidden="true" className="px-1 lang-divider">|</li>
             <li>
               <button type="button" className="lang-btn px-1 py-0.5" 
-                onClick={() => i18n.changeLanguage("en")}>
+                onClick={() => i18n.changeLanguage("en")}
+                aria-current={i18n.language === "en" ? "true" : "false"}>
                 EN
               </button>
             </li>
