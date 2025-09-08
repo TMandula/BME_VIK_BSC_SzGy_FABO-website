@@ -1,4 +1,8 @@
+import { useTranslation } from "react-i18next";
+
 const Parallax_01 = () => {
+    const { t } = useTranslation();
+
     return (
         <>
             {/* Parallax Section 1 - Deutsche Landschaft */}
@@ -10,11 +14,8 @@ const Parallax_01 = () => {
                 <div className="absolute inset-0 bg-black opacity-30"></div>
 
                 <div className="h-full flex items-center justify-center">
-                    <h2 
-                        className="text-white text-4xl font-bold drop-shadow-lg text-center"
-                        data-lang-de="Aus Zahlen Chancen machen." 
-                        data-lang-en="Turning numbers into opportunities.">
-                        Aus Zahlen Chancen machen.
+                    <h2 className="text-white text-4xl font-bold drop-shadow-lg text-center">
+                        {t("parallax_01.motto")}
                     </h2>
                 </div>
             </section>

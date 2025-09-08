@@ -24,6 +24,15 @@
         "goal": "Egal ob Sie ein kleines Start-up oder ein etabliertes Unternehmen sind – wir bieten maßgeschneiderte Lösungen, die Ihre individuellen Bedürfnisse erfüllen. Unser Ziel ist es, nicht nur Ihre Erwartungen zu erfüllen, sondern sie zu übertreffen.",
         "discover": "Schauen Sie sich um, lernen Sie unser Team kennen und entdecken Sie, wie wir gemeinsam Großes erreichen können."
     },
+    "parallax_01": {
+        "motto": "Aus Zahlen Chancen machen."
+    },
+    "about": {
+        "title": "Über uns",
+        "description": "Wir sind ein ungarisches Wirtschaftsprüfungs - und Buchhaltungsunternehmen mit Sitz in Budapest – spezialisiert auf die Zusammenarbeit mit internationalen und deutschen Firmen.",
+        "experiences": "Unsere jungen, hochqualifizierten Finanzexperten verfügen über Erfahrung mit deutschen und internationalen Standards (HGB, IFRS, Umsatzsteuerrecht) und unterstützen Sie zuverlässig bei allen buchhalterischen Aufgaben.",
+        "valuableness": "Mit uns gewinnen Sie nicht nur Kapazität, sondern einen Partner, dem Sie vertrauen können."
+    },
     "imprint": {
         "title": "Impressum",
         "company": "FABO Accounting Gesellschaft mit beschränkter Haftung (FABO Accounting Kft.)",

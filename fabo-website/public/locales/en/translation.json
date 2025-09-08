@@ -24,6 +24,15 @@
         "goal": "Whether you're a small startup or an established company, we offer customized solutions that meet your individual needs. Our goal is not only to meet your expectations, but to exceed them.",
         "discover": "Take a look around, get to know our team, and discover how we can achieve great things together."
     },
+    "parallax_01": {
+        "motto": "Turning numbers into opportunities."
+    },
+    "about": {
+        "title": "About Us",
+        "description": "FABO Accounting is a Hungarian auditing and accounting firm based in Budapest, working primarily with international and German companies.",
+        "experiences": "Our young yet experienced financial professionals are skilled in German and international standards (HGB, IFRS, VAT regulations) and can support you in a wide range of accounting and reporting tasks.",
+        "valuableness": "With us, you don’t just gain extra capacity – you gain a trustworthy partner who understands your needs and delivers reliable results."
+    },
     "imprint": {
         "title": "Impressum",
         "company": "FABO Accounting Gesellschaft mit beschränkter Haftung (FABO Accounting Kft.)",
