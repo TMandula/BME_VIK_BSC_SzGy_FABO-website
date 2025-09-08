@@ -1,15 +1,28 @@
 {
-  "header": {
-    "logo": {
-      "accounting": "ACCOUNTING",
-      "services": "& SERVICES"
+    "header": {
+        "logo": {
+        "accounting": "ACCOUNTING",
+        "services": "& SERVICES"
+        },
+        "nav": {
+        "home": "Home",
+        "about": "About us",
+        "services": "Services",
+        "technologies": "Technologies",
+        "contact": "Contact"
+        }
     },
-    "nav": {
-      "home": "Home",
-      "about": "About us",
-      "services": "Services",
-      "technologies": "Technologies",
-      "contact": "Contact"
+    "hero": {
+        "title": "FABO Accounting",
+        "subtitle": "Your Reliable Partner in Finance",
+        "prologue": "We support German companies with precise and efficient accounting and controlling services. Whether you need individual experts or a full team, we help you save time and focus on your core business.",
+        "contactButton": "Contact"
+    },
+    "imprint": {
+        "title": "Impressum",
+        "company": "FABO Accounting Gesellschaft mit beschränkter Haftung (FABO Accounting Kft.)",
+        "taxNumber": "Steuernummer:",
+        "companyNumber": "Handelsregisternummer:",
+        "vatId": "Umsatzsteuer-ID:"
     }
-  }
 }

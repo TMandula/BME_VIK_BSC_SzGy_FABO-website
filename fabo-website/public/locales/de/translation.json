@@ -12,6 +12,12 @@
             "contact": "Kontakt"
         }
     },
+    "hero": {
+        "title": "FABO Buchhaltung",
+        "subtitle": "Ihr Partner für zuverlässige Finanzlösungen",
+        "prologue": "Wir unterstützen deutsche Unternehmen mit präzisen und effizienten Buchhaltungs- und Controlling-Services. Ob einzelne Fachkräfte oder komplette Teams – wir entlasten Sie, damit Sie sich auf Ihr Kerngeschäft konzentrieren können.",
+        "contactButton": "Kontakt"
+    },
     "imprint": {
         "title": "Impressum",
         "company": "FABO Accounting Gesellschaft mit beschränkter Haftung (FABO Accounting Kft.)",
