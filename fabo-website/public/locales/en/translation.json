@@ -18,6 +18,12 @@
         "prologue": "We support German companies with precise and efficient accounting and controlling services. Whether you need individual experts or a full team, we help you save time and focus on your core business.",
         "contactButton": "Contact"
     },
+    "welcome": {
+        "greeting": "Welcome to FABO Accounting & Services",
+        "about": "We are pleased to welcome you to our website. Our company stands for quality, innovation, and customer focus. With a dedicated team and modern technologies, we work to turn your visions into reality.",
+        "goal": "Whether you're a small startup or an established company, we offer customized solutions that meet your individual needs. Our goal is not only to meet your expectations, but to exceed them.",
+        "discover": "Take a look around, get to know our team, and discover how we can achieve great things together."
+    },
     "imprint": {
         "title": "Impressum",
         "company": "FABO Accounting Gesellschaft mit beschränkter Haftung (FABO Accounting Kft.)",

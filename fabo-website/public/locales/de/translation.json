@@ -18,6 +18,12 @@
         "prologue": "Wir unterstützen deutsche Unternehmen mit präzisen und effizienten Buchhaltungs- und Controlling-Services. Ob einzelne Fachkräfte oder komplette Teams – wir entlasten Sie, damit Sie sich auf Ihr Kerngeschäft konzentrieren können.",
         "contactButton": "Kontakt"
     },
+    "welcome": {
+        "greeting": "Herzlich willkommen bei FABO Accounting & Services",
+        "about": "Wir freuen uns, Sie auf unserer Webseite begrüßen zu dürfen. Unser Unternehmen steht für Qualität, Innovation und Kundenorientierung. Mit einem engagierten Team und modernen Technologien arbeiten wir daran, Ihre Visionen in die Realität umzusetzen.",
+        "goal": "Egal ob Sie ein kleines Start-up oder ein etabliertes Unternehmen sind – wir bieten maßgeschneiderte Lösungen, die Ihre individuellen Bedürfnisse erfüllen. Unser Ziel ist es, nicht nur Ihre Erwartungen zu erfüllen, sondern sie zu übertreffen.",
+        "discover": "Schauen Sie sich um, lernen Sie unser Team kennen und entdecken Sie, wie wir gemeinsam Großes erreichen können."
+    },
     "imprint": {
         "title": "Impressum",
         "company": "FABO Accounting Gesellschaft mit beschränkter Haftung (FABO Accounting Kft.)",
