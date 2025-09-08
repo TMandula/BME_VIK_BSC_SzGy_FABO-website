@@ -1,0 +1,22 @@
+{
+    "header": {
+        "logo": {
+            "accounting": "BUCHHALTUNG",
+            "services": "& DIENSTLEISTUNGEN"
+        },
+        "nav": {
+            "home": "Startseite",
+            "about": "Über uns",
+            "services": "Dienstleistungen",
+            "technologies": "Technologien",
+            "contact": "Kontakt"
+        }
+    },
+    "imprint": {
+        "title": "Impressum",
+        "company": "FABO Accounting Gesellschaft mit beschränkter Haftung (FABO Accounting Kft.)",
+        "taxNumber": "Steuernummer:",
+        "companyNumber": "Handelsregisternummer:",
+        "vatId": "Umsatzsteuer-ID:"
+    }
+}

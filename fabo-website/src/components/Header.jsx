@@ -1,7 +1,11 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 
+import { useTranslation } from "react-i18next";
+
 const Header = () => {
+  const { t, i18n } = useTranslation();
+
   useEffect(() => {
     // HEADER SCRIPT
     const header = document.getElementById('mainHeader');
@@ -174,26 +178,46 @@ const Header = () => {
               |
             </span>
             <div className="flex flex-col justify-center leading-[1.1] ml-2">
-              <span className="brand-sub text-base font-semibold" style={{ fontFamily: "'DM Sans', sans-serif" }} data-lang-de="BUCHHALTUNG" data-lang-en="ACCOUNTING">
-                ACCOUNTING
+              <span className="brand-sub text-base font-semibold" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                {t("header.logo.accounting")}
               </span>
-              <span className="brand-sub text-base font-semibold -mt-1" style={{ fontFamily: "'DM Sans', sans-serif" }} data-lang-de="& DIENSTLEISTUNGEN" data-lang-en="& SERVICES">
-                & SERVICES
+              <span className="brand-sub text-base font-semibold -mt-1" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                {t("header.logo.services")}
               </span>
             </div>
           </Link>
           {/* Desktop Menu */}
           <nav id="desktop-nav" role="navigation" className="flex items-center space-x-8 text-lg font-medium">
-            <Link to="/" state={{ section: "home" }} className="nav-link" data-lang-de="Startseite" data-lang-en="Home">Startseite</Link>
-            <Link to="/about" state={{ section: "about" }} className="nav-link" data-lang-de="Über uns" data-lang-en="About us">Über uns</Link>
-            <Link to="/services" state={{ section: "services" }} className="nav-link" data-lang-de="Dienstleistungen" data-lang-en="Services">Dienstleistungen</Link>
-            <Link to="/technologies" state={{ section: "technologies" }} className="nav-link" data-lang-de="Technologien" data-lang-en="Technologies">Technologien</Link>
-            <Link to="/contact" state={{ section: "contact" }} className="nav-link" data-lang-de="Kontakt" data-lang-en="Contact">Kontakt</Link>
+            <Link to="/" state={{ section: "home" }} className="nav-link">
+              {t("header.nav.home")}
+            </Link>
+            <Link to="/about" state={{ section: "about" }} className="nav-link">
+              {t("header.nav.about")}
+            </Link>
+            <Link to="/services" state={{ section: "services" }} className="nav-link">
+              {t("header.nav.services")}
+            </Link>
+            <Link to="/technologies" state={{ section: "technologies" }} className="nav-link">
+              {t("header.nav.technologies")}
+            </Link>
+            <Link to="/contact" state={{ section: "contact" }} className="nav-link">
+              {t("header.nav.contact")}
+            </Link>
             {/* Language Selector */}
             <ul className="lang-switch flex items-center ml-4" role="list">
-              <li><button type="button" className="lang-btn px-1 py-0.5" data-lang-btn="de">DE</button></li>
+              <li>
+                <button type="button" className="lang-btn px-1 py-0.5" 
+                onClick={() => i18n.changeLanguage("de")}>
+                  DE
+                </button>
+              </li>
               <li aria-hidden="true" className="px-1 lang-divider">|</li>
-              <li><button type="button" className="lang-btn px-1 py-0.5" data-lang-btn="en">EN</button></li>
+              <li>
+                <button type="button" className="lang-btn px-1 py-0.5" 
+                onClick={() => i18n.changeLanguage("en")}>
+                  EN
+                </button>
+              </li>
             </ul>
           </nav>
           {/* Hamburger Icon */}
@@ -219,22 +243,41 @@ const Header = () => {
           </button>
           {/* Language Selector */}
           <ul className="lang-switch flex items-center mb-8 text-black" role="list">
-            <li><button type="button" className="lang-btn px-1 py-0.5 hover:text-blue-500 text-black" data-lang-btn="de">DE</button></li>
-            <li aria-hidden="true" className="px-1 lang-divider text-black">|</li>
-            <li><button type="button" className="lang-btn px-1 py-0.5 hover:text-blue-500 text-black" data-lang-btn="en">EN</button></li>
+            <li>
+              <button type="button" className="lang-btn px-1 py-0.5" 
+                onClick={() => i18n.changeLanguage("de")}>
+                DE
+              </button>
+              </li>
+            <li aria-hidden="true" className="px-1 lang-divider">|</li>
+            <li>
+              <button type="button" className="lang-btn px-1 py-0.5" 
+                onClick={() => i18n.changeLanguage("en")}>
+                EN
+              </button>
+            </li>
           </ul>
           {/* Mobile Menu Items */}
           <Link to="/" state={{ section: "home" }} 
-            className="py-2 border-b border-gray-200 hover:text-blue-500 text-black"
-            data-lang-de="Startseite" data-lang-en="Home">Home</Link>
-          <Link to="/about" state={{ section: "about" }} className="py-2 border-b border-gray-200 hover:text-blue-500 text-black" 
-            data-lang-de="Über uns" data-lang-en="About">Über uns</Link>
-          <Link to="/services" state={{ section: "services" }} className="py-2 border-b border-gray-200 hover:text-blue-500 text-black" 
-            data-lang-de="Dienstleistungen" data-lang-en="Services">Dienstleistungen</Link>
-          <Link to="/technologies" state={{ section: "technologies" }} className="py-2 border-b border-gray-200 hover:text-blue-500 text-black" 
-            data-lang-de="Technologien" data-lang-en="Technologies">Technologien</Link>
-          <Link to="/contact" state={{ section: "contact" }} className="py-2 border-b border-gray-200 hover:text-blue-500 text-black" 
-            data-lang-de="Kontakt" data-lang-en="Contact">Kontakt</Link>
+            className="py-2 border-b border-gray-200 hover:text-blue-500 text-black">
+              {t("header.nav.home")}
+            </Link>
+          <Link to="/about" state={{ section: "about" }} 
+            className="py-2 border-b border-gray-200 hover:text-blue-500 text-black">
+              {t("header.nav.about")}
+          </Link>
+          <Link to="/services" state={{ section: "services" }} 
+            className="py-2 border-b border-gray-200 hover:text-blue-500 text-black">
+              {t("header.nav.services")}
+          </Link>
+          <Link to="/technologies" state={{ section: "technologies" }} 
+            className="py-2 border-b border-gray-200 hover:text-blue-500 text-black">
+              {t("header.nav.technologies")}
+          </Link>
+          <Link to="/contact" state={{ section: "contact" }} 
+            className="py-2 border-b border-gray-200 hover:text-blue-500 text-black">
+              {t("header.nav.contact")}
+          </Link>
         </div>
       </div>
     </>

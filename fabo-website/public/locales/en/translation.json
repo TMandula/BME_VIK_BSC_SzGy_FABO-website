@@ -1,0 +1,15 @@
+{
+  "header": {
+    "logo": {
+      "accounting": "ACCOUNTING",
+      "services": "& SERVICES"
+    },
+    "nav": {
+      "home": "Home",
+      "about": "About us",
+      "services": "Services",
+      "technologies": "Technologies",
+      "contact": "Contact"
+    }
+  }
+}

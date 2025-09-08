@@ -7,6 +7,7 @@ import Contact from './components/Contact'
 import Footer from './components/Footer'
 import Header from "./components/Header";
 
+
 // Wrapper to handle language reapply on route change
 function LanguageSyncWrapper({ children }) {
   const location = useLocation();
