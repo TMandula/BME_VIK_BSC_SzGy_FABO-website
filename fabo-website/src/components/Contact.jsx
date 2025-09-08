@@ -65,7 +65,6 @@ const Contact = () => {
                 <h3 className="font-bold mb-4" 
                     data-lang-de="Telefon" 
                     data-lang-en="Phone">Telefon</h3>
-                {/* TODO - German phone number */}
                 <a href="tel:+4917667437678" 
                     className="mb-4 hover:text-blue-600 hover:underline">
                     ☎ +49 176 67437678</a>

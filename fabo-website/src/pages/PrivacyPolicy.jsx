@@ -48,7 +48,6 @@ const PrivacyPolicy = () => {
       >
       </section>
       
-      {/* Content section */}
       {/* Content Section */}
       <section id="privacy-policy" className="max-w-3xl mx-auto px-6 py-16 space-y-4">
         <h1 className="text-3xl font-bold mb-10"

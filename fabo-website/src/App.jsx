@@ -1,4 +1,5 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import { useEffect } from "react";
 import Imprint from "./pages/Imprint";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import HomePage from "./pages/HomePage";
@@ -6,11 +7,25 @@ import Contact from './components/Contact'
 import Footer from './components/Footer'
 import Header from "./components/Header";
 
+// Wrapper to handle language reapply on route change
+function LanguageSyncWrapper({ children }) {
+  const location = useLocation();
+
+  useEffect(() => {
+    const saved = localStorage.getItem("siteLang") || "de";
+    if (typeof window.setLanguage === "function") {
+      window.setLanguage(saved);
+    }
+  }, [location.pathname]);
+
+  return children;
+}
+
 function App() {
   return (
     <Router>
       <Header />
-      
+      <LanguageSyncWrapper>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<HomePage section="about" />} />
@@ -20,6 +35,7 @@ function App() {
         <Route path="/imprint" element={<Imprint />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
       </Routes>
+      </LanguageSyncWrapper>
       <Contact />
       <Footer />
     </Router>

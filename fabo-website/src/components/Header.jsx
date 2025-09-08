@@ -108,23 +108,29 @@ const Header = () => {
 
     // LANGUAGE SWITCH SCRIPT
     function setLanguage(lang) {
+      // Update text content
       document.querySelectorAll('[data-lang-de],[data-lang-en]').forEach(el => {
         const txt = (lang === 'de') ? el.getAttribute('data-lang-de') : el.getAttribute('data-lang-en');
         if (txt !== null) el.textContent = txt;
       });
+      // Update placeholders
       document.querySelectorAll('[data-placeholder-de],[data-placeholder-en]').forEach(el => {
         const ph = (lang === 'de') ? el.getAttribute('data-placeholder-de') : el.getAttribute('data-placeholder-en');
         if (ph !== null) el.setAttribute('placeholder', ph);
       });
+      // Save choice
       localStorage.setItem('siteLang', lang);
+      // Update language selector buttons
       document.querySelectorAll('[data-lang-btn]').forEach(btn => {
         btn.setAttribute('aria-current', btn.dataset.langBtn === lang ? 'true' : 'false');
       });
+      // Update tooltips/titles
       document.querySelectorAll('[data-title-de],[data-title-en]').forEach(el => {
         const msg = (lang === 'de') ? el.getAttribute('data-title-de') : el.getAttribute('data-title-en');
         if (msg !== null) el.setAttribute('title', msg);
       });
     }
+
 
     function langClickHandler(e) {
       const btn = e.target.closest('[data-lang-btn]');
@@ -140,9 +146,11 @@ const Header = () => {
     }
     document.addEventListener('click', langClickHandler);
 
+    // Make language switcher globally accessible
+    window.setLanguage = setLanguage;
     // Init language on load
-    const saved = localStorage.getItem('siteLang') || 'de';
-    setLanguage(saved);
+    //const saved = localStorage.getItem('siteLang') || 'de';
+    //setLanguage(saved);
 
     // Cleanup
     return () => {
@@ -201,6 +209,7 @@ const Header = () => {
       </header>
       {/* MOBILE HAMBURGER MENU PANEL */}
       <div id="mobileMenu" className="fixed inset-0 hidden z-50">
+        {/* The website in the background */}
         <div className="fixed inset-0 bg-black/50 pointer-events-none"></div>
         <div id="mobilePanel" className="absolute right-0 top-0 h-full w-72 bg-white text-black shadow-lg p-6 flex flex-col transform translate-x-full transition-transform duration-300 z-50">
           <button id="closeMenu" className="self-end mb-6" aria-label="Close menu">
