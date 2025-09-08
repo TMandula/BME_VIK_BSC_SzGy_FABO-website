@@ -110,57 +110,10 @@ const Header = () => {
       }
     });
 
-    // LANGUAGE SWITCH SCRIPT
-    function setLanguage(lang) {
-      // Update text content
-      document.querySelectorAll('[data-lang-de],[data-lang-en]').forEach(el => {
-        const txt = (lang === 'de') ? el.getAttribute('data-lang-de') : el.getAttribute('data-lang-en');
-        if (txt !== null) el.textContent = txt;
-      });
-      // Update placeholders
-      document.querySelectorAll('[data-placeholder-de],[data-placeholder-en]').forEach(el => {
-        const ph = (lang === 'de') ? el.getAttribute('data-placeholder-de') : el.getAttribute('data-placeholder-en');
-        if (ph !== null) el.setAttribute('placeholder', ph);
-      });
-      // Save choice
-      localStorage.setItem('siteLang', lang);
-      // Update language selector buttons
-      document.querySelectorAll('[data-lang-btn]').forEach(btn => {
-        btn.setAttribute('aria-current', btn.dataset.langBtn === lang ? 'true' : 'false');
-      });
-      // Update tooltips/titles
-      document.querySelectorAll('[data-title-de],[data-title-en]').forEach(el => {
-        const msg = (lang === 'de') ? el.getAttribute('data-title-de') : el.getAttribute('data-title-en');
-        if (msg !== null) el.setAttribute('title', msg);
-      });
-    }
-
-
-    function langClickHandler(e) {
-      const btn = e.target.closest('[data-lang-btn]');
-      if (!btn) return;
-      const newLang = btn.dataset.langBtn;
-      setLanguage(newLang);
-      if (typeof window.updateMenuDisplay === "function") {
-        window.updateMenuDisplay();
-      }
-      if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
-        mobileMenu.classList.add('hidden');
-      }
-    }
-    document.addEventListener('click', langClickHandler);
-
-    // Make language switcher globally accessible
-    window.setLanguage = setLanguage;
-    // Init language on load
-    //const saved = localStorage.getItem('siteLang') || 'de';
-    //setLanguage(saved);
-
     // Cleanup
     return () => {
       window.removeEventListener('scroll', updateHeader);
       window.removeEventListener("resize", updateMenuDisplay);
-      document.removeEventListener('click', langClickHandler);
     };
   }, []);
 
@@ -227,7 +180,8 @@ const Header = () => {
             id="hamburger" 
             className="hidden focus:outline-none"
             aria-label="Open menu">
-            <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+            <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" 
+              strokeWidth="2" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
             </svg>
           </button>
@@ -237,9 +191,13 @@ const Header = () => {
       <div id="mobileMenu" className="fixed inset-0 hidden z-50">
         {/* The website in the background */}
         <div className="fixed inset-0 bg-black/50 pointer-events-none"></div>
-        <div id="mobilePanel" className="absolute right-0 top-0 h-full w-72 bg-white text-black shadow-lg p-6 flex flex-col transform translate-x-full transition-transform duration-300 z-50">
-          <button id="closeMenu" className="self-end mb-6" aria-label="Close menu">
-            <svg className="w-6 h-6 text-black" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+        <div id="mobilePanel" 
+          className="absolute right-0 top-0 h-full w-72 bg-white text-black shadow-lg p-6 flex flex-col transform translate-x-full transition-transform duration-300 z-50">
+          <button id="closeMenu" 
+            className="self-end mb-6" 
+            aria-label="Close menu">
+            <svg className="w-6 h-6 text-black" fill="none" stroke="currentColor" 
+              strokeWidth="2" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
