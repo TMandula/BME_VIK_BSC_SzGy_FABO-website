@@ -77,6 +77,43 @@
             "item3": "Sichere, SLA-basierte und auditierbare Prozesse"
         }
     },
+    "contact": {
+        "title": "Kontaktieren Sie uns",
+        "description": "Haben Sie Fragen oder möchten Sie mehr über unsere Dienstleistungen erfahren? Wir sind für Sie da!",
+        "info": {
+            "locations": {
+                "title": "Standorte",
+                "Budapest": "📍 Budapest, Ungarn",
+                "Miskolc": "📍 Miskolc, Ungarn"
+            },
+            "email": "E-Mail",
+            "phone": "Telefon"
+        },
+        "form": {
+            "name": {
+                "placeholder": "Name",
+                "title": "Bitte geben Sie Ihren Namen ein"
+            },
+            "email": {
+                "placeholder": "E-Mail-Adresse",
+                "title": "Bitte geben Sie Ihre E-Mail-Adresse ein"
+            },
+            "phone": {
+                "placeholder": "Telefonnummer",
+                "title": "Bitte geben Sie eine gültige Telefonnummer ein, z. B. +49 123 4567890"
+            },
+            "subject": {
+                "placeholder": "Betreff",
+                "title": "Bitte geben Sie den Betreff ein"
+            },
+            "message": {
+                "placeholder": "Ihre Nachricht",
+                "title": "Bitte geben Sie Ihre Nachricht ein"
+            },
+            "sendButton": "Senden",
+            "successMessage": "Vielen Dank für Ihre Nachricht! Wir werden uns so schnell wie möglich bei Ihnen melden."
+        }
+    },
     "imprint": {
         "title": "Impressum",
         "company": "FABO Accounting Gesellschaft mit beschränkter Haftung (FABO Accounting Kft.)",
