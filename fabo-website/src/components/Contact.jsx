@@ -41,7 +41,7 @@ const Contact = () => {
                 </h2>
 
                 {/* Intro */}
-                <p className="text-lg text-gray-600 mb-12 max-w-2xl mx-auto text-center">
+                <p className="max-w-xl mx-auto text-lg text-gray-600 mb-12 text-center">
                     {t("contact.description")}
                 </p>
 
