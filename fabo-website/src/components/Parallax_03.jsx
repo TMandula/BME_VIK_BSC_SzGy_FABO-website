@@ -1,4 +1,8 @@
+import { useTranslation } from "react-i18next";
+
 const Parallax_03 = () => {
+    const { t } = useTranslation();
+
     return (
         <>
             {/* Parallax - Brangengurger Tor */}
@@ -10,11 +14,8 @@ const Parallax_03 = () => {
                 <div className="absolute inset-0 bg-black opacity-30"></div>
 
                 <div className="h-full flex items-center justify-center">
-                    <h2 
-                        className="text-white text-4xl font-bold drop-shadow-lg text-center" 
-                        data-lang-de="Ihr Erfolg ist unser Geschäft – jedes Detail zählt." 
-                        data-lang-en="Your success is our business — every detail matters.">
-                        Ihr Erfolg ist unser Geschäft – jedes Detail zählt.
+                    <h2 className="text-white text-4xl font-bold drop-shadow-lg text-center">
+                        {t("parallax_03.motto")}
                     </h2>
                 </div>
             </section>

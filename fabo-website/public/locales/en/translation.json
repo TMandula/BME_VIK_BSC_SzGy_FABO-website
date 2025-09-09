@@ -64,6 +64,19 @@
         "software4": "SAP HANA",
         "disclaimer": "All product names, logos, and brands are the property of their respective owners. Use of these names does not imply any affiliation or endorsement."
     },
+    "parallax_03": {
+        "motto": "Your success is our business — every detail matters."
+    },
+    "summary": {
+        "title": "FABO Accounting at a Glance",
+        "description1": "We are a specialized outsourcing team with a strong focus on German accounting standards and a clear hands-on mentality.",
+        "description2": "Our approach: transparent communication, dedicated contacts, and measurable results.",
+        "list": {
+            "item1": "Remote-First Collaboration",
+            "item2": "Fast Availability & Scalability",
+            "item3": "Secure, SLA-based, and Auditable Processes"
+        }
+    },
     "imprint": {
         "title": "Impressum",
         "company": "FABO Accounting Gesellschaft mit beschränkter Haftung (FABO Accounting Kft.)",
