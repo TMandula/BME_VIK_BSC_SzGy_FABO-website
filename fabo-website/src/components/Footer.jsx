@@ -17,42 +17,42 @@ const Footer = () => {
                         <p className="mt-3 text-slate-400 text-sm">{t("footer.cities")}</p>
                     </div>
                     <nav className="space-y-2">
-                        <div className="font-semibold text-white">{t("footer.locations.title")}</div>
-                        <p className="mt-3 text-slate-400 text-sm">{t("footer.locations.Budapest")}</p>
-                        <p className="mt-3 text-slate-400 text-sm">{t("footer.locations.Miskolc")}</p>
+                        <div className="font-semibold text-white">{t("common.company.locations.title")}</div>
+                        <p className="mt-3 text-slate-400 text-sm">{t("common.company.locations.Budapest")}</p>
+                        <p className="mt-3 text-slate-400 text-sm">{t("common.company.locations.Miskolc")}</p>
                     </nav>
                     <nav className="space-y-2">
-                        <div className="font-semibold text-white">{t("footer.menu.title")}</div>
+                        <div className="font-semibold text-white">{t("common.menu.title")}</div>
                         <Link to="/" state={{ section: "home" }} 
                             className="block w-max min-w-[16ch] text-slate-400 hover:text-white">
-                            {t("footer.menu.home")}
+                            {t("common.menu.home")}
                         </Link>
                         <Link to="/about" state={{ section: "about" }}
                             className="block w-max min-w-[16ch] text-slate-400 hover:text-white">
-                            {t("footer.menu.about")}
+                            {t("common.menu.about")}
                         </Link>
                         <Link to="/services" state={{ section: "services" }}
                             className="block w-max min-w-[16ch] text-slate-400 hover:text-white">
-                            {t("footer.menu.services")}
+                            {t("common.menu.services")}
                         </Link>
                         <Link to="/technologies" state={{ section: "technologies" }}
                             className="block w-max min-w-[16ch] text-slate-400 hover:text-white">
-                            {t("footer.menu.technologies")}
+                            {t("common.menu.technologies")}
                         </Link>
                         <Link to="/contact" state={{ section: "contact" }}
                             className="block w-max min-w-[16ch] text-slate-400 hover:text-white">
-                            {t("footer.menu.contact")}
+                            {t("common.menu.contact")}
                         </Link>
                     </nav>
                     <div className="space-y-2">
-                        <div className="font-semibold text-white">{t("footer.contact.title")}</div>
+                        <div className="font-semibold text-white">{t("common.menu.contact")}</div>
                         <a href="mailto:fabobudapest@gmail.com" 
                             className="text-slate-400 text-sm hover:text-white">
-                            {t("footer.contact.email")}
+                            {t("common.info.email.value")}
                         </a><br />
                         <a href="tel:+49123456789" 
                             className="text-slate-400 text-sm hover:text-white">
-                            {t("footer.contact.phone")}
+                            {t("common.info.phone.value")}
                         </a>
                     </div>
                 </div>

@@ -1,4 +1,5 @@
 import Particles from "./Particles";
+import { Link } from "react-router-dom";
 
 import { useTranslation } from "react-i18next";
 
@@ -31,10 +32,10 @@ const Hero = () => {
                     style={{ fontSize: "clamp(1rem, 2vw, 1.25rem)" }}>
                     {t("hero.prologue")}
                 </p>
-                <a href="#contact"
+                <Link to="/contact" state={{ section: "contact" }}
                     className="relative bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded shadow-lg transition">
                     {t("hero.contactButton")}
-                </a>
+                </Link>
             </div>
         </section>
     </>

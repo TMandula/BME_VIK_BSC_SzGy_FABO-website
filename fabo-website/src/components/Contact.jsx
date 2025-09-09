@@ -48,23 +48,23 @@ const Contact = () => {
                 <div className="max-w-4xl mx-auto flex flex-col md:flex-row gap-8">
                     {/* Company Info */}
                     <div className="flex-1 bg-gray-100 p-6 rounded-lg shadow-md hover:shadow-lg">
-                        <h3 className="font-bold mb-4">{t("contact.info.locations.title")}</h3>
+                        <h3 className="font-bold mb-4">{t("common.company.locations.title")}</h3>
                         <p className="mb-4">
-                            {t("contact.info.locations.Budapest")}
+                            📍 {t("common.company.locations.Budapest")}
                         </p>
                         <p className="mb-4">
-                            {t("contact.info.locations.Miskolc")}
+                            📍 {t("common.company.locations.Miskolc")}
                         </p>
-                        <h3 className="font-bold mb-4">{t("contact.info.email")}</h3>
+                        <h3 className="font-bold mb-4">{t("common.info.email.title")}</h3>
                         <a href="mailto:fabobudapest@gmail.com" 
                             className="mb-4 hover:text-blue-600 hover:underline">
-                            ✉ fabobudapest@gmail.com
+                            {t("common.info.email.value")}
                         </a>
                         <p className="mb-4"></p>
-                        <h3 className="font-bold mb-4">{t("contact.info.phone")}</h3>
+                        <h3 className="font-bold mb-4">{t("common.info.phone.title")}</h3>
                         <a href="tel:+4917667437678" 
                             className="mb-4 hover:text-blue-600 hover:underline">
-                            ☎ +49 176 67437678</a>
+                            {t("common.info.phone.value")}</a>
                     </div >
 
                     {/* Form */}

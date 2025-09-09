@@ -142,19 +142,19 @@ const Header = () => {
           {/* Desktop Menu */}
           <nav id="desktop-nav" role="navigation" className="flex items-center space-x-8 text-lg font-medium">
             <Link to="/" state={{ section: "home" }} className="nav-link">
-              {t("header.nav.home")}
+              {t("common.menu.home")}
             </Link>
             <Link to="/about" state={{ section: "about" }} className="nav-link">
-              {t("header.nav.about")}
+              {t("common.menu.about")}
             </Link>
             <Link to="/services" state={{ section: "services" }} className="nav-link">
-              {t("header.nav.services")}
+              {t("common.menu.services")}
             </Link>
             <Link to="/technologies" state={{ section: "technologies" }} className="nav-link">
-              {t("header.nav.technologies")}
+              {t("common.menu.technologies")}
             </Link>
             <Link to="/contact" state={{ section: "contact" }} className="nav-link">
-              {t("header.nav.contact")}
+              {t("common.menu.contact")}
             </Link>
             {/* Language Selector */}
             <ul className="lang-switch flex items-center ml-4" role="list">
@@ -222,23 +222,23 @@ const Header = () => {
           {/* Mobile Menu Items */}
           <Link to="/" state={{ section: "home" }} 
             className="py-2 border-b border-gray-200 hover:text-blue-500 text-black">
-              {t("header.nav.home")}
+              {t("common.menu.home")}
             </Link>
           <Link to="/about" state={{ section: "about" }} 
             className="py-2 border-b border-gray-200 hover:text-blue-500 text-black">
-              {t("header.nav.about")}
+              {t("common.menu.about")}
           </Link>
           <Link to="/services" state={{ section: "services" }} 
             className="py-2 border-b border-gray-200 hover:text-blue-500 text-black">
-              {t("header.nav.services")}
+              {t("common.menu.services")}
           </Link>
           <Link to="/technologies" state={{ section: "technologies" }} 
             className="py-2 border-b border-gray-200 hover:text-blue-500 text-black">
-              {t("header.nav.technologies")}
+              {t("common.menu.technologies")}
           </Link>
           <Link to="/contact" state={{ section: "contact" }} 
             className="py-2 border-b border-gray-200 hover:text-blue-500 text-black">
-              {t("header.nav.contact")}
+              {t("common.menu.contact")}
           </Link>
         </div>
       </div>

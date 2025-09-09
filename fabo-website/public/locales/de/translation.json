@@ -1,25 +1,45 @@
 {
-    "header": {
-        "logo": {
-            "accounting": "BUCHHALTUNG",
-            "services": "& DIENSTLEISTUNGEN"
+    "common": {
+        "company": {
+            "locations": {
+                "title": "Standorte",
+                "Budapest": "Budapest, Ungarn",
+                "Miskolc": "Miskolc, Ungarn"
+            }
         },
-        "nav": {
+        "menu": {
+            "title": "Menü",
             "home": "Startseite",
             "about": "Über uns",
             "services": "Dienstleistungen",
             "technologies": "Technologien",
             "contact": "Kontakt"
+        },
+        "info": {
+            "email": {
+                "title": "E-Mail",
+                "value": "✉ fabobudapest@gmail.com"
+            },
+            "phone": {
+                "title": "Telefon",
+                "value": "☎ +49 176 67437678"
+            }
+        }
+    },
+    "header": {
+        "logo": {
+            "accounting": "BUCHHALTUNG",
+            "services": "& DIENSTLEISTUNGEN"
         }
     },
     "hero": {
         "title": "FABO Buchhaltung",
         "subtitle": "Ihr Partner für zuverlässige Finanzlösungen",
-        "prologue": "Wir unterstützen deutsche Unternehmen mit präzisen und effizienten Buchhaltungs- und Controlling-Services. Ob einzelne Fachkräfte oder komplette Teams – wir entlasten Sie, damit Sie sich auf Ihr Kerngeschäft konzentrieren können.",
+        "prologue": "Wir unterstützen Unternehmen mit präzisen und effizienten Buchhaltungs- und Controlling-Services. Ob einzelne Fachkräfte oder komplette Teams – wir entlasten Sie, damit Sie sich auf Ihr Kerngeschäft konzentrieren können.",
         "contactButton": "Kontakt"
     },
     "welcome": {
-        "greeting": "Herzlich willkommen bei FABO Accounting & Services",
+        "greeting": "Herzlich willkommen bei FABO Accounting",
         "about": "Wir freuen uns, Sie auf unserer Webseite begrüßen zu dürfen. Unser Unternehmen steht für Qualität, Innovation und Kundenorientierung. Mit einem engagierten Team und modernen Technologien arbeiten wir daran, Ihre Visionen in die Realität umzusetzen.",
         "goal": "Egal ob Sie ein kleines Start-up oder ein etabliertes Unternehmen sind – wir bieten maßgeschneiderte Lösungen, die Ihre individuellen Bedürfnisse erfüllen. Unser Ziel ist es, nicht nur Ihre Erwartungen zu erfüllen, sondern sie zu übertreffen.",
         "discover": "Schauen Sie sich um, lernen Sie unser Team kennen und entdecken Sie, wie wir gemeinsam Großes erreichen können."
@@ -29,8 +49,8 @@
     },
     "about": {
         "title": "Über uns",
-        "description": "Wir sind ein ungarisches Wirtschaftsprüfungs - und Buchhaltungsunternehmen mit Sitz in Budapest – spezialisiert auf die Zusammenarbeit mit internationalen und deutschen Firmen.",
-        "experiences": "Unsere jungen, hochqualifizierten Finanzexperten verfügen über Erfahrung mit deutschen und internationalen Standards (HGB, IFRS, Umsatzsteuerrecht) und unterstützen Sie zuverlässig bei allen buchhalterischen Aufgaben.",
+        "description": "Wir sind ein ungarisches Buchhaltungs - und Steuerberatungsunternehmen mit Sitz in Budapest – spezialisiert auf die Zusammenarbeit mit internationalen und deutschen Firmen.",
+        "experiences": "Unsere jungen, hochqualifizierten Finanzexperten verfügen über Erfahrung mit internationalen Standards (IFRS, US GAAP, HGB) und unterstützen Sie zuverlässig bei allen buchhalterischen Aufgaben.",
         "valuableness": "Mit uns gewinnen Sie nicht nur Kapazität, sondern einen Partner, dem Sie vertrauen können."
     },
     "services": {
@@ -69,7 +89,7 @@
     },
     "summary": {
         "title": "FABO Accounting im Überblick",
-        "description1": "Wir sind ein spezialisiertes Outsourcing-Team mit Fokus auf deutsche Standards und einer klaren Hands-on-Mentalität.",
+        "description1": "Wir sind ein spezialisiertes Outsourcing-Team mit Fokus auf internationale Standards und einer klaren Hands-on-Mentalität.",
         "description2": "Unser Versprechen: transparente Kommunikation, feste Ansprechpartner und messbare Ergebnisse.",
         "list": {
             "item1": "Remote-First-Zusammenarbeit",
@@ -80,15 +100,6 @@
     "contact": {
         "title": "Kontaktieren Sie uns",
         "description": "Haben Sie Fragen oder möchten Sie mehr über unsere Dienstleistungen erfahren? Wir sind für Sie da!",
-        "info": {
-            "locations": {
-                "title": "Standorte",
-                "Budapest": "📍 Budapest, Ungarn",
-                "Miskolc": "📍 Miskolc, Ungarn"
-            },
-            "email": "E-Mail",
-            "phone": "Telefon"
-        },
         "form": {
             "name": {
                 "placeholder": "Name",
@@ -116,25 +127,7 @@
     },
     "footer": {
         "company": "FABO Buchhaltung",
-        "cities": "Budapest · Miskolc · Ungarn",
-        "locations": {
-            "title": "Standorte",
-            "Budapest": "Budapest, Ungarn",
-            "Miskolc": "Miskolc, Ungarn"
-        },
-        "menu": {
-            "title": "Menü",
-            "home": "Startseite",
-            "about": "Über uns",
-            "services": "Dienstleistungen",
-            "technologies": "Technologien",
-            "contact": "Kontakt"
-        },
-        "contact": {
-            "title": "Kontakt",
-            "email": "✉ fabobudapest@gmail.com",
-            "phone": "☎ +49 176 67437678"
-        }
+        "cities": "Budapest · Miskolc · Ungarn"
     },
     "imprint": {
         "title": "Impressum",

@@ -68,7 +68,7 @@ const PrivacyPolicy = () => {
           <li>
             <a href="mailto:fabobudapest@gmail.com" 
               className="mb-4 hover:text-blue-600 hover:underline">
-              {t("privacy.responsibleBody.email")}
+              {t("common.info.email.value")}
             </a>
           </li>
         </ul>

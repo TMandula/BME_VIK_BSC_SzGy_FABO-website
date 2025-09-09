@@ -1,25 +1,47 @@
 {
+    "common": {
+        "company": {
+            "locations": {
+                "title": "Locations",
+                "Budapest": "Budapest, Hungary",
+                "Miskolc": "Miskolc, Hungary"
+            }
+        },
+        "menu": {
+            "title": "Menu",
+            "home": "Home",
+            "about": "About us",
+            "services": "Services",
+            "technologies": "Technologies",
+            "contact": "Contact",
+            "imprint": "Impressum",
+            "privacy": "Datenschutzerklärung"
+        },
+        "info": {
+            "email": {
+                "title": "Email",
+                "value": "✉ fabobudapest@gmail.com"
+            },
+            "phone": {
+                "title": "Phone",
+                "value": "☎ +49 176 67437678"
+            }
+        }
+    },
     "header": {
         "logo": {
-        "accounting": "ACCOUNTING",
-        "services": "& SERVICES"
-        },
-        "nav": {
-        "home": "Home",
-        "about": "About us",
-        "services": "Services",
-        "technologies": "Technologies",
-        "contact": "Contact"
+            "accounting": "ACCOUNTING",
+            "services": "& SERVICES"
         }
     },
     "hero": {
         "title": "FABO Accounting",
         "subtitle": "Your Reliable Partner in Finance",
-        "prologue": "We support German companies with precise and efficient accounting and controlling services. Whether you need individual experts or a full team, we help you save time and focus on your core business.",
+        "prologue": "We support companies with precise and efficient accounting and controlling services. Whether you need individual experts or a full team, we help you save time and focus on your core business.",
         "contactButton": "Contact"
     },
     "welcome": {
-        "greeting": "Welcome to FABO Accounting & Services",
+        "greeting": "Welcome to FABO Accounting",
         "about": "We are pleased to welcome you to our website. Our company stands for quality, innovation, and customer focus. With a dedicated team and modern technologies, we work to turn your visions into reality.",
         "goal": "Whether you're a small startup or an established company, we offer customized solutions that meet your individual needs. Our goal is not only to meet your expectations, but to exceed them.",
         "discover": "Take a look around, get to know our team, and discover how we can achieve great things together."
@@ -29,8 +51,8 @@
     },
     "about": {
         "title": "About Us",
-        "description": "FABO Accounting is a Hungarian auditing and accounting firm based in Budapest, working primarily with international and German companies.",
-        "experiences": "Our young yet experienced financial professionals are skilled in German and international standards (HGB, IFRS, VAT regulations) and can support you in a wide range of accounting and reporting tasks.",
+        "description": "FABO Accounting is a Hungarian accounting and text advisor firm based in Budapest, working primarily with international and German companies.",
+        "experiences": "Our young yet experienced financial professionals are skilled in international standards (IFRS, US GAAP, HGB) and can support you in a wide range of accounting and reporting tasks.",
         "valuableness": "With us, you don’t just gain extra capacity – you gain a trustworthy partner who understands your needs and delivers reliable results."
     },
     "services": {
@@ -69,7 +91,7 @@
     },
     "summary": {
         "title": "FABO Accounting at a Glance",
-        "description1": "We are a specialized outsourcing team with a strong focus on German accounting standards and a clear hands-on mentality.",
+        "description1": "We are a specialized outsourcing team with a strong focus on international accounting standards and a clear hands-on mentality.",
         "description2": "Our approach: transparent communication, dedicated contacts, and measurable results.",
         "list": {
             "item1": "Remote-First Collaboration",
@@ -81,11 +103,6 @@
         "title": "Contact Us",
         "description": "Do you have questions or would you like to learn more about our services? We are here for you!",
         "info": {
-            "locations": {
-                "title": "Locations",
-                "Budapest": "📍 Budapest, Hungary",
-                "Miskolc": "📍 Miskolc, Hungary"
-            },
             "email": "Email",
             "phone": "Phone"
         },
