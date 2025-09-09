@@ -33,6 +33,25 @@
         "experiences": "Unsere jungen, hochqualifizierten Finanzexperten verfügen über Erfahrung mit deutschen und internationalen Standards (HGB, IFRS, Umsatzsteuerrecht) und unterstützen Sie zuverlässig bei allen buchhalterischen Aufgaben.",
         "valuableness": "Mit uns gewinnen Sie nicht nur Kapazität, sondern einen Partner, dem Sie vertrauen können."
     },
+    "services": {
+        "title": "Unsere Dienstleistungen",
+        "intro": "Wir bieten flexible Outsourcing-Lösungen in allen wichtigen Bereichen der Buchhaltung und des Finanzwesens.",
+        "service1": {
+            "title": "AP/AR",
+            "description1": "AP/AR-Prozesse sind zeitaufwendig und entscheidend für einen reibungslosen Monats- und Jahresabschluss.",
+            "description2": "Wir beschleunigen diese Abläufe und sichern Genauigkeit und Kontinuität – durch die Verstärkung Ihres Teams oder durch die Bereitstellung eines kompletten Expertenteams."
+        },
+        "service2": {
+            "title": "Treasury",
+            "description1": "Treasury erfordert höchste Sorgfalt und Vertraulichkeit.",
+            "description2": "Unsere erfahrenen Fachkräfte unterstützen Sie in den täglichen Abläufen, der Liquiditätsplanung und im Reporting – stets mit Fokus auf Compliance und Transparenz."
+        },
+        "service3": {
+            "title": "Hauptbuchhaltung",
+            "description1": "Rückstellungen, Anlagenbuchhaltung und Hauptbuchungen sind das Fundament eines korrekten Abschlusses.",
+            "description2": "Wir übernehmen diese Aufgaben effizient und stellen sicher, dass Ihre Monats- und Jahresabschlüsse rechtzeitig und fehlerfrei erfolgen."
+        }
+    },
     "imprint": {
         "title": "Impressum",
         "company": "FABO Accounting Gesellschaft mit beschränkter Haftung (FABO Accounting Kft.)",

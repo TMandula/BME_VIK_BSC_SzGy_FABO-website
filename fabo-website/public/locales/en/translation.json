@@ -33,6 +33,25 @@
         "experiences": "Our young yet experienced financial professionals are skilled in German and international standards (HGB, IFRS, VAT regulations) and can support you in a wide range of accounting and reporting tasks.",
         "valuableness": "With us, you don’t just gain extra capacity – you gain a trustworthy partner who understands your needs and delivers reliable results."
     },
+    "services": {
+        "title": "Our Services",
+        "intro": "We provide tailored outsourcing solutions for all key areas of accounting and finance.",
+        "service1": {
+            "title": "AP/AR",
+            "description1": "AP/AR processes are time-intensive and critical for smooth month- and year-end closings.",
+            "description2": "Our teams accelerate these tasks, ensuring accuracy and continuity — either by strengthening your existing staff or by providing a dedicated team."
+        },
+        "service2": {
+            "title": "Treasury",
+            "description1": "Treasury management requires precision and confidentiality.",
+            "description2": "Our experienced professionals support you in daily operations, liquidity planning, and reporting – always with a focus on compliance and transparency."
+        },
+        "service3": {
+            "title": "General Accounting",
+            "description1": "Accruals, Fixed Asset, and General Ledger bookings are essential for accurate financial statements.",
+            "description2": "We efficiently handle these tasks, ensuring your month-end and year-end closings are timely and error-free."
+        }
+    },
     "imprint": {
         "title": "Impressum",
         "company": "FABO Accounting Gesellschaft mit beschränkter Haftung (FABO Accounting Kft.)",
