@@ -158,7 +158,7 @@
         },
         "headquarters": {
             "title": "Hauptsitz: ",
-            "value": "1148 Budapest, König-Lajos-Nagy-Straße 86. Gebäude C., Ungarn"
+            "value": "1148 Budapest, Nagy Lajos király útja 86.C., Ungarn"
         },
         "supervisoryAuthority": {
             "title": "Zuständige Aufsichtsbehörde: ",
@@ -170,7 +170,7 @@
         "title": "Datenschutzerklärung",
         "responsibleBody": {
             "title": "1. Verantwortlicher",
-            "name": "FABO Buchhaltung GmbH",
+            "name": "FABO Buchhaltung GmbH (Fabo Accounting Kft.)",
             "street": "Nagy Lajos király útja 86.C.",
             "city": "1148 Budapest",
             "country": "Ungarn",

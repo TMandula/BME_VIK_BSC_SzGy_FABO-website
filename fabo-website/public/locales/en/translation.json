@@ -182,7 +182,7 @@
         },
         "headquarters": {
             "title": "Headquarters: ",
-            "value": "1148 Budapest, King Lajos Nagy Street 86. Building C., Hungary"
+            "value": "1148 Budapest, Nagy Lajos király útja 86.C., Hungary"
         },
         "supervisoryAuthority": {
             "title": "Supervisory Authority: ",
@@ -194,7 +194,7 @@
         "title": "Privacy Policy",
         "responsibleBody": {
             "title": "1. Responsible Body",
-            "name": "FABO Accounting Ltd.",
+            "name": "FABO Accounting Ltd. (Fabo Accounting Kft.)",
             "street": "Nagy Lajos király útja 86.C.",
             "city": "1148 Budapest",
             "country": "Hungary",
