@@ -52,6 +52,18 @@
             "description2": "Wir übernehmen diese Aufgaben effizient und stellen sicher, dass Ihre Monats- und Jahresabschlüsse rechtzeitig und fehlerfrei erfolgen."
         }
     },
+    "parallax_02": {
+        "motto": "Erfolg durch Präzision und Partnerschaft."
+    },
+    "technologies": {
+        "title": "Technologien",
+        "description": "Unsere Fachkräfte sind in führenden ERP- und Buchhaltungssystemen geschult und können sich sofort in Ihre Prozesse einfügen:",
+        "software1": "Business Central",
+        "software2": "DATEV",
+        "software3": "Lexware",
+        "software4": "SAP HANA",
+        "disclaimer": "Alle Produktnamen, Logos und Marken sind Eigentum ihrer jeweiligen Inhaber. Die Verwendung dieser Namen impliziert keine Zugehörigkeit oder Billigung."
+    },
     "imprint": {
         "title": "Impressum",
         "company": "FABO Accounting Gesellschaft mit beschränkter Haftung (FABO Accounting Kft.)",

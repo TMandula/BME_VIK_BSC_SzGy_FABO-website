@@ -1,4 +1,8 @@
+import { useTranslation } from "react-i18next";
+
 const Parallax_02 = () => {
+    const { t } = useTranslation();
+
     return (
         <>
             {/* Parallax - Berliner Fernsehturm */}
@@ -10,11 +14,8 @@ const Parallax_02 = () => {
                 <div className="absolute inset-0 bg-black opacity-30"></div>
 
                 <div className="h-full flex items-center justify-center">
-                <h2 
-                    className="text-white text-4xl font-bold drop-shadow-lg text-center" 
-                    data-lang-de="Erfolg durch Präzision und Partnerschaft." 
-                    data-lang-en="Success through precision and partnership.">
-                    Erfolg durch Präzision und Partnerschaft.
+                <h2 className="text-white text-4xl font-bold drop-shadow-lg text-center">
+                    {t("parallax_02.motto")}
                 </h2>
                 </div>
             </section>
