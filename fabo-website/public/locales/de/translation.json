@@ -114,11 +114,37 @@
             "successMessage": "Vielen Dank für Ihre Nachricht! Wir werden uns so schnell wie möglich bei Ihnen melden."
         }
     },
+    "footer": {
+        "company": "FABO Buchhaltung",
+        "cities": "Budapest · Miskolc · Ungarn",
+        "locations": {
+            "title": "Standorte",
+            "Budapest": "Budapest, Ungarn",
+            "Miskolc": "Miskolc, Ungarn"
+        },
+        "menu": {
+            "title": "Menü",
+            "home": "Startseite",
+            "about": "Über uns",
+            "services": "Dienstleistungen",
+            "technologies": "Technologien",
+            "contact": "Kontakt"
+        },
+        "contact": {
+            "title": "Kontakt",
+            "email": "✉ fabobudapest@gmail.com",
+            "phone": "☎ +49 176 67437678"
+        }
+    },
     "imprint": {
         "title": "Impressum",
-        "company": "FABO Accounting Gesellschaft mit beschränkter Haftung (FABO Accounting Kft.)",
+        "company": "FABO Buchhaltung Gesellschaft mit beschränkter Haftung (FABO Buchhaltung Kft.)",
         "taxNumber": "Steuernummer:",
         "companyNumber": "Handelsregisternummer:",
         "vatId": "Umsatzsteuer-ID:"
+    },
+    "privacy": {
+        "title": "Datenschutzerklärung",
+        "description": "Wir nehmen den Schutz Ihrer persönlichen Daten ernst. Weitere Informationen finden Sie in unserer Datenschutzerklärung."
     }
 }
