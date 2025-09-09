@@ -138,13 +138,66 @@
     },
     "imprint": {
         "title": "Impressum",
-        "company": "FABO Buchhaltung Gesellschaft mit beschränkter Haftung (FABO Buchhaltung Kft.)",
-        "taxNumber": "Steuernummer:",
-        "companyNumber": "Handelsregisternummer:",
-        "vatId": "Umsatzsteuer-ID:"
+        "company": "FABO Buchhaltung Gesellschaft mit beschränkter Haftung (Fabo Accounting Kft.)",
+        "taxNumber": {
+            "title": "Steuernummer: ",
+            "value": "15328626-2-43"
+        },
+        "vatId": {
+            "title": "Umsatzsteuer-ID: ",
+            "value": "HU32235627"
+        },
+        "companyNumber": {
+            "title": "Handelsregisternummer: ",
+            "value": "01-09-413452"
+        },
+        "activityCode": {
+            "title": "Tätigkeitsschlüssel: ",
+            "value": "7020.25 - Unternehmensberatung und sonstige Managementberatung"
+        },
+        "establishmentDate": {
+            "title": "Gründungsdatum: ",
+            "value": "2023. 03. 08."
+        },
+        "managingDirector": {
+            "title": "Vertretungsberechtigter: ",
+            "value": "Kaló Péter"
+        },
+        "headquarters": {
+            "title": "Hauptsitz: ",
+            "value": "1148 Budapest, König-Lajos-Nagy-Straße 86. Gebäude C., Ungarn"
+        },
+        "supervisoryAuthority": {
+            "title": "Zuständige Aufsichtsbehörde: ",
+            "value": "Firmenregistergericht Budapest"
+        },
+        "disclaimer": "Diese Website wird von FABO Accounting & Services betrieben."
     },
     "privacy": {
         "title": "Datenschutzerklärung",
-        "description": "Wir nehmen den Schutz Ihrer persönlichen Daten ernst. Weitere Informationen finden Sie in unserer Datenschutzerklärung."
+        "responsibleBody": {
+            "title": "1. Verantwortlicher",
+            "name": "FABO Buchhaltung GmbH",
+            "street": "Nagy Lajos király útja 86.C.",
+            "city": "1148 Budapest",
+            "country": "Ungarn",
+            "email": "✉ fabobudapest@gmail.com"
+        },
+        "dataCollection": {
+            "title": "2. Datenerhebung und Nutzung",
+            "description": "Wir erheben personenbezogene Daten nur, wenn dies erforderlich ist, z.B. über Kontaktformulare."
+        },
+        "legalBasis": {
+            "title": "3. Rechtsgrundlagen",
+            "description": "Die Verarbeitung Ihrer Daten erfolgt auf Grundlage der DSGVO (Art. 6 Abs. 1 lit. a–f) und des TMG."
+        },
+        "userRights": {
+            "title": "4. Rechte der Nutzer",
+            "right1": "Auskunft über gespeicherte Daten",
+            "right2": "Berichtigung oder Löschung von Daten",
+            "right3": "Einschränkung der Verarbeitung oder Widerspruch",
+            "right4": "Datenübertragbarkeit",
+            "right5": "Beschwerderecht bei Aufsichtsbehörde"
+        }
     }
 }

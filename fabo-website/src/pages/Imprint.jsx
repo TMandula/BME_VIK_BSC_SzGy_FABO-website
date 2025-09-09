@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const Imprint = () => {
+  const { t } = useTranslation();
   const location = useLocation();
   const section = location.state?.section;
   const [headerHeight, setHeaderHeight] = useState(0);
@@ -51,64 +53,21 @@ const Imprint = () => {
       {/* Content section */}
 
       <section id="imprint-home" className="max-w-4xl mx-auto px-6 py-16">
-        <h1
-          className="text-3xl md:text-4xl font-bold mb-10"
-          data-lang-de="Impressum"
-          data-lang-en="Imprint"
-        >
-          Imprint
-        </h1>
-        <h2 className="mb-6"><strong 
-          data-lang-de="FABO Buchhaltung Gesellschaft mit beschränkter Haftung (FABO Accounting Kft.):" 
-          data-lang-en="FABO Accounting Limited Liability Company (FABO Accounting Kft.):">FABO Buchhaltung Gesellschaft mit beschränkter Haftung (FABO Accounting Kft.):</strong></h2>
-        
-        <p className="mb-2"><strong 
-          data-lang-de="Steuernummer:" 
-          data-lang-en="Tax Number:">Steuernummer:</strong> 32235627-2-42</p>
-        <p className="mb-2"><strong 
-          data-lang-de="Handelsregisternummer:"
-          data-lang-en="Company Registration Number:">Handelsregisternummer:</strong> 01-09-413452</p>
-        <p className="mb-6"><strong
-          data-lang-de="Umsatzsteuer-ID:"
-          data-lang-en="EU VAT ID:">Umsatzsteuer-ID:</strong> HU32235627</p>
+        <h1 className="text-3xl md:text-4xl font-bold mb-10">{t("imprint.title")}</h1>
+        <h2 className="mb-6"><strong>{t("imprint.company")}</strong></h2>
 
-        <p className="mb-2"><strong
-          data-lang-de="Gründungsdatum:"
-          data-lang-en="Date of establishment:">Gründungsdatum:</strong> 2023. 03. 08.</p>
-        <p className="mb-2"><strong 
-          data-lang-de="Vertretungsberechtigter:"
-          data-lang-en="Managing Director:">Vertretungsberechtigter:</strong> Kaló Péter</p>
-        <p className="mb-2">
-          <strong
-            data-lang-de="Tätigkeitsschlüssel:"
-            data-lang-en="Activity code:">
-            Tätigkeitsschlüssel:
-          </strong>{" "}
-          <span
-            data-lang-de="7020.25 - Unternehmensberatung und sonstige Managementberatung"
-            data-lang-en="7020.25 - Business and other management consulting"
-          >
-            7020.25 - Unternehmensberatung und sonstige Managementberatung
-          </span>
-        </p>
-        <p className="mb-6">
-          <strong
-            data-lang-de="Zuständige Aufsichtsbehörde:"
-            data-lang-en="Supervisory Authority:">Zuständige Aufsichtsbehörde:</strong>{" "}
-          <span
-            data-lang-de="Firmenregistergericht Budapest"
-            data-lang-en="Company Registry Court of Budapest"
-          >
-            Firmenregistergericht Budapest
-          </span>
-        </p>
-
+        <p className="mb-2"><strong>{t("imprint.taxNumber.title")}</strong> {t("imprint.taxNumber.value")}</p>
+        <p className="mb-2"><strong>{t("imprint.vatId.title")}</strong> {t("imprint.vatId.value")}</p>
+        <p className="mb-2"><strong>{t("imprint.companyNumber.title")}</strong> {t("imprint.companyNumber.value")}</p>
+        <p className="mb-6"><strong>{t("imprint.activityCode.title")}</strong>{t("imprint.activityCode.value")}</p>
         
-        <p className="text-sm text-gray-600"
-          data-lang-de="Diese Website wird von FABO Accounting & Services betrieben."
-          data-lang-en="This website is operated by FABO Accounting & Services.">
-          This website is operated by FABO Accounting & Services.
-        </p>
+
+        <p className="mb-2"><strong>{t("imprint.establishmentDate.title")}</strong> {t("imprint.establishmentDate.value")}</p>
+        <p className="mb-2"><strong>{t("imprint.managingDirector.title")}</strong> {t("imprint.managingDirector.value")}</p>
+        <p className="mb-2"><strong>{t("imprint.headquarters.title")}</strong> {t("imprint.headquarters.value")}</p>
+        <p className="mb-6"><strong>{t("imprint.supervisoryAuthority.title")}</strong>{t("imprint.supervisoryAuthority.value")}</p>
+
+        <p className="text-sm text-gray-600">{t("imprint.disclaimer")}</p>
       </section>
     </>
   );

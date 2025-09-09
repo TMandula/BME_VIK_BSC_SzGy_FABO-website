@@ -137,14 +137,67 @@
         }
     },
     "imprint": {
-        "title": "Impressum",
-        "company": "FABO Accounting Gesellschaft mit beschränkter Haftung (FABO Accounting Kft.)",
-        "taxNumber": "Tax Number: ",
-        "companyNumber": "Company Number:",
-        "vatId": "VAT ID:"
+        "title": "Imprint",
+        "company": "FABO Accounting limited liability company (Fabo Accounting Kft.)",
+        "taxNumber": {
+            "title": "Tax Number: ",
+            "value": "32235627-2-42"
+        },
+        "vatId": {
+            "title": "EU VAT ID: ",
+            "value": "HU32235627"
+        },
+        "companyNumber": {
+            "title": "Company Registration Number: ",
+            "value": "01-09-413452"
+        },
+        "activityCode": {
+            "title": "Activity Code: ",
+            "value": "7020.25 - Business and other management consulting"
+        },
+        "establishmentDate": {
+            "title": "Establishment Date: ",
+            "value": "2023. 03. 08."
+        },
+        "managingDirector": {
+            "title": "Managing Director: ",
+            "value": "Kaló Péter"
+        },
+        "headquarters": {
+            "title": "Headquarters: ",
+            "value": "1148 Budapest, King Lajos Nagy Street 86. Building C., Hungary"
+        },
+        "supervisoryAuthority": {
+            "title": "Supervisory Authority: ",
+            "value": "Company Registry Court of Budapest"
+        },
+        "disclaimer": "This website is operated by FABO Accounting & Services."
     },
     "privacy": {
         "title": "Privacy Policy",
-        "description": "We take the protection of your personal data seriously. For more information, please see our Privacy Policy."
+        "responsibleBody": {
+            "title": "1. Responsible Body",
+            "name": "FABO Accounting Ltd.",
+            "street": "Nagy Lajos király útja 86.C.",
+            "city": "1148 Budapest",
+            "country": "Hungary",
+            "email": "✉ fabobudapest@gmail.com"
+        },
+        "dataCollection": {
+            "title": "2. Data Collection and Use",
+            "description": "We collect personal data only when necessary, e.g., via contact forms."
+        },
+        "legalBasis": {
+            "title": "3. Legal Basis",
+            "description": "The processing of your data is based on GDPR (Art. 6 para. 1 lit. a–f) and the German TMG."
+        },
+        "userRights": {
+            "title": "4. User Rights",
+            "right1": "Right to information about stored data",
+            "right2": "Right to correction or deletion of data",
+            "right3": "Right to restriction or objection of processing",
+            "right4": "Right to data portability",
+            "right5": "Right to complain to supervisory authority"
+        }
     }
 }
