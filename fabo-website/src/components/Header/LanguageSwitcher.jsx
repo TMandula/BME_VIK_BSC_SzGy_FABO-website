@@ -1,10 +1,10 @@
 import { useTranslation } from "react-i18next";
 
-const LanguageSwitcher = () => {
+const LanguageSwitcher = ({ className = "" }) => {
     const { i18n } = useTranslation();
 
     return (
-        <ul className="lang-switch flex items-center ml-4" role="list">
+        <ul className={`lang-switch ${className}`} role="list">
             <li>
                 <button type="button" className="lang-btn px-1 py-0.5" 
                     onClick={() => i18n.changeLanguage("de")}
