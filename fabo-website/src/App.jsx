@@ -1,12 +1,16 @@
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import { useEffect } from "react";
-import Imprint from "./pages/Imprint";
-import PrivacyPolicy from "./pages/PrivacyPolicy";
+//import Imprint from "./pages/Imprint";
+//import PrivacyPolicy from "./pages/PrivacyPolicy";
 import HomePage from "./pages/HomePage";
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import Header from "./components/Header";
 
+import { Suspense, lazy } from "react";
+
+const Imprint = lazy(() => import("./pages/Imprint"));
+const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
 
 // Wrapper to handle language reapply on route change
 function LanguageSyncWrapper({ children }) {
