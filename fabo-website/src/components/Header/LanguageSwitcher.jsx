@@ -5,7 +5,7 @@ const LanguageSwitcher = ({ variant = "header", className = "" }) => {
 
     // Define variant styles
     const variantClasses = {
-        header: "flex items-center ml-4",
+        desktop: "flex items-center ml-4",
         mobile: "flex items-center mb-8 text-black",
     };
 

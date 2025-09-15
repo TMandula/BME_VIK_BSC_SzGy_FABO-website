@@ -1,10 +1,7 @@
-import { Link } from "react-router-dom";
-import { useTranslation } from "react-i18next";
-
 import LanguageSwitcher from "./LanguageSwitcher";
+import Menu from "../Menu";
 
 const MobileMenu = () => {
-    const { t } = useTranslation();
 
     return (
         <div id="mobileMenu" className="fixed inset-0 hidden z-50">
@@ -19,30 +16,8 @@ const MobileMenu = () => {
                         <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                     </svg>
                 </button>
-
                 <LanguageSwitcher variant="mobile" />
-                
-                {/* Mobile Menu Items */}
-                <Link to="/" state={{ section: "home" }} 
-                    className="py-2 border-b border-gray-200 hover:text-blue-500 text-black">
-                    {t("common.menu.home")}
-                </Link>
-                <Link to="/about" state={{ section: "about" }} 
-                    className="py-2 border-b border-gray-200 hover:text-blue-500 text-black">
-                    {t("common.menu.about")}
-                </Link>
-                <Link to="/services" state={{ section: "services" }} 
-                    className="py-2 border-b border-gray-200 hover:text-blue-500 text-black">
-                    {t("common.menu.services")}
-                </Link>
-                <Link to="/technologies" state={{ section: "technologies" }} 
-                    className="py-2 border-b border-gray-200 hover:text-blue-500 text-black">
-                    {t("common.menu.technologies")}
-                </Link>
-                <Link to="/contact" state={{ section: "contact" }} 
-                    className="py-2 border-b border-gray-200 hover:text-blue-500 text-black">
-                    {t("common.menu.contact")}
-                </Link>
+                <Menu variant="mobile" />
             </div>
         </div>
     );

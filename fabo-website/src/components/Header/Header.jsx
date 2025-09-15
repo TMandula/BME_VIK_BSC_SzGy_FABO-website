@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 import { useHeaderScroll } from "../../hooks/useHeaderScroll";
@@ -9,6 +8,7 @@ import Logo from "./Logo";
 import LanguageSwitcher from "./LanguageSwitcher";
 import HamburgerButton from "./HamburgerButton";
 import MobileMenu from "./MobileMenu";
+import Menu from "../Menu";
 
 
 const Header = () => {
@@ -26,22 +26,8 @@ const Header = () => {
           <Logo />
           {/* Desktop Menu */}
           <nav id="desktop-nav" role="navigation" className="flex items-center space-x-8 text-lg font-medium">
-            <Link to="/" state={{ section: "home" }} className="nav-link">
-              {t("common.menu.home")}
-            </Link>
-            <Link to="/about" state={{ section: "about" }} className="nav-link">
-              {t("common.menu.about")}
-            </Link>
-            <Link to="/services" state={{ section: "services" }} className="nav-link">
-              {t("common.menu.services")}
-            </Link>
-            <Link to="/technologies" state={{ section: "technologies" }} className="nav-link">
-              {t("common.menu.technologies")}
-            </Link>
-            <Link to="/contact" state={{ section: "contact" }} className="nav-link">
-              {t("common.menu.contact")}
-            </Link>
-            <LanguageSwitcher variant="header" />
+            <Menu variant="desktop" />
+            <LanguageSwitcher variant="desktop" />
           </nav>
           <HamburgerButton />
         </div>
