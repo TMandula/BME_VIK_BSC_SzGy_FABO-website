@@ -2,55 +2,16 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import { useTranslation } from "react-i18next";
+import { useHeaderScroll } from "../hooks/useHeaderScroll";
+
 
 const Header = () => {
   const { t, i18n } = useTranslation();
+  
+  // Apply scroll behavior
+  useHeaderScroll("mainHeader", "home", "hamburger");
 
   useEffect(() => {
-    // HEADER SCRIPT
-    const header = document.getElementById('mainHeader');
-    const hero = document.getElementById('home');
-    const hamburger = document.getElementById('hamburger');
-    const hamburgerSvg = hamburger?.querySelector('svg');
-
-    function updateHeader() {
-      const scrollY = window.scrollY || window.pageYOffset;
-      const heroHeight = hero?.offsetHeight || 0;
-
-      if (scrollY === 0) {
-        header.classList.remove(
-          'translate-y-[-100%]','opacity-0',
-          'bg-white','text-black','shadow-md'
-        );
-        header.classList.add(
-          'translate-y-0','opacity-100',
-          'bg-transparent','text-white'
-        );
-        hamburgerSvg?.classList.remove('text-black');
-        hamburgerSvg?.classList.add('text-white');
-      } else if (scrollY > 0 && scrollY < heroHeight) {
-        header.classList.remove(
-          'translate-y-0','opacity-100',
-          'bg-white','text-black','bg-transparent','text-white'
-        );
-        header.classList.add('translate-y-[-100%]','opacity-0');
-      } else {
-        header.classList.remove(
-          'translate-y-[-100%]','opacity-0',
-          'bg-transparent','text-white'
-        );
-        header.classList.add(
-          'translate-y-0','opacity-100',
-          'bg-white','text-black','shadow-md'
-        );
-        hamburgerSvg?.classList.remove('text-white');
-        hamburgerSvg?.classList.add('text-black');
-      }
-    }
-
-    updateHeader();
-    window.addEventListener('scroll', updateHeader);
-
     // MOBILE HAMBURGER MENU PANEL SCRIPT
     function updateMenuDisplay() {
       const desktopNav = document.getElementById("desktop-nav");
@@ -112,7 +73,6 @@ const Header = () => {
 
     // Cleanup
     return () => {
-      window.removeEventListener('scroll', updateHeader);
       window.removeEventListener("resize", updateMenuDisplay);
     };
   }, []);
