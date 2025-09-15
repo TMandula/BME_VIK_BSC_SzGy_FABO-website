@@ -1,65 +1,28 @@
-import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
-import { useHeaderScroll } from "../hooks/useHeaderScroll";
-import { useResponsiveMenu } from "../hooks/useResponsiveMenu";
+import { useHeaderScroll } from "../../hooks/useHeaderScroll";
+import { useResponsiveMenu } from "../../hooks/useResponsiveMenu";
+import { useMobileMenuToggle } from "../../hooks/useMobileMenuToggle";
+
+import Logo from "./Logo";
+import LanguageSwitcher from "./LanguageSwitcher";
+import HamburgerButton from "./HamburgerButton";
 
 
 const Header = () => {
   const { t, i18n } = useTranslation();
   
-  // Apply scroll behavior
   useHeaderScroll("mainHeader", "home", "hamburger");
-  // Apply responsive menu behavior
   useResponsiveMenu();
-
-  useEffect(() => {
-    // Mobile menu open/close
-    const mobileMenu = document.getElementById("mobileMenu");
-    const mobilePanel = document.getElementById("mobilePanel");
-    const closeMenu = document.getElementById("closeMenu");
-
-    function openMenu() {
-      mobileMenu.classList.remove("hidden");
-      setTimeout(() => mobilePanel.classList.remove("translate-x-full"), 10);
-    }
-    function closeMenuPanel() {
-      mobilePanel.classList.add("translate-x-full");
-      setTimeout(() => mobileMenu.classList.add("hidden"), 300);
-    }
-    hamburger?.addEventListener("click", openMenu);
-    closeMenu?.addEventListener("click", closeMenuPanel);
-    mobileMenu?.addEventListener("click", (e) => {
-      if (e.target === mobileMenu || e.target.classList.contains("bg-opacity-50")) {
-        closeMenuPanel();
-      }
-    });
-
-  }, []);
+  useMobileMenuToggle();
 
   return (
     <>
       {/* HEADER */}
       <header id="mainHeader" className="fixed top-0 left-0 w-full z-50 transform transition-all duration-700 ease-in-out group">
         <div id="header-inner" className="max-w-7xl mx-auto px-4 flex justify-between items-center" style={{ height: "80px" }}>
-          {/* Logo */}
-          <Link to="/" state={{ section: "home" }} id="siteLogo" className="flex items-center space-x-3">
-            <span className="brand-main text-5xl tracking-wide flex items-center" style={{ fontFamily: "'DM Serif Text', serif", lineHeight: 1 }}>
-              FABO
-            </span>
-            <span className="brand-main text-4xl font-bold tracking-wide flex items-center" style={{ fontFamily: "'DM Serif Text', serif", lineHeight: 1 }}>
-              |
-            </span>
-            <div className="flex flex-col justify-center leading-[1.1] ml-2">
-              <span className="brand-sub text-base font-semibold" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-                {t("header.logo.accounting")}
-              </span>
-              <span className="brand-sub text-base font-semibold -mt-1" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-                {t("header.logo.services")}
-              </span>
-            </div>
-          </Link>
+          <Logo />
           {/* Desktop Menu */}
           <nav id="desktop-nav" role="navigation" className="flex items-center space-x-8 text-lg font-medium">
             <Link to="/" state={{ section: "home" }} className="nav-link">
@@ -77,35 +40,9 @@ const Header = () => {
             <Link to="/contact" state={{ section: "contact" }} className="nav-link">
               {t("common.menu.contact")}
             </Link>
-            {/* Language Selector */}
-            <ul className="lang-switch flex items-center ml-4" role="list">
-              <li>
-                <button type="button" className="lang-btn px-1 py-0.5" 
-                  onClick={() => i18n.changeLanguage("de")}
-                  aria-current={i18n.language === "de" ? "true" : "false"}>
-                  DE
-                </button>
-              </li>
-              <li aria-hidden="true" className="px-1 lang-divider">|</li>
-              <li>
-                <button type="button" className="lang-btn px-1 py-0.5" 
-                  onClick={() => i18n.changeLanguage("en")}
-                  aria-current={i18n.language === "en" ? "true" : "false"}>
-                  EN
-                </button>
-              </li>
-            </ul>
+            <LanguageSwitcher />
           </nav>
-          {/* Hamburger Icon */}
-          <button 
-            id="hamburger" 
-            className="hidden focus:outline-none"
-            aria-label="Open menu">
-            <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" 
-              strokeWidth="2" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          </button>
+          <HamburgerButton />
         </div>
       </header>
       {/* MOBILE HAMBURGER MENU PANEL */}

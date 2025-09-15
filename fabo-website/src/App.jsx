@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import HomePage from "./pages/HomePage";
 import Contact from './components/Contact'
 import Footer from './components/Footer'
-import Header from "./components/Header";
+import Header from "./components/Header/Header";
 
 import { Suspense, lazy } from "react";
 
