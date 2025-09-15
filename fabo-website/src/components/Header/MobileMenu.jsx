@@ -20,7 +20,7 @@ const MobileMenu = () => {
                     </svg>
                 </button>
 
-                <LanguageSwitcher className="flex items-center mb-8 text-black" />
+                <LanguageSwitcher variant="mobile" />
                 
                 {/* Mobile Menu Items */}
                 <Link to="/" state={{ section: "home" }} 

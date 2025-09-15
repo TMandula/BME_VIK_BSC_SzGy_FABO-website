@@ -41,7 +41,7 @@ const Header = () => {
             <Link to="/contact" state={{ section: "contact" }} className="nav-link">
               {t("common.menu.contact")}
             </Link>
-            <LanguageSwitcher className="flex items-center ml-4" />
+            <LanguageSwitcher variant="header" />
           </nav>
           <HamburgerButton />
         </div>
