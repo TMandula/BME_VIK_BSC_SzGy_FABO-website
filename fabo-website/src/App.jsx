@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from "react-route
 import { useEffect } from "react";
 import useDocumentTitle from "./hooks/useDocumentTitle";
 import HomePage from "./pages/HomePage";
-import Contact from './components/Contact'
+import ContactSection from "./components/Contact/ContactSection";
 import Footer from './components/Footer'
 import Header from "./components/Header/Header";
 
@@ -42,7 +42,7 @@ function App() {
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
       </Routes>
       </LanguageSyncWrapper>
-      <Contact />
+      <ContactSection action="https://formspree.io/f/mjkonwer" />
       <Footer />
     </Router>
   );
