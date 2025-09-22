@@ -10,9 +10,12 @@ import Menu from "../Navigation/Menu";
 
 
 const Header = () => {
-  const { headerRef, hamburgerRef, isAtTop } = useHeaderScroll();
-  
-  useResponsiveMenu();
+  const { headerRef, isAtTop } = useHeaderScroll();
+  const {
+    desktopRef,
+    hamburgerRef,
+    isDesktopVisible,
+  } = useResponsiveMenu();
   useMobileMenuToggle();
 
   return (
@@ -21,13 +24,23 @@ const Header = () => {
         ${isAtTop ? "bg-transparent text-white" : "bg-white text-black shadow-md"}`}>
         <div id="header-inner" className="max-w-7xl mx-auto px-4 flex justify-between items-center" style={{ height: "80px" }}>
           <Logo />
-          <nav id="desktop-nav" role="navigation" className="flex items-center space-x-8 text-lg font-medium">
+          {/* Desktop Nav */}
+          <nav
+            ref={desktopRef}
+            id="desktop-nav"
+            role="navigation"
+            className={`flex items-center space-x-8 text-lg font-medium"
+              ${isDesktopVisible ? "flex" : "hidden"}`}
+          >
             <Menu variant="desktop" />
-            <LanguageSwitcher variant="desktop" />
+            <div >
+              <LanguageSwitcher variant="desktop" />
+            </div>
           </nav>
-          <HamburgerButton 
-            hamburgerRef={hamburgerRef} 
-            isAtTop={isAtTop}
+          <HamburgerButton
+              hamburgerRef={hamburgerRef}
+              isAtTop={isAtTop} 
+              className={`${isDesktopVisible ? "hidden" : "block"}`}
           />
         </div>
       </header>
