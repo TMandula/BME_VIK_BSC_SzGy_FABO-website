@@ -19,21 +19,9 @@ const Summary = () => {
                         {t("summary.description2")}
                     </p>
                     <ul className="mt-4 text-slate-700 list-disc pl-5">
-                    <li>
-                        <p>
-                            {t("summary.list.item1")}
-                        </p>
-                    </li>
-                    <li>
-                        <p>
-                            {t("summary.list.item2")}
-                    </p>
-                    </li>
-                    <li>
-                        <p>
-                            {t("summary.list.item3")}
-                        </p>
-                    </li>
+                        <li><p>{t("summary.list.item1")}</p></li>
+                        <li><p>{t("summary.list.item2")}</p></li>
+                        <li><p>{t("summary.list.item3")}</p></li>
                     </ul>
                 </div> 
                 <img 

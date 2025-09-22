@@ -1,45 +1,24 @@
-import { useEffect } from "react";
+import { useEffect, useState, useRef } from "react";
 
-export const useHeaderScroll = (headerId, heroId, hamburgerId) => {
+export const useHeaderScroll = () => {
+  const headerRef = useRef(null);
+  const hamburgerRef = useRef(null);
+  const [isAtTop, setIsAtTop] = useState(true); // true if scrolly === 0
+
   useEffect(() => {
-    const header = document.getElementById('mainHeader');
-    const hero = document.getElementById('home');
-    const hamburger = document.getElementById('hamburger');
-    const hamburgerSvg = hamburger?.querySelector('svg');
 
     const updateHeader = () => {
         const scrollY = window.scrollY || window.pageYOffset;
-        const heroHeight = hero?.offsetHeight || 0;
-
-        if (scrollY === 0) {
-            header.classList.remove(
-            'translate-y-[-100%]','opacity-0',
-            'bg-white','text-black','shadow-md'
-            );
-            header.classList.add(
-            'translate-y-0','opacity-100',
-            'bg-transparent','text-white'
-            );
-            hamburgerSvg?.classList.remove('text-black');
-            hamburgerSvg?.classList.add('text-white');
-        } else if (scrollY > 0) {
-            header.classList.remove(
-            'translate-y-[-100%]','opacity-0',
-            'bg-transparent','text-white'
-            );
-            header.classList.add(
-            'translate-y-0','opacity-100',
-            'bg-white','text-black','shadow-md'
-            );
-            hamburgerSvg?.classList.remove('text-white');
-            hamburgerSvg?.classList.add('text-black');
-        }
+        setIsAtTop(scrollY === 0);
     };
 
     updateHeader();
-    window.addEventListener('scroll', updateHeader);
+    window.addEventListener('scroll', updateHeader, { passive: true });
 
     // Cleanup
     return () => window.removeEventListener('scroll', updateHeader);
-  }, [headerId, heroId, hamburgerId]);
+  }, []);
+  
+  // return refs so Header.jsx can attach them
+  return { headerRef, hamburgerRef, isAtTop };
 };

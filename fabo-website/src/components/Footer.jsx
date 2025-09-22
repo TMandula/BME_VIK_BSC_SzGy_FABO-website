@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-import Menu from "./Menu";
+import Menu from "./Navigation/Menu";
 
 import { useTranslation } from "react-i18next";
 
