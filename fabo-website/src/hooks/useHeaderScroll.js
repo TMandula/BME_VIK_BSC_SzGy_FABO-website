@@ -1,9 +1,7 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 
 export const useHeaderScroll = () => {
-  const headerRef = useRef(null);
-  //const hamburgerRef = useRef(null);
-  const [isAtTop, setIsAtTop] = useState(true); // true if scrolly === 0
+  const [isAtTop, setIsAtTop] = useState(true);
 
   useEffect(() => {
     const updateHeader = () => {
@@ -14,10 +12,7 @@ export const useHeaderScroll = () => {
     updateHeader();
     window.addEventListener('scroll', updateHeader, { passive: true });
 
-    // Cleanup
     return () => window.removeEventListener('scroll', updateHeader);
   }, []);
-  
-  // return refs so Header.jsx can attach them
-  return { headerRef, isAtTop };
+  return { isAtTop };
 };

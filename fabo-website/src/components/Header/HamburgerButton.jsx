@@ -1,10 +1,12 @@
-const HamburgerButton = ({ hamburgerRef, isAtTop, onClick, className }) => (
-    <button 
-        ref={hamburgerRef} 
-        onClick={onClick}
-        id="hamburger" 
-        className={`focus:outline-none ${className}`} 
-        aria-label="Open menu">
+import React, { forwardRef } from "react";
+
+const HamburgerButton = React.forwardRef(({ onClick, isAtTop, className }, ref) => (
+  <button 
+    ref={ref}  
+    onClick={onClick}
+    id="hamburger" 
+    className={`focus:outline-none ${className}`} 
+    aria-label="Open menu">
         <svg 
             className={`w-8 h-8 transition-colors duration-700 
                 ${isAtTop ? "text-white" : "text-black"}
@@ -14,6 +16,6 @@ const HamburgerButton = ({ hamburgerRef, isAtTop, onClick, className }) => (
             <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
         </svg>
     </button>
-);
+));
 
 export default HamburgerButton;

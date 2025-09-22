@@ -1,33 +1,23 @@
-import { useEffect } from "react";
+import { useRef, useState, useCallback } from "react";
 
 export const useMobileMenuToggle = () => {
-    useEffect(() => {
-        const hamburger = document.getElementById("hamburger");
-        const mobileMenu = document.getElementById("mobileMenu");
-        const mobilePanel = document.getElementById("mobilePanel");
-        const closeMenu = document.getElementById("closeMenu");
+  const hamburgerRef = useRef(null);
+  const mobileMenuRef = useRef(null);
+  const mobilePanelRef = useRef(null);
+  const closeMenuRef = useRef(null);
 
-        function openMenu() {
-            mobileMenu.classList.remove("hidden");
-            setTimeout(() => mobilePanel.classList.remove("translate-x-full"), 10);
-        }
-        function closeMenuPanel() {
-            mobilePanel.classList.add("translate-x-full");
-            setTimeout(() => mobileMenu.classList.add("hidden"), 300);
-        }
+  const [isOpen, setIsOpen] = useState(false);
 
-        hamburger?.addEventListener("click", openMenu);
-        closeMenu?.addEventListener("click", closeMenuPanel);
-        mobileMenu?.addEventListener("click", (e) => {
-            if (e.target === mobileMenu || e.target.classList.contains("bg-opacity-50")) {
-                closeMenuPanel();
-            }
-        });
+  const openMenu = useCallback(() => setIsOpen(true), []);
+  const onClose = useCallback(() => setIsOpen(false), []);
 
-        return () => {
-            hamburger?.removeEventListener("click", openMenu);
-            closeMenu?.removeEventListener("click", closeMenuPanel);
-            mobileMenu?.removeEventListener("click", closeMenuPanel);
-        };
-    }, []);
+  return {
+    hamburgerRef,
+    mobileMenuRef,
+    mobilePanelRef,
+    closeMenuRef,
+    isOpen,
+    openMenu,
+    onClose,
+  };
 };

@@ -1,12 +1,9 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 
 export const useResponsiveMenu = () => {
-    const desktopRef = useRef(null);
-    const hamburgerRef = useRef(null);
-
     const [isDesktopVisible, setIsDesktopVisible] = useState(true);
 
-    const MOBILE_BREAKPOINT = 1024; // adjust as needed
+    const MOBILE_BREAKPOINT = 1024;
 
     useEffect(() => {
         const updateMenuDisplay = () => {
@@ -16,12 +13,9 @@ export const useResponsiveMenu = () => {
         updateMenuDisplay();
         window.addEventListener("resize", updateMenuDisplay);
 
-        // Cleanup
         return () => window.removeEventListener("resize", updateMenuDisplay);
     }, []);
     return {
-        desktopRef,
-        hamburgerRef,
         isDesktopVisible,
     };
 

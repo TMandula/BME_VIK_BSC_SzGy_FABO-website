@@ -10,23 +10,19 @@ import Menu from "../Navigation/Menu";
 
 
 const Header = () => {
-  const { headerRef, isAtTop } = useHeaderScroll();
-  const {
-    desktopRef,
-    hamburgerRef,
-    isDesktopVisible,
-  } = useResponsiveMenu();
-  useMobileMenuToggle();
+  const { isAtTop } = useHeaderScroll();
+  const { isDesktopVisible } = useResponsiveMenu();
+  const { hamburgerRef, mobileMenuRef, mobilePanelRef, closeMenuRef, isOpen, openMenu, onClose,  } = useMobileMenuToggle();
 
   return (
     <>
-      <header ref={headerRef} id="mainHeader" className={`fixed top-0 left-0 w-full z-50 transform transition-all duration-700 ease-in-out group
-        ${isAtTop ? "bg-transparent text-white" : "bg-white text-black shadow-md"}`}>
+      <header id="mainHeader" 
+        className={`fixed top-0 left-0 w-full z-50 transform transition-all duration-700 ease-in-out group
+          ${isAtTop ? "bg-transparent text-white" : "bg-white text-black shadow-md"}`}>
         <div id="header-inner" className="max-w-7xl mx-auto px-4 flex justify-between items-center" style={{ height: "80px" }}>
           <Logo />
           {/* Desktop Nav */}
           <nav
-            ref={desktopRef}
             id="desktop-nav"
             role="navigation"
             className={`flex items-center space-x-8 text-lg font-medium"
@@ -38,13 +34,20 @@ const Header = () => {
             </div>
           </nav>
           <HamburgerButton
-              hamburgerRef={hamburgerRef}
+              ref={hamburgerRef}
+              onClick={openMenu}
               isAtTop={isAtTop} 
               className={`${isDesktopVisible ? "hidden" : "block"}`}
           />
         </div>
       </header>
-      <MobileMenu />
+      <MobileMenu 
+        mobileMenuRef={mobileMenuRef}
+        mobilePanelRef={mobilePanelRef}
+        closeMenuRef={closeMenuRef}
+        isOpen={isOpen}
+        onClose={onClose}
+      />
     </>
   );
 };
