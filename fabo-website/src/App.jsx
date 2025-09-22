@@ -1,7 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import { useEffect } from "react";
-//import Imprint from "./pages/Imprint";
-//import PrivacyPolicy from "./pages/PrivacyPolicy";
+import useDocumentTitle from "./hooks/useDocumentTitle";
 import HomePage from "./pages/HomePage";
 import Contact from './components/Contact'
 import Footer from './components/Footer'
@@ -15,6 +14,8 @@ const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
 // Wrapper to handle language reapply on route change
 function LanguageSyncWrapper({ children }) {
   const location = useLocation();
+
+  useDocumentTitle("home.title");
 
   useEffect(() => {
     const saved = localStorage.getItem("siteLang") || "de";

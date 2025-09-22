@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
-
 import Welcome from '../components/Welcome'
 import Hero from '../components/Hero'
 import Parallax_01 from '../components/Parallax_01'

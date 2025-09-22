@@ -12,7 +12,7 @@ import Menu from "../Navigation/Menu";
 const Header = () => {
   const { isAtTop } = useHeaderScroll();
   const { isDesktopVisible } = useResponsiveMenu();
-  const { hamburgerRef, mobileMenuRef, mobilePanelRef, closeMenuRef, isOpen, openMenu, onClose,  } = useMobileMenuToggle();
+  const { isOpen, openMenu, onClose } = useMobileMenuToggle();
 
   return (
     <>
@@ -34,17 +34,13 @@ const Header = () => {
             </div>
           </nav>
           <HamburgerButton
-              ref={hamburgerRef}
               onClick={openMenu}
               isAtTop={isAtTop} 
               className={`${isDesktopVisible ? "hidden" : "block"}`}
           />
         </div>
       </header>
-      <MobileMenu 
-        mobileMenuRef={mobileMenuRef}
-        mobilePanelRef={mobilePanelRef}
-        closeMenuRef={closeMenuRef}
+      <MobileMenu
         isOpen={isOpen}
         onClose={onClose}
       />

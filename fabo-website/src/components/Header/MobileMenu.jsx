@@ -1,24 +1,20 @@
 import LanguageSwitcher from "./LanguageSwitcher";
 import Menu from "../Navigation/Menu";
 
-const MobileMenu = ({ mobileMenuRef, mobilePanelRef, closeMenuRef, isOpen, onClose }) => {
+const MobileMenu = ({ isOpen, onClose }) => {
   return (
     <div
-      ref={mobileMenuRef}
       onClick={(e) => {
-        if (e.target === mobileMenuRef.current) onClose(); // backdrop click closes menu
+        if (e.target === e.currentTarget) onClose(); // backdrop click closes menu
       }}
       className={`fixed inset-0 z-50 transition-opacity duration-300 
         ${isOpen ? "bg-black/50 opacity-100" : "opacity-0 pointer-events-none"}`}
     >
       <div
-        ref={mobilePanelRef}
         className={`${isOpen ? "translate-x-0" : "translate-x-full"} 
             fixed top-0 right-0 w-72 h-full bg-white shadow-lg p-6 flex flex-col transform transition-transform duration-300 z-50`}>
-        <button 
-            ref={closeMenuRef} 
+        <button
             onClick={onClose}
-            id="closeMenu" 
             className="self-end mb-6" 
             aria-label="Close menu">
             <svg className="w-6 h-6 text-black" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">

@@ -64,7 +64,7 @@ const PrivacyPolicy = () => {
           <li>{t("privacy.responsibleBody.name")}</li>
           <li>{t("privacy.responsibleBody.street")}</li>
           <li>{t("privacy.responsibleBody.city")}</li>
-          <li data-lang-de="Ungarn" data-lang-en="Hungary">{t("privacy.responsibleBody.country")}</li>
+          <li>{t("privacy.responsibleBody.country")}</li>
           <li>
             <a href="mailto:fabobudapest@gmail.com" 
               className="mb-4 hover:text-blue-600 hover:underline">
