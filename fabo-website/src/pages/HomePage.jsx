@@ -1,5 +1,3 @@
-import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
 import Welcome from '../components/Welcome'
 import Hero from '../components/Hero'
 import Parallax_01 from '../components/Parallax_01'
@@ -9,26 +7,13 @@ import Parallax_02 from '../components/Parallax_02'
 import Technologies from '../components/Technologies'
 import Parallax_03 from '../components/Parallax_03'
 import Summary from '../components/Summary'
+import { useHeaderHeight } from "../hooks/useHeaderHeight";
+import { useScrollToSection } from "../hooks/useScrollToSection";
 import '../index.css'
 
 const HomePage = () => {
-    const location = useLocation();
-    const section = location.state?.section;
-    
-    useEffect(() => {
-        if (section) {
-            const el = document.getElementById(section);
-            const header = document.getElementById("mainHeader");
-            if (el) {
-                const headerHeight = header.offsetHeight; // dynamic header height
-                const elTop = el.getBoundingClientRect().top + window.scrollY;
-                 window.scrollTo({
-                    top: elTop - headerHeight, // offset by header height
-                    behavior: "smooth"
-                });
-            }
-        }
-    }, [section]);
+    const headerHeight = useHeaderHeight();
+    useScrollToSection(headerHeight);
 
     return (
         <>
