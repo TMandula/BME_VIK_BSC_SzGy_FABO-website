@@ -1,11 +1,9 @@
 import Welcome from '../components/Welcome'
 import Hero from '../components/Hero'
-import Parallax_01 from '../components/Parallax_01'
+import ParallaxSection from '../components/ParallaxSection';
 import About from '../components/About'
 import Services from '../components/Services'
-import Parallax_02 from '../components/Parallax_02'
 import Technologies from '../components/Technologies'
-import Parallax_03 from '../components/Parallax_03'
 import Summary from '../components/Summary'
 import { useHeaderHeight } from "../hooks/useHeaderHeight";
 import { useScrollToSection } from "../hooks/useScrollToSection";
@@ -21,17 +19,26 @@ const HomePage = () => {
 
             <section><Welcome /></section>
 
-            <section><Parallax_01 /></section>
+            <ParallaxSection 
+                src="/images/eric-weber--KPwl1VaSyw-unsplash.jpg" 
+                translationKey="parallax_01.motto" 
+            />
 
             <section><About /></section>
 
             <section><Services /></section>
 
-            <section><Parallax_02 /></section>
+            <ParallaxSection 
+                src="/images/tim-hufner-d7TjlJ4MNMs-unsplash.jpg" 
+                translationKey="parallax_02.motto" 
+            />
 
             <section><Technologies /></section>
 
-            <section><Parallax_03 /></section>
+            <ParallaxSection 
+                src="/images/alvaro-sanchez-h8Tvv2fTNs8-unsplash.jpg" 
+                translationKey="parallax_03.motto" 
+            />
 
             <section><Summary /></section>
         </>
