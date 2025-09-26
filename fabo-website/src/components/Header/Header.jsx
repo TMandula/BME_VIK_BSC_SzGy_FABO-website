@@ -1,22 +1,25 @@
-import { useHeaderScroll } from "../../hooks/useHeaderScroll";
 import { useResponsiveMenu } from "../../hooks/useResponsiveMenu";
 import { useMobileMenuToggle } from "../../hooks/useMobileMenuToggle";
+import { useHeader } from "../../hooks/useHeader";
 
 import Logo from "./Logo";
 import LanguageSwitcher from "./LanguageSwitcher";
 import HamburgerButton from "./HamburgerButton";
-import MobileMenu from "./MobileMenu";
+import MobileMenu from "../Navigation/MobileMenu";
 import Menu from "../Navigation/Menu";
 
 
 const Header = () => {
-  const { isAtTop } = useHeaderScroll();
   const { isDesktopVisible } = useResponsiveMenu();
   const { isOpen, openMenu, onClose } = useMobileMenuToggle();
 
+  const { headerRef, isAtTop } = useHeader();
+
   return (
     <>
-      <header id="mainHeader" 
+      <header 
+        ref={headerRef}
+        id="mainHeader" 
         className={`fixed top-0 left-0 w-full z-50 transform transition-all duration-700 ease-in-out group
           ${isAtTop ? "bg-transparent text-white" : "bg-white text-black shadow-md"}`}>
         <div id="header-inner" className="max-w-7xl mx-auto px-4 flex justify-between items-center" style={{ height: "80px" }}>

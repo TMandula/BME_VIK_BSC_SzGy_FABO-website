@@ -5,13 +5,9 @@ import About from '../components/About'
 import Services from '../components/Services'
 import Technologies from '../components/Technologies'
 import Summary from '../components/Summary'
-import { useHeaderHeight } from "../hooks/useHeaderHeight";
-import { useScrollToSection } from "../hooks/useScrollToSection";
 import '../index.css'
 
 const HomePage = () => {
-    const headerHeight = useHeaderHeight();
-    useScrollToSection(headerHeight);
 
     return (
         <>

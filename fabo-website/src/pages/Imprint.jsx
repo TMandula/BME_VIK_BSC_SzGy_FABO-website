@@ -1,12 +1,10 @@
 import { useTranslation } from "react-i18next";
-import { useHeaderHeight } from "../hooks/useHeaderHeight";
-import { useScrollToSection } from "../hooks/useScrollToSection";
 import HeroSection from "../components/HeroSection";
+import { useHeader } from "../hooks/useHeader";
 
 const Imprint = () => {
   const { t } = useTranslation();
-  const headerHeight = useHeaderHeight();
-  useScrollToSection(headerHeight);
+    const { headerHeight } = useHeader();
 
   return (
     <>

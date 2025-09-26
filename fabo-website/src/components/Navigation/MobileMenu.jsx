@@ -1,5 +1,5 @@
-import LanguageSwitcher from "./LanguageSwitcher";
-import Menu from "../Navigation/Menu";
+import LanguageSwitcher from "../Header/LanguageSwitcher";
+import Menu from "./Menu";
 
 const MobileMenu = ({ isOpen, onClose }) => {
   return (

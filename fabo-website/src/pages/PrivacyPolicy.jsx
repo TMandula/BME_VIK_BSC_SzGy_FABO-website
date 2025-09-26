@@ -1,12 +1,10 @@
 import { useTranslation } from "react-i18next";
-import { useHeaderHeight } from "../hooks/useHeaderHeight";
-import { useScrollToSection } from "../hooks/useScrollToSection";
+import { useHeader } from "../hooks/useHeader";
 import HeroSection from "../components/HeroSection";
 
 const PrivacyPolicy = () => {
   const { t } = useTranslation();
-  const headerHeight = useHeaderHeight();
-  useScrollToSection();
+  const { headerHeight } = useHeader();
 
   return (
     <>
