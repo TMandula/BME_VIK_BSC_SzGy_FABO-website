@@ -21,25 +21,25 @@ const Footer = () => {
                     </div>
                     {/* Locations */}
                     <nav className="space-y-2">
-                        <div className="font-semibold text-white">{t("common.company.locations.title")}</div>
-                        <p className="mt-3 text-slate-400 text-sm">{t("common.company.locations.Budapest")}</p>
-                        <p className="mt-3 text-slate-400 text-sm">{t("common.company.locations.Miskolc")}</p>
+                        <div className="font-semibold text-white">{t("footer.locations.title")}</div>
+                        <p className="mt-3 text-slate-400 text-sm">{t("footer.locations.Budapest")}</p>
+                        <p className="mt-3 text-slate-400 text-sm">{t("footer.locations.Miskolc")}</p>
                     </nav>
                     {/* Menu */}
                     <nav className="space-y-2">
-                        <div className="font-semibold text-white">{t("common.menu.title")}</div>
+                        <div className="font-semibold text-white">{t("footer.menu.title")}</div>
                         <Menu variant="footer" />
                     </nav>
                     {/* Conatct */}
                     <div className="space-y-2">
-                        <div className="font-semibold text-white">{t("common.menu.contact")}</div>
+                        <div className="font-semibold text-white">{t("footer.contact.title")}</div>
                         <a href="mailto:fabobudapest@gmail.com" 
                             className="text-slate-400 text-sm hover:text-white">
-                            {t("common.info.email.value")}
+                            {t("footer.contact.email")}
                         </a><br />
                         <a href="tel:+49123456789" 
                             className="text-slate-400 text-sm hover:text-white">
-                            {t("common.info.phone.value")}
+                            {t("footer.contact.phone")}
                         </a>
                     </div>
                 </div>
@@ -51,12 +51,12 @@ const Footer = () => {
                         {/* Imprint */}
                         <Link to="/imprint" state={{ section: "imprint-home" }}
                             className="hover:text-white">
-                            {t("imprint.title")}
+                            {t("footer.menu.imprint")}
                         </Link>
                         {/* PeivacyPolicy */}
                         <Link to="/privacy-policy" state={{ section: "privacy-policy" }}
                             className="hover:text-white">
-                            {t("privacy.title")}
+                            {t("footer.menu.privacy")}
                         </Link>
                     </div>
                 </div>

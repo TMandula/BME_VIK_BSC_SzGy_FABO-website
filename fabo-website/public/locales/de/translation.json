@@ -1,14 +1,9 @@
 {
-    "home": {
-        "title": "FABO | Buchhaltung & Dienstleistungen"
-    },
-    "common": {
-        "company": {
-            "locations": {
-                "title": "Standorte",
-                "Budapest": "Budapest, Ungarn",
-                "Miskolc": "Miskolc, Ungarn"
-            }
+    "header": {
+        "title": "FABO | Buchhaltung & Dienstleistungen",
+        "logo": {
+            "accounting": "BUCHHALTUNG",
+            "services": "& DIENSTLEISTUNGEN"
         },
         "menu": {
             "title": "Menü",
@@ -17,22 +12,6 @@
             "services": "Dienstleistungen",
             "technologies": "Technologien",
             "contact": "Kontakt"
-        },
-        "info": {
-            "email": {
-                "title": "E-Mail",
-                "value": "✉ fabobudapest@gmail.com"
-            },
-            "phone": {
-                "title": "Telefon",
-                "value": "☎ +49 176 67437678"
-            }
-        }
-    },
-    "header": {
-        "logo": {
-            "accounting": "BUCHHALTUNG",
-            "services": "& DIENSTLEISTUNGEN"
         }
     },
     "hero": {
@@ -103,6 +82,21 @@
     "contact": {
         "title": "Kontaktieren Sie uns",
         "description": "Haben Sie Fragen oder möchten Sie mehr über unsere Dienstleistungen erfahren? Wir sind für Sie da!",
+        "info": {
+            "email": {
+                "title": "E-Mail",
+                "value": "✉ fabobudapest@gmail.com"
+            },
+            "phone": {
+                "title": "Telefon",
+                "value": "☎ +49 176 67437678"
+            },
+            "locations": {
+                "title": "Standorte",
+                "Budapest": "Budapest, Ungarn",
+                "Miskolc": "Miskolc, Ungarn"
+            }
+        },
         "form": {
             "name": {
                 "placeholder": "Name",
@@ -130,7 +124,27 @@
     },
     "footer": {
         "company": "FABO Buchhaltung",
-        "cities": "Budapest · Miskolc · Ungarn"
+        "cities": "Budapest · Miskolc · Ungarn",
+        "locations": {
+            "title": "Standorte",
+            "Budapest": "Budapest, Ungarn",
+            "Miskolc": "Miskolc, Ungarn"
+        },
+        "menu": {
+            "title": "Menü",
+            "home": "Startseite",
+            "about": "Über uns",
+            "services": "Dienstleistungen",
+            "technologies": "Technologien",
+            "contact": "Kontakt",
+            "imprint": "Impressum",
+            "privacy": "Datenschutzerklärung"
+        },
+        "contact": {
+            "title": "Kontakt",
+            "email": "✉ fabobudapest@gmail.com",
+            "phone": "☎ +49 176 67437678"
+        }
     },
     "imprint": {
         "title": "Impressum",

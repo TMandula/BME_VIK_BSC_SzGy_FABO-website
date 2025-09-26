@@ -1,14 +1,9 @@
 {
-    "home": {
-        "title": "FABO | Accounting & Services"
-    },
-    "common": {
-        "company": {
-            "locations": {
-                "title": "Locations",
-                "Budapest": "Budapest, Hungary",
-                "Miskolc": "Miskolc, Hungary"
-            }
+    "header": {
+        "title": "FABO | Accounting & Services",
+        "logo": {
+            "accounting": "ACCOUNTING",
+            "services": "& SERVICES"
         },
         "menu": {
             "title": "Menu",
@@ -16,25 +11,7 @@
             "about": "About us",
             "services": "Services",
             "technologies": "Technologies",
-            "contact": "Contact",
-            "imprint": "Impressum",
-            "privacy": "Datenschutzerklärung"
-        },
-        "info": {
-            "email": {
-                "title": "Email",
-                "value": "✉ fabobudapest@gmail.com"
-            },
-            "phone": {
-                "title": "Phone",
-                "value": "☎ +49 176 67437678"
-            }
-        }
-    },
-    "header": {
-        "logo": {
-            "accounting": "ACCOUNTING",
-            "services": "& SERVICES"
+            "contact": "Contact"
         }
     },
     "hero": {
@@ -106,8 +83,19 @@
         "title": "Contact Us",
         "description": "Do you have questions or would you like to learn more about our services? We are here for you!",
         "info": {
-            "email": "Email",
-            "phone": "Phone"
+            "email": {
+                "title": "Email",
+                "value": "✉ fabobudapest@gmail.com"
+            },
+            "phone": {
+                "title": "Phone",
+                "value": "☎ +49 176 67437678"
+            },
+            "locations": {
+                "title": "Locations",
+                "Budapest": "Budapest, Hungary",
+                "Miskolc": "Miskolc, Hungary"
+            }
         },
         "form": {
             "name": {
@@ -137,6 +125,21 @@
     "footer": {
         "company": "FABO Accounting",
         "cities": "Budapest · Miskolc · Hungary",
+        "locations": {
+            "title": "Locations",
+            "Budapest": "Budapest, Hungary",
+            "Miskolc": "Miskolc, Hungary"
+        },
+        "menu": {
+            "title": "Menu",
+            "home": "Home",
+            "about": "About us",
+            "services": "Services",
+            "technologies": "Technologies",
+            "contact": "Contact",
+            "imprint": "Imprint",
+            "privacy": "Privacy Policy"
+        },
         "contact": {
             "title": "Contact",
             "email": "✉ fabobudapest@gmail.com",

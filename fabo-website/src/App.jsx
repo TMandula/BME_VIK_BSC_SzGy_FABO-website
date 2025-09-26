@@ -15,7 +15,7 @@ const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
 function LanguageSyncWrapper({ children }) {
   const location = useLocation();
 
-  useDocumentTitle("home.title");
+  useDocumentTitle("header.title");
 
   useEffect(() => {
     const saved = localStorage.getItem("siteLang") || "de";

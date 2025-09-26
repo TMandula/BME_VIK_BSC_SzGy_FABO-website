@@ -5,11 +5,11 @@ const Menu = ({ variant = "desktop"}) => {
     const { t } = useTranslation();
 
     const links = [
-        { to: "/", section: "home", label: t("common.menu.home") },
-        { to: "/about", section: "about", label: t("common.menu.about") },
-        { to: "/services", section: "services", label: t("common.menu.services") },
-        { to: "/technologies", section: "technologies", label: t("common.menu.technologies") },
-        { to: "/contact", section: "contact", label: t("common.menu.contact") },
+        { to: "/", section: "home", label: t("header.menu.home") },
+        { to: "/about", section: "about", label: t("header.menu.about") },
+        { to: "/services", section: "services", label: t("header.menu.services") },
+        { to: "/technologies", section: "technologies", label: t("header.menu.technologies") },
+        { to: "/contact", section: "contact", label: t("header.menu.contact") },
     ];
 
     const variantClasses = {
