@@ -12,12 +12,12 @@ const ContactInfo = () => {
 
       <h3 className="font-bold mb-4">{t("contact.info.email.title")}</h3>
       <a href={`mailto:${t("contact.info.email.value")}`} className="mb-4 hover:text-blue-600 hover:underline block">
-        {t("contact.info.email.value")}
+        {t("contact.info.email.valueName")}
       </a>
 
       <h3 className="font-bold mb-4">{t("contact.info.phone.title")}</h3>
       <a href={`tel:${t("contact.info.phone.value")}`} className="hover:text-blue-600 hover:underline">
-        {t("contact.info.phone.value")}
+        {t("contact.info.phone.valueName")}
       </a>
     </div>
   );

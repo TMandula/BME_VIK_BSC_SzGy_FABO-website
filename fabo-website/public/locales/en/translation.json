@@ -85,11 +85,13 @@
         "info": {
             "email": {
                 "title": "Email",
-                "value": "✉ fabobudapest@gmail.com"
+                "valueName": "✉ fabobudapest@gmail.com",
+                "value": "fabobudapest@gmail.com"
             },
             "phone": {
                 "title": "Phone",
-                "value": "☎ +49 176 67437678"
+                "valueName": "☎ +49 176 67437678",
+                "value": "+49 176 67437678"
             },
             "locations": {
                 "title": "Locations",
@@ -142,8 +144,10 @@
         },
         "contact": {
             "title": "Contact",
-            "email": "✉ fabobudapest@gmail.com",
-            "phone": "☎ +49 176 67437678"
+            "emailName": "✉ fabobudapest@gmail.com",
+            "email": "fabobudapest@gmail.com",
+            "phoneName": "☎ +49 176 67437678",
+            "phone": "+49 176 67437678"
         }
     },
     "imprint": {
@@ -191,7 +195,8 @@
             "street": "Nagy Lajos király útja 86.C.",
             "city": "1148 Budapest",
             "country": "Hungary",
-            "email": "✉ fabobudapest@gmail.com"
+            "emailName": "✉ fabobudapest@gmail.com",
+            "email": "fabobudapest@gmail.com"
         },
         "dataCollection": {
             "title": "2. Data Collection and Use",

@@ -33,13 +33,13 @@ const Footer = () => {
                     {/* Conatct */}
                     <div className="space-y-2">
                         <div className="font-semibold text-white">{t("footer.contact.title")}</div>
-                        <a href="mailto:fabobudapest@gmail.com" 
+                        <a href='{mailto:{t("footer.contact.email")}}'
                             className="text-slate-400 text-sm hover:text-white">
-                            {t("footer.contact.email")}
+                            {t("footer.contact.emailName")}
                         </a><br />
-                        <a href="tel:+49123456789" 
+                        <a href='{tel:{t("footer.contact.phone")}}'
                             className="text-slate-400 text-sm hover:text-white">
-                            {t("footer.contact.phone")}
+                            {t("footer.contact.phoneName")}
                         </a>
                     </div>
                 </div>

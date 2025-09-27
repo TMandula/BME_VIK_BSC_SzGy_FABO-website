@@ -68,3 +68,34 @@ body { font-family: 'DM Sans', sans-serif; }
   50%  { transform: scale(0.90); } /* Shrink */
   100% { transform: scale(1); }    /* Grow back */
 }
+
+/* SERVICE CARDS */
+.service-card {
+  background-color: white;
+  border-radius: 0.5rem;      /* rounded-lg */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* shadow-md */
+  padding: 1.5rem;           /* p-6 */
+  border-bottom-width: 4px;  /* keep border width */
+  transition: all 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-0.5rem); /* hover:-translate-y-2 */
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15); /* hover:shadow-lg */
+}
+
+.service-icon {
+  font-size: 3rem;  /* text-5xl */
+  margin-bottom: 1rem; /* mb-4 */
+}
+
+.service-title {
+  font-weight: 700;  /* font-bold */
+  font-size: 1.25rem; /* text-xl */
+  margin-bottom: 1.5rem; /* mb-6 */
+}
+
+.service-text {
+  color: #4b5563;   /* text-gray-600 */
+  text-align: left;
+}
