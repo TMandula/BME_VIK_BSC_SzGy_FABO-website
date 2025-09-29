@@ -42,7 +42,7 @@ function App() {
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
       </Routes>
       </LanguageSyncWrapper>
-      <ContactSection action="https://formspree.io/f/mjkonwer" />
+      <ContactSection action="https://formspree.io/f/manpedle" />
       <Footer />
     </Router>
   );
