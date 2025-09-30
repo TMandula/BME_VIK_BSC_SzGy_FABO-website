@@ -19,7 +19,7 @@ export default defineConfig({
         '/imprint',
         '/privacy-policy',
       ],
-      outDir: 'dist',
+      outDir: 'public',
     }),
   ],
 })
